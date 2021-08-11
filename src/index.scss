@@ -41,11 +41,11 @@ html,
 
 .bk-ref {
   position: absolute;
-  top: 70px;
+  top: 0px;
   width: 100%;
   height: 100%;
   z-index: -1;
-  // background-image: url('./assets/ref.jpg');
+  // background-image: url('./assets/ref/ref.jpg');
   background-size: cover;
 }
 
@@ -78,4 +78,41 @@ html,
 
 .font-tablet {
   font-family: 'Tablet-Gothic-Bold';
+}
+
+.holstered {
+  svg {
+    path {
+      fill: var(--color-grey);
+    }
+  }
+}
+
+.active {
+  svg {
+    path {
+      fill: var(--color-white);
+    }
+  }
+}
+
+.defuse {
+  svg {
+    path {
+      fill: var(--color-CT);
+    }
+  }
+}
+
+.ammo-helper {
+  position: absolute;
+  width: 0;
+}
+
+.pov-wrapper .primary.active path {
+  fill: url('#ammo-fill') #fff !important;
+}
+
+.pov-wrapper .secondary.active path {
+  fill: url('#ammo-fill') #fff !important;
 }

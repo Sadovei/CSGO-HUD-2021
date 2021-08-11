@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React, { useEffect, useState } from 'react'
 import { mockupTopBar } from '../../utils/mockups';
-import { subscribeToMapStatus } from '../../utils/socketIO';
+import { subscribeToTopBar } from '../../utils/socketIO';
 import { range } from '../../utils/tools';
 import { centerCounter, centerTerrorist } from './icons';
 import './TopBar.scss'
@@ -10,7 +10,7 @@ export default function TopBar() {
     const [topBarData, setTopBarData] = useState(mockupTopBar);
 
     useEffect(() => {
-        subscribeToMapStatus(data => {
+        subscribeToTopBar(data => {
             setTopBarData(data)
         })
     }, [])
@@ -35,7 +35,7 @@ export default function TopBar() {
     return (
         <div className="top-bar-wrapper" >
             <div className="first-wrapper">
-                <div className="leftSide-wrapper" style={{ width: `calc(10vh + ${(biggest < 8 ? biggest * 2 : biggest) * 2.3}vh)` }}>
+                <div className="leftSide-wrapper" style={{ width: `calc(5.62vw + ${(biggest < 8 ? biggest * 2 : biggest) * 1.29}vw)` }}>
                     <div className="primary-logo" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${leftLogo}/logo.png)` }}></div>
                     <div className="secondary-logo" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${leftLogo}/logo.png)` }}></div>
                     <p className='teamName font-tablet'>{topBarData.leftSide.name}</p>
@@ -65,7 +65,7 @@ export default function TopBar() {
                     </div>
                 </div>
 
-                <div className="rightSide-wrapper" style={{ width: `calc(10vh + ${(biggest < 8 ? biggest * 2 : biggest) * 2.3}vh)` }}>
+                <div className="rightSide-wrapper" style={{ width: `calc(5.62vw + ${(biggest < 8 ? biggest * 2 : biggest) * 1.29}vw)` }}>
                     <div className="primary-logo" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${rightLogo}/logo.png)` }}></div>
                     <div className="secondary-logo" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${rightLogo}/logo.png)` }}></div>
                     <p className='teamName font-tablet'>{topBarData.rightSide.name}</p>
