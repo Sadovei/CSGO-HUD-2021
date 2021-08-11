@@ -1,24 +1,17 @@
-import React, { useEffect, useState } from "react";
 import LeftSide from "./Components/LeftSide/LeftSide";
+import React from "react";
 import RightSide from "./Components/RightSide/RightSide";
+import SmartPovSide from "./Components/SmartPovSide/SmartPovSide";
 import TopBar from "./Components/TopBar/TopBar";
-import PovSide from "./Components/PovSide/PovSide";
-import { subscribeToPov } from "./utils/socketIO";
 
 function App() {
-  const [povData, setPovData] = useState(undefined);
 
-  useEffect(() => {
-    subscribeToPov(data => {
-      setPovData(data)
-    })
-  }, [])
   return (
     <>
       <TopBar />
       <LeftSide />
       <RightSide />
-      <PovSide povData={povData} />
+      <SmartPovSide />
       <div className="bk-ref"></div>
     </>
   );
