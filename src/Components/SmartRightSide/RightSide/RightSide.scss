@@ -1,0 +1,15 @@
+.right-wrapper {
+  position: absolute;
+  bottom: 1.1vw;
+  right: 1.1vw;
+
+  .dynamic-wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-end;
+
+    overflow: hidden;
+  }
+  .right-side-wrapper {
+  }
+}

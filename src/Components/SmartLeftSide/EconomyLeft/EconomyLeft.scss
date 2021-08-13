@@ -1,0 +1,144 @@
+.left-wrapper {
+  .economy-wrapper {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    height: 3.3vw;
+    width: 16.5vw;
+    clip-path: polygon(86% 1%, 100% 45%, 100% 100%, 0 100%, 0 0);
+    margin-bottom: -3.5vw;
+
+    .image {
+      position: absolute;
+      width: 6vw;
+      height: 4.7vw;
+      background-size: contain;
+      bottom: -0.6vw;
+      left: -0.7vw;
+    }
+
+    .info-wrapper {
+      background: rgba(0, 0, 0, 0.75);
+      display: flex;
+      flex-flow: row nowrap;
+      padding-left: 4.6vw;
+      width: 100%;
+
+      .rounds-wrapper {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        margin-left: 0.5vw;
+
+        .round {
+          width: 0.3vw;
+          height: 0.3vw;
+          background-color: var(--color-grey);
+          border-radius: 50%;
+
+          + .round {
+            margin-top: 0.25vw;
+          }
+        }
+      }
+
+      .loss-bonus-wrapper {
+        margin: 0 1.1vw 0 0.8vw;
+      }
+
+      .loss-bonus-wrapper,
+      .equipment-wrapper {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: space-evenly;
+
+        .money,
+        .equipment-value {
+          color: var(--color-white);
+          font-size: 1vw;
+        }
+
+        .loss-notice,
+        .equipment-notice {
+          font-size: 0.6vw;
+        }
+      }
+    }
+
+    &.T {
+      .image {
+        background-image: url('../../../assets/T-economy-left.png');
+      }
+
+      .info-wrapper {
+        .rounds-wrapper {
+          .round {
+            &.lose {
+              background-color: var(--color-T);
+            }
+          }
+        }
+
+        .loss-bonus-wrapper,
+        .equipment-wrapper {
+          .loss-notice,
+          .equipment-notice {
+            color: var(--color-T);
+          }
+        }
+      }
+    }
+
+    &.CT {
+      .image {
+        background-image: url('../../../assets/CT-economy-left.png');
+      }
+
+      .info-wrapper {
+        .rounds-wrapper {
+          .round {
+            &.lose {
+              background-color: var(--color-CT);
+            }
+          }
+        }
+
+        .loss-bonus-wrapper,
+        .equipment-wrapper {
+          .loss-notice,
+          .equipment-notice {
+            color: var(--color-CT);
+          }
+        }
+      }
+    }
+
+    &.showStart {
+      animation: showStart 1s forwards;
+    }
+
+    &.hideStart {
+      animation: hideStart 1s forwards;
+    }
+  }
+}
+
+@keyframes showStart {
+  from {
+    margin-bottom: -3.5vw;
+  }
+
+  to {
+    margin-bottom: 0.5vw;
+  }
+}
+
+@keyframes hideStart {
+  from {
+    margin-bottom: 0.5vw;
+  }
+  to {
+    margin-bottom: -3.5vw;
+  }
+}

@@ -1,51 +1,39 @@
 import classNames from 'classnames';
-import React, { useEffect, useState } from 'react'
-import { mockupTopBar } from '../../utils/mockups';
-import { subscribeToTopBar } from '../../utils/socketIO';
-import { range } from '../../utils/tools';
+import React from 'react'
+import { range } from '../../../utils/tools';
 import { centerCounter, centerTerrorist } from './icons';
 import './TopBar.scss'
 
-export default function TopBar() {
-    const [topBarData, setTopBarData] = useState(mockupTopBar);
-
-    useEffect(() => {
-        subscribeToTopBar(data => {
-            setTopBarData(data)
-        })
-    }, [])
-
+export default function TopBar({ topBar }) {
     let sideLeft = classNames({
-        'CT': topBarData.leftSide.sideTeam === 'CT' && true,
-        'T': topBarData.leftSide.sideTeam === 'T' && true
+        'CT': topBar.leftSide.sideTeam === 'CT' && true,
+        'T': topBar.leftSide.sideTeam === 'T' && true
     })
     let sideRight = classNames({
-        'CT': topBarData.rightSide.sideTeam === 'CT' && true,
-        'T': topBarData.rightSide.sideTeam === 'T' && true
+        'CT': topBar.rightSide.sideTeam === 'CT' && true,
+        'T': topBar.rightSide.sideTeam === 'T' && true
     })
 
-    let biggest = topBarData.leftSide.name.length > topBarData.rightSide.name.length ? topBarData.leftSide.name.length : topBarData.rightSide.name.length
-    let leftLogo = topBarData.leftSide.nameKey === 'placeholder' ? (`placeholder/${topBarData.leftSide.sideTeam === 'CT' ? 'CT' : 'T'}`) : topBarData.leftSide.nameKey
-    let rightLogo = topBarData.rightSide.nameKey === 'placeholder' ? (`placeholder/${topBarData.rightSide.sideTeam === 'CT' ? 'CT' : 'T'}`) : topBarData.rightSide.nameKey
-
-    let timeMinutes = Math.floor((Number(topBarData.round.time) / 60))
-    let timeSeconds = Math.ceil(Number(topBarData.round.time)) % 60 < 10 ? `0${Math.ceil(Number(topBarData.round.time)) % 60}` : Math.ceil(Number(topBarData.round.time)) % 60
-
-    const mapsToWin = range(1, (topBarData.mapInfo.bestOf / 2).toFixed(0));
+    let biggest = topBar.leftSide.name.length > topBar.rightSide.name.length ? topBar.leftSide.name.length : topBar.rightSide.name.length
+    let leftLogo = topBar.leftSide.nameKey === 'placeholder' ? (`placeholder/${topBar.leftSide.sideTeam === 'CT' ? 'CT' : 'T'}`) : topBar.leftSide.nameKey
+    let rightLogo = topBar.rightSide.nameKey === 'placeholder' ? (`placeholder/${topBar.rightSide.sideTeam === 'CT' ? 'CT' : 'T'}`) : topBar.rightSide.nameKey
+    let timeMinutes = Math.floor((Number(topBar.round.time) / 60))
+    let timeSeconds = Math.ceil(Number(topBar.round.time)) % 60 < 10 ? `0${Math.ceil(Number(topBar.round.time)) % 60}` : Math.ceil(Number(topBar.round.time)) % 60
+    const mapsToWin = range(1, (topBar.mapInfo.bestOf / 2).toFixed(0));
     return (
         <div className="top-bar-wrapper" >
             <div className="first-wrapper">
                 <div className="leftSide-wrapper" style={{ width: `calc(5.62vw + ${(biggest < 8 ? biggest * 2 : biggest) * 1.29}vw)` }}>
                     <div className="primary-logo" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${leftLogo}/logo.png)` }}></div>
                     <div className="secondary-logo" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${leftLogo}/logo.png)` }}></div>
-                    <p className='teamName font-tablet'>{topBarData.leftSide.name}</p>
+                    <p className='teamName font-tablet'>{topBar.leftSide.name}</p>
                 </div>
 
                 <div className="center-background"></div>
-                <div className="center-wrapper" style={{ backgroundImage: `url(${topBarData.leftSide.sideTeam === 'CT' ? centerCounter : centerTerrorist})` }}>
+                <div className="center-wrapper" style={{ backgroundImage: `url(${topBar.leftSide.sideTeam === 'CT' ? centerCounter : centerTerrorist})` }}>
                     <div className="center">
                         <div className="leftScore-wrapper">
-                            <p className={`leftSideRounds ${sideLeft} font-mont`}>{topBarData.leftSide.score}</p>
+                            <p className={`leftSideRounds ${sideLeft} font-mont`}>{topBar.leftSide.score}</p>
                         </div>
 
                         <div className="timer-wrapper">
@@ -53,14 +41,14 @@ export default function TopBar() {
                             </div>
 
                             <div className="clock font-mont">
-                                <p className="minutes">{timeSeconds === '00' && topBarData.round.phase !== 'paused' ? 1 : timeMinutes}</p>
+                                <p className="minutes">{timeSeconds === '00' && topBar.round.phase !== 'paused' ? 1 : timeMinutes}</p>
                                 <p className="points">:</p>
                                 <p className="seconds">{timeSeconds}</p>
                             </div>
                         </div>
 
                         <div className="rightScore-wrapper">
-                            <p className={`rightSideRounds ${sideRight} font-mont`}>{topBarData.rightSide.score}</p>
+                            <p className={`rightSideRounds ${sideRight} font-mont`}>{topBar.rightSide.score}</p>
                         </div>
                     </div>
                 </div>
@@ -68,7 +56,7 @@ export default function TopBar() {
                 <div className="rightSide-wrapper" style={{ width: `calc(5.62vw + ${(biggest < 8 ? biggest * 2 : biggest) * 1.29}vw)` }}>
                     <div className="primary-logo" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${rightLogo}/logo.png)` }}></div>
                     <div className="secondary-logo" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${rightLogo}/logo.png)` }}></div>
-                    <p className='teamName font-tablet'>{topBarData.rightSide.name}</p>
+                    <p className='teamName font-tablet'>{topBar.rightSide.name}</p>
                 </div>
             </div>
 
@@ -84,13 +72,13 @@ export default function TopBar() {
                     </div>
 
                     <div className="status-match-wrapper">
-                        <p className="current-status font-tablet">{`ROUND ${topBarData.mapInfo.currentRound}/30`}</p>
+                        <p className="current-status font-tablet">{`ROUND ${topBar.mapInfo.currentRound}/30`}</p>
                     </div>
                 </div>
 
                 <div className="rightInfo-wrapper">
                     <div className="series-status-wrapper">
-                        <p className="current-status font-tablet">{`BEST OF ${topBarData.mapInfo.bestOf}`}</p>
+                        <p className="current-status font-tablet">{`BEST OF ${topBar.mapInfo.bestOf}`}</p>
                     </div>
 
                     <div className="mapWins-wrapper">
@@ -103,9 +91,7 @@ export default function TopBar() {
                     </div>
                 </div>
             </div>
-
             <div className="vetoLegend-wrapper"></div>
         </div >
-
     )
 }

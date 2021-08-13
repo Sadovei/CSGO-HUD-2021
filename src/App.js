@@ -1,17 +1,17 @@
-import LeftSide from "./Components/LeftSide/LeftSide";
 import React from "react";
-import RightSide from "./Components/RightSide/RightSide";
+import SmartLeftSide from "./Components/SmartLeftSide/SmartLeftSide";
+import SmartRightSide from "./Components/SmartRightSide/SmartRightSide";
 import SmartPovSide from "./Components/SmartPovSide/SmartPovSide";
-import TopBar from "./Components/TopBar/TopBar";
+import SmartTopBar from "./Components/SmartTopBar/SmartTopBar";
 
 function App() {
 
   return (
     <>
-      <TopBar />
-      <LeftSide />
-      <RightSide />
+      <SmartTopBar />
+      <SmartRightSide />
       <SmartPovSide />
+      <SmartLeftSide />
       <div className="bk-ref"></div>
     </>
   );

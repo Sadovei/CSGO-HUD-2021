@@ -109,10 +109,57 @@ html,
   width: 0;
 }
 
-.pov-wrapper .primary.active path {
-  fill: url('#ammo-fill') #fff !important;
+.pov-wrapper .primary.active path,
+.pov-wrapper .secondary.active path {
+  fill: url('#ammo-fill-undefined') #fff !important;
 }
 
-.pov-wrapper .secondary.active path {
-  fill: url('#ammo-fill') #fff !important;
+.left-player-wrapper.slot-1 .secondary.active path,
+.left-player-wrapper.slot-1 .primary.active path {
+  fill: url('#ammo-fill-1') #fff !important;
+}
+
+.left-player-wrapper.slot-2 .secondary.active path,
+.left-player-wrapper.slot-2 .primary.active path {
+  fill: url('#ammo-fill-2') #fff !important;
+}
+
+.left-player-wrapper.slot-3 .secondary.active path,
+.left-player-wrapper.slot-3 .primary.active path {
+  fill: url('#ammo-fill-3') #fff !important;
+}
+
+.left-player-wrapper.slot-4 .secondary.active path,
+.left-player-wrapper.slot-4 .primary.active path {
+  fill: url('#ammo-fill-4') #fff !important;
+}
+
+.left-player-wrapper.slot-5 .secondary.active path,
+.left-player-wrapper.slot-5 .primary.active path {
+  fill: url('#ammo-fill-5') #fff !important;
+}
+
+.right-player-wrapper.slot-6 .secondary.active path,
+.right-player-wrapper.slot-6 .primary.active path {
+  fill: url('#ammo-fill-6') #fff !important;
+}
+
+.right-player-wrapper.slot-7 .secondary.active path,
+.right-player-wrapper.slot-7 .primary.active path {
+  fill: url('#ammo-fill-7') #fff !important;
+}
+
+.right-player-wrapper.slot-8 .secondary.active path,
+.right-player-wrapper.slot-8 .primary.active path {
+  fill: url('#ammo-fill-8') #fff !important;
+}
+
+.right-player-wrapper.slot-9 .secondary.active path,
+.right-player-wrapper.slot-9 .primary.active path {
+  fill: url('#ammo-fill-9') #fff !important;
+}
+
+.right-player-wrapper.slot-0 .secondary.active path,
+.right-player-wrapper.slot-0 .primary.active path {
+  fill: url('#ammo-fill-0') #fff !important;
 }
