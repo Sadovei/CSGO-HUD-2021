@@ -1,130 +1,110 @@
 .left-player-wrapper {
-  display: flex;
-  flex-flow: row nowrap;
-  background-color: rgba(0, 0, 0, 0.75);
   position: relative;
   border-radius: 0.3vw;
-  box-shadow: -5px 5px 15px 1px rgba(0, 0, 0, 0.5);
+
+  background-color: var(--color-background);
+  box-shadow: -5px 5px 15px 1px var(--color-background);
 
   .main-info-wrapper {
+    position: relative;
     width: 7.3vw;
     height: 3.5vw;
-    background-size: contain;
-    position: relative;
-    display: flex;
-    flex-flow: row nowrap;
-    margin-left: -0.8vw;
-    font-size: 0.8vw;
     z-index: 2;
+
+    margin-left: -0.8vw;
+
+    font-size: 0.8vw;
+    background-size: contain;
 
     .number-wrapper {
       position: absolute;
       top: 1.3vw;
       left: 0.3vw;
-      color: var(--color-grey);
 
       width: 1vw;
       height: 1vw;
-      display: flex;
       align-items: center;
       justify-content: center;
+
+      color: var(--color-grey);
     }
 
     .image-player {
       height: 100%;
       width: 5vw;
+
       background-size: 100%;
     }
 
     .heal-wrapper {
-      display: flex;
-      flex-flow: column nowrap;
-      justify-content: center;
-      align-items: center;
       position: absolute;
       left: 66%;
       top: 23%;
       z-index: 2;
 
+      justify-content: center;
+      align-items: center;
+
       .heal-number {
         width: 1.4vw;
         margin-top: 0.5vw;
+
         text-align: center;
       }
 
       .armor-image {
         width: 0.5vw;
         height: 0.5vw;
+
         background-size: cover;
       }
     }
   }
 
   .secondary-info-wrapper {
-    height: 3.5vw;
-    display: flex;
-    flex-flow: column nowrap;
-    min-width: 12vw;
     position: relative;
+    height: 3.5vw;
+    min-width: 12vw;
 
     .first-line-wrapper {
-      display: flex;
-      flex-flow: row nowrap;
       align-items: center;
-      height: 1.6vw;
       justify-content: space-between;
+      height: 1.6vw;
+
       font-size: 0.7vw;
 
       .first-box {
-        display: flex;
-        flex-flow: row nowrap;
-
         .player-name {
           color: var(--color-white);
         }
       }
 
       .second-box {
-        display: flex;
-        flex-flow: row nowrap;
-        color: var(--color-grey);
         font-size: 0.7vw;
-
-        .kills-wrapper {
-          display: flex;
-          flex-flow: row nowrap;
-        }
+        color: var(--color-grey);
 
         .assists-wrapper {
-          display: flex;
-          flex-flow: row nowrap;
           margin: 0 0.2vw;
         }
 
         .death-wrapper {
-          display: flex;
-          flex-flow: row nowrap;
           margin-right: 0.5vw;
         }
 
         .round-kills {
-          flex-flow: row nowrap;
-          align-items: center;
           margin-right: 0.5vw;
+          align-items: center;
           visibility: hidden;
-          display: flex;
 
           .death-image {
-            background-image: url('../../../../assets/icons/elements/skull.svg');
-            background-size: cover;
             width: 0.6vw;
             height: 0.6vw;
+
+            background-image: url('../../../../assets/icons/elements/skull.svg');
+            background-size: cover;
           }
 
           .kills-round-number {
-            display: flex;
-            flex-flow: row nowrap;
-
             .kills-notice {
               color: var(--color-grey);
             }
@@ -142,47 +122,47 @@
       top: 1.2vw;
       left: -0.4vw;
       right: 0vw;
+
       height: 36%;
+
       background-size: contain;
 
       .heal-life-wrapper {
         width: 92.4%;
         height: 0.2vw;
         position: relative;
+
         margin-left: 0.45vw;
         margin-top: 0.52vw;
         border-radius: 1vw;
-        display: flex;
-        flex-flow: row nowrap;
 
         .heal-bar {
-          border-radius: 1vw;
           height: 100%;
+
           z-index: 1;
+          border-radius: 1vw;
         }
         .dmg {
           position: absolute;
           left: 0;
           height: 100%;
+
+          z-index: 0;
           border-radius: 1vw;
           background: var(--color-red);
-          z-index: 0;
         }
       }
     }
 
     .third-line-wrapper {
-      display: flex;
-      flex-flow: row nowrap;
       height: 1.2vw;
       margin-top: 0.6vw;
+
       color: var(--color-grey);
 
       .utils-wrapper {
-        margin-left: 0.3vw;
-        display: flex;
-        flex-flow: row nowrap;
         height: 1.2vw;
+        margin-left: 0.3vw;
 
         .grenade,
         .defuse {
@@ -204,12 +184,11 @@
       }
 
       .weapons-wrapper {
-        display: flex;
-        flex-flow: row nowrap;
-        margin-left: 1vw;
         position: absolute;
         right: 0.5vw;
         height: 1.2vw;
+
+        margin-left: 1vw;
 
         .primary {
           width: 2.5vw;
@@ -269,22 +248,26 @@
   }
 
   &.pov:before {
-    content: '';
     position: absolute;
+    top: 0vw;
+    left: 3.1vw;
+
+    content: '';
     width: 70%;
     height: 0.15vw;
-    left: 3.1vw;
-    background: linear-gradient(to right, #fe00ea, rgba(0, 0, 0, 0));
-    top: 0vw;
+
+    background: var(--color-selected);
   }
   &.pov:after {
-    content: '';
     position: absolute;
+    left: 4.8vw;
+    bottom: 0px;
+
+    content: '';
     width: 35%;
     height: 0.15vw;
-    left: 4.8vw;
-    background: linear-gradient(to right, #fe00ea, rgba(0, 0, 0, 0));
-    bottom: 0px;
+
+    background: var(--color-selected);
   }
 
   &.CT {
@@ -378,12 +361,14 @@
       background-image: url('../../../../assets/Death-left.png');
 
       .heal-wrapper {
-        background-image: url('../../../../assets/icons/elements/skull.svg');
-        background-size: contain;
-        width: 1.5vw;
-        height: 1.5vw;
         top: 1.1vw;
         left: 4.7vw;
+
+        width: 1.5vw;
+        height: 1.5vw;
+
+        background-image: url('../../../../assets/icons/elements/skull.svg');
+        background-size: contain;
 
         .heal-number {
           display: none;
@@ -406,57 +391,36 @@
 
       .death-info {
         display: flex;
-        flex-flow: column nowrap;
         color: var(--color-grey);
 
         .first-box {
           margin-bottom: 0.2vw;
-
-          .player-name {
-          }
         }
 
         .second-box {
-          display: flex;
-          flex-flow: row nowrap;
           color: var(--color-grey);
           font-size: 0.7vw;
 
-          .kills-wrapper {
-            display: flex;
-            flex-flow: row nowrap;
-          }
-
           .assists-wrapper {
-            display: flex;
-            flex-flow: row nowrap;
             margin: 0 0.2vw;
-          }
-
-          .death-wrapper {
-            display: flex;
-            flex-flow: row nowrap;
           }
 
           .round-kills {
             width: 1.7vw;
-            visibility: hidden;
-            display: flex;
-            flex-flow: row nowrap;
-            align-items: center;
             margin-left: 0.2vw;
 
+            visibility: hidden;
+            align-items: center;
+
             .death-image {
-              background-image: url('../../../../assets/icons/elements/skull.svg');
-              background-size: cover;
               width: 0.6vw;
               height: 0.6vw;
+
+              background-image: url('../../../../assets/icons/elements/skull.svg');
+              background-size: cover;
             }
 
             .kills-round-number {
-              display: flex;
-              flex-flow: row nowrap;
-
               .kills-notice {
                 color: var(--color-grey);
               }
@@ -468,8 +432,6 @@
           }
 
           .adr-wrapper {
-            display: flex;
-            flex-flow: row nowrap;
             margin-left: 0.2vw;
             align-items: center;
 

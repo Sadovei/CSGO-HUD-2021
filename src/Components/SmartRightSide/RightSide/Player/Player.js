@@ -25,39 +25,39 @@ export default function Player({ info, team, DefuseIMG, grenadeImg, BombIMG, Pis
     }, [info.state.health, prevHeal])
 
     return (
-        <div className={`right-player-wrapper slot-${info.observer_slot} ${team} ${info.state.health === 0 ? 'death' : 'alive'} ${info.active ? 'pov' : ''}`}>
-            <div className="secondary-info-wrapper font-mont">
-                <div className="first-line-wrapper">
-                    <div className="second-box">
-                        <div className={`round-kills ${info.state.round_kills > 0 ? 'live' : ''}`}>
+        <div className={`right-player-wrapper row slot-${info.observer_slot} ${team} ${info.state.health === 0 ? 'death' : 'alive'} ${info.active ? 'pov' : ''}`}>
+            <div className="secondary-info-wrapper font-mont col">
+                <div className="first-line-wrapper row">
+                    <div className="second-box row">
+                        <div className={`round-kills row ${info.state.round_kills > 0 ? 'live' : ''}`}>
                             <div className="death-image"></div>
-                            <span className={`kills-round-number`}>
+                            <span className="kills-round-number row">
                                 {info.state.round_kills}
                                 <p className="kills-notice">/5</p>
                             </span>
                         </div>
 
-                        <div className="kills-wrapper">
+                        <div className="kills-wrapper row">
                             <p className="kills-notice">K</p>
                             <p className={`kills-number`}>{info.match_stats.kills}</p>
                         </div>
-                        <div className="assists-wrapper">
+                        <div className="assists-wrapper row">
                             <p className="assists-notice">A</p>
                             <p className={`assists-number`}>{info.match_stats.deaths}</p>
                         </div>
-                        <div className="death-wrapper">
+                        <div className="death-wrapper row">
                             <p className="death-notice">D</p>
                             <p className={`death-number`}>{info.match_stats.assists}</p>
                         </div>
                     </div>
 
-                    <div className="first-box">
+                    <div className="first-box row">
                         <p className="player-name">{info.namePlayer}</p>
                     </div>
                 </div>
 
                 <div className="second-line-wrapper">
-                    <div className="heal-life-wrapper">
+                    <div className="heal-life-wrapper row">
                         <div className={`heal-bar`} style={{ width: `${info.state.health}%` }}></div>
                         <div className="dmg" style={{
                             transitionDelay: flagDmg ? "0" : "1s",
@@ -68,7 +68,7 @@ export default function Player({ info, team, DefuseIMG, grenadeImg, BombIMG, Pis
                 </div>
 
                 <div className="third-line-wrapper">
-                    <div className="weapons-wrapper">
+                    <div className="weapons-wrapper row">
                         {BombIMG}
                         {PistolIMG}
                         {ammoFillAnim}
@@ -79,40 +79,40 @@ export default function Player({ info, team, DefuseIMG, grenadeImg, BombIMG, Pis
                         <p className="money-number">${info.state.money}</p>
                     </div>
 
-                    <div className="utils-wrapper">
+                    <div className="utils-wrapper row">
                         {DefuseIMG}
                         {grenadeImg}
                     </div>
                 </div>
 
-                <div className="death-info">
-                    <div className="first-box">
+                <div className="death-info col">
+                    <div className="first-box row">
                         <p className="player-name">{info.namePlayer}</p>
                     </div>
 
-                    <div className="second-box">
-                        <div className="adr-wrapper">
+                    <div className="second-box row">
+                        <div className="adr-wrapper row">
                             <p className="adr-number">66</p>
                             <p className="adr-notice">ADR</p>
                         </div>
 
-                        <div className={`round-kills ${info.state.round_kills > 0 ? 'live' : ''}`}>
+                        <div className={`round-kills row ${info.state.round_kills > 0 ? 'live' : ''}`}>
                             <div className="death-image"></div>
-                            <span className={`kills-round-number`}>
+                            <span className="kills-round-number row">
                                 {info.state.round_kills}
                                 <p className="kills-notice">/5</p>
                             </span>
                         </div>
 
-                        <div className="kills-wrapper">
+                        <div className="kills-wrapper row">
                             <p className="kills-notice">K</p>
                             <p className={`kills-number`}>{info.match_stats.kills}</p>
                         </div>
-                        <div className="assists-wrapper">
+                        <div className="assists-wrapper row">
                             <p className="assists-notice">A</p>
                             <p className={`assists-number`}>{info.match_stats.deaths}</p>
                         </div>
-                        <div className="death-wrapper">
+                        <div className="death-wrapper row">
                             <p className="death-notice">D</p>
                             <p className={`death-number`}>{info.match_stats.assists}</p>
                         </div>
@@ -122,14 +122,14 @@ export default function Player({ info, team, DefuseIMG, grenadeImg, BombIMG, Pis
             </div>
 
             <div className="main-info-wrapper font-tablet">
-                <div className="heal-wrapper">
+                <div className="heal-wrapper col">
                     <p className="heal-number">{info.state.health}</p>
                     <div className={`armor-image ${armor}`}></div>
                 </div>
 
                 <div className="image-player" style={{ backgroundImage: `url(${picturePlayer})` }}></div>
 
-                <div className="number-wrapper">
+                <div className="number-wrapper row">
                     <p className="number-slot">{info.observer_slot}</p>
                 </div>
             </div>

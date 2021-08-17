@@ -12,26 +12,6 @@ export default function PovSide(
         grenadeImg,
         activeWeapon }) {
 
-    // const [prevHeal, setPrevHeal] = useState(100)
-    // const [flagDmg, setFlagDmg] = useState(false)
-    // const updateStart = useRef(null);
-
-
-    // useEffect(() => {
-    //     if (povData.state.health <= prevHeal) {
-    //         setFlagDmg(true)
-    //         updateStart.current = setTimeout(() => {
-    //             setPrevHeal(povData.state.health);
-    //             updateStart.current = null;
-    //             setFlagDmg(false)
-    //         }, 1000);
-    //     } else {
-    //         setFlagDmg(false)
-    //     }
-    // }, [povData.state.health, prevHeal])
-    // console.log(flagDmg)
-
-
     let picturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${povData.teamKey}/${povData.playerKey}.png`
     let teamLogo = povData.teamKey === 'placeholder' ? (`placeholder/${povData.team === 'CT' ? 'CT' : 'T'}`) : povData.teamKey
     let flag = `http://redis-birou.pgl.ro/pgl/resources/flags/${povData.playerCountry}.png`
@@ -53,52 +33,52 @@ export default function PovSide(
 
 
     return (
-        <div className="pov-wrapper">
+        <div className="pov-wrapper col">
             <div className="player-wrapper">
                 <div className={`border-image-player ${sideTeam}`}>
                     <div className="background-image-player"></div>
                     <div className="image-player" style={{ backgroundImage: `url(${picturePlayer})` }}></div>
                 </div>
 
-                <div className="info-player-wrapper">
-                    <div className="first-layer-wrapper">
-                        <div className="main-info-player font-mont">
-                            <div className="first-row">
+                <div className="info-player-wrapper col">
+                    <div className="first-layer-wrapper row">
+                        <div className="main-info-player font-mont col">
+                            <div className="first-row row">
                                 <p className="player-name">{povData.playerName}</p>
                                 <div className="player-flag" style={{ backgroundImage: `url(${flag})` }}></div>
                             </div>
 
-                            <div className="second-row">
-                                <div className="first-info">
-                                    <div className="heal-wrapper">
+                            <div className="second-row row">
+                                <div className="first-info row">
+                                    <div className="heal-wrapper row">
                                         <div className={`heal-image ${sideTeam}`}></div>
                                         <p className="heal-number">{povData.state.health}</p>
                                     </div>
 
-                                    <div className={`armor-wrapper ${armor}`}>
+                                    <div className={`armor-wrapper row ${armor}`}>
                                         <div className={`armor-image ${sideTeam}`}></div>
                                         <p className="armor-number">{povData.state.armor}</p>
                                     </div>
                                 </div>
 
-                                <div className="second-info">
-                                    <div className="kills-wrapper">
+                                <div className="second-info row">
+                                    <div className="kills-wrapper row">
                                         <p className="kills-notice">K</p>
                                         <p className={`kills-number ${sideTeam}`}>{povData.match_stats.kills}</p>
                                     </div>
-                                    <div className="assists-wrapper">
+                                    <div className="assists-wrapper row">
                                         <p className="assists-notice">A</p>
                                         <p className={`assists-number ${sideTeam}`}>{povData.match_stats.assists}</p>
                                     </div>
-                                    <div className="death-wrapper">
+                                    <div className="death-wrapper row">
                                         <p className="death-notice">D</p>
                                         <p className={`death-number ${sideTeam}`}>{povData.match_stats.deaths}</p>
                                     </div>
                                 </div>
 
-                                <div className={`third-info ${roundKills}`}>
+                                <div className={`third-info row ${roundKills}`}>
                                     <div className="death-image"></div>
-                                    <span className={`kills-round-number ${sideTeam}`}>
+                                    <span className={`kills-round-number row ${sideTeam}`}>
                                         {povData.state.round_kills}
                                         <p className="kills-notice">/5</p>
                                     </span>
@@ -110,28 +90,24 @@ export default function PovSide(
                     </div >
 
                     <div className={`second-layer-wrapper ${sideTeam}`}>
-                        <div className="heal-life-wrapper">
+                        <div className="heal-life-wrapper row">
                             <div className={`heal-bar ${sideTeam}`} style={{ width: `${povData.state.health}%` }}></div>
-                            <div className="dmg" style={{
-                                // transitionDelay: flagDmg ? "0" : "1s",
-                                // transition: flagDmg ? "" : "width 1.2s ease-out",
-                                // width: prevHeal + "%"
-                            }}></div>
+                            <div className="dmg" ></div>
                         </div>
                     </div>
 
-                    <div className="third-layer-wrapper font-tablet">
-                        <div className={`bullets-wrapper ${activeWeapon.ammo_clip === undefined ? 'hide' : 'show'}`}>
+                    <div className="third-layer-wrapper row font-tablet">
+                        <div className={`bullets-wrapper row ${activeWeapon.ammo_clip === undefined ? 'hide' : 'show'}`}>
                             <div className="bullets-image"></div>
                             <p className="bullets-number">{activeWeapon.ammo_clip}/{activeWeapon.ammo_clip_max}</p>
                         </div>
 
-                        <div className="utils-wrapper">
+                        <div className="utils-wrapper row">
                             {DefuseIMG}
                             {grenadeImg}
                         </div>
 
-                        <div className="weapons-wrapper">
+                        <div className="weapons-wrapper row">
                             {BombIMG}
                             {PistolIMG}
                             {ammoFillAnim}
@@ -139,9 +115,7 @@ export default function PovSide(
                         </div>
                     </div>
                 </div >
-
             </div >
-
             <div className="sponsors-wrapper"></div>
         </div >
     )

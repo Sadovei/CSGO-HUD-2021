@@ -51,28 +51,28 @@ export default function UtilitiesLeft({ utilities, team, phase }) {
 
     return (
         <div className={`utility-wrapper ${team} font-tablet ${animClass}`}>
-            <div className="bk-color">
-                <div className="text-wrapper">
+            <div className="bk-color row">
+                <div className="text-wrapper col">
                     <p className="dynamic">{constUtilities}</p>
                     <p className="text-notice">UTILITY</p>
                 </div>
 
-                <div className='grenade incendiary-wrapper'>
+                <div className='grenade incendiary-wrapper row'>
                     <IncendiaryIMG />
                     <p className="numberOf">X{noIncendiary}</p>
                 </div>
 
-                <div className='grenade smoke-wrapper'>
+                <div className='grenade smoke-wrapper row'>
                     <SmokeIMG />
                     <p className="numberOf">X{utilities.weapon_smokegrenade}</p>
                 </div>
 
-                <div className='grenade flash-wrapper'>
+                <div className='grenade flash-wrapper row'>
                     <FlashIMG />
                     <p className="numberOf">X{utilities.weapon_flashbang}</p>
                 </div>
 
-                <div className='grenade he-wrapper'>
+                <div className='grenade he-wrapper row'>
                     <HeIMG />
                     <p className="numberOf">X{utilities.weapon_hegrenade}</p>
                 </div>

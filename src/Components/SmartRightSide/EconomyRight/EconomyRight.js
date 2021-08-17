@@ -30,10 +30,10 @@ export default function EconomyRight({ economy, team, phase }) {
     }
 
     return (
-        <div className={`economy-wrapper ${team} font-tablet ${animClass}`}>
+        <div className={`economy-wrapper row ${team} font-tablet ${animClass}`}>
             <div className="image"></div>
             <div className="info-wrapper">
-                <div className="rounds-wrapper">
+                <div className="rounds-wrapper col">
                     <div className={`round rounds-1 ${economy.roundLose > 0 ? 'lose' : ''}`}></div>
                     <div className={`round rounds-2 ${economy.roundLose > 1 ? 'lose' : ''}`}></div>
                     <div className={`round rounds-3 ${economy.roundLose > 2 ? 'lose' : ''}`}></div>
@@ -41,12 +41,12 @@ export default function EconomyRight({ economy, team, phase }) {
                     <div className={`round rounds-5 ${economy.roundLose > 4 ? 'lose' : ''}`}></div>
                 </div>
 
-                <div className="loss-bonus-wrapper">
+                <div className="loss-bonus-wrapper col">
                     <p className="money">{economy.bonus}</p>
                     <p className="loss-notice">Loss bonus</p>
                 </div>
 
-                <div className="equipment-wrapper">
+                <div className="equipment-wrapper col">
                     <p className="equipment-value">${economy.eq_value}</p>
                     <p className="equipment-notice">Equipment value</p>
                 </div>

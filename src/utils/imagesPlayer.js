@@ -1,7 +1,7 @@
 import { SVGMap, weaponPrimary } from '../utils/tools';
 import _uniqueId from 'lodash/uniqueId';
 
-export default function imagesPlayer(infoPlayer) {
+export default function imagesPlayer(infoPlayer, phase) {
     let pistol = undefined,
         weaponMain = undefined,
         grenades = {},
@@ -15,7 +15,6 @@ export default function imagesPlayer(infoPlayer) {
         }
 
     let WeaponIMG, PistolIMG, DefuseIMG, BombIMG;
-
     Object.keys(infoPlayer.weapons).forEach(weapon => {
         if (infoPlayer.weapons[weapon].state === 'active') {
             activeWeapon.ammo_clip = infoPlayer.weapons[weapon].ammo_clip
@@ -67,8 +66,10 @@ export default function imagesPlayer(infoPlayer) {
     if (infoPlayer.state.defusekit) {
         let NadeSVG = SVGMap.defuser;
 
-        DefuseIMG = <div className={`defuse`}>
+        DefuseIMG = <div className={`defuse ${phase === 'bomb' ? 'pulsar' : ''}`}>
             {(NadeSVG !== null) ? < NadeSVG /> : null}
+            <div className="str-circle2"></div>
+            <div className="str-circle3"></div>
         </div>
     }
 

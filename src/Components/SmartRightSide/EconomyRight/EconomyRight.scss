@@ -1,40 +1,40 @@
 .right-wrapper {
   .economy-wrapper {
     position: absolute;
-    display: flex;
-    flex-flow: row-reverse nowrap;
+    bottom: -3.5vw;
     height: 3.3vw;
     width: 16.5vw;
+
     clip-path: polygon(14% 1%, 100% 0, 100% 100%, 0 100%, 0 45%);
-    bottom: -3.5vw;
 
     .image {
       position: absolute;
-      width: 6vw;
-      height: 4.7vw;
-      background-size: contain;
       bottom: -0.6vw;
       right: -0.7vw;
+      width: 6vw;
+      height: 4.7vw;
+
+      background-size: contain;
     }
 
     .info-wrapper {
-      background: rgba(0, 0, 0, 0.75);
+      width: 100%;
       display: flex;
       flex-flow: row-reverse nowrap;
+
       padding-right: 4.6vw;
-      width: 100%;
+      background: var(--color-background);
 
       .rounds-wrapper {
-        display: flex;
-        flex-flow: column nowrap;
         justify-content: center;
         margin-right: 0.5vw;
 
         .round {
           width: 0.3vw;
           height: 0.3vw;
-          background-color: var(--color-grey);
+
           border-radius: 50%;
+          background-color: var(--color-grey);
 
           + .round {
             margin-top: 0.25vw;
@@ -48,8 +48,6 @@
 
       .loss-bonus-wrapper,
       .equipment-wrapper {
-        display: flex;
-        flex-flow: column nowrap;
         align-items: center;
         justify-content: space-evenly;
 

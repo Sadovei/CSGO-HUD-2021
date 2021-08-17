@@ -44,11 +44,11 @@ html,
 }
 
 .row,
-.column {
+.col {
   display: flex;
 }
 
-.column {
+.col {
   flex-flow: column nowrap;
 }
 
@@ -85,6 +85,8 @@ html,
 }
 
 .defuse {
+  margin: 0 0.2vw;
+
   svg {
     path {
       fill: var(--color-CT);
@@ -150,4 +152,37 @@ html,
 .right-player-wrapper.slot-0 .secondary.active path,
 .right-player-wrapper.slot-0 .primary.active path {
   fill: url('#ammo-fill-0') #fff !important;
+}
+
+/* CIRCLE */
+
+.pulsar {
+  position: relative;
+
+  .str-circle2,
+  .str-circle3 {
+    position: absolute;
+    width: 0.1vw;
+    height: 0.1vw;
+    border-radius: 50%;
+    animation: radial-pulse 4s infinite;
+    top: 0.4vw;
+    left: 0.3vw;
+  }
+
+  .str-circle2 {
+    animation-delay: 2s;
+  }
+  .str-circle3 {
+    animation-delay: 4s;
+  }
+
+  @keyframes radial-pulse {
+    0% {
+      box-shadow: 0 0 0 0 var(--color-defuse);
+    }
+    100% {
+      box-shadow: 0 0 0 0.5vw rgba(0, 0, 0, 0);
+    }
+  }
 }

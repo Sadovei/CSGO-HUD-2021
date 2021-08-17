@@ -5,10 +5,9 @@
 
   .dynamic-wrapper {
     position: relative;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: flex-end;
     height: 6.8vw;
+
+    align-items: flex-end;
     overflow: hidden;
   }
 }

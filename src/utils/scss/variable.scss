@@ -12,5 +12,7 @@
   --color-T: #f3d002;
 
   --color-background-POV: #232323;
-  --color-selected: #fe00ea;
+  --color-background: #232323e6;
+  --color-selected: linear-gradient(to right, #fe00ea, rgba(0, 0, 0, 0));
+  --color-defuse: rgba(254, 0, 234, 0.8);
 }

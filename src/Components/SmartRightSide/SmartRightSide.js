@@ -18,12 +18,12 @@ export default function SmartRightSide() {
 
     return (
         <div className="right-wrapper">
-            <div className='dynamic-wrapper'>
+            <div className='dynamic-wrapper col'>
                 <UtilitiesRight utilities={rightSide.utility} team={rightSide.side} phase={rightSide.roundPhase} />
                 <EconomyRight economy={rightSide.economy} team={rightSide.side} phase={rightSide.roundPhase} />
             </div>
 
-            <RightSide team={rightSide.side} players={rightSide.players} phase={rightSide.roundPhase} />
+            <RightSide team={rightSide.side} players={rightSide.players} phase={rightSide.roundPhase.phase} />
         </div>
     )
 }

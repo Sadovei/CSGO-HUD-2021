@@ -1,46 +1,51 @@
 .pov-wrapper {
-  display: flex;
-  flex-flow: column nowrap;
   position: absolute;
   bottom: 1.1vw;
   left: 50%;
+
   width: 27vw;
   height: 8vw;
+
   transform: translateX(-50%);
 
   .player-wrapper {
+    position: relative;
+    height: 70%;
+
     border-radius: 1vw 1vw 0 0;
     background-color: rgba(0, 0, 0, 0.6);
-    height: 70%;
     box-shadow: 5px 5px 15px 1px rgba(0, 0, 0, 0.5);
-    position: relative;
 
     .border-image-player {
-      width: 35.4%;
-      background-size: contain;
       position: absolute;
       top: -0.3vw;
       bottom: 0vh;
       left: -0.1vw;
 
+      width: 35.4%;
+
+      background-size: contain;
+
       .background-image-player {
-        background-color: var(--color-black);
-        z-index: -5;
         position: absolute;
         top: 0.6vw;
         bottom: 0.4vw;
         left: 0.5vw;
         right: 0.6vw;
+
+        z-index: -5;
+        background-color: var(--color-black);
       }
 
       .image-player {
         position: absolute;
         top: -1vw;
         bottom: 0.56vw;
-        background-size: 100%;
-        z-index: 1;
         left: 0.5vw;
         right: 0.8vw;
+
+        z-index: 1;
+        background-size: 100%;
       }
 
       &.CT {
@@ -53,66 +58,56 @@
     }
 
     .info-player-wrapper {
-      display: flex;
-      flex-flow: column nowrap;
+      position: relative;
       height: 100%;
       margin-left: 34%;
-      overflow: hidden;
-      position: relative;
+
       justify-content: space-between;
+      overflow: hidden;
 
       .first-layer-wrapper {
-        display: flex;
-        flex-flow: row nowrap;
         height: 63%;
         margin-bottom: -0.7vw;
+
         align-items: center;
 
         .main-info-player {
           height: 100%;
           width: 75%;
-          display: flex;
-          flex-flow: column nowrap;
 
           .first-row {
-            display: flex;
-            flex-flow: row nowrap;
             margin: 0.5vw 0 0 0.5vw;
             align-items: center;
 
             .player-name {
-              color: var(--color-white);
               font-size: 1vw;
+              color: var(--color-white);
             }
 
             .player-flag {
-              background-size: cover;
               width: 1.3vw;
               height: 1vw;
               margin-left: 0.5vw;
+
+              background-size: cover;
             }
           }
           .second-row {
             margin: 0.5vw 0 0 0.5vw;
-            display: flex;
-            flex-flow: row nowrap;
             font-size: 0.8vw;
 
             .first-info {
-              display: flex;
-              flex-flow: row nowrap;
               align-items: center;
 
               .heal-wrapper {
-                display: flex;
-                flex-flow: row nowrap;
                 width: 2.2vw;
                 align-items: center;
 
                 .heal-image {
-                  background-size: cover;
                   width: 0.8vw;
                   height: 0.8vw;
+
+                  background-size: cover;
 
                   &.CT {
                     background-image: url('../../../assets/icons/elements/health-CT.svg');
@@ -128,12 +123,11 @@
               }
 
               .armor-wrapper {
-                display: flex;
-                flex-flow: row nowrap;
-                visibility: hidden;
                 margin-left: 0.2vw;
                 width: 2.2vw;
+
                 align-items: center;
+                visibility: hidden;
 
                 &.armor {
                   visibility: visible;
@@ -164,9 +158,10 @@
                 }
 
                 .armor-image {
-                  background-size: cover;
                   width: 0.8vw;
                   height: 0.7vw;
+
+                  background-size: cover;
                 }
                 .armor-number {
                   margin-left: 0.15vw;
@@ -176,17 +171,13 @@
             }
 
             .second-info {
-              display: flex;
-              flex-flow: row nowrap;
               margin: 0 0.5vw;
 
               .kills-wrapper {
-                display: flex;
-                flex-flow: row nowrap;
-
                 .kills-notice {
                   color: var(--color-grey);
                 }
+
                 .kills-number {
                   &.CT {
                     color: var(--color-CT);
@@ -199,8 +190,6 @@
               }
 
               .assists-wrapper {
-                display: flex;
-                flex-flow: row nowrap;
                 margin: 0 0.25vw;
 
                 .assists-notice {
@@ -218,9 +207,6 @@
               }
 
               .death-wrapper {
-                display: flex;
-                flex-flow: row nowrap;
-
                 .death-notice {
                   color: var(--color-grey);
                 }
@@ -237,21 +223,17 @@
             }
 
             .third-info {
-              display: flex;
-              flex-flow: row nowrap;
               align-items: center;
 
               .death-image {
-                background-size: cover;
                 width: 0.8vw;
                 height: 0.8vw;
+
+                background-size: cover;
                 background-image: url('../../../assets/icons/elements/skull.svg');
               }
 
               .kills-round-number {
-                display: flex;
-                flex-flow: row nowrap;
-
                 .kills-notice {
                   color: var(--color-grey);
                 }
@@ -275,6 +257,7 @@
         .team-image {
           height: 80%;
           width: 30%;
+
           background-size: contain;
           background-repeat: no-repeat;
           background-position: center;
@@ -283,24 +266,24 @@
 
       .second-layer-wrapper {
         position: absolute;
-        width: 100%;
         top: 2.9vw;
+        width: 100%;
         height: 36%;
+
         background-size: contain;
 
         .heal-life-wrapper {
+          position: relative;
           width: 91.8%;
           height: 0.3vw;
-          position: relative;
           margin-left: 0.65vw;
           margin-top: 0.72vw;
+
           border-radius: 1vw;
-          display: flex;
-          flex-flow: row nowrap;
 
           .heal-bar {
-            border-radius: 1vw;
             height: 100%;
+            border-radius: 1vw;
 
             &.CT {
               background-color: var(--color-CT);
@@ -315,8 +298,9 @@
             position: absolute;
             left: 0;
             height: 100%;
+
             border-radius: 1vw;
-            background: red;
+            background: var(--color-red);
             z-index: -1;
           }
         }
@@ -331,25 +315,24 @@
       }
 
       .third-layer-wrapper {
-        display: flex;
-        flex-flow: row nowrap;
-        height: 25%;
-        color: var(--color-grey);
-        margin-left: 0.5vw;
         position: relative;
+        height: 25%;
+        margin-left: 0.5vw;
+
         align-items: center;
         font-size: 0.8vw;
+        color: var(--color-grey);
 
         .bullets-wrapper {
-          display: flex;
-          flex-flow: row nowrap;
-          align-items: center;
           width: 3.2vw;
           height: 1.6vw;
+
+          align-items: center;
 
           .bullets-image {
             width: 0.8vw;
             height: 0.8vw;
+
             background-size: cover;
             background-image: url('../../../assets/icons/elements/bullets.svg');
           }
@@ -364,10 +347,8 @@
         }
 
         .utils-wrapper {
-          margin-left: 2vw;
-          display: flex;
-          flex-flow: row nowrap;
           height: 1.6vw;
+          margin-left: 2vw;
 
           .grenade,
           .defuse {
@@ -389,12 +370,11 @@
         }
 
         .weapons-wrapper {
-          display: flex;
-          flex-flow: row nowrap;
-          margin-left: 2vw;
           position: absolute;
           right: 0.5vw;
           height: 1.6vw;
+
+          margin-left: 2vw;
 
           .primary {
             width: 3.5vw;
@@ -429,9 +409,10 @@
   }
 
   .sponsors-wrapper {
-    box-shadow: 5px 5px 15px 1px rgba(0, 0, 0, 0.5);
     height: 30%;
     border-radius: 0 0 1vw 1vw;
+
+    box-shadow: 5px 5px 15px 1px var(--color-background-POV);
     background-color: var(--color-background-POV);
   }
 }
