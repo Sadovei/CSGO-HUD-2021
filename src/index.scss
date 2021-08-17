@@ -39,16 +39,6 @@ html,
   display: inline-block;
 }
 
-.bk-ref {
-  position: absolute;
-  top: 0px;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  // background-image: url('./assets/ref/ref.jpg');
-  background-size: cover;
-}
-
 .App {
   position: relative;
 }
@@ -56,16 +46,14 @@ html,
 .row,
 .column {
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .column {
-  flex-direction: column;
+  flex-flow: column nowrap;
 }
 
 .row {
-  flex-direction: row;
+  flex-flow: row nowrap;
 }
 
 .hidden {

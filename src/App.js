@@ -12,7 +12,6 @@ function App() {
       <SmartRightSide />
       <SmartPovSide />
       <SmartLeftSide />
-      <div className="bk-ref"></div>
     </>
   );
 }

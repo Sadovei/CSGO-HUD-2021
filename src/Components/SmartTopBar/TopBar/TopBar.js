@@ -13,13 +13,22 @@ export default function TopBar({ topBar }) {
         'CT': topBar.rightSide.sideTeam === 'CT' && true,
         'T': topBar.rightSide.sideTeam === 'T' && true
     })
+    let leftWin = 0
+    let rightWin = 0
+    Object.values(topBar.mapInfo.vetoLegend).forEach(info => {
+        if (info.leftTeamScore < info.rightTeamScore)
+            leftWin += 1
+        if (info.leftTeamScore > info.rightTeamScore)
+            rightWin += 1
+    })
 
     let biggest = topBar.leftSide.name.length > topBar.rightSide.name.length ? topBar.leftSide.name.length : topBar.rightSide.name.length
     let leftLogo = topBar.leftSide.nameKey === 'placeholder' ? (`placeholder/${topBar.leftSide.sideTeam === 'CT' ? 'CT' : 'T'}`) : topBar.leftSide.nameKey
     let rightLogo = topBar.rightSide.nameKey === 'placeholder' ? (`placeholder/${topBar.rightSide.sideTeam === 'CT' ? 'CT' : 'T'}`) : topBar.rightSide.nameKey
-    let timeMinutes = Math.floor((Number(topBar.round.time) / 60))
-    let timeSeconds = Math.ceil(Number(topBar.round.time)) % 60 < 10 ? `0${Math.ceil(Number(topBar.round.time)) % 60}` : Math.ceil(Number(topBar.round.time)) % 60
+    let timeMinutes = Number(topBar.round.time) >= 0 ? Math.floor((Number(topBar.round.time) / 60)) : 0
+    let timeSeconds = Number(topBar.round.time) >= 0 ? Math.ceil(Number(topBar.round.time)) % 60 < 10 ? `0${Math.ceil(Number(topBar.round.time)) % 60}` : Math.ceil(Number(topBar.round.time)) % 60 : 0
     const mapsToWin = range(1, (topBar.mapInfo.bestOf / 2).toFixed(0));
+
     return (
         <div className="top-bar-wrapper" >
             <div className="first-wrapper">
@@ -41,9 +50,9 @@ export default function TopBar({ topBar }) {
                             </div>
 
                             <div className="clock font-mont">
-                                <p className="minutes">{timeSeconds === '00' && topBar.round.phase !== 'paused' ? 1 : timeMinutes}</p>
+                                <p className="minutes">{(timeSeconds === '00' && topBar.round.phase !== 'paused') ? 1 : timeMinutes}</p>
                                 <p className="points">:</p>
-                                <p className="seconds">{timeSeconds}</p>
+                                <p className="seconds">{timeSeconds === 0 ? '00' : timeSeconds}</p>
                             </div>
                         </div>
 
@@ -65,7 +74,7 @@ export default function TopBar({ topBar }) {
                     <div className="mapWins-wrapper">
                         {
                             mapsToWin.map((map, index) => (
-                                <div className={`map ${map}`} key={index}></div>
+                                <div className={`map ${map} ${sideLeft} ${leftWin > index ? 'win' : 'lose'}`} key={index}></div>
                             )
                             )
                         }
@@ -84,14 +93,13 @@ export default function TopBar({ topBar }) {
                     <div className="mapWins-wrapper">
                         {
                             mapsToWin.map((map, index) => (
-                                <div className={`map ${map}`} key={index}></div>
+                                <div className={`map ${map} ${sideRight} ${rightWin > index ? 'win' : 'lose'}`} key={index}></div>
                             )
                             )
                         }
                     </div>
                 </div>
             </div>
-            <div className="vetoLegend-wrapper"></div>
         </div >
     )
 }

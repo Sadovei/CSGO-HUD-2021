@@ -4,6 +4,7 @@ import './UtilitiesLeft.scss'
 
 export default function UtilitiesLeft({ utilities, team, phase }) {
     const [animClass, setAnimClass] = useState('');
+    const [flag, setFlag] = useState(false);
     const updateStart = useRef(null);
 
     let HeIMG = SVGMap.hegrenade;
@@ -17,28 +18,34 @@ export default function UtilitiesLeft({ utilities, team, phase }) {
         if (!updateStart.current) {
             setUpdate(phase.phase);
         }
-    }, [phase.phase]);
+    }, [phase.phase, setUpdate]);
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     function setUpdate(phase) {
         if (phase === 'freezetime' || phase === 'timeout_t' || phase === 'timeout_ct') {
             setAnimClass("showStart");
+            setFlag(true)
         }
 
-        if (phase === 'live') {
+        if (phase === 'live' && flag) {
             updateStart.current = setTimeout(() => {
                 setAnimClass("hideStart");
                 updateStart.current = null;
+                setFlag(false)
             }, 5000);
         }
 
-        if (phase === 'bomb') {
+        if (phase === 'bomb' && !flag) {
             setAnimClass("showBomb");
+            setFlag(true)
+        }
 
+        if (phase === 'bomb' && flag)
             updateStart.current = setTimeout(() => {
                 setAnimClass("hideBomb");
                 updateStart.current = null;
             }, 5000);
-        }
+
     }
 
 

@@ -96,9 +96,6 @@
           height: 4.77vw;
           position: relative;
 
-          .timer-animation {
-          }
-
           .clock {
             position: absolute;
             top: 50%;
@@ -233,11 +230,19 @@
         .map {
           width: 1.4vw;
           height: 0.5vw;
-          background: var(--color-mapLose);
+          background-color: var(--color-mapLose);
           border-radius: 0.562vw;
 
           + .map {
             margin-left: 0.562vw;
+          }
+
+          &.T.win {
+            background-color: var(--color-T);
+          }
+
+          &.CT.win {
+            background-color: var(--color-CT);
           }
         }
       }
@@ -247,8 +252,6 @@
         align-items: center;
         justify-content: center;
 
-        .current-status {
-        }
       }
     }
 
@@ -259,7 +262,7 @@
 
       .mapWins-wrapper {
         display: flex;
-        flex-flow: row nowrap;
+        flex-flow: row-reverse nowrap;
         padding: 0 1.12vw;
         align-items: center;
 
@@ -270,7 +273,15 @@
           border-radius: 0.562vw;
 
           + .map {
-            margin-left: 0.562vw;
+            margin-right: 0.562vw;
+          }
+
+          &.T.win {
+            background-color: var(--color-T);
+          }
+
+          &.CT.win {
+            background-color: var(--color-CT);
           }
         }
       }
@@ -279,9 +290,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-
-        .current-status {
-        }
       }
     }
   }

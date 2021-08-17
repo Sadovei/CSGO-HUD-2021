@@ -2,9 +2,6 @@ import './PovSide.scss'
 
 import classNames from 'classnames';
 
-let latestDamage = 0;
-let prevHealth = 0;
-
 export default function PovSide(
     { povData,
         ammoFillAnim,
@@ -15,18 +12,25 @@ export default function PovSide(
         grenadeImg,
         activeWeapon }) {
 
-    let healthDelta = prevHealth - povData.state.health;
-    prevHealth = povData.state.health;
+    // const [prevHeal, setPrevHeal] = useState(100)
+    // const [flagDmg, setFlagDmg] = useState(false)
+    // const updateStart = useRef(null);
 
-    if (healthDelta !== 0) {
-        let damageClear = null;
-        latestDamage += healthDelta;
-        clearTimeout(damageClear);
-        damageClear = setTimeout(() => {
-            latestDamage = 0;
-        }, 1000);
-    }
-    if (latestDamage < 0) latestDamage = 0
+
+    // useEffect(() => {
+    //     if (povData.state.health <= prevHeal) {
+    //         setFlagDmg(true)
+    //         updateStart.current = setTimeout(() => {
+    //             setPrevHeal(povData.state.health);
+    //             updateStart.current = null;
+    //             setFlagDmg(false)
+    //         }, 1000);
+    //     } else {
+    //         setFlagDmg(false)
+    //     }
+    // }, [povData.state.health, prevHeal])
+    // console.log(flagDmg)
+
 
     let picturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${povData.teamKey}/${povData.playerKey}.png`
     let teamLogo = povData.teamKey === 'placeholder' ? (`placeholder/${povData.team === 'CT' ? 'CT' : 'T'}`) : povData.teamKey
@@ -109,9 +113,9 @@ export default function PovSide(
                         <div className="heal-life-wrapper">
                             <div className={`heal-bar ${sideTeam}`} style={{ width: `${povData.state.health}%` }}></div>
                             <div className="dmg" style={{
-                                transitionDelay: (latestDamage !== 0) ? "0" : "1s",
-                                transition: (latestDamage !== 0) ? "" : "width 800ms ease-out",
-                                width: latestDamage + "%"
+                                // transitionDelay: flagDmg ? "0" : "1s",
+                                // transition: flagDmg ? "" : "width 1.2s ease-out",
+                                // width: prevHeal + "%"
                             }}></div>
                         </div>
                     </div>

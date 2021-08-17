@@ -1,11 +1,12 @@
 .right-wrapper {
   .economy-wrapper {
-    position: relative;
+    position: absolute;
     display: flex;
     flex-flow: row-reverse nowrap;
     height: 3.3vw;
     width: 16.5vw;
     clip-path: polygon(14% 1%, 100% 0, 100% 100%, 0 100%, 0 45%);
+    bottom: -3.5vw;
 
     .image {
       position: absolute;
@@ -114,30 +115,30 @@
     }
 
     &.showStart {
-      animation: showStart 1s forwards;
+      animation: showRightEconomy 1s forwards;
     }
 
     &.hideStart {
-      animation: hideStart 1s forwards;
+      animation: hideRightEconomy 1s forwards;
     }
   }
 }
 
-@keyframes showStart {
+@keyframes showRightEconomy {
   from {
-    margin-bottom: -3.5vw;
+    bottom: -3.5vw;
   }
 
   to {
-    margin-bottom: 0.5vw;
+    bottom: 0.5vw;
   }
 }
 
-@keyframes hideStart {
+@keyframes hideRightEconomy {
   from {
-    margin-bottom: 0.5vw;
+    bottom: 0.5vw;
   }
   to {
-    margin-bottom: -3.5vw;
+    bottom: -3.5vw;
   }
 }

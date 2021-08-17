@@ -1,9 +1,6 @@
 import classNames from 'classnames'
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './Player.scss'
-
-let latestDamage = 0;
-let prevHealth = 0;
 
 export default function Player({ info, team, DefuseIMG, grenadeImg, BombIMG, PistolIMG, WeaponIMG, ammoFillAnim }) {
     let picturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${info.teamKey}/${info.nameKey}.png`
@@ -12,18 +9,20 @@ export default function Player({ info, team, DefuseIMG, grenadeImg, BombIMG, Pis
         'armor': !info.state.helmet && info.state.armor !== 0 && true
     })
 
-    let healthDelta = prevHealth - info.state.health;
-    prevHealth = info.state.health;
+    const [prevHeal, setPrevHeal] = useState(100)
+    const [flagDmg, setFlagDmg] = useState(false)
+    const updateStart = useRef(null);
 
-    if (healthDelta !== 0) {
-        let damageClear = null;
-        latestDamage += healthDelta;
-        clearTimeout(damageClear);
-        damageClear = setTimeout(() => {
-            latestDamage = 0;
-        }, 1000);
-    }
-    if (latestDamage < 0) latestDamage = 0
+    useEffect(() => {
+        if (info.state.health !== prevHeal) {
+            setFlagDmg(true)
+            updateStart.current = setTimeout(() => {
+                setPrevHeal(info.state.health);
+                updateStart.current = null;
+            }, 1000);
+            setFlagDmg(false)
+        }
+    }, [info.state.health, prevHeal])
 
     return (
         <div className={`right-player-wrapper slot-${info.observer_slot} ${team} ${info.state.health === 0 ? 'death' : 'alive'} ${info.active ? 'pov' : ''}`}>
@@ -61,9 +60,9 @@ export default function Player({ info, team, DefuseIMG, grenadeImg, BombIMG, Pis
                     <div className="heal-life-wrapper">
                         <div className={`heal-bar`} style={{ width: `${info.state.health}%` }}></div>
                         <div className="dmg" style={{
-                            transitionDelay: (latestDamage !== 0) ? "0" : "1s",
-                            transition: (latestDamage !== 0) ? "" : "width 800ms ease-out",
-                            width: latestDamage + "%"
+                            transitionDelay: flagDmg ? "0" : "1s",
+                            transition: flagDmg ? "" : "width 800ms ease-out",
+                            width: prevHeal + "%"
                         }}></div>
                     </div>
                 </div>

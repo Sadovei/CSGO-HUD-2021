@@ -4,7 +4,7 @@
   background-color: rgba(0, 0, 0, 0.75);
   position: relative;
   border-radius: 0.3vw;
-  padding-right: 6.3vw;
+  box-shadow: 5px 5px 15px 1px rgba(0, 0, 0, 0.5);
 
   .main-info-wrapper {
     width: 7.3vw;
@@ -12,8 +12,8 @@
     background-size: contain;
     font-size: 0.8vw;
     z-index: 2;
-    position: absolute;
-    right: -0.9vw;
+    position: relative;
+    margin-right: -0.9vw;
 
     .number-wrapper {
       position: absolute;
@@ -376,7 +376,7 @@
   &.death {
     .main-info-wrapper {
       background-image: url('../../../../assets/Death-right.png');
-      right: -1vw;
+      margin-right: -1vw;
 
       .heal-wrapper {
         background-image: url('../../../../assets/icons/elements/skull.svg');

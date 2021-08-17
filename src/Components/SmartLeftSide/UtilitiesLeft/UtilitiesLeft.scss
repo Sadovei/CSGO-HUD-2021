@@ -1,9 +1,10 @@
 .left-wrapper {
   .utility-wrapper {
+    position: absolute;
     height: 2.5vw;
     width: 12.5vw;
     clip-path: polygon(86% 1%, 100% 45%, 100% 100%, 0 100%, 0 0);
-    margin-bottom: -6.5vw;
+    bottom: -2.5vw;
 
     .bk-color {
       background-color: rgba(0, 0, 0, 0.75);
@@ -54,57 +55,57 @@
     }
 
     &.showStart {
-      animation: showStart 1s forwards;
+      animation: showLeftUtility 1s forwards;
     }
 
     &.hideStart {
-      animation: hideStart 1s forwards;
+      animation: hideLeftUtility 1s forwards;
     }
 
     &.showBomb {
-      animation: showBomb 1s forwards;
+      animation: showBombUtility 1s forwards;
     }
 
     &.hideBomb {
-      animation: hideBomb 1s forwards;
+      animation: hideBombUtility 1s forwards;
     }
   }
 }
 
-@keyframes showStart {
+@keyframes showLeftUtility {
   from {
-    margin-bottom: -6.5vw;
+    bottom: -2.5vw;
   }
 
   to {
-    margin-bottom: 0.5vw;
+    bottom: 4.3vw;
   }
 }
 
-@keyframes hideStart {
+@keyframes hideLeftUtility {
   from {
-    margin-bottom: 0.5vw;
+    bottom: 4.3vw;
   }
   to {
-    margin-bottom: -6.5vw;
+    bottom: -2.5vw;
   }
 }
 
-@keyframes showBomb {
+@keyframes showBombUtility {
   from {
-    margin-bottom: -6.5vw;
+    bottom: -2.5vw;
   }
 
   to {
-    margin-bottom: 3.5vw;
+    bottom: 0.5vw;
   }
 }
 
-@keyframes hideBomb {
+@keyframes hideBombUtility {
   from {
-    margin-bottom: 3.5vw;
+    bottom: 0.5vw;
   }
   to {
-    margin-bottom: -6.5vw;
+    bottom: -2.5vw;
   }
 }
