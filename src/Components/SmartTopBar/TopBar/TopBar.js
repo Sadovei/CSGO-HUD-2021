@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import React from 'react'
 import { range } from '../../../utils/tools';
 import { centerCounter, centerTerrorist } from './icons';
+import Timer from './Timer/Timer';
 import './TopBar.scss'
 
 export default function TopBar({ topBar }) {
@@ -46,14 +47,12 @@ export default function TopBar({ topBar }) {
                         </div>
 
                         <div className="timer-wrapper">
-                            <div className="timer-animation">
-                            </div>
-
                             <div className="clock font-mont">
                                 <p className="minutes">{(timeSeconds === '00' && topBar.round.phase !== 'paused') ? 1 : timeMinutes}</p>
                                 <p className="points">:</p>
                                 <p className="seconds">{timeSeconds === 0 ? '00' : timeSeconds}</p>
                             </div>
+                            <Timer type={'bomb'} timer={30} />
                         </div>
 
                         <div className="rightScore-wrapper">

@@ -1,0 +1,16 @@
+.svgWrapper {
+  width: 69%;
+  height: 66%;
+  position: absolute;
+  top: 0.7vw;
+  left: 0.6vw;
+  transform: rotate(45deg);
+  border-radius: 7%;
+  animation: dash 10s linear forwards;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}

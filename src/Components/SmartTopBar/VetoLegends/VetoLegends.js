@@ -28,7 +28,7 @@ export default function VetoLegends({ vetoInfo, phase }) {
             }, 5000);
         }
     }
-
+    
     return (
         <div className="main-wrapper">
             <div className={`veto-legends-wrapper font-tablet ${animClass}`}>
