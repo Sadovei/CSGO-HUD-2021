@@ -1,25 +1,28 @@
 import socketClient from "socket.io-client";
+import { findGetParameter } from "./URLParameters";
 
-const ENDPOINT = "http://10.97.2.14:4400/?client=Main";
+let token = findGetParameter("token");
+console.log(token)
+const ENDPOINT = `http://10.97.2.14:4400/?client=${token}`;
 var socket = socketClient(ENDPOINT);
 
 export const subscribeToTopBar = (cb) => {
-    socket.on('Main_OverlayTopBar', data => cb(data));
-    socket.emit('subscribe', 'Main_OverlayTopBar');
+    socket.on(`${token}_OverlayTopBar`, data => cb(data));
+    socket.emit(`subscribe`, `${token}_OverlayTopBar`);
 }
 
 export const subscribeToPov = (cb) => {
-    socket.on('Main_OverlayPovSide', data => cb(data));
-    socket.emit('subscribe', 'Main_OverlayPovSide');
+    socket.on(`${token}_OverlayPovSide`, data => cb(data));
+    socket.emit(`subscribe`, `${token}_OverlayPovSide`);
 }
 
 export const subscribeToLeftSide = (cb) => {
-    socket.on('Main_OverlayLeftSide', data => cb(data));
-    socket.emit('subscribe', 'Main_OverlayLeftSide');
+    socket.on(`${token}_OverlayLeftSide`, data => cb(data));
+    socket.emit(`subscribe`, `${token}_OverlayLeftSide`);
 }
 
 export const subscribeToRightSide = (cb) => {
-    socket.on('Main_OverlayRightSide', data => cb(data));
-    socket.emit('subscribe', 'Main_OverlayRightSide');
+    socket.on(`${token}_OverlayRightSide`, data => cb(data));
+    socket.emit(`subscribe`, `${token}_OverlayRightSide`);
 }
 
