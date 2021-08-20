@@ -45,3 +45,14 @@ export function CostGrenades(utilities, team) {
       return 'High'
   }
 }
+
+
+export function currentMatch(maps, topBar) {
+  let keys = Object.keys(maps)
+  for (let index = 0; index < keys.length; index++) {
+    if (maps[keys[index]][topBar.leftSide.nameKey] === null) {
+      return index
+    }
+  }
+}
+

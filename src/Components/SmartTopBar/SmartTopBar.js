@@ -16,7 +16,7 @@ export default function SmartTopBar() {
     return (
         <>
             <TopBar topBar={topBarData} />
-            <VetoLegends vetoInfo={topBarData.mapInfo.vetoLegend} phase={topBarData.round.phase} />
+            <VetoLegends vetoInfo={topBarData.mapInfo.vetoLegend} phase={topBarData.round.phase} topBar={topBarData} />
         </>
     )
 }

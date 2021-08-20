@@ -2,7 +2,7 @@
   "name": "csgo-hud-client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3000",
+  "homepage": "http://redis-birou.pgl.ro/pgl/CSGO/react-production-build/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",

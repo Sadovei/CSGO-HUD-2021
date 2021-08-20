@@ -16,11 +16,12 @@ export default function TopBar({ topBar }) {
     })
     let leftWin = 0
     let rightWin = 0
+    
     Object.values(topBar.mapInfo.vetoLegend).forEach(info => {
-        if (info.leftTeamScore < info.rightTeamScore)
-            leftWin += 1
-        if (info.leftTeamScore > info.rightTeamScore)
+        if (info[topBar.leftSide.nameKey] < info[topBar.rightSide.nameKey])
             rightWin += 1
+        if (info[topBar.leftSide.nameKey] > info[topBar.rightSide.nameKey])
+            leftWin += 1
     })
 
     let biggest = topBar.leftSide.name.length > topBar.rightSide.name.length ? topBar.leftSide.name.length : topBar.rightSide.name.length
