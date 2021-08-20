@@ -2,11 +2,12 @@ import socketClient from "socket.io-client";
 import { findGetParameter } from "./URLParameters";
 
 let token = findGetParameter("token") || 'main';
-let backEND = '10.97.4.59'
+// const backEND = '10.97.4.59'
+const backEND = 'localhost'
 
 const ENDPOINT = `http://${backEND}:4400/?client=${token}`;
-var socket = socketClient(ENDPOINT);
-console.log(token)
+const socket = socketClient(ENDPOINT);
+
 export const subscribeToTopBar = (cb) => {
     socket.on(`${token}_OverlayTopBar`, data => cb(data));
     socket.emit(`subscribe`, `${token}_OverlayTopBar`);
