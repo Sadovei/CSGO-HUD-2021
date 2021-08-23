@@ -6,6 +6,7 @@ import imagesPlayer from '../../utils/imagesPlayer';
 
 export default function SmartPovSide() {
     const [povData, setPovData] = useState();
+
     useEffect(() => {
         subscribeToPov(data => {
             setPovData(data)
@@ -15,15 +16,15 @@ export default function SmartPovSide() {
     if (povData === undefined || povData.steamid === undefined) {
         return null;
     }
-    
-    let ImagePlayer = imagesPlayer(povData)
-
-    return <PovSide povData={povData}
-        DefuseIMG={ImagePlayer.DefuseIMG}
-        grenadeImg={ImagePlayer.grenadeImg}
-        BombIMG={ImagePlayer.BombIMG}
-        PistolIMG={ImagePlayer.PistolIMG}
-        WeaponIMG={ImagePlayer.WeaponIMG}
-        activeWeapon={ImagePlayer.activeWeapon}
-        ammoFillAnim={ImagePlayer.ammoFillAnim} />;
+    else {
+        let ImagePlayer = imagesPlayer(povData)
+        return <PovSide povData={povData}
+            DefuseIMG={ImagePlayer.DefuseIMG}
+            grenadeImg={ImagePlayer.grenadeImg}
+            BombIMG={ImagePlayer.BombIMG}
+            PistolIMG={ImagePlayer.PistolIMG}
+            WeaponIMG={ImagePlayer.WeaponIMG}
+            activeWeapon={ImagePlayer.activeWeapon}
+            ammoFillAnim={ImagePlayer.ammoFillAnim} />;
+    }
 }

@@ -16,7 +16,7 @@ export default function TopBar({ topBar }) {
     })
     let leftWin = 0
     let rightWin = 0
-    
+
     Object.values(topBar.mapInfo.vetoLegend).forEach(info => {
         if (info[topBar.leftSide.nameKey] < info[topBar.rightSide.nameKey])
             rightWin += 1
@@ -81,7 +81,12 @@ export default function TopBar({ topBar }) {
                     </div>
 
                     <div className="status-match-wrapper">
-                        <p className="current-status font-tablet">{`ROUND ${topBar.mapInfo.currentRound}/30`}</p>
+                        {(topBar.mapInfo.currentRound < 30 || (topBar.mapInfo.currentRound === 30 && topBar.leftSide.score !== topBar.rightSide.score)) ?
+                            <p className="current-status font-tablet">{`ROUND ${topBar.mapInfo.currentRound + 1}/30`}</p>
+                            :
+                            <p className="current-status font-tablet">{`Round ${Number(topBar.mapInfo.currentRound % 6 + 1)}/6 OT${Math.floor(((topBar.mapInfo.currentRound - 30) / 6) + 1)}`}</p>
+
+                        }
                     </div>
                 </div>
 

@@ -31,7 +31,7 @@ export default function VetoLegends({ vetoInfo, phase, topBar }) {
     let matchCurrent = currentMatch(vetoInfo, topBar)
 
     if (topBar.leftSide.nameKey === 'placeholder')
-        return 0
+        return null
     else
         return (
             <div className="main-wrapper">

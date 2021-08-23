@@ -1,18 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import { mockupTopBar } from '../../utils/mockups';
-import { subscribeToTopBar } from '../../utils/socketIO';
+import React from 'react'
 import TopBar from './TopBar/TopBar';
 import VetoLegends from './VetoLegends/VetoLegends';
 
-export default function SmartTopBar() {
-    const [topBarData, setTopBarData] = useState(mockupTopBar);
-
-    useEffect(() => {
-        subscribeToTopBar(data => {
-            setTopBarData(data)
-        })
-    }, [])
-
+export default function SmartTopBar({ topBarData }) {
     return (
         <>
             <TopBar topBar={topBarData} />
