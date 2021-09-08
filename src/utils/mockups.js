@@ -1,63 +1,111 @@
-export const mockupTopBar = {
-    "round": {
-        "phase": 'live',
-        "time": 0,
-        "bomb": 0,
-        "win_team": 'CT'
+export const mockupHeadToHead = {
+    'leftPlayer': {
+        'playerNickName': 'AmaNEk',
+        'playerName': 'François Delaunay',
+        'teamName': 'G2 Esports',
+        'teamKey': 'g2_esports',
+        'playerKey': 'amanek',
+        'flag': 'fr',
+        'duels': 54,
+        'adr': 73,
+        'kast': 70.62,
+        'hs': 63,
+        'accuracy': 42,
+        'utility': 67,
+        'side': 'CT'
     },
-    "leftSide": {
-        "score": 0,
-        "name": "Counter Terrorist",
-        "nameKey": "placeholder",
-        "sideTeam": "CT"
+    'rightPlayer': {
+        'playerNickName': 's1mple',
+        'playerName': 'Oleksandr Kostyliev',
+        'teamName': 'Natus Vincere',
+        'teamKey': 'natus_vincere',
+        'playerKey': 's1mple',
+        'flag': 'uk',
+        'duels': 46,
+        'adr': 84,
+        'kast': 58.78,
+        'hs': 68,
+        'accuracy': 60,
+        'utility': 73,
+        'side': 'T'
     },
-    "rightSide": {
-        "score": 0,
-        "name": "Terrorist",
-        "nameKey": "placeholder",
-        "sideTeam": "T"
-    },
-    "mapInfo": {
-        "currentRound": 1,
-        "bestOf": 1,
-        "vetoLegend": {
-        }
-    }
+    'adr': 120,
+    'kast': 99.70,
+    'utility_dmg': 110
 }
 
-export const mockupPovData = {
-    "playerName": "",
-    "playerKey": "placeholder",
-    "playerCountry": "ro",
-    "teamKey": "placeholder",
-    "steamid": undefined,
-    "team": "",
-    "match_stats": {
-        "kills": 0,
-        "assists": 0,
-        "deaths": 0,
-        "mvps": 0,
-        "score": 0
+export const mockupScoreBoard = {
+    'leftSide': {
+        'teamKey': 'g2_esports',
+        'teamName': 'G2',
+        'players': [
+            {
+                'name': 'Yulun Cai',
+                'nickName': 'summer',
+                'hs': 55.2,
+                'adr': 90
+            },
+            {
+                'name': 'Kelun sun',
+                'nickName': 'slowly',
+                'hs': 82.6,
+                'adr': 90
+            },
+            {
+                'name': 'Zhenghao Lyu',
+                'nickName': 'dank1ng',
+                'hs': 61.5,
+                'adr': 85
+            },
+            {
+                'name': 'Yuanzhang Sheng',
+                'nickName': 'attacker',
+                'hs': 69.6,
+                'adr': 74
+            },
+            {
+                'name': 'Haowen Xu',
+                'nickName': 'somebody',
+                'hs': 23.5,
+                'adr': 59
+            },
+        ]
     },
-    "state": {
-        "health": 0,
-        "armor": 0,
-        "helmet": false,
-        "flashed": 0,
-        "smoked": 0,
-        "burning": 0,
-        "money": 0,
-        "round_kills": 0,
-        "round_killhs": 0,
-        "round_totaldmg": 0,
-        "equip_value": 0
+    'rightSide': {
+        'teamKey': 'natus_vincere',
+        'teamName': 'NaVi',
+        'players': [
+            {
+                'name': 'Zhong Weijie',
+                'nickName': 'zhoking',
+                'hs': 66.7,
+                'adr': 76
+            },
+            {
+                'name': 'Liu Zhihong',
+                'nickName': 'auman',
+                'hs': 57.1,
+                'adr': 76
+            },
+            {
+                'name': 'Liangh Zhuo',
+                'nickName': 'advent',
+                'hs': 36.0,
+                'adr': 60.0
+            },
+            {
+                'name': 'Andrew Khong',
+                'nickName': 'kaze',
+                'hs': 60.0,
+                'adr': 69
+            },
+            {
+                'name': 'Yang Yi',
+                'nickName': 'jamyoung',
+                'hs': 44.4,
+                'adr': 39
+            }
+        ]
     },
-    "weapons": {
-        "weapon_0": {
-            "name": "",
-            "paintkit": "",
-            "type": "",
-            "state": ""
-        }
-    }
+    'adr': 100
 }

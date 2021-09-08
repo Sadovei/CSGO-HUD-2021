@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { subscribeToTopBar } from "./utils/socketIO";
+
+import SmartTopBar from "./Components/SmartTopBar/SmartTopBar";
 import SmartLeftSide from "./Components/SmartLeftSide/SmartLeftSide";
 import SmartRightSide from "./Components/SmartRightSide/SmartRightSide";
 import SmartPovSide from "./Components/SmartPovSide/SmartPovSide";
-import SmartTopBar from "./Components/SmartTopBar/SmartTopBar";
-import { subscribeToTopBar } from "./utils/socketIO";
+
+import SmartScoreBoard from "./Components/SmartScoreBoard/SmartScoreBoard";
+import SmartHeadToHead from "./Components/SmartHeadToHead/SmartHeadToHead";
 
 function App() {
   const [topBar, setTopBar] = useState();
@@ -23,6 +27,9 @@ function App() {
           <SmartRightSide />
           <SmartPovSide />
           <SmartLeftSide />
+
+          {/* <SmartHeadToHead /> */}
+          {/* <SmartScoreBoard /> */}
         </>
       );
   }

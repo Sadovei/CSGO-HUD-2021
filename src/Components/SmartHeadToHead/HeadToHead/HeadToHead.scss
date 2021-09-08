@@ -1,0 +1,214 @@
+.headTohead-wrapper {
+  position: relative;
+  bottom: -28.7vw;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 60vw;
+  height: 18.7vw;
+  justify-content: space-between;
+
+  border-radius: 0.3vw;
+  background-color: var(--color-background);
+  background-image: url('../../../assets/dynamic-bk.png');
+  background-size: 70%;
+  background-position: center;
+
+  box-shadow: 0px 5px 15px 1px var(--color-background);
+
+  .h2h-info-wrapper {
+    position: absolute;
+    left: 30%;
+
+    width: 40%;
+    height: 100%;
+    margin-top: 0.5625vw;
+
+    justify-content: space-evenly;
+    color: var(--color-white);
+
+    .info {
+      position: relative;
+      margin-top: 0.5625vw;
+
+      .bar-info {
+        .bar-wrapper {
+          width: 12vw;
+          height: 1.3vw;
+          background-size: contain;
+          position: relative;
+
+          &.left {
+            &.CT {
+              background-image: url('../../../assets/CT-life-bar-right.png');
+
+              .bar {
+                right: 0.39375vw;
+                background-color: var(--color-CT);
+              }
+            }
+
+            &.T {
+              background-image: url('../../../assets/T-life-bar-right.png');
+
+              .bar {
+                right: 0.39375vw;
+                background-color: var(--color-T);
+              }
+            }
+          }
+
+          &.right {
+            &.CT {
+              background-image: url('../../../assets/CT-life-bar-right.png');
+
+              .bar {
+                left: 0.39375vw;
+                background-color: var(--color-CT);
+              }
+            }
+
+            &.T {
+              background-image: url('../../../assets/T-life-bar-right.png');
+
+              .bar {
+                left: 0.39375vw;
+                background-color: var(--color-T);
+              }
+            }
+          }
+
+          .bar {
+            width: 10.125vw;
+            height: 0.225vw;
+            position: absolute;
+            top: 0.45vw;
+            border-radius: 0.5625vw;
+          }
+
+          .number {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -1.40625vw;
+            font-size: 1.40625vw;
+          }
+        }
+      }
+
+      .title {
+        font-size: 0.84375vw;
+        position: absolute;
+        left: 50%;
+        top: -0.84375vw;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  .player {
+    position: absolute;
+    padding-top: 4vw;
+    bottom: 0;
+    top: -4vw;
+
+    overflow: hidden;
+    width: 30%;
+
+    display: flex;
+    align-items: flex-end;
+
+    &.leftSide-wrapper {
+      left: 0;
+
+      .image-player {
+        left: -1.6825vw;
+      }
+
+      .info-wrapper {
+        margin-left: 1.125vw;
+
+        .name-wrapper {
+          .flag {
+            margin-left: 0.28125vw;
+            position: absolute;
+            right: -1.40625vw;
+            bottom: -0.1125vw;
+          }
+        }
+      }
+    }
+
+    &.rightSide-wrapper {
+      right: 0;
+      justify-content: flex-end;
+
+      .image-player {
+        right: -1.6825vw;
+      }
+
+      .info-wrapper {
+        margin-right: 1.125vw;
+        align-items: flex-end;
+
+        .nickName {
+          text-align: end;
+        }
+
+        .name-wrapper {
+          .name {
+            text-align: end;
+          }
+
+          .flag {
+            margin-right: 0.28125vw;
+            position: absolute;
+            left: -1.40625vw;
+            bottom: -0.1125vw;
+          }
+        }
+      }
+    }
+
+    .image-player {
+      background-size: cover;
+      background-position: center top;
+      position: absolute;
+      bottom: 0;
+      top: -0.5625vw;
+      width: 100%;
+      z-index: -1;
+    }
+
+    .info-wrapper {
+      margin-bottom: 0.5625vw;
+
+      .nickName {
+        margin-bottom: -0.5625vw;
+        font-size: 2.25vw;
+        color: var(--color-white);
+      }
+
+      .name-wrapper {
+        position: relative;
+
+        .name {
+          margin-bottom: -0.28125vw;
+          font-size: 1.125vw;
+          color: var(--color-white);
+        }
+
+        .flag {
+          width: 1.06875vw;
+          height: 0.84375vw;
+          background-size: contain;
+        }
+      }
+
+      .teamName {
+        font-size: 1.125vw;
+        color: var(--color-grey);
+      }
+    }
+  }
+}

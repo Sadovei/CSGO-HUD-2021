@@ -53,7 +53,7 @@ export default function TopBar({ topBar }) {
                                 <p className="points">:</p>
                                 <p className="seconds">{timeSeconds === 0 ? '00' : timeSeconds}</p>
                             </div>
-                            <Timer type={'bomb'} timer={30} />
+                            <Timer type={'bomb'} timer={15} />
                         </div>
 
                         <div className="rightScore-wrapper">
