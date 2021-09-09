@@ -28,3 +28,8 @@ export const subscribeToRightSide = (cb) => {
     socket.emit(`subscribe`, `${token}_OverlayRightSide`);
 }
 
+export const subscribeToHead2Head = (cb) => {
+    socket.on(`Overlay_Head2Head`, data => cb(data));
+    socket.emit(`subscribe`, `Overlay_Head2Head`);
+}
+

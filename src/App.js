@@ -25,10 +25,10 @@ function App() {
         <>
           <SmartTopBar topBarData={topBar} />
           <SmartRightSide />
-          <SmartPovSide />
+          {/* <SmartPovSide /> */}
           <SmartLeftSide />
 
-          {/* <SmartHeadToHead /> */}
+          <SmartHeadToHead />
           {/* <SmartScoreBoard /> */}
         </>
       );
