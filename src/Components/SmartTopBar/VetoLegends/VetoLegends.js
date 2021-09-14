@@ -45,19 +45,19 @@ export default function VetoLegends({ vetoInfo, phase, topBar }) {
                                         <p className="current">Current</p>
                                         : (matchCurrent < indexMap) &&
                                         <div className="info-wrapper">
-                                            <div className="logo-left" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${topBar.leftSide.nameKey}/logo.png)` }}></div>
+                                            <div className="logo-left" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${topBar.leftSide.nameKey}/logo.webp)` }}></div>
                                             <p className="score-notice">vs</p>
-                                            <div className="logo-right" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${topBar.rightSide.nameKey}/logo.png)` }}></div>
+                                            <div className="logo-right" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${topBar.rightSide.nameKey}/logo.webp)` }}></div>
                                         </div>
                                     }
 
                                     {vetoInfo[map][topBar.leftSide.nameKey] !== null &&
                                         <div className="info-wrapper">
-                                            <div className="logo-left" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${topBar.leftSide.nameKey}/logo.png)` }}></div>
+                                            <div className="logo-left" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${topBar.leftSide.nameKey}/logo.webp)` }}></div>
                                             <p className="score-left">{vetoInfo[map][topBar.leftSide.nameKey]}</p>
                                             <p className="score-notice">-</p>
                                             <p className="score-right">{vetoInfo[map][topBar.rightSide.nameKey]}</p>
-                                            <div className="logo-right" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${topBar.rightSide.nameKey}/logo.png)` }}></div>
+                                            <div className="logo-right" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${topBar.rightSide.nameKey}/logo.webp)` }}></div>
                                         </div>
                                     }
                                 </div>

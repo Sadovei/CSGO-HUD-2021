@@ -2,10 +2,10 @@ import './HeadToHead.scss'
 import classNames from 'classnames';
 
 export default function HeadToHead({ data }) {
-    let leftPicturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${data.leftPlayer.teamKey}/${data.leftPlayer.playerKey}-h2h.png`
-    let rightPicturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${data.rightPlayer.teamKey}/${data.rightPlayer.playerKey}-h2h.png`
-    let flagLeft = data.leftPlayer.flag !== '' ? `http://redis-birou.pgl.ro/pgl/resources/flags/${data.leftPlayer.flag}.png` : ''
-    let flagRight = data.leftPlayer.flag !== '' ? `http://redis-birou.pgl.ro/pgl/resources/flags/${data.leftPlayer.flag}.png` : ''
+    let leftPicturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${data.leftPlayer.teamKey}/${data.leftPlayer.playerKey}-h2h.webp`
+    let rightPicturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${data.rightPlayer.teamKey}/${data.rightPlayer.playerKey}-h2h.webp`
+    let flagLeft = data.leftPlayer.flag !== '' ? `http://redis-birou.pgl.ro/pgl/resources/flags/${data.leftPlayer.flag}.webp` : ''
+    let flagRight = data.leftPlayer.flag !== '' ? `http://redis-birou.pgl.ro/pgl/resources/flags/${data.leftPlayer.flag}.webp` : ''
 
     let leftSide = classNames({
         'CT': data.leftPlayer.side === 'CT' && true,

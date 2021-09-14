@@ -35,8 +35,8 @@ export default function TopBar({ topBar }) {
         <div className="top-bar-wrapper" >
             <div className="first-wrapper">
                 <div className="leftSide-wrapper" style={{ width: `calc(18vw + ${(biggest / 2) * 1.29}vw)` }}>
-                    <div className="primary-logo" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${leftLogo}/logo.png)` }}></div>
-                    <div className="secondary-logo" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${leftLogo}/logo.png)` }}></div>
+                    <div className="primary-logo" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${leftLogo}/logo.webp)` }}></div>
+                    <div className="secondary-logo" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${leftLogo}/logo.webp)` }}></div>
                     <p className='teamName font-tablet'>{topBar.leftSide.name}</p>
                 </div>
 
@@ -63,8 +63,8 @@ export default function TopBar({ topBar }) {
                 </div>
 
                 <div className="rightSide-wrapper" style={{ width: `calc(18vw + ${(biggest / 2) * 1.29}vw)` }}>
-                    <div className="primary-logo" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${rightLogo}/logo.png)` }}></div>
-                    <div className="secondary-logo" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${rightLogo}/logo.png)` }}></div>
+                    <div className="primary-logo" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${rightLogo}/logo.webp)` }}></div>
+                    <div className="secondary-logo" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${rightLogo}/logo.webp)` }}></div>
                     <p className='teamName font-tablet'>{topBar.rightSide.name}</p>
                 </div>
             </div>

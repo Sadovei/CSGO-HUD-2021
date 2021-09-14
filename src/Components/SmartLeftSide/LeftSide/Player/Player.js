@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import './Player.scss'
 
 export default function Player({ info, team, DefuseIMG, grenadeImg, BombIMG, PistolIMG, WeaponIMG, ammoFillAnim }) {
-    let picturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${info.teamKey}/${info.nameKey}.png`
+    let picturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${info.teamKey}/${info.nameKey}.webp`
     let armor = classNames({
         'helmet': info.state.helmet && true,
         'armor': !info.state.helmet && info.state.armor !== 0 && true

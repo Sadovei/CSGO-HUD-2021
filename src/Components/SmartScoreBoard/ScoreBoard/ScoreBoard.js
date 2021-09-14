@@ -2,8 +2,8 @@ import React from 'react'
 import './ScoreBoard.scss'
 
 export default function ScoreBoard({ data }) {
-    let leftLogo = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${data.leftSide.teamKey}/logo.png`
-    let rightLogo = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${data.rightSide.teamKey}/logo.png`
+    let leftLogo = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${data.leftSide.teamKey}/logo.webp`
+    let rightLogo = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${data.rightSide.teamKey}/logo.webp`
     return (
         <div className="scoreBoard-wrapper row">
             <div className="leftSide-players-wrapper col font-mont">

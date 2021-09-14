@@ -260,7 +260,7 @@
 
   &.CT {
     .main-info-wrapper {
-      background-image: url('../../../../assets/CT-player-box-right.png');
+      background-image: url('../../../../assets/CT-player-box-right.webp');
 
       .heal-wrapper {
         color: var(--color-CT);
@@ -290,7 +290,7 @@
       }
 
       .second-line-wrapper {
-        background-image: url('../../../../assets/CT-life-bar-right.png');
+        background-image: url('../../../../assets/CT-life-bar-right.webp');
 
         .heal-life-wrapper {
           .heal-bar {
@@ -303,7 +303,7 @@
 
   &.T {
     .main-info-wrapper {
-      background-image: url('../../../../assets/T-player-box-right.png');
+      background-image: url('../../../../assets/T-player-box-right.webp');
 
       .heal-wrapper {
         color: var(--color-T);
@@ -333,7 +333,7 @@
       }
 
       .second-line-wrapper {
-        background-image: url('../../../../assets/T-life-bar-right.png');
+        background-image: url('../../../../assets/T-life-bar-right.webp');
 
         .heal-life-wrapper {
           .heal-bar {
@@ -347,7 +347,7 @@
   &.death {
     .main-info-wrapper {
       margin-right: -1vw;
-      background-image: url('../../../../assets/Death-right.png');
+      background-image: url('../../../../assets/Death-right.webp');
 
       .heal-wrapper {
         top: 1.1vw;
