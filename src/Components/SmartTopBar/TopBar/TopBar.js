@@ -54,7 +54,7 @@ export default function TopBar({ topBar }) {
             setFlag(false)
         }
     }
-    // let test = <Timer type={phaseTimer} timer={timeTimer} />
+
     return (
         <div className="top-bar-wrapper" >
             <div className="first-wrapper">
@@ -77,7 +77,7 @@ export default function TopBar({ topBar }) {
                                 <p className="points">:</p>
                                 <p className="seconds">{timeSeconds === 0 ? '00' : timeSeconds}</p>
                             </div>
-                            {/* {timeTimer !== 0 && test} */}
+                            {timeTimer !== 0 && <Timer type={phaseTimer} timer={timeTimer} />}
                         </div>
 
                         <div className="rightScore-wrapper">

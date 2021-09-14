@@ -2,9 +2,12 @@ import React from 'react'
 import './ScoreBoard.scss'
 import { useSpring, animated } from 'react-spring'
 
-export default function ScoreBoard({ data }) {
+export default function ScoreBoard({ data, action }) {
     let leftLogo = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${data.leftSide.teamKey}/logo.webp`
     let rightLogo = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${data.rightSide.teamKey}/logo.webp`
+    const props = useSpring({
+        bottom: action === 'show' ? '1.1vw' : '-25vw'
+    })
     return (
         <animated.div className="scoreBoard-wrapper row"
             style={{ bottom: props.bottom }}>

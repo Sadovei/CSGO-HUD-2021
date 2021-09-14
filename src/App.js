@@ -21,10 +21,10 @@ function App() {
     else
       return (
         <>
-          {/* <SmartTopBar topBarData={topBar} /> */}
+          <SmartTopBar topBarData={topBar} />
           <SmartRightSide />
           <SmartLeftSide />
-          {/* <SmartDynamic /> */}
+          <SmartDynamic />
         </>
       );
   }

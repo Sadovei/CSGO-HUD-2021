@@ -2,11 +2,11 @@ import './HeadToHead.scss'
 import classNames from 'classnames';
 import { useSpring, animated } from 'react-spring'
 
-export default function HeadToHead({ data }) {
+export default function HeadToHead({ data, action }) {
     let leftPicturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${data.leftPlayer.teamKey}/${data.leftPlayer.playerKey}-h2h.webp`
     let rightPicturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${data.rightPlayer.teamKey}/${data.rightPlayer.playerKey}-h2h.webp`
-    let flagLeft = data.leftPlayer.flag !== '' ? `http://redis-birou.pgl.ro/pgl/resources/flags/${data.leftPlayer.flag}.webp` : ''
-    let flagRight = data.leftPlayer.flag !== '' ? `http://redis-birou.pgl.ro/pgl/resources/flags/${data.leftPlayer.flag}.webp` : ''
+    let flagLeft = data.leftPlayer.flag !== '' ? `http://redis-birou.pgl.ro/pgl/resources/flags/${data.leftPlayer.flag}.png` : ''
+    let flagRight = data.leftPlayer.flag !== '' ? `http://redis-birou.pgl.ro/pgl/resources/flags/${data.leftPlayer.flag}.png` : ''
 
     let leftSide = classNames({
         'CT': data.leftPlayer.side === 'CT' && true,
