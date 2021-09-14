@@ -1,11 +1,14 @@
 import React from 'react'
 import './ScoreBoard.scss'
+import { useSpring, animated } from 'react-spring'
 
 export default function ScoreBoard({ data }) {
     let leftLogo = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${data.leftSide.teamKey}/logo.webp`
     let rightLogo = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${data.rightSide.teamKey}/logo.webp`
     return (
-        <div className="scoreBoard-wrapper row">
+        <animated.div className="scoreBoard-wrapper row"
+            style={{ bottom: props.bottom }}>
+
             <div className="leftSide-players-wrapper col font-mont">
                 <div className="logo" style={{ backgroundImage: `url(${leftLogo})` }}></div>
                 {
@@ -88,6 +91,6 @@ export default function ScoreBoard({ data }) {
                     })
                 }
             </div>
-        </div >
+        </animated.div>
     )
 }

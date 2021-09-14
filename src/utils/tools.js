@@ -30,16 +30,20 @@ export function CostGrenades(utilities, team) {
   })
 
   if (team === 'CT') {
-    if (total < 2301)
+    if (total === 0)
+      return 'None'
+    else if (total > 0 && total < 2301)
       return 'Low'
-    else if (total < 4601)
+    else if (total >= 2301 && total < 4601)
       return 'Medium'
     else
       return 'High'
   } else {
-    if (total < 2001)
+    if (total === 0)
+      return 'None'
+    else if (total > 0 && total < 2001)
       return 'Low'
-    else if (total < 4001)
+    else if (total >= 2001 && total < 4001)
       return 'Medium'
     else
       return 'High'

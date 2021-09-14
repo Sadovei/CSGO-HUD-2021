@@ -1,5 +1,6 @@
 import './HeadToHead.scss'
 import classNames from 'classnames';
+import { useSpring, animated } from 'react-spring'
 
 export default function HeadToHead({ data }) {
     let leftPicturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${data.leftPlayer.teamKey}/${data.leftPlayer.playerKey}-h2h.webp`
@@ -15,8 +16,23 @@ export default function HeadToHead({ data }) {
         'CT': data.rightPlayer.side === 'CT' && true,
         'T': data.rightPlayer.side === 'T' && true
     })
+    const showEl = useSpring({
+        from: { bottom: '-25vw' },
+        to: { bottom: '1.1vw' },
+        config: { duration: 500 }
+    })
+
+    const hideEl = useSpring({
+        from: { bottom: '-1.1vw' },
+        to: { bottom: '-25vw' },
+        config: { duration: 500 }
+    })
+
     return (
-        <div className="headTohead-wrapper font-tablet row">
+        <animated.div className="headTohead-wrapper font-tablet row"
+            style={action === 'show' ? showEl : hideEl}
+        >
+
             <div className="leftSide-wrapper player">
                 <div className="image-player" style={{ backgroundImage: `url(${leftPicturePlayer})` }}></div>
 
@@ -140,6 +156,6 @@ export default function HeadToHead({ data }) {
                     <p className="teamName">{data.rightPlayer.teamName}</p>
                 </div>
             </div>
-        </div>
+        </animated.div>
     )
 }

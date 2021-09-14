@@ -1,5 +1,5 @@
 import './PovSide.scss'
-
+import { useSpring, animated } from 'react-spring'
 import classNames from 'classnames';
 
 export default function PovSide(
@@ -10,7 +10,8 @@ export default function PovSide(
         PistolIMG,
         WeaponIMG,
         grenadeImg,
-        activeWeapon }) {
+        activeWeapon,
+        action }) {
 
     let picturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${povData.teamKey}/${povData.playerKey}.webp`
     let teamLogo = povData.teamKey === 'placeholder' ? (`placeholder/${povData.team === 'CT' ? 'CT' : 'T'}`) : povData.teamKey
@@ -31,9 +32,13 @@ export default function PovSide(
         'hide': povData.state.round_kills === 0 && true,
     })
 
+    const props = useSpring({
+        bottom: action === 'show' ? '1.1vw' : '-14vw',
+        delay: action === 'show' ? 250 : 0
+    })
 
     return (
-        <div className="pov-wrapper col">
+        <animated.div className={`pov-wrapper col`} style={{ bottom: props.bottom }}>
             <div className="player-wrapper">
                 <div className={`border-image-player ${sideTeam}`}>
                     <div className="background-image-player"></div>
@@ -116,6 +121,6 @@ export default function PovSide(
                 </div >
             </div >
             <div className="sponsors-wrapper"></div>
-        </div >
+        </animated.div>
     )
 }

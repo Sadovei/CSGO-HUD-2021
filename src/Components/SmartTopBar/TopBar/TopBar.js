@@ -1,11 +1,15 @@
 import classNames from 'classnames';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { range } from '../../../utils/tools';
 import { centerCounter, centerTerrorist } from './icons';
 import Timer from './Timer/Timer';
 import './TopBar.scss'
 
 export default function TopBar({ topBar }) {
+    const [timeTimer, setTimeTimer] = useState(0);
+    const [phaseTimer, setPhaseTimer] = useState();
+    const [flag, setFlag] = useState(true);
+
     let sideLeft = classNames({
         'CT': topBar.leftSide.sideTeam === 'CT' && true,
         'T': topBar.leftSide.sideTeam === 'T' && true
@@ -31,6 +35,26 @@ export default function TopBar({ topBar }) {
     let timeSeconds = Number(topBar.round.time) >= 0 ? Math.ceil(Number(topBar.round.time)) % 60 < 10 ? `0${Math.ceil(Number(topBar.round.time)) % 60}` : Math.ceil(Number(topBar.round.time)) % 60 : 0
     const mapsToWin = range(1, (topBar.mapInfo.bestOf / 2).toFixed(0));
 
+    useEffect(() => {
+        setUpdate(topBar.round.phase, topBar.round.win_team);
+        setFlag(true);
+    }, [topBar.round.phase]);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    function setUpdate(phase, round_win) {
+        if (((phase === 'defuse' || phase === 'bomb') && round_win === '') && flag) {
+            setTimeTimer(Number(timeSeconds))
+            setPhaseTimer(phase)
+            setFlag(false)
+        }
+
+        if ((round_win === 'CT' || round_win === 'T') && flag) {
+            setTimeTimer(Number(timeSeconds))
+            setPhaseTimer(round_win)
+            setFlag(false)
+        }
+    }
+    // let test = <Timer type={phaseTimer} timer={timeTimer} />
     return (
         <div className="top-bar-wrapper" >
             <div className="first-wrapper">
@@ -53,7 +77,7 @@ export default function TopBar({ topBar }) {
                                 <p className="points">:</p>
                                 <p className="seconds">{timeSeconds === 0 ? '00' : timeSeconds}</p>
                             </div>
-                            <Timer type={'bomb'} timer={15} />
+                            {/* {timeTimer !== 0 && test} */}
                         </div>
 
                         <div className="rightScore-wrapper">

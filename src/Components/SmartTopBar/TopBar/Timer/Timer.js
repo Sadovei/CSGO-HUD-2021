@@ -2,13 +2,23 @@ import React, { useRef } from 'react'
 import "./Timer.scss"
 
 export default function Timer({ type, timer }) {
+    console.log(type, timer)
     let path = useRef()
+    let colorTimer,
+        dashArray = 400,
+        dashOffSet = dashArray
+
+    if (type === 'bomb' || type === 'T')
+        colorTimer = 'red'
+    else if (type === 'defuse' || type === 'CT')
+        colorTimer = 'blue'
+
     return (
         <svg className="svgWrapper" viewBox="0 0 100 100" stroke="blue">
             <path ref={path} id="rhombPathOverlay" d="M 0 0 h 0 100 v 100 0 h -100 0 v -100 0" fill="none" stroke="none"
                 strokeWidth="10"
-                strokeDasharray='400'
-                strokeDashoffset='400'
+                strokeDasharray={dashArray}
+                strokeDashoffset={dashOffSet}
                 style={{
                     stroke: "url(#linear)",
                     animationName: "dash",
@@ -19,7 +29,7 @@ export default function Timer({ type, timer }) {
             />
             <defs>
                 <linearGradient id="linear" x1="0%" y1="0%" x2="100%" y2="100%" gradientUnits="userSpaceOnUse">
-                    <stop offset="100%" stopColor={type === 'bomb' ? 'red' : 'blue'} stopOpacity="1" />
+                    <stop offset="100%" stopColor={colorTimer} stopOpacity="1" />
                 </linearGradient>
             </defs>
         </svg>

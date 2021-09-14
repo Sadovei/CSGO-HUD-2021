@@ -48,7 +48,6 @@ export default function UtilitiesLeft({ utilities, team, phase }) {
 
     }
 
-
     return (
         <div className={`utility-wrapper ${team} font-tablet ${animClass}`}>
             <div className="bk-color row">

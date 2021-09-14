@@ -1,6 +1,5 @@
 .pov-wrapper {
   position: absolute;
-  bottom: 1.1vw;
   left: 50%;
 
   width: 27vw;
@@ -110,11 +109,11 @@
                   background-size: cover;
 
                   &.CT {
-                    background-image: url('../../../assets/icons/elements/health-CT.svg');
+                    background-image: url("../../../assets/icons/elements/health-CT.svg");
                   }
 
                   &.T {
-                    background-image: url('../../../assets/icons/elements/health-T.svg');
+                    background-image: url("../../../assets/icons/elements/health-T.svg");
                   }
                 }
                 .heal-number {
@@ -134,11 +133,11 @@
 
                   .armor-image {
                     &.CT {
-                      background-image: url('../../../assets/icons/elements/armor-CT.svg');
+                      background-image: url("../../../assets/icons/elements/armor-CT.svg");
                     }
 
                     &.T {
-                      background-image: url('../../../assets/icons/elements/armor-T.svg');
+                      background-image: url("../../../assets/icons/elements/armor-T.svg");
                     }
                   }
                 }
@@ -148,11 +147,11 @@
 
                   .armor-image {
                     &.CT {
-                      background-image: url('../../../assets/icons/elements/helmet-CT.svg');
+                      background-image: url("../../../assets/icons/elements/helmet-CT.svg");
                     }
 
                     &.T {
-                      background-image: url('../../../assets/icons/elements/helmet-T.svg');
+                      background-image: url("../../../assets/icons/elements/helmet-T.svg");
                     }
                   }
                 }
@@ -230,7 +229,7 @@
                 height: 0.8vw;
 
                 background-size: cover;
-                background-image: url('../../../assets/icons/elements/skull.svg');
+                background-image: url("../../../assets/icons/elements/skull.svg");
               }
 
               .kills-round-number {
@@ -334,7 +333,7 @@
             height: 0.8vw;
 
             background-size: cover;
-            background-image: url('../../../assets/icons/elements/bullets.svg');
+            background-image: url("../../../assets/icons/elements/bullets.svg");
           }
 
           &.hide {
@@ -416,3 +415,4 @@
     background-color: var(--color-background-POV);
   }
 }
+

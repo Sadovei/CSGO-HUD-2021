@@ -4,7 +4,7 @@ import PovSide from './PovSide/PovSide';
 import { subscribeToPov } from '../../utils/socketIO';
 import imagesPlayer from '../../utils/imagesPlayer';
 
-export default function SmartPovSide() {
+export default function SmartPovSide({ action }) {
     const [povData, setPovData] = useState();
 
     useEffect(() => {
@@ -13,11 +13,12 @@ export default function SmartPovSide() {
         })
     }, [])
 
-    if (povData === undefined || povData.steamid === undefined) {
+    if (povData === undefined || povData.playerName === '') {
         return null;
     }
     else {
         let ImagePlayer = imagesPlayer(povData)
+
         return <PovSide povData={povData}
             DefuseIMG={ImagePlayer.DefuseIMG}
             grenadeImg={ImagePlayer.grenadeImg}
@@ -25,6 +26,7 @@ export default function SmartPovSide() {
             PistolIMG={ImagePlayer.PistolIMG}
             WeaponIMG={ImagePlayer.WeaponIMG}
             activeWeapon={ImagePlayer.activeWeapon}
-            ammoFillAnim={ImagePlayer.ammoFillAnim} />;
+            ammoFillAnim={ImagePlayer.ammoFillAnim}
+            action={action} />;
     }
 }
