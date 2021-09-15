@@ -3,18 +3,18 @@ import classNames from 'classnames';
 import { useSpring, animated } from 'react-spring'
 
 export default function HeadToHead({ data, action }) {
-    let leftPicturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${data.leftPlayer.teamKey}/${data.leftPlayer.playerKey}-h2h.webp`
-    let rightPicturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${data.rightPlayer.teamKey}/${data.rightPlayer.playerKey}-h2h.webp`
-    let flagLeft = data.leftPlayer.flag !== '' ? `http://redis-birou.pgl.ro/pgl/resources/flags/${data.leftPlayer.flag}.png` : ''
-    let flagRight = data.leftPlayer.flag !== '' ? `http://redis-birou.pgl.ro/pgl/resources/flags/${data.leftPlayer.flag}.png` : ''
+    let leftPicturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${data?.leftPlayer.teamKey}/${data?.leftPlayer.playerKey}-h2h.webp`
+    let rightPicturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${data?.rightPlayer.teamKey}/${data?.rightPlayer.playerKey}-h2h.webp`
+    let flagLeft = data?.leftPlayer.flag !== '' ? `http://redis-birou.pgl.ro/pgl/resources/flags/${data?.leftPlayer.flag}.png` : ''
+    let flagRight = data?.leftPlayer.flag !== '' ? `http://redis-birou.pgl.ro/pgl/resources/flags/${data?.leftPlayer.flag}.png` : ''
 
     let leftSide = classNames({
-        'CT': data.leftPlayer.side === 'CT' && true,
-        'T': data.leftPlayer.side === 'T' && true
+        'CT': data?.leftPlayer.side === 'CT' && true,
+        'T': data?.leftPlayer.side === 'T' && true
     })
     let rightSide = classNames({
-        'CT': data.rightPlayer.side === 'CT' && true,
-        'T': data.rightPlayer.side === 'T' && true
+        'CT': data?.rightPlayer.side === 'CT' && true,
+        'T': data?.rightPlayer.side === 'T' && true
     })
     const showEl = useSpring({
         from: { bottom: '-25vw' },
@@ -37,12 +37,12 @@ export default function HeadToHead({ data, action }) {
                 <div className="image-player" style={{ backgroundImage: `url(${leftPicturePlayer})` }}></div>
 
                 <div className="info-wrapper col">
-                    <p className="nickName">{data.leftPlayer.playerNickName}</p>
+                    <p className="nickName">{data?.leftPlayer.playerNickName}</p>
                     <div className="name-wrapper row">
-                        <p className="name">{data.leftPlayer.playerName}</p>
+                        <p className="name">{data?.leftPlayer.playerName}</p>
                         <div className="flag" style={{ backgroundImage: `url(${flagLeft})` }}></div>
                     </div>
-                    <p className="teamName">{data.leftPlayer.teamName}</p>
+                    <p className="teamName">{data?.leftPlayer.teamName}</p>
                 </div>
             </div>
 
@@ -52,13 +52,13 @@ export default function HeadToHead({ data, action }) {
 
                     <div className="bar-info row">
                         <div className={`bar-wrapper left ${leftSide}`}>
-                            <p className="number number-left">{data.leftPlayer.duels}%</p>
-                            <div className="bar" style={{ width: `${data.leftPlayer.duels * 92 / 100}%` }}></div>
+                            <p className="number number-left">{data?.leftPlayer.duels}%</p>
+                            <div className="bar" style={{ width: `${data?.leftPlayer.duels * 92 / 100}%` }}></div>
                         </div>
 
                         <div className={`bar-wrapper right ${rightSide}`}>
-                            <p className="number number-right">{data.rightPlayer.duels}%</p>
-                            <div className="bar" style={{ width: `${data.rightPlayer.duels * 92 / 100}%` }}></div>
+                            <p className="number number-right">{data?.rightPlayer.duels}%</p>
+                            <div className="bar" style={{ width: `${data?.rightPlayer.duels * 92 / 100}%` }}></div>
                         </div>
                     </div>
                 </div>
@@ -68,13 +68,13 @@ export default function HeadToHead({ data, action }) {
 
                     <div className="bar-info row">
                         <div className={`bar-wrapper left ${leftSide}`}>
-                            <p className="number number-left">{data.leftPlayer.adr}</p>
-                            <div className="bar" style={{ width: `${data.leftPlayer.adr * 92 / data.adr}%` }}></div>
+                            <p className="number number-left">{data?.leftPlayer.adr}</p>
+                            <div className="bar" style={{ width: `${data?.leftPlayer.adr * 92 / data?.adr}%` }}></div>
                         </div>
 
                         <div className={`bar-wrapper right ${rightSide}`}>
-                            <p className="number number-right">{data.rightPlayer.adr}</p>
-                            <div className="bar" style={{ width: `${data.rightPlayer.adr * 92 / data.adr}%` }}></div>
+                            <p className="number number-right">{data?.rightPlayer.adr}</p>
+                            <div className="bar" style={{ width: `${data?.rightPlayer.adr * 92 / data?.adr}%` }}></div>
                         </div>
                     </div>
                 </div>
@@ -84,13 +84,13 @@ export default function HeadToHead({ data, action }) {
 
                     <div className="bar-info row">
                         <div className={`bar-wrapper left ${leftSide}`}>
-                            <p className="number number-left">{data.leftPlayer.kast}</p>
-                            <div className="bar" style={{ width: `${data.leftPlayer.kast * 92 / data.kast}%` }}></div>
+                            <p className="number number-left">{data?.leftPlayer.kast}</p>
+                            <div className="bar" style={{ width: `${data?.leftPlayer.kast * 92 / data?.kast}%` }}></div>
                         </div>
 
                         <div className={`bar-wrapper right ${rightSide}`}>
-                            <p className="number number-right">{data.rightPlayer.kast}</p>
-                            <div className="bar" style={{ width: `${data.rightPlayer.kast * 92 / data.kast}%` }}></div>
+                            <p className="number number-right">{data?.rightPlayer.kast}</p>
+                            <div className="bar" style={{ width: `${data?.rightPlayer.kast * 92 / data?.kast}%` }}></div>
                         </div>
                     </div>
                 </div>
@@ -100,13 +100,13 @@ export default function HeadToHead({ data, action }) {
 
                     <div className="bar-info row">
                         <div className={`bar-wrapper left ${leftSide}`}>
-                            <p className="number number-left">{data.leftPlayer.hs}%</p>
-                            <div className="bar" style={{ width: `${data.leftPlayer.hs * 92 / 100}%` }}></div>
+                            <p className="number number-left">{data?.leftPlayer.hs}%</p>
+                            <div className="bar" style={{ width: `${data?.leftPlayer.hs * 92 / 100}%` }}></div>
                         </div>
 
                         <div className={`bar-wrapper right ${rightSide}`}>
-                            <p className="number number-right">{data.rightPlayer.hs}%</p>
-                            <div className="bar" style={{ width: `${data.rightPlayer.hs * 92 / 100}%` }}></div>
+                            <p className="number number-right">{data?.rightPlayer.hs}%</p>
+                            <div className="bar" style={{ width: `${data?.rightPlayer.hs * 92 / 100}%` }}></div>
                         </div>
                     </div>
                 </div>
@@ -116,13 +116,13 @@ export default function HeadToHead({ data, action }) {
 
                     <div className="bar-info row">
                         <div className={`bar-wrapper left ${leftSide}`}>
-                            <p className="number number-left">{data.leftPlayer.accuracy}%</p>
-                            <div className="bar" style={{ width: `${data.leftPlayer.accuracy * 92 / 100}%` }}></div>
+                            <p className="number number-left">{data?.leftPlayer.accuracy}%</p>
+                            <div className="bar" style={{ width: `${data?.leftPlayer.accuracy * 92 / 100}%` }}></div>
                         </div>
 
                         <div className={`bar-wrapper right ${rightSide}`}>
-                            <p className="number number-right">{data.rightPlayer.accuracy}%</p>
-                            <div className="bar" style={{ width: `${data.rightPlayer.accuracy * 92 / 100}%` }}></div>
+                            <p className="number number-right">{data?.rightPlayer.accuracy}%</p>
+                            <div className="bar" style={{ width: `${data?.rightPlayer.accuracy * 92 / 100}%` }}></div>
                         </div>
                     </div>
                 </div>
@@ -132,13 +132,13 @@ export default function HeadToHead({ data, action }) {
 
                     <div className="bar-info row">
                         <div className={`bar-wrapper left ${leftSide}`}>
-                            <p className="number number-left">{data.leftPlayer.utility}</p>
-                            <div className="bar" style={{ width: `${data.leftPlayer.utility * 92 / data.utility_dmg}%` }}></div>
+                            <p className="number number-left">{data?.leftPlayer.utility}</p>
+                            <div className="bar" style={{ width: `${data?.leftPlayer.utility * 92 / data?.utility_dmg}%` }}></div>
                         </div>
 
                         <div className={`bar-wrapper right ${rightSide}`}>
-                            <p className="number number-right">{data.rightPlayer.utility}</p>
-                            <div className="bar" style={{ width: `${data.rightPlayer.utility * 92 / data.utility_dmg}%` }}></div>
+                            <p className="number number-right">{data?.rightPlayer.utility}</p>
+                            <div className="bar" style={{ width: `${data?.rightPlayer.utility * 92 / data?.utility_dmg}%` }}></div>
                         </div>
                     </div>
                 </div>
@@ -148,12 +148,12 @@ export default function HeadToHead({ data, action }) {
                 <div className="image-player" style={{ backgroundImage: `url(${rightPicturePlayer})` }}></div>
 
                 <div className="info-wrapper col">
-                    <p className="nickName">{data.rightPlayer.playerNickName}</p>
+                    <p className="nickName">{data?.rightPlayer.playerNickName}</p>
                     <div className="name-wrapper row">
                         <div className="flag" style={{ backgroundImage: `url(${flagRight})` }}></div>
-                        <p className="name">{data.rightPlayer.playerName}</p>
+                        <p className="name">{data?.rightPlayer.playerName}</p>
                     </div>
-                    <p className="teamName">{data.rightPlayer.teamName}</p>
+                    <p className="teamName">{data?.rightPlayer.teamName}</p>
                 </div>
             </div>
         </animated.div>

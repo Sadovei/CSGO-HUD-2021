@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { mockupHeadToHead, mockupScoreBoard } from '../../utils/mockups'
 import { subscribeToHead2Head, subscribeToScoreBoard } from "../../utils/socketIO";
 import HeadToHead from '../SmartHeadToHead/HeadToHead/HeadToHead';
 import ScoreBoard from '../SmartScoreBoard/ScoreBoard/ScoreBoard';
@@ -25,8 +24,8 @@ export default function SmartDynamic() {
     if (head2Head && !scoreBoard) {
         return (
             <>
-                <HeadToHead data={mockupHeadToHead} action={'show'} />
-                <ScoreBoard data={mockupScoreBoard} action={'hide'} />
+                <HeadToHead data={head2Head} action={'show'} />
+                <ScoreBoard data={null} action={'hide'} />
                 <SmartPovSide action={'hide'} />
             </>
 
@@ -35,8 +34,8 @@ export default function SmartDynamic() {
     else if (scoreBoard && !head2Head) {
         return (
             <>
-                <ScoreBoard data={mockupScoreBoard} action={'show'} />
-                <HeadToHead data={mockupHeadToHead} action={'hide'} />
+                <ScoreBoard data={scoreBoard} action={'show'} />
+                <HeadToHead data={null} action={'hide'} />
                 <SmartPovSide action={'hide'} />
             </>
         )
@@ -44,8 +43,8 @@ export default function SmartDynamic() {
     else {
         return (
             <>
-                <ScoreBoard data={mockupScoreBoard} action={'hide'} />
-                <HeadToHead data={mockupHeadToHead} action={'hide'} />
+                <ScoreBoard data={null} action={'hide'} />
+                <HeadToHead data={null} action={'hide'} />
                 <SmartPovSide action={'show'} />
             </>
         )

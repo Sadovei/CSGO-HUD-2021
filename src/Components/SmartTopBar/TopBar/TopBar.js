@@ -38,7 +38,8 @@ export default function TopBar({ topBar }) {
     useEffect(() => {
         setUpdate(topBar.round.phase, topBar.round.win_team);
         setFlag(true);
-    }, [topBar.round.phase]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [topBar.round.phase, topBar.round.win_team]);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     function setUpdate(phase, round_win) {

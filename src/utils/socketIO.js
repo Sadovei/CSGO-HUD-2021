@@ -3,8 +3,8 @@ import { findGetParameter } from "./URLParameters";
 
 let token = findGetParameter("token") || 'main';
 // const backEND = '10.97.4.59'
-const backEND = '10.97.5.83'
-// const backEND = 'localhost'
+// const backEND = '10.97.5.83'
+const backEND = 'localhost'
 
 const ENDPOINT = `http://${backEND}:4400/?client=${token}`;
 const socket = socketClient(ENDPOINT);
@@ -35,11 +35,9 @@ export const subscribeToHead2Head = (cb) => {
 }
 
 export const subscribeToScoreBoard = (cb) => {
-    socket.on(`Overlay_ScoreBoard`, data => cb(data));
-    socket.emit(`subscribe`, `Overlay_ScoreBoard`);
+    socket.on(`Overlay_Scoreboard`, data => cb(data));
+    socket.emit(`subscribe`, `Overlay_Scoreboard`);
 }
 
-// export const unsubscribeToHead2Head = (cb) => {
-//     socket.on(`Overlay_Head2Head`, data => cb(data));
-//     socket.emit(`unsubscribe`, `Overlay_Head2Head`);
-// }
+// export const unsubscribeToTopBar =
+//     socket.emit(`unsubscribe`, `${token}_OverlayTopBar`);
