@@ -57,7 +57,7 @@ export default function PovSide(
                                 <div className="first-info row">
                                     <div className="heal-wrapper row">
                                         <div className={`heal-image ${sideTeam}`}></div>
-                                        <p className="heal-number">{povData.state.health}</p>
+                                        <p className={`heal-number ${povData.state.health <= 20 ? 'red' : ''}`}>{povData.state.health}</p>
                                     </div>
 
                                     <div className={`armor-wrapper row ${armor}`}>

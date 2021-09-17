@@ -29,7 +29,7 @@ export default function HeadToHead({ data, action }) {
     })
 
     return (
-        <animated.div className="headTohead-wrapper font-tablet row"
+        <animated.div className="headToHead-wrapper font-tablet row"
             style={action === 'show' ? showEl : hideEl}
         >
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { subscribeToHead2Head, subscribeToScoreBoard } from "../../utils/socketIO";
-import HeadToHead from '../SmartHeadToHead/HeadToHead/HeadToHead';
-import ScoreBoard from '../SmartScoreBoard/ScoreBoard/ScoreBoard';
+import HeadToHead from './HeadToHead/HeadToHead';
+import ScoreBoard from './ScoreBoard/ScoreBoard';
 import SmartPovSide from '../SmartPovSide/SmartPovSide';
 
 export default function SmartDynamic() {
@@ -12,14 +12,10 @@ export default function SmartDynamic() {
         subscribeToHead2Head(data => {
             setHead2Head(data)
         })
-    }, [head2Head])
-
-
-    useEffect(() => {
         subscribeToScoreBoard(data => {
             setScoreBoard(data)
         })
-    }, [scoreBoard])
+    }, [])
 
     if (head2Head && !scoreBoard) {
         return (
@@ -43,8 +39,8 @@ export default function SmartDynamic() {
     else {
         return (
             <>
-                <ScoreBoard data={null} action={'hide'} />
-                <HeadToHead data={null} action={'hide'} />
+                <ScoreBoard data={scoreBoard} action={'hide'} />
+                <HeadToHead data={head2Head} action={'hide'} />
                 <SmartPovSide action={'show'} />
             </>
         )

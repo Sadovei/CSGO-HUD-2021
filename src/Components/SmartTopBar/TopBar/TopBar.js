@@ -4,11 +4,36 @@ import { range } from '../../../utils/tools';
 import { centerCounter, centerTerrorist } from './icons';
 import Timer from './Timer/Timer';
 import './TopBar.scss'
+import hirestime from "hirestime";
+import { useSpring, animated } from 'react-spring'
 
+import bomb from '../../../assets/videos/bomb.webm'
+
+let boomElapsed = 0
+let boomTime = 0
 export default function TopBar({ topBar }) {
+    const [mvps, setMVPS] = useState(topBar.mapInfo.mvps);
+    const [playerMVP, setPlayerMVP] = useState('');
+
+    useEffect(() => {
+        const MVP = Object.keys(mvps).filter(key => mvps[key].mvps !== topBar.mapInfo.mvps[key].mvps)[0]
+        setPlayerMVP(MVP === undefined ? '' : MVP)
+
+        if (playerMVP !== '') {
+            setTimeout(() => {
+                setMVPS(topBar.mapInfo.mvps)
+            }, 4000);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [topBar.mapInfo.mvps])
+
     const [timeTimer, setTimeTimer] = useState(0);
     const [phaseTimer, setPhaseTimer] = useState();
+    const [flagBomb, setFlagBomb] = useState(true);
+    const [flagDefuse, setFlagDefuse] = useState(true);
+
     const [flag, setFlag] = useState(true);
+    const [defuseState, setDefuseState] = useState(false);
 
     let sideLeft = classNames({
         'CT': topBar.leftSide.sideTeam === 'CT' && true,
@@ -56,6 +81,54 @@ export default function TopBar({ topBar }) {
         }
     }
 
+    if (topBar.round.bombState.explodeTime !== '0' && flagBomb) {
+        boomElapsed = hirestime();
+        setFlagBomb(false)
+    }
+
+    if (topBar.round.bombState.explodeTime === '0' && !flagBomb) {
+        boomElapsed = 0
+        boomTime = 0
+        setFlagBomb(true)
+    }
+
+    if (boomElapsed !== 0) {
+        boomTime = boomTime >= 0 ?
+            (40 - boomElapsed.milliseconds() / 1000).toFixed(3) : 0
+    }
+
+    if (topBar.round.bombState.defuseTime !== '0' && flagDefuse) {
+        Number(topBar.round.bombState.defuseTime) > 5 ? setDefuseState(false) : setDefuseState(true)
+        setFlagDefuse(false)
+    }
+
+    if (topBar.round.bombState.defuseTime === '0' && !flagDefuse) {
+        setFlagDefuse(true)
+    }
+
+    function calcDefusePerc(hasDefuse, countdown) {
+        countdown = parseFloat(countdown);
+        const defTime = hasDefuse === true ? 5 : 10;
+        const perc = countdown * 100 / defTime;
+        return perc * 92 / 100;
+    }
+
+    function calcBombPerc(countdown) {
+        countdown = parseFloat(countdown);
+        const bombTime = 40;
+        const perc = countdown * 100 / bombTime;
+        return perc * 92 / 100;
+    }
+
+    const props = useSpring({
+        left: topBar.round.bombState.defuseTime !== '0' ? '1vw' : '-18vw',
+        right: topBar.round.bombState.defuseTime !== '0' ? '0.4vw' : '-18vw'
+    })
+    const mvpProps = useSpring({
+        opacity: playerMVP ? '1' : '0',
+        top: playerMVP ? '7vw' : '6vw',
+    })
+    let picturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${topBar.mapInfo.mvps[playerMVP].teamKey}/${topBar.mapInfo.mvps[playerMVP].playerKey}.webp`
     return (
         <div className="top-bar-wrapper" >
             <div className="first-wrapper">
@@ -130,6 +203,38 @@ export default function TopBar({ topBar }) {
                     </div>
                 </div>
             </div>
+
+            <animated.div className={`defuse-wrapper row ${sideRight === 'CT' ? 'right' : 'left'}`} style={{ right: sideRight === 'CT' ? props.right : 'unset', left: sideRight === 'CT' ? 'unset' : props.left }}>
+                <video autoPlay={true} src={bomb} controls={false} loop={true} className="video-bomb"></video>
+
+                <div className="info-wrapper col">
+                    <p className="defuse-time font-mont">{Number(topBar.round.bombState.defuseTime).toFixed(3)}</p>
+
+                    <div className="bar-defuse-wrapper">
+                        <div className="bar-defuse" style={{ width: calcDefusePerc(defuseState, Number(topBar.round.bombState.defuseTime).toFixed(3)) + "%" }}></div>
+                        {/* <div className="bar-defuse" style={{ width: "92%" }}></div> */}
+                    </div>
+
+                    <p className="bomb-time font-mont">{boomTime} </p>
+
+                    <div className="bar-bomb-wrapper">
+                        <div className="bar-bomb" style={{ width: calcBombPerc(boomTime) + "%" }}></div>
+                        {/* <div className="bar-bomb" style={{ width: "92%" }}></div> */}
+                    </div>
+                </div>
+            </animated.div>
+
+            <animated.div className="mvp-wrapper row" style={{ opacity: mvpProps.opacity, top: mvpProps.top }}>
+                <div className={`side-image ${topBar.mapInfo.mvps[playerMVP].side}`}></div>
+                <div className="info-wrapper col">
+                    <p className={`side font-tablet ${topBar.mapInfo.mvps[playerMVP].side} `}>{topBar.mapInfo.mvps[playerMVP].side === 'CT' ? 'COUNTER TERRORIST' : 'TERRORIST'}</p>
+                    <p className='win-txt font-tablet'>WIN THE ROUND</p>
+                    <span className="round-txt font-tablet">ROUND MVP:
+                        <span className="player-txt"> {topBar.mapInfo.mvps[playerMVP].nickName}</span>
+                    </span>
+                </div>
+                <div className="player-photo" style={{ backgroundImage: `url(${picturePlayer})` }}></div>
+            </animated.div>
         </div >
     )
 }

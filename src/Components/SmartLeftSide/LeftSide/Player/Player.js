@@ -33,7 +33,7 @@ export default function Player({ info, team, DefuseIMG, grenadeImg, BombIMG, Pis
                 <div className="image-player" style={{ backgroundImage: `url(${picturePlayer})` }}></div>
 
                 <div className="heal-wrapper col">
-                    <p className="heal-number">{info.state.health}</p>
+                    <p className={`heal-number ${info.state.health <= 20 ? 'red' : ''}`}>{info.state.health}</p>
                     <div className={`armor-image ${armor}`}></div>
                 </div>
             </div>

@@ -53,6 +53,10 @@
         margin-top: 0.5vw;
 
         text-align: center;
+
+        &.red {
+          color: var(--color-red);
+        }
       }
 
       .armor-image {

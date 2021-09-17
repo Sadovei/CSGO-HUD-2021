@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import "./Timer.scss"
 
 export default function Timer({ type, timer }) {
-    console.log(type, timer)
+    // console.log(type, timer)
     let path = useRef()
     let colorTimer,
         dashArray = 400,

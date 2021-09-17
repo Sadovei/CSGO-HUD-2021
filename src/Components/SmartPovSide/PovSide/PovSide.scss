@@ -94,12 +94,13 @@
           .second-row {
             margin: 0.5vw 0 0 0.5vw;
             font-size: 0.8vw;
+            align-items: flex-start;
 
             .first-info {
               align-items: center;
 
               .heal-wrapper {
-                width: 2.2vw;
+                width: 2.4vw;
                 align-items: center;
 
                 .heal-image {
@@ -109,21 +110,28 @@
                   background-size: cover;
 
                   &.CT {
-                    background-image: url("../../../assets/icons/elements/health-CT.svg");
+                    background-image: url('../../../assets/icons/elements/health-CT.svg');
                   }
 
                   &.T {
-                    background-image: url("../../../assets/icons/elements/health-T.svg");
+                    background-image: url('../../../assets/icons/elements/health-T.svg');
                   }
                 }
+
                 .heal-number {
                   color: var(--color-grey);
+                  height: 0.9vw;
+                  margin-left: 0.15vw;
+
+                  &.red {
+                    color: var(--color-red);
+                  }
                 }
               }
 
               .armor-wrapper {
                 margin-left: 0.2vw;
-                width: 2.2vw;
+                width: 2.4vw;
 
                 align-items: center;
                 visibility: hidden;
@@ -133,11 +141,11 @@
 
                   .armor-image {
                     &.CT {
-                      background-image: url("../../../assets/icons/elements/armor-CT.svg");
+                      background-image: url('../../../assets/icons/elements/armor-CT.svg');
                     }
 
                     &.T {
-                      background-image: url("../../../assets/icons/elements/armor-T.svg");
+                      background-image: url('../../../assets/icons/elements/armor-T.svg');
                     }
                   }
                 }
@@ -147,11 +155,11 @@
 
                   .armor-image {
                     &.CT {
-                      background-image: url("../../../assets/icons/elements/helmet-CT.svg");
+                      background-image: url('../../../assets/icons/elements/helmet-CT.svg');
                     }
 
                     &.T {
-                      background-image: url("../../../assets/icons/elements/helmet-T.svg");
+                      background-image: url('../../../assets/icons/elements/helmet-T.svg');
                     }
                   }
                 }
@@ -165,6 +173,7 @@
                 .armor-number {
                   margin-left: 0.15vw;
                   color: var(--color-grey);
+                  height: 0.9vw;
                 }
               }
             }
@@ -229,7 +238,7 @@
                 height: 0.8vw;
 
                 background-size: cover;
-                background-image: url("../../../assets/icons/elements/skull.svg");
+                background-image: url('../../../assets/icons/elements/skull.svg');
               }
 
               .kills-round-number {
@@ -333,7 +342,7 @@
             height: 0.8vw;
 
             background-size: cover;
-            background-image: url("../../../assets/icons/elements/bullets.svg");
+            background-image: url('../../../assets/icons/elements/bullets.svg');
           }
 
           &.hide {
@@ -415,4 +424,3 @@
     background-color: var(--color-background-POV);
   }
 }
-
