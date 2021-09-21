@@ -124,11 +124,14 @@ export default function TopBar({ topBar }) {
         left: topBar.round.bombState.defuseTime !== '0' ? '1vw' : '-18vw',
         right: topBar.round.bombState.defuseTime !== '0' ? '0.4vw' : '-18vw'
     })
+
     const mvpProps = useSpring({
         opacity: playerMVP ? '1' : '0',
         top: playerMVP ? '7vw' : '6vw',
     })
-    let picturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${topBar.mapInfo.mvps[playerMVP].teamKey}/${topBar.mapInfo.mvps[playerMVP].playerKey}.webp`
+
+    let picturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${topBar.mapInfo.mvps[playerMVP].teamKey ?? 'placeholder'}/${topBar.mapInfo.mvps[playerMVP].playerKey ?? 'placeholder-player'}.webp`
+
     return (
         <div className="top-bar-wrapper" >
             <div className="first-wrapper">

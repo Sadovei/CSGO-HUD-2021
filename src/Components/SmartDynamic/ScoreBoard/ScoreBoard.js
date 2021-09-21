@@ -3,9 +3,9 @@ import './ScoreBoard.scss'
 import { useSpring, animated } from 'react-spring'
 
 export default function ScoreBoard({ data, action }) {
-    let leftLogo = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${data?.leftSide.teamKey}/logo.webp`
-    let rightLogo = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${data?.rightSide.teamKey}/logo.webp`
-    
+    let leftLogo = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${data?.leftSide?.teamKey ?? 'placeholder'}/CT/logo.webp`
+    let rightLogo = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${data?.rightSide?.teamKey ?? 'placeholder'}/T/logo.webp`
+
     const props = useSpring({
         bottom: action === 'show' ? '1.1vw' : '-25vw'
     })

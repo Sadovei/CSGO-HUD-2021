@@ -8,10 +8,10 @@ export default function Player({ info, team, DefuseIMG, grenadeImg, BombIMG, Pis
         'helmet': info.state.helmet && true,
         'armor': !info.state.helmet && info.state.armor !== 0 && true
     })
-
     const [prevHeal, setPrevHeal] = useState(100)
     const [flagDmg, setFlagDmg] = useState(false)
     const updateStart = useRef(null);
+    
     useEffect(() => {
         if (info.state.health !== prevHeal) {
             setFlagDmg(true)
@@ -30,7 +30,7 @@ export default function Player({ info, team, DefuseIMG, grenadeImg, BombIMG, Pis
                     <p className="number-slot">{info.observer_slot}</p>
                 </div>
 
-                <div className="image-player" style={{ backgroundImage: `url(${picturePlayer})` }}></div>
+                <div className="image-player" style={{ backgroundImage: `url(${picturePlayer})`, filter: `brightness(${info.state.flashed / 51 < 1 ? 1 : info.state.flashed / 51})` }}></div>
 
                 <div className="heal-wrapper col">
                     <p className={`heal-number ${info.state.health <= 20 ? 'red' : ''}`}>{info.state.health}</p>

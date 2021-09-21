@@ -2,6 +2,9 @@ import './PovSide.scss'
 import { useSpring, animated } from 'react-spring'
 import classNames from 'classnames';
 
+// const Sponsors = require.context("./icons/reclame", true);
+// const sponsorsLength = Sponsors.keys()
+
 export default function PovSide(
     { povData,
         ammoFillAnim,
@@ -15,7 +18,7 @@ export default function PovSide(
 
     let picturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${povData.teamKey}/${povData.playerKey}.webp`
     let teamLogo = povData.teamKey === 'placeholder' ? (`placeholder/${povData.team === 'CT' ? 'CT' : 'T'}`) : povData.teamKey
-    let flag = povData.playerCountry !== '' ? `http://redis-birou.pgl.ro/pgl/resources/flags/${povData.playerCountry}.png` : ''
+    let flag = povData.playerCountry !== '' ? `http://redis-birou.pgl.ro/pgl/resources/flags/${povData.playerCountry}.png` : 'http://redis-birou.pgl.ro/pgl/resources/flags/zz.png'
 
     let sideTeam = classNames({
         'CT': povData.team === 'CT' && true,
@@ -42,7 +45,7 @@ export default function PovSide(
             <div className="player-wrapper">
                 <div className={`border-image-player ${sideTeam}`}>
                     <div className="background-image-player"></div>
-                    <div className="image-player" style={{ backgroundImage: `url(${picturePlayer})` }}></div>
+                    <div className="image-player" style={{ backgroundImage: `url(${picturePlayer})`, filter: `brightness(${povData.state.flashed / 51 < 1 ? 1 : povData.state.flashed / 51})` }}></div>
                 </div>
 
                 <div className="info-player-wrapper col">
@@ -120,7 +123,8 @@ export default function PovSide(
                     </div>
                 </div >
             </div >
-            <div className="sponsors-wrapper"></div>
+            <div className="sponsors-wrapper">
+            </div>
         </animated.div>
     )
 }

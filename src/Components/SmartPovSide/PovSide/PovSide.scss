@@ -419,8 +419,19 @@
   .sponsors-wrapper {
     height: 30%;
     border-radius: 0 0 1vw 1vw;
+    position: relative;
 
     box-shadow: 5px 5px 15px 1px var(--color-background-POV);
     background-color: var(--color-background-POV);
+
+    .sponsor-image {
+      width: 14vw;
+      height: 1.8vw;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      position: absolute;
+      background-size: contain;
+      top: 50%;
+    }
   }
 }

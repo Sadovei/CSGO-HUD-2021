@@ -502,3 +502,19 @@
     }
   }
 }
+
+.video-start {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) scale(0.4);
+
+  z-index: 10;
+
+  &.pistol {
+    top: -10%;
+  }
+
+  &.bomb {
+    top: -20%;
+  }
+}
