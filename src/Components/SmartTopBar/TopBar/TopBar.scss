@@ -119,6 +119,18 @@
             .seconds {
               width: 2.02vw;
             }
+
+            &.T {
+              color: var(--color-T);
+            }
+
+            &.CT {
+              color: var(--color-CT);
+            }
+
+            &.red {
+              color: var(--color-red);
+            }
           }
         }
 
@@ -516,5 +528,55 @@
 
   &.bomb {
     top: -20%;
+  }
+}
+
+.timeOut-wrapper {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+
+  background-color: var(--color-background-POV);
+  padding: 0 0.5vw;
+  border-radius: 0.3vw;
+  height: 1.5vw;
+
+  .logo {
+    height: 2vw;
+    background-size: cover;
+    width: 2vw;
+  }
+  .text-side {
+    padding-left: 0.5vw;
+
+    &.CT {
+      color: var(--color-CT);
+    }
+
+    &.T {
+      color: var(--color-T);
+    }
+  }
+
+  .text {
+    padding-left: 0.2vw;
+    color: var(--color-white);
+  }
+
+  &.CT {
+    .logo {
+      background-image: url('../../../assets/ct-mvp.webp');
+    }
+  }
+
+  &.T {
+    .logo {
+      background-image: url('../../../assets/t-mvp.webp');
+    }
   }
 }

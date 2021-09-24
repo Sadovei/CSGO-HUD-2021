@@ -8,10 +8,12 @@ export default function Timer({ type, timer }) {
         dashArray = 400,
         dashOffSet = dashArray
 
-    if (type === 'bomb' || type === 'T')
-        colorTimer = 'red'
+    if (type === 'bomb')
+        colorTimer = '#ee0404'
     else if (type === 'defuse' || type === 'CT')
-        colorTimer = 'blue'
+        colorTimer = '#f3d002'
+    else if (type === 'T')
+        colorTimer = '#f3d002'
 
     return (
         <svg className="svgWrapper" viewBox="0 0 100 100" stroke="blue">

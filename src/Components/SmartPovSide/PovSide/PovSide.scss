@@ -425,12 +425,12 @@
     background-color: var(--color-background-POV);
 
     .sponsor-image {
-      width: 14vw;
-      height: 1.8vw;
+      width: 22.8vw;
+      height: 2.3vw;
       left: 50%;
       transform: translate(-50%, -50%);
       position: absolute;
-      background-size: contain;
+      background-size: cover;
       top: 50%;
     }
   }

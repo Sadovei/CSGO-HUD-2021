@@ -11,7 +11,7 @@ export default function Player({ info, team, DefuseIMG, grenadeImg, BombIMG, Pis
     const [prevHeal, setPrevHeal] = useState(100)
     const [flagDmg, setFlagDmg] = useState(false)
     const updateStart = useRef(null);
-    
+
     useEffect(() => {
         if (info.state.health !== prevHeal) {
             setFlagDmg(true)
@@ -126,7 +126,7 @@ export default function Player({ info, team, DefuseIMG, grenadeImg, BombIMG, Pis
 
                         <div className="adr-wrapper row">
                             <p className="adr-notice">ADR</p>
-                            <p className="adr-number">66</p>
+                            <p className="adr-number">{info.adr}</p>
                         </div>
                     </div>
                 </div>

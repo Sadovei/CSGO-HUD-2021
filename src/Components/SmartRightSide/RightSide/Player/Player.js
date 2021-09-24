@@ -24,14 +24,6 @@ export default function Player({ info, team, DefuseIMG, grenadeImg, BombIMG, Pis
         }
     }, [info.state.health, prevHeal])
 
-    let radu = <svg className="ammo-helper">
-        <defs>
-            <linearGradient id={`ammo-fill-test`} x1="0" y1="0%" x2="100%" y2="0%" spreadMethod="pad">
-                <stop stopColor="white" stopOpacity="1" offset={info.state.flashed + "%"} />
-            </linearGradient>
-        </defs>
-    </svg>;
-
     return (
         <div className={`right-player-wrapper row slot-${info.observer_slot} ${team} ${info.state.health === 0 ? 'death' : 'alive'} ${info.active ? 'pov' : ''}`}>
             <div className="secondary-info-wrapper font-mont col">
@@ -100,7 +92,7 @@ export default function Player({ info, team, DefuseIMG, grenadeImg, BombIMG, Pis
 
                     <div className="second-box row">
                         <div className="adr-wrapper row">
-                            <p className="adr-number">66</p>
+                            <p className="adr-number">{info.adr}</p>
                             <p className="adr-notice">ADR</p>
                         </div>
 

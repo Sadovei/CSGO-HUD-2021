@@ -1,9 +1,18 @@
 import './PovSide.scss'
 import { useSpring, animated } from 'react-spring'
 import classNames from 'classnames';
+import { useEffect } from 'react';
 
-// const Sponsors = require.context("./icons/reclame", true);
-// const sponsorsLength = Sponsors.keys()
+const SponsorsPNG = require.context("./icons/sponsors", true);
+const sponsorsIMG = SponsorsPNG.keys().map(key => key.substring(key.lastIndexOf("/") + 1, key.lastIndexOf(".")))
+console.log(sponsorsIMG)
+let counter = 0
+
+const SVGMap = SponsorsPNG.keys().reduce((images, path) => {
+    const key = path.substring(path.lastIndexOf("/") + 1, path.lastIndexOf("."));
+    images[key] = SponsorsPNG(path).default;
+    return images;
+}, {});
 
 export default function PovSide(
     { povData,
@@ -39,6 +48,17 @@ export default function PovSide(
         bottom: action === 'show' ? '1.1vw' : '-14vw',
         delay: action === 'show' ? 250 : 0
     })
+
+    useEffect(() => {
+        if (counter === sponsorsIMG.length)
+            counter = 0
+        const interval = setInterval(() => {
+            console.log(sponsorsIMG[counter])
+            counter++
+        }, 5000);
+        return () => clearInterval(interval);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [counter]);
 
     return (
         <animated.div className={`pov-wrapper col`} style={{ bottom: props.bottom }}>
@@ -123,7 +143,9 @@ export default function PovSide(
                     </div>
                 </div >
             </div >
+
             <div className="sponsors-wrapper">
+                <div className="sponsor-image" style={{ backgroundImage: `url(${SVGMap[sponsorsIMG[counter]]})` }}></div>
             </div>
         </animated.div>
     )

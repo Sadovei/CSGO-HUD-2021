@@ -39,10 +39,13 @@ export default function TopBar({ topBar }) {
         'CT': topBar.leftSide.sideTeam === 'CT' && true,
         'T': topBar.leftSide.sideTeam === 'T' && true
     })
+
     let sideRight = classNames({
         'CT': topBar.rightSide.sideTeam === 'CT' && true,
         'T': topBar.rightSide.sideTeam === 'T' && true
     })
+
+    let picturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${topBar.mapInfo.mvps[playerMVP].teamKey ?? 'placeholder'}/${topBar.mapInfo.mvps[playerMVP].playerKey ?? 'placeholder-player'}.webp`
     let leftWin = 0
     let rightWin = 0
 
@@ -130,7 +133,14 @@ export default function TopBar({ topBar }) {
         top: playerMVP ? '7vw' : '6vw',
     })
 
-    let picturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${topBar.mapInfo.mvps[playerMVP].teamKey ?? 'placeholder'}/${topBar.mapInfo.mvps[playerMVP].playerKey ?? 'placeholder-player'}.webp`
+
+    let clockTimer = classNames({
+        'T': ((topBar.round.phase === 'over' && topBar.round.win_team === 'T')) && true,
+        'CT': (topBar.round.win_team === 'CT' && topBar.round.phase === 'over') && true,
+        'red': ((Number(topBar.round.time) <= 10 && topBar.round.phase === 'live') ||
+            (topBar.round.phase === 'freezetime' && Number(topBar.round.time) <= 10) ||
+            topBar.round.phase === 'bomb') && true
+    })
 
     return (
         <div className="top-bar-wrapper" >
@@ -149,12 +159,14 @@ export default function TopBar({ topBar }) {
                         </div>
 
                         <div className="timer-wrapper">
-                            <div className="clock font-mont">
+                            <div className={`clock font-mont ${clockTimer}`}>
                                 <p className="minutes">{(timeSeconds === '00' && topBar.round.phase !== 'paused') ? 1 : timeMinutes}</p>
                                 <p className="points">:</p>
                                 <p className="seconds">{timeSeconds === 0 ? '00' : timeSeconds}</p>
                             </div>
-                            {timeTimer !== 0 && <Timer type={phaseTimer} timer={timeTimer} />}
+                            {timeTimer > 0 && phaseTimer === 'bomb' && <Timer type={phaseTimer} timer={timeTimer} style={{ opacity: phaseTimer === 'defuse' ? '0' : '1' }} />}
+                            {timeTimer > 0 && phaseTimer === 'defuse' && <Timer type={phaseTimer} timer={timeTimer} style={{ opacity: phaseTimer === 'defuse' ? '1' : '0' }} />}
+                            {timeTimer > 0 && (phaseTimer === 'T' || phaseTimer === 'CT') && <Timer type={phaseTimer} timer={timeTimer} style={{ opacity: (phaseTimer === 'CT' || phaseTimer === 'T') ? '1' : '0' }} />}
                         </div>
 
                         <div className="rightScore-wrapper">
@@ -215,14 +227,12 @@ export default function TopBar({ topBar }) {
 
                     <div className="bar-defuse-wrapper">
                         <div className="bar-defuse" style={{ width: calcDefusePerc(defuseState, Number(topBar.round.bombState.defuseTime).toFixed(3)) + "%" }}></div>
-                        {/* <div className="bar-defuse" style={{ width: "92%" }}></div> */}
                     </div>
 
                     <p className="bomb-time font-mont">{boomTime} </p>
 
                     <div className="bar-bomb-wrapper">
                         <div className="bar-bomb" style={{ width: calcBombPerc(boomTime) + "%" }}></div>
-                        {/* <div className="bar-bomb" style={{ width: "92%" }}></div> */}
                     </div>
                 </div>
             </animated.div>

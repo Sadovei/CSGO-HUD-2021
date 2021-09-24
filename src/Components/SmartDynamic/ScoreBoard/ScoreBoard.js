@@ -3,8 +3,8 @@ import './ScoreBoard.scss'
 import { useSpring, animated } from 'react-spring'
 
 export default function ScoreBoard({ data, action }) {
-    let leftLogo = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${data?.leftSide?.teamKey ?? 'placeholder'}/CT/logo.webp`
-    let rightLogo = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${data?.rightSide?.teamKey ?? 'placeholder'}/T/logo.webp`
+    let leftLogo = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${data?.leftSide.teamKey}/logo.webp`
+    let rightLogo = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${data?.rightSide.teamKey}/logo.webp`
 
     const props = useSpring({
         bottom: action === 'show' ? '1.1vw' : '-25vw'
@@ -33,7 +33,7 @@ export default function ScoreBoard({ data, action }) {
                 {
                     data?.leftSide.players.map((player, indexPlayer) => {
                         return (
-                            <p className="hs-percentage font-tablet" key={indexPlayer}>{player.hs.toFixed(1)}%</p>
+                            <p className="hs-percentage font-tablet" key={indexPlayer}>{player.hs}%</p>
                         )
                     })
                 }
@@ -77,7 +77,7 @@ export default function ScoreBoard({ data, action }) {
                 {
                     data?.rightSide.players.map((player, indexPlayer) => {
                         return (
-                            <p className="hs-percentage font-tablet" key={indexPlayer}>{player.hs.toFixed(1)}%</p>
+                            <p className="hs-percentage font-tablet" key={indexPlayer}>{player.hs}%</p>
                         )
                     })
                 }
