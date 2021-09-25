@@ -30,7 +30,10 @@ export default function Player({ info, team, DefuseIMG, grenadeImg, BombIMG, Pis
                     <p className="number-slot">{info.observer_slot}</p>
                 </div>
 
-                <div className="image-player" style={{ backgroundImage: `url(${picturePlayer})`, filter: `brightness(${info.state.flashed / 51 < 1 ? 1 : info.state.flashed / 51})` }}></div>
+                <div className="image-player" style={{
+                    backgroundImage: `url(${picturePlayer})`,
+                    filter: info.state.health === 0 ? 'grayscale(100%)' : (info.state.flashed / 51) < 1 ? 'brightness(1)' : `brightness(${info.state.flashed / 51}`
+                }}></div>
 
                 <div className="heal-wrapper col">
                     <p className={`heal-number ${info.state.health <= 20 ? 'red' : ''}`}>{info.state.health}</p>

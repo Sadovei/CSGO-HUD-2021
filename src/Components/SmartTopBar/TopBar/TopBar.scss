@@ -102,22 +102,24 @@
             transform: translate(-50%, -50%);
             left: 50%;
             color: var(--color-white);
-            font-size: 1.29vw;
-
+            font-size: 1.15vw;
             display: flex;
             flex-flow: row nowrap;
 
-            .minutes {
-              width: 1.01vw;
+            .minutes,
+            .first-Timesecond,
+            .second-Timesecond {
+              width: 0.7vw;
               text-align: center;
             }
 
             .points {
-              margin-right: 0.11vw;
+              // margin-left: 0.01vw;
             }
 
             .seconds {
-              width: 2.02vw;
+              display: flex;
+              flex-flow: row nowrap;
             }
 
             &.T {

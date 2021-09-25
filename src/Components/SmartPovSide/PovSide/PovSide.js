@@ -5,7 +5,6 @@ import { useEffect } from 'react';
 
 const SponsorsPNG = require.context("./icons/sponsors", true);
 const sponsorsIMG = SponsorsPNG.keys().map(key => key.substring(key.lastIndexOf("/") + 1, key.lastIndexOf(".")))
-console.log(sponsorsIMG)
 let counter = 0
 
 const SVGMap = SponsorsPNG.keys().reduce((images, path) => {
@@ -53,7 +52,6 @@ export default function PovSide(
         if (counter === sponsorsIMG.length)
             counter = 0
         const interval = setInterval(() => {
-            console.log(sponsorsIMG[counter])
             counter++
         }, 5000);
         return () => clearInterval(interval);

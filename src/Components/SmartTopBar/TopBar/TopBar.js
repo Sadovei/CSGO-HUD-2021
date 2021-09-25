@@ -136,7 +136,7 @@ export default function TopBar({ topBar }) {
 
     let clockTimer = classNames({
         'T': ((topBar.round.phase === 'over' && topBar.round.win_team === 'T')) && true,
-        'CT': (topBar.round.win_team === 'CT' && topBar.round.phase === 'over') && true,
+        'CT': ((topBar.round.win_team === 'CT' && topBar.round.phase === 'over') || topBar.round.phase === 'defuse') && true,
         'red': ((Number(topBar.round.time) <= 10 && topBar.round.phase === 'live') ||
             (topBar.round.phase === 'freezetime' && Number(topBar.round.time) <= 10) ||
             topBar.round.phase === 'bomb') && true
@@ -162,7 +162,10 @@ export default function TopBar({ topBar }) {
                             <div className={`clock font-mont ${clockTimer}`}>
                                 <p className="minutes">{(timeSeconds === '00' && topBar.round.phase !== 'paused') ? 1 : timeMinutes}</p>
                                 <p className="points">:</p>
-                                <p className="seconds">{timeSeconds === 0 ? '00' : timeSeconds}</p>
+                                <span className="seconds">
+                                    <p className="first-Timesecond">{timeSeconds.toString().split("")[0]}</p>
+                                    <p className="second-Timesecond">{timeSeconds.toString().split("")[1]}</p>
+                                </span>
                             </div>
                             {timeTimer > 0 && phaseTimer === 'bomb' && <Timer type={phaseTimer} timer={timeTimer} style={{ opacity: phaseTimer === 'defuse' ? '0' : '1' }} />}
                             {timeTimer > 0 && phaseTimer === 'defuse' && <Timer type={phaseTimer} timer={timeTimer} style={{ opacity: phaseTimer === 'defuse' ? '1' : '0' }} />}
@@ -236,8 +239,7 @@ export default function TopBar({ topBar }) {
                     </div>
                 </div>
             </animated.div>
-
-            <animated.div className="mvp-wrapper row" style={{ opacity: mvpProps.opacity, top: mvpProps.top }}>
+            {topBar.mapInfo.currentRound > 0 && <animated.div className="mvp-wrapper row" style={{ opacity: mvpProps.opacity, top: mvpProps.top }}>
                 <div className={`side-image ${topBar.mapInfo.mvps[playerMVP].side}`}></div>
                 <div className="info-wrapper col">
                     <p className={`side font-tablet ${topBar.mapInfo.mvps[playerMVP].side} `}>{topBar.mapInfo.mvps[playerMVP].side === 'CT' ? 'COUNTER TERRORIST' : 'TERRORIST'}</p>
@@ -247,7 +249,7 @@ export default function TopBar({ topBar }) {
                     </span>
                 </div>
                 <div className="player-photo" style={{ backgroundImage: `url(${picturePlayer})` }}></div>
-            </animated.div>
+            </animated.div>}
         </div >
     )
 }

@@ -2,7 +2,6 @@ import React, { useRef } from 'react'
 import "./Timer.scss"
 
 export default function Timer({ type, timer }) {
-    // console.log(type, timer)
     let path = useRef()
     let colorTimer,
         dashArray = 400,
@@ -11,7 +10,7 @@ export default function Timer({ type, timer }) {
     if (type === 'bomb')
         colorTimer = '#ee0404'
     else if (type === 'defuse' || type === 'CT')
-        colorTimer = '#f3d002'
+        colorTimer = '#00a2ff'
     else if (type === 'T')
         colorTimer = '#f3d002'
 

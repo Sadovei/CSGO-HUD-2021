@@ -378,10 +378,6 @@
           display: none;
         }
       }
-
-      .image-player {
-        filter: grayscale(100%);
-      }
     }
 
     .secondary-info-wrapper {
@@ -411,7 +407,7 @@
 
           .round-kills {
             width: 1.7vw;
-            margin-left: 0.2vw;
+            margin-left: 0.6vw;
 
             visibility: hidden;
             align-items: center;
@@ -436,7 +432,7 @@
           }
 
           .adr-wrapper {
-            margin-left: 0.2vw;
+            margin-left: 0.6vw;
             align-items: center;
 
             .adr-notice {
