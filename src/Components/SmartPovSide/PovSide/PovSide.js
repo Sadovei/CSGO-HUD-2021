@@ -53,7 +53,7 @@ export default function PovSide(
             counter = 0
         const interval = setInterval(() => {
             counter++
-        }, 5000);
+        }, 10000);
         return () => clearInterval(interval);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [counter]);
