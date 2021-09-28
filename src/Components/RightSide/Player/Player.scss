@@ -1,0 +1,98 @@
+.right-player-wrapper {
+  align-items: center;
+
+  .first-box {
+    width: 14vw;
+
+    display: flex;
+    justify-content: flex-end;
+
+    .player-name {
+      font-size: 1vw;
+      color: var(--color-white);
+    }
+  }
+
+  .utils-wrapper {
+    width: 4.5vw;
+    justify-content: flex-end;
+
+    .grenade,
+    .defuse {
+      height: 1vw;
+
+      svg {
+        height: 100%;
+      }
+    }
+
+    .smokegrenade,
+    .incgrenade {
+      margin: 0 0.2vw;
+    }
+
+    .molotov {
+      margin: 0 0.2vw;
+    }
+
+    .bomb {
+      width: 1.3vw;
+
+      svg {
+        height: 1.2vw;
+        width: 100%;
+      }
+    }
+  }
+
+  .weapons-wrapper {
+    height: 1.2vw;
+    transform: scaleX(-1);
+
+    .primary {
+      width: 3vw;
+
+      svg {
+        height: 1.2vw;
+        width: 100%;
+      }
+    }
+
+    .secondary {
+      width: 3.5vw;
+      margin-right: 0.4vw;
+
+      svg {
+        height: 1.2vw;
+        width: 100%;
+      }
+    }
+  }
+
+  .money-wrapper {
+    width: 3.7vw;
+
+    display: flex;
+    justify-content: flex-end;
+
+    .money-number {
+      font-size: 1vw;
+
+      &.CT {
+        color: var(--color-CT);
+      }
+
+      &.T {
+        color: var(--color-T);
+      }
+    }
+  }
+
+  &:nth-child(even) {
+    .first-box {
+      .player-name {
+        color: var(--color-grey);
+      }
+    }
+  }
+}

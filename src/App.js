@@ -1,24 +1,28 @@
 import React, { useEffect, useState } from "react";
-import { subscribeToRadar, subscribeToTopBar } from "./utils/socketIO";
+import { subscribeToLeftSide, subscribeToRightSide, subscribeToTopBar } from "./utils/socketIO";
 
-import SmartTopBar from "./Components/SmartTopBar/SmartTopBar";
-import SmartLeftSide from "./Components/SmartLeftSide/SmartLeftSide";
-import SmartRightSide from "./Components/SmartRightSide/SmartRightSide";
-import SmartDynamic from "./Components/SmartDynamic/SmartDynamic";
-import RadarLayout from "./Components/Radar/Radar";
+import CenterEconomy from "./Components/CenterEconomy/CenterEconomy";
+import LeftSide from "./Components/LeftSide/LeftSide";
+import RightSide from "./Components/RightSide/RightSide";
+import TeamLogo from "./Components/TeamLogo/TeamLogo";
 
 function App() {
   const [topBar, setTopBar] = useState();
-  const [objectData, setObjectData] = useState('');
+  const [leftSide, setLeftSide] = useState();
+  const [rightSide, setRightSide] = useState();
 
   useEffect(() => {
     subscribeToTopBar(data => {
       setTopBar(data)
     })
 
-    subscribeToRadar((data) => {
-      setObjectData(data)
-    });
+    subscribeToLeftSide(data => {
+      setLeftSide(data)
+    })
+
+    subscribeToRightSide(data => {
+      setRightSide(data)
+    })
   }, [])
 
   if (topBar) {
@@ -27,11 +31,28 @@ function App() {
     else
       return (
         <>
-          <SmartTopBar topBarData={topBar} />
-          <SmartRightSide />
-          <SmartLeftSide />
-          <SmartDynamic />
-          {objectData && <RadarLayout dataObj={objectData} />}
+          <div className="first-wrapper">
+            <TeamLogo data={topBar} />
+          </div>
+
+          <div className="second-wrapper">
+            {leftSide &&
+              <div className='left-wrapper'>
+                <LeftSide team={leftSide.side} players={leftSide.players} phase={leftSide.roundPhase.phase} />
+              </div>
+            }
+
+            {leftSide && rightSide &&
+              <CenterEconomy dataLeft={leftSide} dataRight={rightSide} />
+            }
+
+            {rightSide &&
+              <div className="right-wrapper">
+                <RightSide team={rightSide.side} players={rightSide.players} phase={rightSide.roundPhase.phase} />
+              </div>
+            }
+
+          </div>
         </>
       );
   }

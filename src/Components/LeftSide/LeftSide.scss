@@ -1,0 +1,12 @@
+.left-wrapper {
+  height: 12vw;
+  margin-left: 2vw;
+  margin-bottom: 2.4vw;
+
+  .left-side-wrapper {
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+  }
+}

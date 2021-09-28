@@ -1,0 +1,14 @@
+.right-wrapper {
+  height: 12vw;
+  margin-right: 2vw;
+  margin-bottom: 2.4vw;
+
+  .right-side-wrapper {
+    height: 100%;
+    
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: flex-end;
+  }
+}
