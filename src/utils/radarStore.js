@@ -42,9 +42,14 @@ const csgo_maps = {
         },
         de_vertigo_radar: {
             pos_x: "-3168", // upper left world coordinate
-            pos_y: "1762",
+            pos_y: "1732",
             scale: "4.0",
         },
+        de_ancient_radar: {
+            pos_x: "-3100", // upper left world coordinate
+            pos_y: "2164",
+            scale: "5.0",
+        }
     },
 };
 

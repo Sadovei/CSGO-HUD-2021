@@ -5,8 +5,6 @@ import { getCoordinates, drawPlayerButton, angle, drawBullet, drawBomb, drawFrag
 
 const Canvas = (props) => {
     const canvas = useRef();
-
-    props.playerdata.gameData.observer_slot === 1 && console.log(props.playerdata.gameData.observer_slot, ' : ', props.playerdata.shoot)
     
     useEffect(() => {
         const ctx = canvas.current.getContext('2d')
