@@ -48,7 +48,6 @@ export default function TopBar({ topBar }) {
         'T': topBar.rightSide.sideTeam === 'T' && true
     })
 
-    let picturePlayer = playerMVP ?? `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${topBar.mapInfo.mvps[playerMVP].teamKey}/${topBar.mapInfo.mvps[playerMVP].playerKey}.webp`
     let leftWin = 0
     let rightWin = 0
 
@@ -130,12 +129,6 @@ export default function TopBar({ topBar }) {
         left: topBar.round.bombState.defuseTime !== '0' ? '1vw' : '-18vw',
         right: topBar.round.bombState.defuseTime !== '0' ? '0.4vw' : '-18vw'
     })
-
-    const mvpProps = useSpring({
-        opacity: playerMVP ? '1' : '0',
-        top: playerMVP ? '7vw' : '6vw',
-    })
-
 
     let clockTimer = classNames({
         'T': ((topBar.round.phase === 'over' && topBar.round.win_team === 'T')) && true,
@@ -241,18 +234,6 @@ export default function TopBar({ topBar }) {
                     </div>
                 </div>
             </animated.div>
-
-            {topBar.mapInfo.currentRound > 0 && <animated.div className="mvp-wrapper row" style={{ opacity: mvpProps.opacity, top: mvpProps.top }}>
-                {playerMVP && <div className={`side-image ${topBar.mapInfo.mvps[playerMVP].side}`}></div>}
-                <div className="info-wrapper col">
-                    {playerMVP && <p className={`side font-tablet ${topBar.mapInfo.mvps[playerMVP].side} `}>{topBar.mapInfo.mvps[playerMVP].side === 'CT' ? 'COUNTER TERRORIST' : 'TERRORIST'}</p>}
-                    <p className='win-txt font-tablet'>WIN THE ROUND</p>
-                    <span className="round-txt font-tablet">ROUND MVP:
-                        {playerMVP && <span className="player-txt"> {topBar.mapInfo.mvps[playerMVP].nickName}</span>}
-                    </span>
-                </div>
-                <div className="player-photo" style={{ backgroundImage: `url(${picturePlayer})` }}></div>
-            </animated.div>}
         </div >
     )
 }

@@ -37,6 +37,8 @@ html,
 }
 
 #root {
+  // background-image: url('./replay-hud.jpg');
+  // background-size: contain;
   display: inline-block;
 }
 
@@ -187,8 +189,6 @@ html,
     }
   }
 }
-
-
 
 .divWrapper {
   display: flex;
