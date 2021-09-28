@@ -1,18 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { subscribeToTopBar } from "./utils/socketIO";
+import { subscribeToRadar, subscribeToTopBar } from "./utils/socketIO";
 
 import SmartTopBar from "./Components/SmartTopBar/SmartTopBar";
 import SmartLeftSide from "./Components/SmartLeftSide/SmartLeftSide";
 import SmartRightSide from "./Components/SmartRightSide/SmartRightSide";
 import SmartDynamic from "./Components/SmartDynamic/SmartDynamic";
+import RadarLayout from "./Components/Radar/Radar";
 
 function App() {
   const [topBar, setTopBar] = useState();
+  const [objectData, setObjectData] = useState('');
 
   useEffect(() => {
     subscribeToTopBar(data => {
       setTopBar(data)
     })
+
+    subscribeToRadar((data) => {
+      setObjectData(data)
+    });
   }, [])
 
   if (topBar) {
@@ -25,6 +31,7 @@ function App() {
           <SmartRightSide />
           <SmartLeftSide />
           <SmartDynamic />
+          {objectData && <RadarLayout dataObj={objectData} />}
         </>
       );
   }

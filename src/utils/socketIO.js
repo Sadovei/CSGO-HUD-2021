@@ -2,10 +2,8 @@ import socketClient from "socket.io-client";
 import { findGetParameter } from "./URLParameters";
 
 let token = findGetParameter("token") || 'main';
-// const backEND = '10.97.4.59'
-// const backEND = '10.97.5.83'
-const backEND = 'localhost'
-
+const backEND = '10.97.4.45'
+// const backEND = 'localhost'
 const ENDPOINT = `http://${backEND}:4400/?client=${token}`;
 const socket = socketClient(ENDPOINT);
 
@@ -39,5 +37,7 @@ export const subscribeToScoreBoard = (cb) => {
     socket.emit(`subscribe`, `Overlay_Scoreboard`);
 }
 
-// export const unsubscribeToTopBar =
-//     socket.emit(`unsubscribe`, `${token}_OverlayTopBar`);
+export const subscribeToRadar = (cb) => {
+    socket.on(`${token}_OverlayRadar`, (data) => cb(data));
+    socket.emit(`subscribe`, `${token}_OverlayRadar`);
+};

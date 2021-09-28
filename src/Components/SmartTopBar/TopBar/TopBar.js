@@ -16,19 +16,22 @@ export default function TopBar({ topBar }) {
     const [playerMVP, setPlayerMVP] = useState('');
 
     useEffect(() => {
-        const MVP = Object.keys(mvps).filter(key => mvps[key].mvps !== topBar.mapInfo.mvps[key].mvps)[0]
-        setPlayerMVP(MVP === undefined ? '' : MVP)
+        if (mvps) {
+            const MVP = Object.keys(mvps).filter(key => mvps[key].mvps !== topBar.mapInfo.mvps[key].mvps)[0]
+            setPlayerMVP(MVP === undefined ? '' : MVP)
 
-        if (playerMVP !== '') {
-            setTimeout(() => {
-                setMVPS(topBar.mapInfo.mvps)
-            }, 4000);
+            if (playerMVP !== '') {
+                setTimeout(() => {
+                    setMVPS(topBar.mapInfo.mvps)
+                }, 4000);
+            }
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [topBar.mapInfo.mvps])
 
     const [timeTimer, setTimeTimer] = useState(0);
     const [phaseTimer, setPhaseTimer] = useState();
+
     const [flagBomb, setFlagBomb] = useState(true);
     const [flagDefuse, setFlagDefuse] = useState(true);
 
@@ -164,7 +167,7 @@ export default function TopBar({ topBar }) {
                                 <p className="points">:</p>
                                 <span className="seconds">
                                     <p className="first-Timesecond">{timeSeconds.toString().split("")[0]}</p>
-                                    <p className="second-Timesecond">{timeSeconds.toString().split("")[1]}</p>
+                                    <p className="second-Timesecond">{(timeSeconds !== '00' && timeMinutes !== '1') ? timeSeconds.toString().split("")[1] : '00'}</p>
                                 </span>
                             </div>
                             {timeTimer > 0 && phaseTimer === 'bomb' && <Timer type={phaseTimer} timer={timeTimer} style={{ opacity: phaseTimer === 'defuse' ? '0' : '1' }} />}
@@ -239,6 +242,7 @@ export default function TopBar({ topBar }) {
                     </div>
                 </div>
             </animated.div>
+
             {topBar.mapInfo.currentRound > 0 && <animated.div className="mvp-wrapper row" style={{ opacity: mvpProps.opacity, top: mvpProps.top }}>
                 <div className={`side-image ${topBar.mapInfo.mvps[playerMVP].side}`}></div>
                 <div className="info-wrapper col">
