@@ -17,7 +17,7 @@ export default function SmartDynamic() {
         })
     }, [])
 
-    if (head2Head && !scoreBoard) {
+    if (head2Head?.show && !scoreBoard?.show) {
         return (
             <>
                 <HeadToHead data={head2Head} action={'show'} />
@@ -27,7 +27,7 @@ export default function SmartDynamic() {
 
         )
     }
-    else if (scoreBoard && !head2Head) {
+    else if (scoreBoard?.show && !head2Head?.show) {
         return (
             <>
                 <ScoreBoard data={scoreBoard} action={'show'} />
@@ -36,7 +36,7 @@ export default function SmartDynamic() {
             </>
         )
     }
-    else {
+    else if (!scoreBoard?.show && !head2Head?.show) {
         return (
             <>
                 <ScoreBoard data={scoreBoard} action={'hide'} />

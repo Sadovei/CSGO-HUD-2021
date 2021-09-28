@@ -222,6 +222,10 @@
           }
         }
       }
+
+      .money-wrapper {
+        font-size: 0.7vw;
+      }
     }
 
     .death-info {
@@ -395,6 +399,7 @@
 
         .first-box {
           margin-bottom: 0.2vw;
+          font-size: 0.8vw;
         }
 
         .second-box {
@@ -436,8 +441,8 @@
             align-items: center;
 
             .adr-notice {
-              margin: 0.1vw 0.1vw 0 0;
-              font-size: 0.4vw;
+              margin: -0.05vw 0.1vw 0 0;
+              font-size: 0.5vw;
             }
           }
         }

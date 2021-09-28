@@ -48,7 +48,7 @@ export default function TopBar({ topBar }) {
         'T': topBar.rightSide.sideTeam === 'T' && true
     })
 
-    let picturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${topBar.mapInfo.mvps[playerMVP].teamKey ?? 'placeholder'}/${topBar.mapInfo.mvps[playerMVP].playerKey ?? 'placeholder-player'}.webp`
+    let picturePlayer = playerMVP ?? `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${topBar.mapInfo.mvps[playerMVP].teamKey}/${topBar.mapInfo.mvps[playerMVP].playerKey}.webp`
     let leftWin = 0
     let rightWin = 0
 
@@ -144,7 +144,6 @@ export default function TopBar({ topBar }) {
             (topBar.round.phase === 'freezetime' && Number(topBar.round.time) <= 10) ||
             topBar.round.phase === 'bomb') && true
     })
-
     return (
         <div className="top-bar-wrapper" >
             <div className="first-wrapper">
@@ -244,12 +243,12 @@ export default function TopBar({ topBar }) {
             </animated.div>
 
             {topBar.mapInfo.currentRound > 0 && <animated.div className="mvp-wrapper row" style={{ opacity: mvpProps.opacity, top: mvpProps.top }}>
-                <div className={`side-image ${topBar.mapInfo.mvps[playerMVP].side}`}></div>
+                {playerMVP && <div className={`side-image ${topBar.mapInfo.mvps[playerMVP].side}`}></div>}
                 <div className="info-wrapper col">
-                    <p className={`side font-tablet ${topBar.mapInfo.mvps[playerMVP].side} `}>{topBar.mapInfo.mvps[playerMVP].side === 'CT' ? 'COUNTER TERRORIST' : 'TERRORIST'}</p>
+                    {playerMVP && <p className={`side font-tablet ${topBar.mapInfo.mvps[playerMVP].side} `}>{topBar.mapInfo.mvps[playerMVP].side === 'CT' ? 'COUNTER TERRORIST' : 'TERRORIST'}</p>}
                     <p className='win-txt font-tablet'>WIN THE ROUND</p>
                     <span className="round-txt font-tablet">ROUND MVP:
-                        <span className="player-txt"> {topBar.mapInfo.mvps[playerMVP].nickName}</span>
+                        {playerMVP && <span className="player-txt"> {topBar.mapInfo.mvps[playerMVP].nickName}</span>}
                     </span>
                 </div>
                 <div className="player-photo" style={{ backgroundImage: `url(${picturePlayer})` }}></div>
