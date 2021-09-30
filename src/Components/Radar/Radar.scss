@@ -9,8 +9,10 @@
 }
 
 .radar-wrapper{
-    position: relative;
+    position: absolute;
+    top: -1.5vw;
+    left: -1vw;
+    
     width: 20vw;
     height: 20vw;
-    margin-top: -4.5vw;
 }

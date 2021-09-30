@@ -4,12 +4,13 @@ import PlayerCanvas from './PlayerCanvas/PlayerCanvas'
 
 
 export default function RadarLayout({ dataObj }) {
-    const [mapName, setMapName] = useState(dataObj.map.name.split("/")[2] + '_radar')
+    const [mapName, setMapName] = useState(dataObj.map.name.includes('/') ? dataObj.map.name.split("/")[2] + '_radar' : dataObj.map.name + '_radar')
     const [lowerRadar, setLowerRadar] = useState('.png')
-
     useEffect(() => {
         if (dataObj.map.name !== mapName) {
-            setMapName(dataObj.map.name.split("/")[2] + '_radar')
+            dataObj.map.name.includes('/') ?
+                setMapName(dataObj.map.name.split("/")[2] + '_radar') :
+                setMapName(dataObj.map.name + '_radar')
         }
 
         Object.keys(dataObj.players).forEach(steamID => {
