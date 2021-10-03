@@ -5,8 +5,8 @@ import ScoreBoard from './ScoreBoard/ScoreBoard';
 import SmartPovSide from '../SmartPovSide/SmartPovSide';
 
 export default function SmartDynamic() {
-    const [head2Head, setHead2Head] = useState();
-    const [scoreBoard, setScoreBoard] = useState();
+    const [head2Head, setHead2Head] = useState(null);
+    const [scoreBoard, setScoreBoard] = useState(null);
 
     useEffect(() => {
         subscribeToHead2Head(data => {
@@ -17,7 +17,7 @@ export default function SmartDynamic() {
         })
     }, [])
 
-    if (head2Head?.show && !scoreBoard?.show) {
+    if (head2Head !== null && scoreBoard === null) {
         return (
             <>
                 <HeadToHead data={head2Head} action={'show'} />
@@ -27,7 +27,7 @@ export default function SmartDynamic() {
 
         )
     }
-    else if (scoreBoard?.show && !head2Head?.show) {
+    else if (scoreBoard !== null && head2Head === null) {
         return (
             <>
                 <ScoreBoard data={scoreBoard} action={'show'} />
@@ -36,7 +36,7 @@ export default function SmartDynamic() {
             </>
         )
     }
-    else if (!scoreBoard?.show && !head2Head?.show) {
+    else if (scoreBoard === null && head2Head === null) {
         return (
             <>
                 <ScoreBoard data={scoreBoard} action={'hide'} />

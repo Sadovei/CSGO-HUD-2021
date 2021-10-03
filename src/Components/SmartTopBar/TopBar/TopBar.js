@@ -8,26 +8,40 @@ import hirestime from "hirestime";
 import { useSpring, animated } from 'react-spring'
 
 import bomb from '../../../assets/videos/bomb.webm'
+import { calcBombPerc, calcDefusePerc } from './TopBarStore';
 
 let boomElapsed = 0
 let boomTime = 0
+let flagMVP = false
+let currentMVP
+let test
 export default function TopBar({ topBar }) {
     const [mvps, setMVPS] = useState(topBar.mapInfo.mvps);
-    const [playerMVP, setPlayerMVP] = useState('');
 
     useEffect(() => {
-        if (mvps) {
-            const MVP = Object.keys(mvps).filter(key => mvps[key].mvps !== topBar.mapInfo.mvps[key].mvps)[0]
-            setPlayerMVP(MVP === undefined ? '' : MVP)
+        currentMVP = Object.keys(mvps).filter(key => mvps[key].mvps !== topBar.mapInfo.mvps[key].mvps)[0]
 
-            if (playerMVP !== '') {
-                setTimeout(() => {
-                    setMVPS(topBar.mapInfo.mvps)
-                }, 4000);
-            }
+        if (currentMVP !== undefined) {
+            setTimeout(() => {
+                setMVPS(topBar.mapInfo.mvps)
+            }, 4000);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [topBar.mapInfo.mvps])
+
+    if (currentMVP !== undefined && flagMVP === false && test === undefined) {
+        flagMVP = true
+        test = currentMVP
+    }
+
+    if (flagMVP) {
+        setTimeout(() => {
+            flagMVP = false
+        }, 3500);
+        setTimeout(() => {
+            test = undefined
+        }, 4500);
+    }
 
     const [timeTimer, setTimeTimer] = useState(0);
     const [phaseTimer, setPhaseTimer] = useState();
@@ -48,7 +62,7 @@ export default function TopBar({ topBar }) {
         'T': topBar.rightSide.sideTeam === 'T' && true
     })
 
-    let picturePlayer = playerMVP ?? `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${topBar.mapInfo.mvps[playerMVP].teamKey}/${topBar.mapInfo.mvps[playerMVP].playerKey}.webp`
+    let picturePlayer = currentMVP !== undefined && `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${topBar.mapInfo.mvps[currentMVP].teamKey}/${topBar.mapInfo.mvps[currentMVP].playerKey}.webp`
     let leftWin = 0
     let rightWin = 0
 
@@ -63,7 +77,7 @@ export default function TopBar({ topBar }) {
     let leftLogo = topBar.leftSide.nameKey === 'placeholder' ? (`placeholder/${topBar.leftSide.sideTeam === 'CT' ? 'CT' : 'T'}`) : topBar.leftSide.nameKey
     let rightLogo = topBar.rightSide.nameKey === 'placeholder' ? (`placeholder/${topBar.rightSide.sideTeam === 'CT' ? 'CT' : 'T'}`) : topBar.rightSide.nameKey
     let timeMinutes = Number(topBar.round.time) >= 0 ? Math.floor((Number(topBar.round.time) / 60)) : 0
-    let timeSeconds = Number(topBar.round.time) >= 0 ? Math.ceil(Number(topBar.round.time)) % 60 < 10 ? `0${Math.ceil(Number(topBar.round.time)) % 60}` : Math.ceil(Number(topBar.round.time)) % 60 : 0
+    let timeSeconds = Number(topBar.round.time) >= 0 ? Math.ceil(Number(topBar.round.time)) % 60 < 10 ? `0${Math.ceil(Number(topBar.round.time)) % 60}` : Math.ceil(Number(topBar.round.time)) % 60 : '00'
     const mapsToWin = range(1, (topBar.mapInfo.bestOf / 2).toFixed(0));
 
     useEffect(() => {
@@ -112,28 +126,14 @@ export default function TopBar({ topBar }) {
         setFlagDefuse(true)
     }
 
-    function calcDefusePerc(hasDefuse, countdown) {
-        countdown = parseFloat(countdown);
-        const defTime = hasDefuse === true ? 5 : 10;
-        const perc = countdown * 100 / defTime;
-        return perc * 92 / 100;
-    }
-
-    function calcBombPerc(countdown) {
-        countdown = parseFloat(countdown);
-        const bombTime = 40;
-        const perc = countdown * 100 / bombTime;
-        return perc * 92 / 100;
-    }
-
     const props = useSpring({
         left: topBar.round.bombState.defuseTime !== '0' ? '1vw' : '-18vw',
         right: topBar.round.bombState.defuseTime !== '0' ? '0.4vw' : '-18vw'
     })
 
     const mvpProps = useSpring({
-        opacity: playerMVP ? '1' : '0',
-        top: playerMVP ? '7vw' : '6vw',
+        opacity: flagMVP ? '1' : '0',
+        top: flagMVP ? '7vw' : '6vw',
     })
 
 
@@ -159,14 +159,14 @@ export default function TopBar({ topBar }) {
                         <div className="leftScore-wrapper">
                             <p className={`leftSideRounds ${sideLeft} font-mont`}>{topBar.leftSide.score}</p>
                         </div>
-
+                        {console.log(topBar.round.phase)}
                         <div className="timer-wrapper">
                             <div className={`clock font-mont ${clockTimer}`}>
-                                <p className="minutes">{(timeSeconds === '00' && topBar.round.phase !== 'paused') ? 1 : timeMinutes}</p>
+                                <p className="minutes">{(timeSeconds === '00' && topBar.round.phase !== 'paused') ? topBar.round.phase === 'bomb' ? '0' : '1' : timeMinutes}</p>
                                 <p className="points">:</p>
                                 <span className="seconds">
                                     <p className="first-Timesecond">{timeSeconds.toString().split("")[0]}</p>
-                                    <p className="second-Timesecond">{(timeSeconds !== '00' && timeMinutes !== '1') ? timeSeconds.toString().split("")[1] : '00'}</p>
+                                    <p className="second-Timesecond">{timeSeconds.toString().split("")[1]}</p>
                                 </span>
                             </div>
                             {timeTimer > 0 && phaseTimer === 'bomb' && <Timer type={phaseTimer} timer={timeTimer} style={{ opacity: phaseTimer === 'defuse' ? '0' : '1' }} />}
@@ -243,12 +243,12 @@ export default function TopBar({ topBar }) {
             </animated.div>
 
             {topBar.mapInfo.currentRound > 0 && <animated.div className="mvp-wrapper row" style={{ opacity: mvpProps.opacity, top: mvpProps.top }}>
-                {playerMVP && <div className={`side-image ${topBar.mapInfo.mvps[playerMVP].side}`}></div>}
+                {test && <div className={`side-image ${topBar.mapInfo.mvps[test].side}`}></div>}
                 <div className="info-wrapper col">
-                    {playerMVP && <p className={`side font-tablet ${topBar.mapInfo.mvps[playerMVP].side} `}>{topBar.mapInfo.mvps[playerMVP].side === 'CT' ? 'COUNTER TERRORIST' : 'TERRORIST'}</p>}
+                    {test && <p className={`side font-tablet ${topBar.mapInfo.mvps[test].side} `}>{topBar.mapInfo.mvps[test].side === 'CT' ? 'COUNTER TERRORIST' : 'TERRORIST'}</p>}
                     <p className='win-txt font-tablet'>WIN THE ROUND</p>
                     <span className="round-txt font-tablet">ROUND MVP:
-                        {playerMVP && <span className="player-txt"> {topBar.mapInfo.mvps[playerMVP].nickName}</span>}
+                        {test && <span className="player-txt"> {topBar.mapInfo.mvps[test].nickName}</span>}
                     </span>
                 </div>
                 <div className="player-photo" style={{ backgroundImage: `url(${picturePlayer})` }}></div>
