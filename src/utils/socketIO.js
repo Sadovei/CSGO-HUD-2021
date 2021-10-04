@@ -2,9 +2,7 @@ import socketClient from "socket.io-client";
 import { findGetParameter } from "./URLParameters";
 
 let token = findGetParameter("token") || 'main';
-// const backEND = '10.97.2.31'
 const backEND = '10.97.4.45'
-// const backEND = 'localhost'
 const ENDPOINT = `http://${backEND}:4400/?client=${token}`;
 const socket = socketClient(ENDPOINT);
 

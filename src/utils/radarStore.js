@@ -186,6 +186,7 @@ export function drawBomb(
     deg = 0
 ) {
     if (bmbState === "carried" || bmbState === "dropped") {
+
         ctx.restore();
         //Convert degrees to radian
         let rad = (deg * Math.PI) / 180;

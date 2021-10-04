@@ -18,7 +18,6 @@ const Canvas = (props) => {
         const playerObserved = props.playerdata.observed;
         const stateHealth = props.playerdata.gameData.state.health
 
-
         let playerImage = (playerSide === 'CT') ? props.ctImgs.current : props.terrorImg.current;
         let deadPlayerImage = (playerSide === 'CT') ? props.deadCs.current : props.deadTerror.current;
 
@@ -47,10 +46,10 @@ const Canvas = (props) => {
                 drawBullet(ctx, props.bulletIndicator.current, 20, 35, canvasCoord, obsSlot, bulletAngle);
             }
 
-            if (props.playerIndex === 9) {
+            if (props.playerIndex) {
                 // kindly show bomb
-                canvasBmbPosition.x = canvasBmbPosition.x - 20;
-                canvasBmbPosition.y = canvasBmbPosition.y + 15;
+                canvasBmbPosition.x = canvasBmbPosition.x - 10;
+                canvasBmbPosition.y = canvasBmbPosition.y + 10;
                 const bombState = props.bombData.state;
                 drawBomb(ctx, bombState, props.bombImg.current, props.bmbPlanted.current, props.bombData, 50, 50, canvasBmbPosition, obsSlot);
             }
