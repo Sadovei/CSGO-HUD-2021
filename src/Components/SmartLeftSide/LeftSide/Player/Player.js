@@ -11,10 +11,13 @@ export default function Player({ info, team }) {
                     <p className="number-slot">{info.observer_slot}</p>
                 </div>
 
-                <div className="image-player" style={{
-                    backgroundImage: `url(${picturePlayer})`,
-                    filter: info.state.health === 0 ? 'grayscale(100%)' : (info.state.flashed / 51) < 1 ? 'brightness(1)' : `brightness(${info.state.flashed / 51}`
-                }}></div>
+                <div className="image-player-wrapper">
+
+                    <div className="image-player" style={{
+                        backgroundImage: `url(${picturePlayer})`,
+                        filter: info.state.health === 0 ? 'grayscale(100%)' : (info.state.flashed / 51) < 1 ? 'brightness(1)' : `brightness(${info.state.flashed / 51}`
+                    }}></div>
+                </div>
             </div >
         </div >
     )

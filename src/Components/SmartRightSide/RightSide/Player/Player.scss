@@ -23,15 +23,23 @@
       z-index: 1;
     }
 
-    .image-player {
+    .image-player-wrapper{
       position: absolute;
-      right: 0vw;
+      top: 0;
+      bottom: 0;
+      right: 0.9vw;
+      width: 85%;
+      border-radius: 0.5vw;
+      overflow: hidden;
+
+    .image-player {
       height: 100%;
-      width: 6vw;
+      width: 100%;
+      background-size: cover;
 
       transform: scaleX(-1);
-      background-size: 100%;
     }
+  }
   }
 
   + .right-player-wrapper {
