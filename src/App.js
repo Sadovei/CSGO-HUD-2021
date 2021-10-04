@@ -20,11 +20,10 @@ function App() {
       setObjectData(data)
     });
   }, [])
-
   if (topBar) {
-    if (topBar.mapInfo.phase === 'gameover' && topBar.round.time <= 0)
+    if (topBar.mapInfo.phase === 'gameover' && topBar.round.time <= 0) {
       return null
-    else
+    } else
       return (
         <>
           <SmartTopBar topBarData={topBar} />

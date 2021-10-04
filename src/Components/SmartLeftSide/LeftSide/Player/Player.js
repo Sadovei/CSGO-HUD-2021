@@ -126,7 +126,6 @@ export default function Player({ info, team, DefuseIMG, grenadeImg, BombIMG, Pis
                                 <p className="kills-notice">/5</p>
                             </span>
                         </div>
-
                         <div className="adr-wrapper row">
                             <p className="adr-notice">ADR</p>
                             <p className="adr-number">{info.adr}</p>

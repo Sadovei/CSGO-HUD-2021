@@ -16,11 +16,12 @@ export default function RadarLayout({ dataObj }) {
         Object.keys(dataObj.players).forEach(steamID => {
             if (dataObj.players[steamID].observed) {
                 const posOb = dataObj.players[steamID].gameData.position.split(",");
-                if (mapName === "de_nuke" && posOb[2] < -495) {
+                if (mapName === "de_nuke_radar" && posOb[2] < -495) {
                     setLowerRadar("_lower.png")
-                } else if (mapName === "de_vertigo" && posOb[2] < 11700) {
+                } else if (mapName === "de_vertigo_radar" && posOb[2] < 11700) {
                     setLowerRadar("_lower.png")
-                }
+                } else
+                setLowerRadar(".png")
             }
         })
         // eslint-disable-next-line
@@ -81,7 +82,6 @@ export default function RadarLayout({ dataObj }) {
             playerSteam={playersData}
         />
     });
-
 
     return (
         <div className="radar-wrapper">

@@ -8,7 +8,6 @@ export default function ScoreBoard({ data, action }) {
     if (action === 'show') {
         scoreboardData = data
     }
-
     let leftLogo = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${scoreboardData?.leftSide.teamKey}/logo.webp`
     let rightLogo = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${scoreboardData?.rightSide.teamKey}/logo.webp`
 
@@ -51,7 +50,7 @@ export default function ScoreBoard({ data, action }) {
                 <div className="adr-data row">
                     <div className="leftBar-wrapper col">
                         {
-                            scoreboardData?.rightSide.players.map((player, indexPlayer) => {
+                            scoreboardData?.leftSide.players.map((player, indexPlayer) => {
                                 return (
                                     <div className="adr-bar" key={indexPlayer}>
                                         <p className="adr font-tablet">{player.adr}</p>

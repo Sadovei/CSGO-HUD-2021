@@ -19,7 +19,8 @@ export default function TopBar({ topBar }) {
     const [mvps, setMVPS] = useState(topBar.mapInfo.mvps);
 
     useEffect(() => {
-        currentMVP = Object.keys(mvps).filter(key => mvps[key].mvps !== topBar.mapInfo.mvps[key].mvps)[0]
+        if (mvps)
+            currentMVP = Object.keys(mvps).filter(key => mvps[key].mvps !== topBar.mapInfo.mvps[key].mvps)[0]
 
         if (currentMVP !== undefined) {
             setTimeout(() => {
@@ -159,7 +160,6 @@ export default function TopBar({ topBar }) {
                         <div className="leftScore-wrapper">
                             <p className={`leftSideRounds ${sideLeft} font-mont`}>{topBar.leftSide.score}</p>
                         </div>
-                        {console.log(topBar.round.phase)}
                         <div className="timer-wrapper">
                             <div className={`clock font-mont ${clockTimer}`}>
                                 <p className="minutes">{(timeSeconds === '00' && topBar.round.phase !== 'paused') ? topBar.round.phase === 'bomb' ? '0' : '1' : timeMinutes}</p>
