@@ -21,7 +21,7 @@ export default function Player({ info, team, DefuseIMG, grenadeImg, BombIMG, Pis
             </div>
 
             <div className="first-box row">
-                <p className="player-name font-tablet">{info.namePlayer}</p>
+                <p className="player-name font-tablet">{info.namePlayer.toUpperCase()}</p>
             </div>
         </div >
     )

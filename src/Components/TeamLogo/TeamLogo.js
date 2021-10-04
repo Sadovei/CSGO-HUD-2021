@@ -6,11 +6,11 @@ export default function TeamLogo({ data }) {
         <>
             <div className="left-team-wrapper">
                 <div className="logo" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${data.leftSide.nameKey}/logo_oog.webp)` }}></div>
-                <p className="team-name font-tablet">{data.leftSide.name}</p>
+                <p className="team-name font-tablet">{data.leftSide.name.toUpperCase()}</p>
             </div>
 
             <div className="right-team-wrapper">
-                <p className="team-name font-tablet">{data.rightSide.name}</p>
+                <p className="team-name font-tablet">{data.rightSide.name.toUpperCase()}</p>
                 <div className="logo" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${data.rightSide.nameKey}/logo_oog.webp)` }}></div>
             </div>
         </>

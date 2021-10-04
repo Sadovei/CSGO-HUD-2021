@@ -5,7 +5,7 @@ export default function Player({ info, team, DefuseIMG, grenadeImg, BombIMG, Pis
     return (
         <div className={`left-player-wrapper row slot-${info.observer_slot} ${team} ${info.state.health === 0 ? 'death' : 'alive'} ${info.active ? 'pov' : ''}`}>
             <div className="first-box row">
-                <p className="player-name font-mont">{info.namePlayer}</p>
+                <p className="player-name font-mont">{info.namePlayer.toUpperCase()}</p>
             </div>
 
             <div className="money-wrapper font-tablet">
