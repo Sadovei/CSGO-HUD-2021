@@ -134,7 +134,7 @@ export function drawPlayerButton(
     ctx.rotate(rad * -1);
     ctx.translate(canvasCoord.x * -1, canvasCoord.y * -1);
 
-    ctx.font = "30px Titling Gothic FB Cond";
+    ctx.font = "30px Tablet-Gothic-Bold";
     ctx.fillStyle = "white";
     ctx.textAlign = "center";
     ctx.fillText(obsSlot, canvasCoord.x, canvasCoord.y + 10);
@@ -186,7 +186,6 @@ export function drawBomb(
     deg = 0
 ) {
     if (bmbState === "carried" || bmbState === "dropped") {
-
         ctx.restore();
         //Convert degrees to radian
         let rad = (deg * Math.PI) / 180;
@@ -196,7 +195,7 @@ export function drawBomb(
         ctx.rotate(rad);
 
         //draw the image
-        ctx.drawImage(bmbImg, (width / 2) * -1, (height / 2) * -1, width, height);
+        ctx.drawImage(bmbImg, (width/3), (height / -2), width, height);
 
         //reset the canvas
         ctx.rotate(rad * -1);
