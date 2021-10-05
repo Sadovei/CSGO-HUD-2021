@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { subscribeToRadar, subscribeToTopBar } from "./utils/socketIO";
+import { subscribeToRadar, subscribeToTopBar, subscribeToMessage } from "./utils/socketIO";
 
 import SmartTopBar from "./Components/SmartTopBar/SmartTopBar";
 import SmartLeftSide from "./Components/SmartLeftSide/SmartLeftSide";
@@ -10,6 +10,8 @@ import RadarLayout from "./Components/Radar/Radar";
 function App() {
   const [topBar, setTopBar] = useState();
   const [objectData, setObjectData] = useState('');
+  const [message, setMessage] = useState(null);
+  const [radarToggle, setRadarToggle] = useState(false);
 
   useEffect(() => {
     subscribeToTopBar(data => {
@@ -19,7 +21,24 @@ function App() {
     subscribeToRadar((data) => {
       setObjectData(data)
     });
+
+    subscribeToMessage((data) => {
+      setMessage(data)
+    });
   }, [])
+
+  useEffect(() => {
+    if (message !== null) {
+      if (message === 'refresh')
+        window.location.reload();
+      else if (message === 'radar-off')
+        setRadarToggle(true)
+      else if (message === 'radar-on')
+        setRadarToggle(false)
+      setMessage(null)
+    }
+  }, [message])
+
   if (topBar) {
     if (topBar.mapInfo.phase === 'gameover' && topBar.round.time <= 0) {
       return null
@@ -30,7 +49,7 @@ function App() {
           <SmartRightSide />
           <SmartLeftSide />
           <SmartDynamic />
-          {objectData && <RadarLayout dataObj={objectData} />}
+          {!radarToggle && objectData && <RadarLayout dataObj={objectData} />}
         </>
       );
   }
