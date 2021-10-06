@@ -6,7 +6,6 @@ export default function VetoLegends({ vetoInfo, phase, topBar }) {
     const [animClass, setAnimClass] = useState('');
     const [flag, setFlag] = useState(false);
     const updateStart = useRef(null);
-
     useEffect(() => {
         if (!updateStart.current) {
             setUpdate(phase);
@@ -29,7 +28,6 @@ export default function VetoLegends({ vetoInfo, phase, topBar }) {
         }
     }
     let matchCurrent = currentMatch(vetoInfo, topBar)
-
     if (topBar.leftSide.nameKey === 'placeholder')
         return null
     else

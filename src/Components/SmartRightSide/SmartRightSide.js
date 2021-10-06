@@ -15,7 +15,6 @@ export default function SmartRightSide() {
     if (rightSide === undefined) {
         return null;
     }
-
     return (
         <div className="right-wrapper">
             <div className='dynamic-wrapper col'>

@@ -16,7 +16,7 @@ const csgo_maps = {
             scale: "4.9",
         },
         de_mirage_radar: {
-            pos_x: "-3230",
+            pos_x: "-3330",
             pos_y: "1713",
             scale: "5.00",
         },

@@ -43,11 +43,11 @@ export default function Player({ info, team, DefuseIMG, grenadeImg, BombIMG, Pis
                         </div>
                         <div className="assists-wrapper row">
                             <p className="assists-notice">A</p>
-                            <p className={`assists-number`}>{info.match_stats.deaths}</p>
+                            <p className={`assists-number`}>{info.match_stats.assists}</p>
                         </div>
                         <div className="death-wrapper row">
                             <p className="death-notice">D</p>
-                            <p className={`death-number`}>{info.match_stats.assists}</p>
+                            <p className={`death-number`}>{info.match_stats.deaths}</p>
                         </div>
                     </div>
 
@@ -110,11 +110,11 @@ export default function Player({ info, team, DefuseIMG, grenadeImg, BombIMG, Pis
                         </div>
                         <div className="assists-wrapper row">
                             <p className="assists-notice">A</p>
-                            <p className={`assists-number`}>{info.match_stats.deaths}</p>
+                            <p className={`assists-number`}>{info.match_stats.assists}</p>
                         </div>
                         <div className="death-wrapper row">
                             <p className="death-notice">D</p>
-                            <p className={`death-number`}>{info.match_stats.assists}</p>
+                            <p className={`death-number`}>{info.match_stats.deaths}</p>
                         </div>
 
                     </div>
