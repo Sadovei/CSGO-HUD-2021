@@ -152,10 +152,12 @@
 
         .nickName {
           text-align: end;
+        text-transform: uppercase;
         }
 
         .name-wrapper {
           .name {
+            text-transform: uppercase;
             text-align: end;
           }
 
@@ -184,6 +186,8 @@
 
       .nickName {
         margin-bottom: -0.5625vw;
+        text-transform: uppercase;
+
         font-size: 2.25vw;
         color: var(--color-white);
       }
@@ -192,6 +196,7 @@
         position: relative;
 
         .name {
+          text-transform: uppercase;
           margin-bottom: -0.28125vw;
           font-size: 1.125vw;
           color: var(--color-white);
@@ -205,6 +210,7 @@
       }
 
       .teamName {
+        text-transform: uppercase;
         font-size: 1.125vw;
         color: var(--color-grey);
       }

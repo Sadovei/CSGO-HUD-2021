@@ -79,6 +79,7 @@
 
       .first-box {
         .player-name {
+          text-transform: uppercase;
           color: var(--color-white);
         }
       }
@@ -400,6 +401,10 @@
         .first-box {
           margin-bottom: 0.2vw;
           font-size: 0.8vw;
+
+          .player-name{
+            text-transform: uppercase;
+          }
         }
 
         .second-box {

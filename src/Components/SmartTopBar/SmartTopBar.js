@@ -18,17 +18,19 @@ export default function SmartTopBar({ topBarData }) {
                 videoRef.current.src = pistolRoundVideo
                 videoRef.current.play();
             }
-        if (topBarData.round.bomb === 'planted' && !bombPlanted) {
+        if (topBarData.round.bomb === 'planted' && !bombPlanted && Number(topBarData.round.time) >= 40) {
             setBombPlanted(true)
             videoRef.current.src = plantedBombVideo
             videoRef.current.play();
         }
-        if (pistolRound) {
+
+        if (pistolRound || bombPlanted) {
             setTimeout(() => {
                 setPistolRound(false)
                 setBombPlanted(false)
             }, 5000);
         }
+
     }, [bombPlanted, pistolRound, topBarData.mapInfo.currentRound, topBarData.round.bomb, topBarData.round.phase, topBarData.round.time])
 
     let timeOut = classNames({

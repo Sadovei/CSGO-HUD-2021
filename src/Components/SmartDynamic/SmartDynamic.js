@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { subscribeToHead2Head, subscribeToScoreBoard } from "../../utils/socketIO";
+import { subscribeToHead2Head, subscribeToScoreBoard, token } from "../../utils/socketIO";
 import HeadToHead from './HeadToHead/HeadToHead';
 import ScoreBoard from './ScoreBoard/ScoreBoard';
 import SmartPovSide from '../SmartPovSide/SmartPovSide';
@@ -9,12 +9,14 @@ export default function SmartDynamic() {
     const [scoreBoard, setScoreBoard] = useState(null);
 
     useEffect(() => {
-        subscribeToHead2Head(data => {
-            setHead2Head(data)
-        })
-        subscribeToScoreBoard(data => {
-            setScoreBoard(data)
-        })
+        if (token === 'igdir') {
+            subscribeToHead2Head(data => {
+                setHead2Head(data)
+            })
+            subscribeToScoreBoard(data => {
+                setScoreBoard(data)
+            })
+        }
     }, [])
 
     if (head2Head !== null && scoreBoard === null) {
