@@ -7,7 +7,6 @@ import SmartRightSide from "./Components/SmartRightSide/SmartRightSide";
 import SmartDynamic from "./Components/SmartDynamic/SmartDynamic";
 import RadarLayout from "./Components/Radar/Radar";
 import CheckStream from "./Components/SmartDynamic/CheckStream/CheckStream";
-import Sponsors from "./Components/Sponsors/Sponsors";
 
 function App() {
   const [topBar, setTopBar] = useState();

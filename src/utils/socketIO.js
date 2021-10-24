@@ -1,9 +1,10 @@
 import socketClient from "socket.io-client";
 import { findGetParameter } from "./URLParameters";
+const { REACT_APP_BACKEND, REACT_APP_PORT } = process.env
 
 export const token = findGetParameter("token") || 'main';
-const backEND = '10.97.2.14'
-const port = '4400'
+const backEND = REACT_APP_BACKEND
+const port = REACT_APP_PORT
 const ENDPOINT = `http://${backEND}:${port}/?client=${token}`;
 const socket = socketClient(ENDPOINT);
 
