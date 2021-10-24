@@ -8,7 +8,6 @@ export default function HeadToHead({ data, action }) {
     if (action === 'show') {
         dataH2H = data
     }
-
     const showEl = useSpring({
         from: { bottom: '-25vw' },
         to: { bottom: '1.1vw' }
@@ -32,7 +31,6 @@ export default function HeadToHead({ data, action }) {
         'CT': dataH2H?.rightPlayer.side === 'CT' && true,
         'T': dataH2H?.rightPlayer.side === 'T' && true
     })
-
 
     return (
         <animated.div className="headToHead-wrapper font-tablet row"

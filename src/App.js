@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { subscribeToRadar, subscribeToTopBar, subscribeToMessage } from "./utils/socketIO";
+import { subscribeToRadar, subscribeToTopBar, subscribeToMessage, token, subscribeToCheckStream } from "./utils/socketIO";
 
 import SmartTopBar from "./Components/SmartTopBar/SmartTopBar";
 import SmartLeftSide from "./Components/SmartLeftSide/SmartLeftSide";
 import SmartRightSide from "./Components/SmartRightSide/SmartRightSide";
 import SmartDynamic from "./Components/SmartDynamic/SmartDynamic";
 import RadarLayout from "./Components/Radar/Radar";
+import CheckStream from "./Components/SmartDynamic/CheckStream/CheckStream";
+import Sponsors from "./Components/Sponsors/Sponsors";
 
 function App() {
   const [topBar, setTopBar] = useState();
   const [objectData, setObjectData] = useState('');
   const [message, setMessage] = useState(null);
   const [radarToggle, setRadarToggle] = useState(false);
+  const [checkStream, setCheckStream] = useState([0, { show: 'false' }, { text: '' }]);
 
   useEffect(() => {
     subscribeToTopBar(data => {
@@ -25,8 +28,13 @@ function App() {
     subscribeToMessage((data) => {
       setMessage(data)
     });
-  }, [])
 
+    if (token === 'igdir') {
+      subscribeToCheckStream(data => {
+        setCheckStream(data)
+      })
+    }
+  }, [])
   useEffect(() => {
     if (message !== null) {
       if (message === 'refresh')
@@ -50,6 +58,8 @@ function App() {
           <SmartLeftSide />
           <SmartDynamic />
           {!radarToggle && objectData && <RadarLayout dataObj={objectData} />}
+          {checkStream !== [0, false, ''] && <CheckStream data={checkStream[0]} show={checkStream[1].show} text={checkStream[2].text} />}
+          {/* <Sponsors /> */}
         </>
       );
   }

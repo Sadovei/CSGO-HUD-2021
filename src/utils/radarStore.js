@@ -11,7 +11,7 @@ const csgo_maps = {
             scale: "6",
         },
         de_inferno_radar: {
-            pos_x: "-2087", // upper left world x coordinate
+            pos_x: "-2200", // upper left world x coordinate
             pos_y: "3870", // upper left world y coordinate
             scale: "4.9",
         },
@@ -26,7 +26,7 @@ const csgo_maps = {
             scale: "7.00",
         },
         de_overpass_radar: {
-            pos_x: "-4831",
+            pos_x: "-4950",
             pos_y: "1781",
             scale: "5.2",
         },
@@ -36,7 +36,7 @@ const csgo_maps = {
             scale: "4.7",
         },
         de_dust2_radar: {
-            pos_x: "-2476", // upper left world coordinate
+            pos_x: "-2625", // upper left world coordinate
             pos_y: "3239",
             scale: "4.4",
         },
@@ -46,7 +46,7 @@ const csgo_maps = {
             scale: "4.0",
         },
         de_ancient_radar: {
-            pos_x: "-3100", // upper left world coordinate
+            pos_x: "-2950", // upper left world coordinate
             pos_y: "2164",
             scale: "5.0",
         }

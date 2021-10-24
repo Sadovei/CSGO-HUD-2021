@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { subscribeToHead2Head, subscribeToScoreBoard, token } from "../../utils/socketIO";
+import { subscribeToHead2Head, subscribeToScoreBoard, subscribeToSponsorNr1, token } from "../../utils/socketIO";
 import HeadToHead from './HeadToHead/HeadToHead';
 import ScoreBoard from './ScoreBoard/ScoreBoard';
 import SmartPovSide from '../SmartPovSide/SmartPovSide';
@@ -7,6 +7,7 @@ import SmartPovSide from '../SmartPovSide/SmartPovSide';
 export default function SmartDynamic() {
     const [head2Head, setHead2Head] = useState(null);
     const [scoreBoard, setScoreBoard] = useState(null);
+    const [firstSponsor, setFirstSponsor] = useState(null);
 
     useEffect(() => {
         if (token === 'igdir') {
@@ -15,6 +16,10 @@ export default function SmartDynamic() {
             })
             subscribeToScoreBoard(data => {
                 setScoreBoard(data)
+            })
+
+            subscribeToSponsorNr1(data => {
+                setFirstSponsor(data)
             })
         }
     }, [])
@@ -26,13 +31,21 @@ export default function SmartDynamic() {
                 <ScoreBoard data={null} action={'hide'} />
                 <SmartPovSide action={'hide'} />
             </>
-
         )
     }
     else if (scoreBoard !== null && head2Head === null) {
         return (
             <>
                 <ScoreBoard data={scoreBoard} action={'show'} />
+                <HeadToHead data={null} action={'hide'} />
+                <SmartPovSide action={'hide'} />
+            </>
+        )
+    }
+    else if (firstSponsor !== null && scoreBoard === null && head2Head === null) {
+        return (
+            <>
+                <ScoreBoard data={null} action={'hide'} />
                 <HeadToHead data={null} action={'hide'} />
                 <SmartPovSide action={'hide'} />
             </>
@@ -47,4 +60,7 @@ export default function SmartDynamic() {
             </>
         )
     }
+
+
+
 }

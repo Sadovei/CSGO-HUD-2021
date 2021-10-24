@@ -128,8 +128,8 @@ export default function TopBar({ topBar }) {
     }
 
     const props = useSpring({
-        left: topBar.round.bombState.defuseTime !== '0' ? '1vw' : '-18vw',
-        right: topBar.round.bombState.defuseTime !== '0' ? '0.4vw' : '-18vw'
+        left: topBar.round.bombState.defuseTime !== '0' ? '0.5vw' : '-18vw',
+        right: topBar.round.bombState.defuseTime !== '0' ? '1vw' : '-18vw'
     })
 
     const mvpProps = useSpring({

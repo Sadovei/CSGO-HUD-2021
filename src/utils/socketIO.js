@@ -2,8 +2,9 @@ import socketClient from "socket.io-client";
 import { findGetParameter } from "./URLParameters";
 
 export const token = findGetParameter("token") || 'main';
-const backEND = '10.97.2.31'
-const ENDPOINT = `http://${backEND}:4400/?client=${token}`;
+const backEND = '10.97.2.14'
+const port = '4400'
+const ENDPOINT = `http://${backEND}:${port}/?client=${token}`;
 const socket = socketClient(ENDPOINT);
 
 export const subscribeToTopBar = (cb) => {
@@ -33,10 +34,29 @@ export const subscribeToHead2Head = (cb) => {
     }
 }
 
+export const subscribeToSponsorNr1 = (cb) => {
+    if (token === 'igdir') {
+        socket.on(`igdir_sponsorNr1`, data => cb(data));
+        socket.emit(`subscribe`, `igdir_sponsorNr1`);
+    }
+}
+
 export const subscribeToScoreBoard = (cb) => {
     if (token === 'igdir') {
         socket.on(`igdir_Overlay_Scoreboard`, data => cb(data));
         socket.emit(`subscribe`, `igdir_Overlay_Scoreboard`);
+    }
+}
+
+export const subscribeToCheckStream = (cb) => {
+    if (token === 'igdir') {
+        if (port === '4600') {
+            socket.on(`igdir_checkStream_A`, data => cb(data));
+            socket.emit(`subscribe`, `igdir_checkStream_A`);
+        } else {
+            socket.on(`igdir_checkStream_B`, data => cb(data));
+            socket.emit(`subscribe`, `igdir_checkStream_B`);
+        }
     }
 }
 

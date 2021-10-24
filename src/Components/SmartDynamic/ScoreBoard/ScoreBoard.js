@@ -16,8 +16,7 @@ export default function ScoreBoard({ data, action }) {
     })
 
     return (
-        <animated.div className="scoreBoard-wrapper row"
-            style={{ bottom: props.bottom }}>
+        <animated.div className="scoreBoard-wrapper row" style={{ bottom: props.bottom }}>
 
             <div className="leftSide-players-wrapper col font-mont">
                 <div className="logo" style={{ backgroundImage: `url(${leftLogo})` }}></div>
