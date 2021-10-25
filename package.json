@@ -2,12 +2,12 @@
   "name": "csgo-hud-client",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://redis-birou.pgl.ro/pgl/CSGO-2021/stream-B/hud-replay/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "classnames": "^2.3.1",
+    "dotenv-webpack": "^7.0.3",
     "hirestime": "^6.1.0",
     "node-sass": "^6.0.1",
     "react": "^17.0.2",

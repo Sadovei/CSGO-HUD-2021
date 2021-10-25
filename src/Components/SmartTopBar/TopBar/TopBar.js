@@ -8,27 +8,12 @@ import hirestime from "hirestime";
 import { useSpring, animated } from 'react-spring'
 
 import bomb from '../../../assets/videos/bomb.webm'
+import { calcBombPerc, calcDefusePerc } from './TopBarStore';
 
 let boomElapsed = 0
 let boomTime = 0
+let test
 export default function TopBar({ topBar }) {
-    const [mvps, setMVPS] = useState(topBar.mapInfo.mvps);
-    const [playerMVP, setPlayerMVP] = useState('');
-
-    useEffect(() => {
-        if (mvps) {
-            const MVP = Object.keys(mvps).filter(key => mvps[key].mvps !== topBar.mapInfo.mvps[key].mvps)[0]
-            setPlayerMVP(MVP === undefined ? '' : MVP)
-
-            if (playerMVP !== '') {
-                setTimeout(() => {
-                    setMVPS(topBar.mapInfo.mvps)
-                }, 4000);
-            }
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [topBar.mapInfo.mvps])
-
     const [timeTimer, setTimeTimer] = useState(0);
     const [phaseTimer, setPhaseTimer] = useState();
 
@@ -62,7 +47,7 @@ export default function TopBar({ topBar }) {
     let leftLogo = topBar.leftSide.nameKey === 'placeholder' ? (`placeholder/${topBar.leftSide.sideTeam === 'CT' ? 'CT' : 'T'}`) : topBar.leftSide.nameKey
     let rightLogo = topBar.rightSide.nameKey === 'placeholder' ? (`placeholder/${topBar.rightSide.sideTeam === 'CT' ? 'CT' : 'T'}`) : topBar.rightSide.nameKey
     let timeMinutes = Number(topBar.round.time) >= 0 ? Math.floor((Number(topBar.round.time) / 60)) : 0
-    let timeSeconds = Number(topBar.round.time) >= 0 ? Math.ceil(Number(topBar.round.time)) % 60 < 10 ? `0${Math.ceil(Number(topBar.round.time)) % 60}` : Math.ceil(Number(topBar.round.time)) % 60 : 0
+    let timeSeconds = Number(topBar.round.time) >= 0 ? Math.ceil(Number(topBar.round.time)) % 60 < 10 ? `0${Math.ceil(Number(topBar.round.time)) % 60}` : Math.ceil(Number(topBar.round.time)) % 60 : '00'
     const mapsToWin = range(1, (topBar.mapInfo.bestOf / 2).toFixed(0));
 
     useEffect(() => {
@@ -111,23 +96,9 @@ export default function TopBar({ topBar }) {
         setFlagDefuse(true)
     }
 
-    function calcDefusePerc(hasDefuse, countdown) {
-        countdown = parseFloat(countdown);
-        const defTime = hasDefuse === true ? 5 : 10;
-        const perc = countdown * 100 / defTime;
-        return perc * 92 / 100;
-    }
-
-    function calcBombPerc(countdown) {
-        countdown = parseFloat(countdown);
-        const bombTime = 40;
-        const perc = countdown * 100 / bombTime;
-        return perc * 92 / 100;
-    }
-
     const props = useSpring({
-        left: topBar.round.bombState.defuseTime !== '0' ? '1vw' : '-18vw',
-        right: topBar.round.bombState.defuseTime !== '0' ? '0.4vw' : '-18vw'
+        left: topBar.round.bombState.defuseTime !== '0' ? '0.5vw' : '-18vw',
+        right: topBar.round.bombState.defuseTime !== '0' ? '1vw' : '-18vw'
     })
 
     let clockTimer = classNames({
@@ -152,14 +123,13 @@ export default function TopBar({ topBar }) {
                         <div className="leftScore-wrapper">
                             <p className={`leftSideRounds ${sideLeft} font-mont`}>{topBar.leftSide.score}</p>
                         </div>
-
                         <div className="timer-wrapper">
                             <div className={`clock font-mont ${clockTimer}`}>
-                                <p className="minutes">{(timeSeconds === '00' && topBar.round.phase !== 'paused') ? 1 : timeMinutes}</p>
+                                <p className="minutes">{(timeSeconds === '00' && topBar.round.phase !== 'paused') ? topBar.round.phase === 'bomb' ? '0' : '1' : timeMinutes}</p>
                                 <p className="points">:</p>
                                 <span className="seconds">
                                     <p className="first-Timesecond">{timeSeconds.toString().split("")[0]}</p>
-                                    <p className="second-Timesecond">{(timeSeconds !== '00' && timeMinutes !== '1') ? timeSeconds.toString().split("")[1] : '00'}</p>
+                                    <p className="second-Timesecond">{timeSeconds.toString().split("")[1]}</p>
                                 </span>
                             </div>
                             {timeTimer > 0 && phaseTimer === 'bomb' && <Timer type={phaseTimer} timer={timeTimer} style={{ opacity: phaseTimer === 'defuse' ? '0' : '1' }} />}

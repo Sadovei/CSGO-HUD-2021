@@ -1,7 +1,7 @@
 .right-player-wrapper {
   position: relative;
 
-  width: 5.2vw;
+  width: 5.4vw;
   height: 4.5vw;
 
   .main-info-wrapper {
@@ -16,14 +16,14 @@
 
     .number-wrapper {
       position: absolute;
-      top: 1.65vw;
-      right: 0.55vw;
-      
+      top: 1.7vw;
+      right: 0.7vw;
+
       color: var(--color-white);
       z-index: 1;
     }
 
-    .image-player-wrapper{
+    .image-player-wrapper {
       position: absolute;
       top: 0;
       bottom: 0;
@@ -32,18 +32,64 @@
       border-radius: 0.5vw;
       overflow: hidden;
 
-    .image-player {
-      height: 100%;
-      width: 100%;
-      background-size: cover;
+      .image-player {
+        height: 100%;
+        width: 100%;
+        background-size: cover;
 
-      transform: scaleX(-1);
+        transform: scaleX(-1);
+      }
     }
-  }
+
+    .name-wrapper {
+      position: absolute;
+      bottom: -0.8vw;
+      left: 0.17vw;
+
+      width: 5.38vw;
+      height: 1.1vw;
+      z-index: -1;
+
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: center;
+
+      background: var(--color-background-POV);
+      border-radius: 0 0 0.3vw 0.3vw;
+
+      .name {
+        margin-top: 0.2vw;
+        color: var(--color-white);
+      }
+    }
+
+    .kills-wrapper {
+      position: absolute;
+      left: -1.3vw;
+      top: 32%;
+
+      width: 1.7vw;
+      height: 2vw;
+      z-index: -1;
+      transform: scaleX(-1);
+
+      background-image: url('../../../../assets/kills-replay.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+
+      .kills {
+        transform: scaleX(-1);
+
+        color: var(--color-white);
+        margin: 0.95vw 0.55vw 0 0;
+        font-size: 0.7vw;
+      }
+    }
   }
 
   + .right-player-wrapper {
-    margin-top: 0.3vw;
+    margin-top: 0.8vw;
   }
 
   &.CT {
@@ -62,6 +108,15 @@
     filter: grayscale(1);
     .main-info-wrapper {
       // background-image: url('../../../../assets/Death-right.webp');
+    }
+  }
+
+  &:nth-child(2),
+  &:nth-child(3) {
+    .main-info-wrapper {
+      .name-wrapper {
+        width: 5.35vw;
+      }
     }
   }
 }

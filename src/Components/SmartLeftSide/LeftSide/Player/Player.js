@@ -12,11 +12,19 @@ export default function Player({ info, team }) {
                 </div>
 
                 <div className="image-player-wrapper">
-
                     <div className="image-player" style={{
                         backgroundImage: `url(${picturePlayer})`,
                         filter: info.state.health === 0 ? 'grayscale(100%)' : (info.state.flashed / 51) < 1 ? 'brightness(1)' : `brightness(${info.state.flashed / 51}`
-                    }}></div>
+                    }}>
+                    </div>
+                </div>
+
+                <div className="name-wrapper font-tablet">
+                    <p className="name">{info.namePlayer}</p>
+                </div>
+
+                <div className="kills-wrapper font-tablet">
+                    <p className="kills">{info.state.round_kills}</p>
                 </div>
             </div >
         </div >

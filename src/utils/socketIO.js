@@ -1,10 +1,13 @@
 import socketClient from "socket.io-client";
 import { findGetParameter } from "./URLParameters";
+const { REACT_APP_BACKEND, REACT_APP_PORT } = process.env
 
 let token = findGetParameter("token") || 'main';
-const backEND = '10.97.2.31'
-const ENDPOINT = `http://${backEND}:4600/?client=${token}`;
+const backEND = REACT_APP_BACKEND
+const port = REACT_APP_PORT
+const ENDPOINT = `http://${backEND}:${port}/?client=igdir`;
 const socket = socketClient(ENDPOINT);
+console.log(port, backEND)
 
 export const subscribeToTopBar = (cb) => {
     socket.on(`${token}_OverlayTopBar`, data => cb(data));
