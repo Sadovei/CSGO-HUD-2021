@@ -60,7 +60,7 @@
 
   .weapons-wrapper {
     height: 1.2vw;
-    
+
     .primary {
       width: 3vw;
 
@@ -81,9 +81,9 @@
     }
   }
 
-  &:nth-child(even){
-    .first-box{
-      .player-name{
+  &:nth-child(even) {
+    .first-box {
+      .player-name {
         color: var(--color-grey);
       }
     }

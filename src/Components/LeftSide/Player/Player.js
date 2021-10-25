@@ -15,10 +15,10 @@ export default function Player({ info, team, DefuseIMG, grenadeImg, BombIMG, Pis
             <div className="utils-wrapper row">
                 {DefuseIMG}
                 {grenadeImg}
+                {BombIMG}
             </div>
 
             <div className="weapons-wrapper row">
-                {BombIMG}
                 {PistolIMG}
                 {ammoFillAnim}
                 {WeaponIMG}

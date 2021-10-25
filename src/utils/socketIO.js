@@ -1,7 +1,9 @@
 import socketClient from "socket.io-client";
+const { REACT_APP_BACKEND, REACT_APP_PORT } = process.env
 
-const backEND = '10.97.2.31'
-const ENDPOINT = `http://${backEND}:4600/?client=igdir`;
+const backEND = REACT_APP_BACKEND
+const port = REACT_APP_PORT
+const ENDPOINT = `http://${backEND}:${port}/?client=igdir`;
 const socket = socketClient(ENDPOINT);
 
 export const subscribeToTopBar = (cb) => {
