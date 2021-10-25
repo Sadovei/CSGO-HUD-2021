@@ -5,20 +5,7 @@ let dataFetch
 
 export default function SponsorNr1({ data, action }) {
     if (data !== null) {
-        dataFetch = [
-            {
-                "teamName": "Copenhagen Flames",
-                "shortName": "Copenhagen",
-                "teamKey": "g2_esports",
-                "odds": "2.00"
-            },
-            {
-                "teamName": "Copenhagen Flames",
-                "shortName": "Copenhagen F.",
-                "teamKey": "natus_vincere",
-                "odds": "2.76"
-            }
-        ]
+        dataFetch = data
     }
 
     if (dataFetch) {
@@ -44,7 +31,7 @@ export default function SponsorNr1({ data, action }) {
                         <div className="secondary-logo" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${leftLogo}/logo.webp)` }}></div>
                     </div>
 
-                    <p className="team-name">{dataFetch[0].shortName}</p>
+                    <p className="team-name">{dataFetch[0].short_name}</p>
 
                     <div className="cote-wrapper">
                         <p className="first-number">{cote.left.primu}</p>
@@ -60,7 +47,7 @@ export default function SponsorNr1({ data, action }) {
                         <p className="second-number">{cote.right.doi}</p>
                     </div>
 
-                    <p className="team-name">{dataFetch[1].shortName}</p>
+                    <p className="team-name">{dataFetch[1].short_name}</p>
 
                     <div className="logos-wrapper">
                         <div className="primary-logo" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${rightLogo}/logo.webp)` }}></div>
