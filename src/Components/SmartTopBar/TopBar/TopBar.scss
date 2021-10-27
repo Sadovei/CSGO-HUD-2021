@@ -29,15 +29,15 @@
 
       .primary-logo {
         background-size: 100%;
-        width: 2.81vw;
-        height: 2.81vw;
+        width: 2.8vw;
+        height: 2.8vw;
         position: absolute;
       }
 
       .secondary-logo {
         background-size: 100%;
-        width: 5.05vw;
-        height: 5.05vw;
+        width: 5vw;
+        height: 5vw;
         position: absolute;
         opacity: 0.2;
         z-index: 0;
@@ -57,11 +57,11 @@
       right: 0;
 
       .primary-logo {
-        left: 0.562vw;
+        left: 0vw;
       }
 
       .secondary-logo {
-        left: -0.562vw;
+        left: 0vw;
       }
 
       .teamName {
@@ -194,11 +194,11 @@
       border-radius: 0 0.562vw 0.562vw 0;
 
       .primary-logo {
-        right: 0.562vw;
+        right: 0vw;
       }
 
       .secondary-logo {
-        right: -0.562vw;
+        right: -0.5vw;
       }
 
       .teamName {

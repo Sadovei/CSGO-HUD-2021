@@ -1,49 +1,67 @@
-import React, { useEffect, useState } from "react";
-import { subscribeToRadar, subscribeToTopBar, subscribeToMessage, token, subscribeToCheckStream } from "./utils/socketIO";
+import React, { useEffect, useState } from 'react'
+import {
+  subscribeToRadar,
+  subscribeToTopBar,
+  subscribeToMessage,
+  subscribeToCheckStream,
+  token,
+  unsubscribeToRadar,
+  unsubscribeToTopBar,
+  unsubscribeToMessage,
+  unsubscribeToCheckStream
+} from './utils/socketIO'
 
-import SmartTopBar from "./Components/SmartTopBar/SmartTopBar";
-import SmartLeftSide from "./Components/SmartLeftSide/SmartLeftSide";
-import SmartRightSide from "./Components/SmartRightSide/SmartRightSide";
-import SmartDynamic from "./Components/SmartDynamic/SmartDynamic";
-import RadarLayout from "./Components/Radar/Radar";
-import CheckStream from "./Components/SmartDynamic/CheckStream/CheckStream";
+import SmartTopBar from './Components/SmartTopBar/SmartTopBar'
+import SmartLeftSide from './Components/SmartLeftSide/SmartLeftSide'
+import SmartRightSide from './Components/SmartRightSide/SmartRightSide'
+import SmartDynamic from './Components/SmartDynamic/SmartDynamic'
+import RadarLayout from './Components/Radar/Radar'
+import CheckStream from './Components/SmartDynamic/CheckStream/CheckStream'
 
 function App() {
-  const [topBar, setTopBar] = useState();
-  const [objectData, setObjectData] = useState('');
-  const [message, setMessage] = useState(null);
-  const [radarToggle, setRadarToggle] = useState(false);
-  const [checkStream, setCheckStream] = useState([0, { show: 'false' }, { text: '' }]);
+  const [topBar, setTopBar] = useState()
+  const [objectData, setObjectData] = useState('')
+  const [message, setMessage] = useState(null)
+  const [radarToggle, setRadarToggle] = useState(false)
+  const [checkStream, setCheckStream] = useState([
+    0,
+    { show: 'false' },
+    { text: '' }
+  ])
 
   useEffect(() => {
-    subscribeToTopBar(data => {
+    subscribeToTopBar((data) => {
       setTopBar(data)
     })
 
     subscribeToRadar((data) => {
       setObjectData(data)
-    });
+    })
 
     subscribeToMessage((data) => {
       setMessage(data)
-    });
+    })
 
     if (token === 'igdir') {
-      subscribeToCheckStream(data => {
+      subscribeToCheckStream((data) => {
         setCheckStream(data)
       })
+    }
+    return {
+      unsubscribeToRadar,
+      unsubscribeToTopBar,
+      unsubscribeToMessage,
+      unsubscribeToCheckStream
     }
   }, [])
   useEffect(() => {
     if (message !== null) {
-      if (message === 'refresh')
-        window.location.reload();
-      else if (message === 'radar-off')
-        setRadarToggle(true)
-      else if (message === 'radar-on')
-        setRadarToggle(false)
+      if (message === 'refresh') window.location.reload()
+      else if (message === 'radar-off') setRadarToggle(true)
+      else if (message === 'radar-on') setRadarToggle(false)
       setMessage(null)
     }
+    return null
   }, [message])
 
   if (topBar) {
@@ -57,13 +75,17 @@ function App() {
           <SmartLeftSide />
           <SmartDynamic />
           {!radarToggle && objectData && <RadarLayout dataObj={objectData} />}
-          {checkStream !== [0, false, ''] && <CheckStream data={checkStream[0]} show={checkStream[1].show} text={checkStream[2].text} />}
+          {checkStream !== [0, false, ''] && (
+            <CheckStream
+              data={checkStream[0]}
+              show={checkStream[1].show}
+              text={checkStream[2].text}
+            />
+          )}
           {/* <Sponsors /> */}
         </>
-      );
-  }
-  else
-    return null
+      )
+  } else return null
 }
 
-export default App;
+export default App
