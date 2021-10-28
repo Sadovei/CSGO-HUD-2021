@@ -1,13 +1,14 @@
 import React, { useEffect, useRef } from 'react'
 import {
-  getCoordinates,
-  drawPlayerButton,
   angle,
-  drawBullet,
   drawBomb,
-  drawFrag,
+  drawBullet,
   drawFlash,
+  drawFrag,
+  drawPlayerButton,
+  drawPlayerDeath,
   drawSmoke,
+  getCoordinates,
   showFireBomb,
   showFlames
 } from '../../../utils/radarStore'
@@ -116,7 +117,7 @@ const Canvas = (props) => {
       }
     } else {
       // for player dead
-      drawPlayerButton(ctx, deadPlayerImage, 50, 50, canvasCoord, obsSlot)
+      drawPlayerDeath(ctx, deadPlayerImage, 25, 25, canvasCoord)
     }
 
     // each type of grenade

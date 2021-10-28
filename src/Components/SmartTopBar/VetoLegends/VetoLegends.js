@@ -1,6 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { currentMatch } from '../../../utils/tools'
 import './VetoLegends.scss'
+
+import React, { useEffect, useRef, useState } from 'react'
+
+import { currentMatch } from '../../../utils/tools'
 
 export default function VetoLegends({ vetoInfo, phase, topBar }) {
   const [animClass, setAnimClass] = useState('')
@@ -39,6 +41,8 @@ export default function VetoLegends({ vetoInfo, phase, topBar }) {
       <div className='main-wrapper'>
         <div className={`veto-legends-wrapper font-tablet ${animClass}`}>
           {Object.keys(vetoInfo).map((map, indexMap) => {
+            if (indexMap === 0)
+              return null
             return (
               <div key={indexMap} className='map'>
                 <div className='first-row'>
@@ -90,7 +94,7 @@ export default function VetoLegends({ vetoInfo, phase, topBar }) {
                   )}
                 </div>
                 <div className='second-row'>
-                  {indexMap !== 2 && <p className='map-notice'>PICKED BY</p>}
+                  {(indexMap !== 2 || indexMap !== 4) && <p className='map-notice'>PICKED BY</p>}
                   <p className='map-text'>{vetoInfo[map].pickName}</p>
                 </div>
               </div>

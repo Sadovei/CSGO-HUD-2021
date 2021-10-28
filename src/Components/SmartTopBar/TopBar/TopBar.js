@@ -1,14 +1,15 @@
-import classNames from 'classnames'
-import React, { useEffect, useState } from 'react'
-import { range } from '../../../utils/tools'
-import { centerCounter, centerTerrorist } from './icons'
-import Timer from './Timer/Timer'
 import './TopBar.scss'
-import hirestime from 'hirestime'
-import { useSpring, animated } from 'react-spring'
 
+import React, { useEffect, useState } from 'react'
+import { animated, useSpring } from 'react-spring'
+import { centerCounter, centerTerrorist } from './icons'
+
+import Timer from './Timer/Timer'
 import bomb from '../../../assets/videos/bomb.webm'
-import { calcBombPerc, calcDefusePerc } from './TopBarStore'
+import { calcDefusePerc } from './TopBarStore'
+import classNames from 'classnames'
+import hirestime from 'hirestime'
+import { range } from '../../../utils/tools'
 
 let boomElapsed = 0
 let boomTime = 0
@@ -20,17 +21,12 @@ export default function TopBar({ topBar }) {
 
   useEffect(() => {
     if (mvps)
-      currentMVP = Object.keys(mvps).filter(
-        (key) => mvps[key].mvps !== topBar.mapInfo.mvps[key].mvps
-      )[0]
-
+      currentMVP = Object.keys(mvps).filter((key) => mvps[key].mvps !== topBar.mapInfo.mvps[key].mvps)[0]
     if (currentMVP !== undefined) {
       setTimeout(() => {
         setMVPS(topBar.mapInfo.mvps)
       }, 4000)
     }
-    return null
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [topBar.mapInfo.mvps])
 
@@ -160,7 +156,7 @@ export default function TopBar({ topBar }) {
 
   const mvpProps = useSpring({
     opacity: flagMVP ? '1' : '0',
-    top: flagMVP ? '7vw' : '6vw'
+    top: flagMVP ? '9vw' : '8vw'
   })
 
   let clockTimer = classNames({
@@ -202,11 +198,10 @@ export default function TopBar({ topBar }) {
         <div
           className='center-wrapper'
           style={{
-            backgroundImage: `url(${
-              topBar.leftSide.sideTeam === 'CT'
-                ? centerCounter
-                : centerTerrorist
-            })`
+            backgroundImage: `url(${topBar.leftSide.sideTeam === 'CT'
+              ? centerCounter
+              : centerTerrorist
+              })`
           }}
         >
           <div className='center'>
@@ -293,9 +288,8 @@ export default function TopBar({ topBar }) {
           <div className='mapWins-wrapper'>
             {mapsToWin.map((map, index) => (
               <div
-                className={`map ${map} ${sideLeft} ${
-                  leftWin > index ? 'win' : 'lose'
-                }`}
+                className={`map ${map} ${sideLeft} ${leftWin > index ? 'win' : 'lose'
+                  }`}
                 key={index}
               ></div>
             ))}
@@ -303,11 +297,10 @@ export default function TopBar({ topBar }) {
 
           <div className='status-match-wrapper'>
             {topBar.mapInfo.currentRound < 30 ||
-            (topBar.mapInfo.currentRound === 30 &&
-              topBar.leftSide.score !== topBar.rightSide.score) ? (
-              <p className='current-status font-tablet'>{`ROUND ${
-                topBar.mapInfo.currentRound + 1
-              }/30`}</p>
+              (topBar.mapInfo.currentRound === 30 &&
+                topBar.leftSide.score !== topBar.rightSide.score) ? (
+              <p className='current-status font-tablet'>{`ROUND ${topBar.mapInfo.currentRound + 1
+                }/30`}</p>
             ) : (
               <p className='current-status font-tablet'>{`Round ${Number(
                 (topBar.mapInfo.currentRound % 6) + 1
@@ -326,9 +319,8 @@ export default function TopBar({ topBar }) {
           <div className='mapWins-wrapper'>
             {mapsToWin.map((map, index) => (
               <div
-                className={`map ${map} ${sideRight} ${
-                  rightWin > index ? 'win' : 'lose'
-                }`}
+                className={`map ${map} ${sideRight} ${rightWin > index ? 'win' : 'lose'
+                  }`}
                 key={index}
               ></div>
             ))}
@@ -337,9 +329,8 @@ export default function TopBar({ topBar }) {
       </div>
 
       <animated.div
-        className={`defuse-wrapper row ${
-          sideRight === 'CT' ? 'right' : 'left'
-        }`}
+        className={`defuse-wrapper row ${sideRight === 'CT' ? 'right' : 'left'
+          }`}
         style={{
           right: sideRight === 'CT' ? props.right : 'unset',
           left: sideRight === 'CT' ? 'unset' : props.left
@@ -368,15 +359,6 @@ export default function TopBar({ topBar }) {
                     Number(topBar.round.bombState.defuseTime).toFixed(3)
                   ) + '%'
               }}
-            ></div>
-          </div>
-
-          <p className='bomb-time font-mont'>{boomTime} </p>
-
-          <div className='bar-bomb-wrapper'>
-            <div
-              className='bar-bomb'
-              style={{ width: calcBombPerc(boomTime) + '%' }}
             ></div>
           </div>
         </div>

@@ -5,9 +5,9 @@ export function calcDefusePerc(hasDefuse, countdown) {
     return perc * 92 / 100;
 }
 
-export function calcBombPerc(countdown) {
-    countdown = parseFloat(countdown);
-    const bombTime = 40;
-    const perc = countdown * 100 / bombTime;
-    return perc * 92 / 100;
-}
+// export function calcBombPerc(countdown) {
+//     countdown = parseFloat(countdown);
+//     const bombTime = 40;
+//     const perc = countdown * 100 / bombTime;
+//     return perc * 92 / 100;
+// }

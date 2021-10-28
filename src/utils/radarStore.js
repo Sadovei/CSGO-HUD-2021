@@ -140,6 +140,40 @@ export function drawPlayerButton(
     ctx.fillText(obsSlot, canvasCoord.x, canvasCoord.y + 10);
 }
 
+export function drawPlayerDeath(
+    ctx,
+    playerImage,
+    width,
+    height,
+    canvasCoord,
+    deg = 0
+) {
+    ctx.restore();
+    //Convert degrees to radian
+    let rad = (deg * Math.PI) / 180;
+    //Set the origin to the center of the image
+    ctx.translate(canvasCoord.x, canvasCoord.y);
+    //Rotate the canvas around the origin
+    ctx.rotate(rad);
+
+    //draw the image
+    ctx.drawImage(
+        playerImage,
+        (width / 2) * -1,
+        (height / 2) * -1,
+        width,
+        height
+    );
+
+    //reset the canvas
+    ctx.rotate(rad * -1);
+    ctx.translate(canvasCoord.x * -1, canvasCoord.y * -1);
+
+    ctx.font = "30px Tablet-Gothic-Bold";
+    ctx.fillStyle = "white";
+    ctx.textAlign = "center";
+}
+
 export function drawBullet(
     ctx,
     playerImage,
@@ -205,7 +239,7 @@ export function drawBomb(
         // ctx.clearRect(0, 0, ctx.width, ctx.height)
         ctx.strokeStyle = "#FF0000";
         ctx.globalCompositeOperation = "lighter";
-        ctx.fillStyle = `rgba(255, 0, 0, ${bmmbData.countdown / 3.7})`;
+        ctx.fillStyle = `rgba(255, 0, 0, ${bmmbData.countdown / 20})`;
         ctx.arc(
             canvasCoord.x,
             canvasCoord.y,

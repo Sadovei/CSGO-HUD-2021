@@ -1,6 +1,8 @@
-import classNames from 'classnames'
-import React, { useEffect, useRef, useState } from 'react'
 import './Player.scss'
+
+import React, { useEffect, useRef, useState } from 'react'
+
+import classNames from 'classnames'
 
 export default function Player({
   info,
@@ -35,9 +37,8 @@ export default function Player({
 
   return (
     <div
-      className={`left-player-wrapper row slot-${info.observer_slot} ${team} ${
-        info.state.health === 0 ? 'death' : 'alive'
-      } ${info.active ? 'pov' : ''}`}
+      className={`left-player-wrapper row slot-${info.observer_slot} ${team} ${info.state.health === 0 ? 'death' : 'alive'
+        } ${info.active ? 'pov' : ''}`}
     >
       <div className='main-info-wrapper font-tablet row'>
         <div className='number-wrapper row'>
@@ -53,8 +54,8 @@ export default function Player({
                 info.state.health === 0
                   ? 'grayscale(100%)'
                   : info.state.flashed / 51 < 1
-                  ? 'brightness(1)'
-                  : `brightness(${info.state.flashed / 51}`
+                    ? 'brightness(1)'
+                    : `brightness(${info.state.flashed / 51}`
             }}
           ></div>
         </div>
@@ -88,9 +89,8 @@ export default function Player({
             </div>
 
             <div
-              className={`round-kills row ${
-                info.state.round_kills > 0 ? 'live' : ''
-              }`}
+              className={`round-kills row ${info.state.round_kills > 0 ? 'live' : ''
+                }`}
             >
               <div className='death-image'></div>
               <span className='kills-round-number row'>
@@ -139,33 +139,40 @@ export default function Player({
         <div className='death-info col'>
           <div className='first-box'>
             <p className='player-name'>{info.namePlayer}</p>
+
+            <div className='stats-player row'>
+              <div className='kills-wrapper row'>
+                <p className='kills-notice'>K</p>
+                <p className={`kills-number`}>{info.match_stats.kills}</p>
+              </div>
+              <div className='assists-wrapper row'>
+                <p className='assists-notice'>A</p>
+                <p className={`assists-number`}>{info.match_stats.assists}</p>
+              </div>
+              <div className='death-wrapper row'>
+                <p className='death-notice'>D</p>
+                <p className={`death-number`}>{info.match_stats.deaths}</p>
+              </div>
+
+              <div
+                className={`round-kills row ${info.state.round_kills > 0 ? 'live' : ''
+                  }`}
+              >
+                <div className='death-image'></div>
+                <span className='kills-round-number row'>
+                  {info.state.round_kills}
+                  <p className='kills-notice'>/5</p>
+                </span>
+              </div>
+
+            </div>
           </div>
 
-          <div className='second-box row'>
-            <div className='kills-wrapper row'>
-              <p className='kills-notice'>K</p>
-              <p className={`kills-number`}>{info.match_stats.kills}</p>
-            </div>
-            <div className='assists-wrapper row'>
-              <p className='assists-notice'>A</p>
-              <p className={`assists-number`}>{info.match_stats.assists}</p>
-            </div>
-            <div className='death-wrapper row'>
-              <p className='death-notice'>D</p>
-              <p className={`death-number`}>{info.match_stats.deaths}</p>
+          <div className="second-box row">
+            <div className='money-wrapper font-tablet'>
+              <p className='money-number'>${info.state.money}</p>
             </div>
 
-            <div
-              className={`round-kills row ${
-                info.state.round_kills > 0 ? 'live' : ''
-              }`}
-            >
-              <div className='death-image'></div>
-              <span className='kills-round-number row'>
-                {info.state.round_kills}
-                <p className='kills-notice'>/5</p>
-              </span>
-            </div>
             <div className='adr-wrapper row'>
               <p className='adr-notice'>ADR</p>
               <p className='adr-number'>{info.adr}</p>

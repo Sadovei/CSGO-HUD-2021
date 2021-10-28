@@ -1,9 +1,8 @@
 .main-wrapper {
   position: relative;
-  margin: 0 auto;
   width: fit-content;
   overflow: hidden;
-
+  margin: 0 auto;
   background-color: var(--color-background-POV);
   border-radius: 0.562vw;
 
@@ -72,9 +71,9 @@
         }
       }
 
-      &:nth-child(3){
+      &:nth-child(3),
+      &:nth-child(5) {
         align-items: center;
-
       }
     }
 

@@ -299,7 +299,7 @@
         }
       }
       .series-status-wrapper {
-        width: 6.18vw;
+        width: 7.3vw;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -315,23 +315,22 @@
     height: 4.4vw;
 
     &.left {
-      background-image: url('../../../assets/CT-bomb-left.webp');
+      background-image: url("../../../assets/CT-bomb-left.webp");
 
       .info-wrapper {
-        .bar-defuse-wrapper {
-          background-image: url('../../../assets/CT-life-bar-right.webp');
+        align-items: flex-start;
+        justify-content: center;
+        margin-left: -1vw;
 
-          .bar-defuse {
-            left: 0.52vw;
-            top: 0.45vw;
-          }
+        .defuse-time {
+          margin-left: 0.4vw;
         }
 
-        .bar-bomb-wrapper {
-          background-image: url('../../../assets/CT-life-bar-right.webp');
+        .bar-defuse-wrapper {
+          background-image: url("../../../assets/CT-life-bar-right.webp");
 
-          .bar-bomb {
-            left: 0.52vw;
+          .bar-defuse {
+            left: 0.5vw;
             top: 0.5vw;
           }
         }
@@ -340,40 +339,25 @@
 
     &.right {
       flex-flow: row-reverse nowrap;
-      background-image: url('../../../assets/CT-bomb-right.webp');
+      background-image: url("../../../assets/CT-bomb-right.webp");
 
       .video-bomb {
         margin: -1vw -1.6vw 0 0;
       }
 
       .info-wrapper {
-        margin: 0.8vw -1.5vw 0 0;
+        align-items: end;
+        justify-content: center;
+        margin-right: -1vw;
 
         .defuse-time {
-          left: -3vw;
+          margin-right: 0.7vw;
         }
 
         .bar-defuse-wrapper {
-          left: unset;
-          right: 0vw;
-
           .bar-defuse {
-            right: 0.52vw;
-            top: 0.45vw;
-          }
-        }
-
-        .bomb-time {
-          left: -2.9vw;
-        }
-
-        .bar-bomb-wrapper {
-          left: unset;
-          right: 0%;
-
-          .bar-bomb {
-            right: 0.52vw;
-            top: 0.5vw;
+            right: 0.62vw;
+            top: 0.47vw;
           }
         }
       }
@@ -387,22 +371,15 @@
 
     .info-wrapper {
       position: relative;
-      margin: 0.8vw 0 0 -1.5vw;
-      height: 66%;
 
       .defuse-time {
-        position: absolute;
-        top: 0vw;
-        left: 0.4vw;
-
-        font-size: 0.7vw;
+        font-size: 1vw;
         color: var(--color-CT);
       }
 
       .bar-defuse-wrapper {
-        background-image: url('../../../assets/CT-life-bar-right.webp');
-        position: absolute;
-        top: 0.5vw;
+        position: relative;
+        background-image: url("../../../assets/CT-life-bar-right.webp");
 
         height: 1.2vw;
         width: 12vw;
@@ -413,34 +390,6 @@
           height: 0.21vw;
           border-radius: 1vw;
           background-color: var(--color-CT);
-        }
-      }
-
-      .bomb-time {
-        position: absolute;
-        top: 1.4vw;
-        left: 0.4vw;
-
-        font-size: 0.7vw;
-        color: var(--color-T);
-      }
-
-      .bar-bomb-wrapper {
-        background-image: url('../../../assets/CT-life-bar-right.webp');
-
-        position: absolute;
-        top: 1.9vw;
-
-        height: 1.2vw;
-        width: 12vw;
-        background-size: contain;
-
-        .bar-bomb {
-          position: absolute;
-          height: 0.21vw;
-          border-radius: 1vw;
-
-          background-color: var(--color-T);
         }
       }
     }
@@ -464,11 +413,11 @@
       background-size: cover;
 
       &.T {
-        background-image: url('../../../assets/t-mvp.webp');
+        background-image: url("../../../assets/t-mvp.webp");
       }
 
       &.CT {
-        background-image: url('../../../assets/ct-mvp.webp');
+        background-image: url("../../../assets/ct-mvp.webp");
       }
     }
 
@@ -510,8 +459,8 @@
       width: 11vw;
       height: 11vw;
 
-      background-size: cover;
-      background-position: 2vw 50%;
+      background-size: 84%;
+      background-position: 3.4vw 26%;
       background-repeat: no-repeat;
     }
   }
@@ -572,13 +521,13 @@
 
   &.CT {
     .logo {
-      background-image: url('../../../assets/ct-mvp.webp');
+      background-image: url("../../../assets/ct-mvp.webp");
     }
   }
 
   &.T {
     .logo {
-      background-image: url('../../../assets/t-mvp.webp');
+      background-image: url("../../../assets/t-mvp.webp");
     }
   }
 }
