@@ -48,11 +48,11 @@
       }
 
       &.CT {
-        background-image: url('./icons/CT-pov.webp');
+        background-image: url("./icons/CT-pov.webp");
       }
 
       &.T {
-        background-image: url('./icons/T-pov.webp');
+        background-image: url("./icons/T-pov.webp");
       }
     }
 
@@ -79,7 +79,7 @@
             align-items: center;
 
             .player-name {
-          text-transform: uppercase;
+              text-transform: uppercase;
               font-size: 1vw;
               color: var(--color-white);
             }
@@ -111,11 +111,11 @@
                   background-size: cover;
 
                   &.CT {
-                    background-image: url('../../../assets/icons/elements/health-CT.svg');
+                    background-image: url("../../../assets/icons/elements/health-CT.svg");
                   }
 
                   &.T {
-                    background-image: url('../../../assets/icons/elements/health-T.svg');
+                    background-image: url("../../../assets/icons/elements/health-T.svg");
                   }
                 }
 
@@ -142,11 +142,11 @@
 
                   .armor-image {
                     &.CT {
-                      background-image: url('../../../assets/icons/elements/armor-CT.svg');
+                      background-image: url("../../../assets/icons/elements/armor-CT.svg");
                     }
 
                     &.T {
-                      background-image: url('../../../assets/icons/elements/armor-T.svg');
+                      background-image: url("../../../assets/icons/elements/armor-T.svg");
                     }
                   }
                 }
@@ -156,11 +156,11 @@
 
                   .armor-image {
                     &.CT {
-                      background-image: url('../../../assets/icons/elements/helmet-CT.svg');
+                      background-image: url("../../../assets/icons/elements/helmet-CT.svg");
                     }
 
                     &.T {
-                      background-image: url('../../../assets/icons/elements/helmet-T.svg');
+                      background-image: url("../../../assets/icons/elements/helmet-T.svg");
                     }
                   }
                 }
@@ -239,7 +239,7 @@
                 height: 0.8vw;
 
                 background-size: cover;
-                background-image: url('../../../assets/icons/elements/skull.svg');
+                background-image: url("../../../assets/icons/elements/skull.svg");
               }
 
               .kills-round-number {
@@ -315,11 +315,11 @@
         }
 
         &.CT {
-          background-image: url('./icons/CT-bar.webp');
+          background-image: url("./icons/CT-bar.webp");
         }
 
         &.T {
-          background-image: url('./icons/T-bar.webp');
+          background-image: url("./icons/T-bar.webp");
         }
       }
 
@@ -343,7 +343,7 @@
             height: 0.8vw;
 
             background-size: cover;
-            background-image: url('../../../assets/icons/elements/bullets.svg');
+            background-image: url("../../../assets/icons/elements/bullets.svg");
           }
 
           &.hide {
@@ -418,6 +418,10 @@
   }
 
   .sponsors-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     height: 30%;
     border-radius: 0 0 1vw 1vw;
     position: relative;
@@ -426,11 +430,13 @@
     background-color: var(--color-background-POV);
 
     .sponsor-image {
-      width: 100%;
-      height: 100%;
-      background-image: url('./icons/sponsors/pgl.png');
-      background-size: cover;
-      background-position: 0.9vw;
+      width: 25%;
+      height: 75%;
+      background-image: url("./icons/sponsors/pgl.png");
+
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
     }
   }
 }

@@ -421,6 +421,7 @@
 
           .player-name {
             text-transform: uppercase;
+            font-size: 0.7vw;
           }
 
           .stats-player {
@@ -459,7 +460,7 @@
             }
 
             .adr-wrapper {
-              visibility: hidden;
+              // visibility: hidden;
               margin-left: 0.6vw;
               align-items: center;
 
@@ -479,6 +480,7 @@
           font-size: 1vw;
 
           .adr-wrapper {
+            // visibility: hidden;
             margin-right: 0.6vw;
             align-items: center;
 

@@ -3,6 +3,7 @@ import './PovSide.scss'
 import { animated, useSpring } from 'react-spring'
 
 import classNames from 'classnames';
+import { token } from '../../../utils/socketIO'
 
 export default function PovSide(
     { povData,
@@ -17,12 +18,11 @@ export default function PovSide(
     let picturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${povData.teamKey}/${povData.playerKey}.webp`
     let teamLogo = povData.teamKey === 'placeholder' ? (`placeholder/${povData.team === 'CT' ? 'CT' : 'T'}`) : povData.teamKey
     let flag = povData.playerCountry !== '' ? `http://redis-birou.pgl.ro/pgl/resources/flags/${povData.playerCountry}.png` : 'http://redis-birou.pgl.ro/pgl/resources/flags/zz.png'
-
+    let flagPhoto = false
     let sideTeam = classNames({
         'CT': povData.team === 'CT' && true,
         'T': povData.team === 'T' && true
     })
-
     let armor = classNames({
         'helmet': povData.state.helmet && true,
         'armor': !povData.state.helmet && povData.state.armor !== 0 && true
@@ -33,6 +33,8 @@ export default function PovSide(
         'hide': povData.state.round_kills === 0 && true,
     })
 
+    if (token === 'main')
+        flagPhoto = povData.toggleCamera
     const props = useSpring({
         bottom: action === 'show' ? '1.1vw' : '-14vw',
         delay: action === 'show' ? 250 : 0
@@ -43,7 +45,10 @@ export default function PovSide(
             <div className="player-wrapper">
                 <div className={`border-image-player ${sideTeam}`}>
                     <div className="background-image-player"></div>
-                    <div className="image-player" style={{ backgroundImage: `url(${picturePlayer})`, filter: `brightness(${povData.state.flashed / 51 < 1 ? 1 : povData.state.flashed / 51})`, visibility: !povData.toggleCamera ? 'visible' : 'hidden' }}></div>
+                    <div className="image-player" style={{
+                        backgroundImage: `url(${picturePlayer})`, filter: `brightness(${povData.state.flashed / 51 < 1 ? 1 : povData.state.flashed / 51})`,
+                        visibility: !flagPhoto ? 'visible' : 'hidden'
+                    }}></div>
                 </div>
 
                 <div className="info-player-wrapper col">
@@ -84,9 +89,9 @@ export default function PovSide(
 
                                 <div className={`third-info row ${roundKills}`}>
                                     <div className="death-image"></div>
+                                        <p className="kills-notice">x</p>
                                     <span className={`kills-round-number row ${sideTeam}`}>
                                         {povData.state.round_kills}
-                                        <p className="kills-notice">/5</p>
                                     </span>
                                 </div>
                             </div>

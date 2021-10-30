@@ -17,11 +17,17 @@ let flagMVP = false
 let currentMVP
 let test
 export default function TopBar({ topBar }) {
-  const [mvps, setMVPS] = useState(topBar.mapInfo.mvps)
+  const [mvpsArray, setMVPS] = useState(topBar.mapInfo?.mvps ?? null)
 
   useEffect(() => {
-    if (mvps)
-      currentMVP = Object.keys(mvps).filter((key) => mvps[key].mvps !== topBar.mapInfo.mvps[key].mvps)[0]
+    if (mvpsArray && mvpsArray !== null)
+      currentMVP = Object.keys(mvpsArray).filter((key) => {
+        if (mvpsArray[key] && topBar.mapInfo.mvps[key])
+          return mvpsArray[key]?.mvps < topBar.mapInfo.mvps[key].mvps
+        else
+          return undefined
+      })[0]
+
     if (currentMVP !== undefined) {
       setTimeout(() => {
         setMVPS(topBar.mapInfo.mvps)
@@ -170,8 +176,15 @@ export default function TopBar({ topBar }) {
         (topBar.round.phase === 'freezetime' &&
           Number(topBar.round.time) <= 10) ||
         topBar.round.phase === 'bomb') &&
-      true
+      true,
+    planted: topBar.round.phase === 'bomb' && true,
+    defused: topBar.round.phase === 'defuse' && true
   })
+
+  let bombBeep = classNames({
+    show: (topBar.round.phase === 'bomb' || topBar.round.phase === 'defuse') && true,
+  })
+
   return (
     <div className='top-bar-wrapper'>
       <div className='first-wrapper'>
@@ -229,6 +242,7 @@ export default function TopBar({ topBar }) {
                   </p>
                 </span>
               </div>
+              <div className={`image-bomb-planted ${bombBeep}`}></div>
               {timeTimer > 0 && phaseTimer === 'bomb' && (
                 <Timer
                   type={phaseTimer}

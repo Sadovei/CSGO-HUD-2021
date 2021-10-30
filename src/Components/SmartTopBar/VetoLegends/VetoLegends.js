@@ -14,7 +14,6 @@ export default function VetoLegends({ vetoInfo, phase, topBar }) {
     }
     return null
   }, [phase, setUpdate])
-
   // eslint-disable-next-line react-hooks/exhaustive-deps
   function setUpdate(phase) {
     if (
@@ -35,13 +34,14 @@ export default function VetoLegends({ vetoInfo, phase, topBar }) {
     }
   }
   let matchCurrent = currentMatch(vetoInfo, topBar)
+
   if (topBar.leftSide.nameKey === 'placeholder') return null
   else
     return (
       <div className='main-wrapper'>
         <div className={`veto-legends-wrapper font-tablet ${animClass}`}>
           {Object.keys(vetoInfo).map((map, indexMap) => {
-            if (indexMap === 0)
+            if (Object.keys(vetoInfo).length - 1 === 0)
               return null
             return (
               <div key={indexMap} className='map'>
@@ -68,7 +68,6 @@ export default function VetoLegends({ vetoInfo, phase, topBar }) {
                       </div>
                     )
                   )}
-
                   {vetoInfo[map][topBar.leftSide.nameKey] !== null && (
                     <div className='info-wrapper'>
                       <div
@@ -94,7 +93,7 @@ export default function VetoLegends({ vetoInfo, phase, topBar }) {
                   )}
                 </div>
                 <div className='second-row'>
-                  {(indexMap !== 2 || indexMap !== 4) && <p className='map-notice'>PICKED BY</p>}
+                  {(Object.keys(vetoInfo).length - 1 !== 0) && (indexMap !== Object.keys(vetoInfo).length - 1) && <p className='map-notice'>PICKED BY</p>}
                   <p className='map-text'>{vetoInfo[map].pickName}</p>
                 </div>
               </div>

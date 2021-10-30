@@ -1,6 +1,8 @@
-import React from 'react'
 import './ScoreBoard.scss'
-import { useSpring, animated } from 'react-spring'
+
+import { animated, useSpring } from 'react-spring'
+
+import React from 'react'
 
 let scoreboardData
 

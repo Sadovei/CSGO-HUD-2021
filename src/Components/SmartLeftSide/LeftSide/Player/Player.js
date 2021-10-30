@@ -93,9 +93,9 @@ export default function Player({
                 }`}
             >
               <div className='death-image'></div>
+              <p className='kills-notice'>x</p>
               <span className='kills-round-number row'>
                 {info.state.round_kills}
-                <p className='kills-notice'>/5</p>
               </span>
             </div>
           </div>
@@ -159,9 +159,9 @@ export default function Player({
                   }`}
               >
                 <div className='death-image'></div>
+                <p className='kills-notice'>x</p>
                 <span className='kills-round-number row'>
                   {info.state.round_kills}
-                  <p className='kills-notice'>/5</p>
                 </span>
               </div>
 
@@ -174,7 +174,7 @@ export default function Player({
             </div>
 
             <div className='adr-wrapper row'>
-              <p className='adr-notice'>ADR</p>
+              <p className='adr-notice'>DMG</p>
               <p className='adr-number'>{info.adr}</p>
             </div>
           </div>

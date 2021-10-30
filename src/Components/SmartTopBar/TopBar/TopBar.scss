@@ -133,6 +133,26 @@
             &.red {
               color: var(--color-red);
             }
+
+            &.planted,
+            &.defused {
+              visibility: hidden;
+            }
+          }
+
+          .image-bomb-planted {
+            width: 2.5vw;
+            height: 2.5vw;
+            margin-top: 1vw;
+            margin-left: 0.9vw;
+            animation: beep 1s infinite;
+            background-size: cover;
+            background-image: url("./icons/adv-dropped.webp");
+            visibility: hidden;
+
+            &.show{
+              visibility: visible;
+            }
           }
         }
 
@@ -529,5 +549,23 @@
     .logo {
       background-image: url("../../../assets/t-mvp.webp");
     }
+  }
+}
+
+@keyframes beep {
+  0% {
+    filter: drop-shadow(0 0 0 rgba(255, 0, 0, 1));
+    background-color: rgba(255, 0, 0, 0);
+    border-radius: 50%;
+  }
+  10% {
+    filter: drop-shadow(0 0 1vmin rgba(255, 0, 0, 1));
+    background-color: rgba(255, 0, 0, 0.2);
+    border-radius: 50%;
+  }
+  20% {
+    border-radius: 50%;
+    filter: drop-shadow(0 0 1.8vmin rgba(255, 0, 0, 0));
+    background-color: rgba(255, 0, 0, 0);
   }
 }

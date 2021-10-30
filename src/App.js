@@ -1,28 +1,30 @@
+import './Radar.scss'
+
 import React, { useEffect, useState } from 'react'
 import {
+  subscribeToCheckStream,
+  subscribeToMessage,
   subscribeToRadar,
   subscribeToTopBar,
-  subscribeToMessage,
-  subscribeToCheckStream,
   token,
-  unsubscribeToRadar,
-  unsubscribeToTopBar,
+  unsubscribeToCheckStream,
   unsubscribeToMessage,
-  unsubscribeToCheckStream
+  unsubscribeToRadar,
+  unsubscribeToTopBar
 } from './utils/socketIO'
 
-import SmartTopBar from './Components/SmartTopBar/SmartTopBar'
+import CheckStream from './Components/SmartDynamic/CheckStream/CheckStream'
+import RadarLayout from './Components/Radar/Radar'
+import SmartDynamic from './Components/SmartDynamic/SmartDynamic'
 import SmartLeftSide from './Components/SmartLeftSide/SmartLeftSide'
 import SmartRightSide from './Components/SmartRightSide/SmartRightSide'
-import SmartDynamic from './Components/SmartDynamic/SmartDynamic'
-import RadarLayout from './Components/Radar/Radar'
-import CheckStream from './Components/SmartDynamic/CheckStream/CheckStream'
+import SmartTopBar from './Components/SmartTopBar/SmartTopBar'
 
 function App() {
   const [topBar, setTopBar] = useState()
   const [objectData, setObjectData] = useState('')
   const [message, setMessage] = useState(null)
-  const [radarToggle, setRadarToggle] = useState(false)
+  const [radarToggle, setRadarToggle] = useState(true)
   const [checkStream, setCheckStream] = useState([
     0,
     { show: 'false' },
@@ -54,6 +56,7 @@ function App() {
       unsubscribeToCheckStream
     }
   }, [])
+
   useEffect(() => {
     if (message !== null) {
       if (message === 'refresh') window.location.reload()
@@ -82,7 +85,10 @@ function App() {
               text={checkStream[2].text}
             />
           )}
-          {/* <Sponsors /> */}
+          {radarToggle &&
+            <iframe title="radar" id="newRadar" loading="lazy" scrolling="no" frameBorder="none" importance="high" src={`http://localhost:4903`}
+              width="100%" height="100%" className={objectData?.map?.name}></iframe>
+          }
         </>
       )
   } else return null
