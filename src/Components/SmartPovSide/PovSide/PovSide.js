@@ -44,11 +44,12 @@ export default function PovSide(
         <animated.div className={`pov-wrapper col`} style={{ bottom: props.bottom }}>
             <div className="player-wrapper">
                 <div className={`border-image-player ${sideTeam}`}>
-                    <div className="background-image-player"></div>
-                    <div className="image-player" style={{
-                        backgroundImage: `url(${picturePlayer})`, filter: `brightness(${povData.state.flashed / 51 < 1 ? 1 : povData.state.flashed / 51})`,
-                        visibility: !flagPhoto ? 'visible' : 'hidden'
-                    }}></div>
+                    <div className="background-image-player">
+                        <div className="image-player" style={{
+                            backgroundImage: `url(${picturePlayer})`, filter: `brightness(${povData.state.flashed / 51 < 1 ? 1 : povData.state.flashed / 51})`,
+                            visibility: !flagPhoto ? 'visible' : 'hidden'
+                        }}></div>
+                    </div>
                 </div>
 
                 <div className="info-player-wrapper col">
@@ -89,7 +90,7 @@ export default function PovSide(
 
                                 <div className={`third-info row ${roundKills}`}>
                                     <div className="death-image"></div>
-                                        <p className="kills-notice">x</p>
+                                    <p className="kills-notice">x</p>
                                     <span className={`kills-round-number row ${sideTeam}`}>
                                         {povData.state.round_kills}
                                     </span>
@@ -105,11 +106,10 @@ export default function PovSide(
                             <div className="dmg" ></div>
                         </div>
                     </div>
-
                     <div className="third-layer-wrapper row font-tablet">
                         <div className={`bullets-wrapper row ${activeWeapon.ammo_clip === undefined ? 'hide' : 'show'}`}>
                             <div className="bullets-image"></div>
-                            <p className="bullets-number">{activeWeapon.ammo_clip}/{activeWeapon.ammo_clip_max}</p>
+                            <p className="bullets-number">{activeWeapon.ammo_clip}/{activeWeapon.ammo_reserve}</p>
                         </div>
 
                         <div className="utils-wrapper row">

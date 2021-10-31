@@ -1,4 +1,5 @@
 import { SVGMap, weaponPrimary } from '../utils/tools';
+
 import _uniqueId from 'lodash/uniqueId';
 
 export default function imagesPlayer(infoPlayer, phase) {
@@ -19,6 +20,7 @@ export default function imagesPlayer(infoPlayer, phase) {
         if (infoPlayer.weapons[weapon].state === 'active') {
             activeWeapon.ammo_clip = infoPlayer.weapons[weapon].ammo_clip
             activeWeapon.ammo_clip_max = infoPlayer.weapons[weapon].ammo_clip_max
+            activeWeapon.ammo_reserve = infoPlayer.weapons[weapon].ammo_reserve
             activeWeapon.type = infoPlayer.weapons[weapon].type
         }
 

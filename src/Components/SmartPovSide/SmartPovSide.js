@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import { subscribeToPov, unsubscribeToPov } from '../../utils/socketIO'
 
 import PovSide from './PovSide/PovSide'
-import { subscribeToPov, unsubscribeToPov } from '../../utils/socketIO'
 import imagesPlayer from '../../utils/imagesPlayer'
 
 export default function SmartPovSide({ action }) {
