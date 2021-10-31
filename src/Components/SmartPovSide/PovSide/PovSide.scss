@@ -1,6 +1,6 @@
 .pov-wrapper {
   position: absolute;
-  left: 50%;
+  left: 52.1%;
 
   width: 27vw;
   height: 8vw;
@@ -17,42 +17,47 @@
 
     .border-image-player {
       position: absolute;
-      top: -0.3vw;
-      bottom: 0vw;
-      left: -0.1vw;
+      top: -0.5vw;
+      bottom: -2.9vw;
+      left: -4.4vw;
+      width: 51.5%;
+      z-index: 5;
 
-      width: 35.4%;
-
-      background-size: contain;
+      background-size: cover;
 
       .background-image-player {
+        border-radius: 0.8vw 0.8vw 0.8vw 0vw;
         position: absolute;
-        top: 0.6vw;
-        bottom: 0.4vw;
-        left: 0.5vw;
+        top: 1.1vw;
+        bottom: 0.9vw;
+        left: 0.8vw;
         right: 0.6vw;
-
         z-index: -5;
         background-color: var(--color-black);
-      }
 
-      .image-player {
-        position: absolute;
-        top: -1vw;
-        bottom: 0.56vw;
-        left: 0.5vw;
-        right: 0.8vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-        z-index: 1;
-        background-size: 100%;
+        .image-player {
+          position: absolute;
+          top: -3vw;
+          bottom: 0vw;
+          left: 0vw;
+          right: 0vw;
+          z-index: 1;
+          background-size: 90%;
+          background-position: top center;
+          background-repeat: no-repeat;
+        }
       }
 
       &.CT {
-        background-image: url('./icons/CT-pov.webp');
+        background-image: url("./icons/CT-pov.webp");
       }
 
       &.T {
-        background-image: url('./icons/T-pov.webp');
+        background-image: url("./icons/T-pov.webp");
       }
     }
 
@@ -79,6 +84,7 @@
             align-items: center;
 
             .player-name {
+              text-transform: uppercase;
               font-size: 1vw;
               color: var(--color-white);
             }
@@ -110,11 +116,11 @@
                   background-size: cover;
 
                   &.CT {
-                    background-image: url('../../../assets/icons/elements/health-CT.svg');
+                    background-image: url("../../../assets/icons/elements/health-CT.svg");
                   }
 
                   &.T {
-                    background-image: url('../../../assets/icons/elements/health-T.svg');
+                    background-image: url("../../../assets/icons/elements/health-T.svg");
                   }
                 }
 
@@ -141,11 +147,11 @@
 
                   .armor-image {
                     &.CT {
-                      background-image: url('../../../assets/icons/elements/armor-CT.svg');
+                      background-image: url("../../../assets/icons/elements/armor-CT.svg");
                     }
 
                     &.T {
-                      background-image: url('../../../assets/icons/elements/armor-T.svg');
+                      background-image: url("../../../assets/icons/elements/armor-T.svg");
                     }
                   }
                 }
@@ -155,11 +161,11 @@
 
                   .armor-image {
                     &.CT {
-                      background-image: url('../../../assets/icons/elements/helmet-CT.svg');
+                      background-image: url("../../../assets/icons/elements/helmet-CT.svg");
                     }
 
                     &.T {
-                      background-image: url('../../../assets/icons/elements/helmet-T.svg');
+                      background-image: url("../../../assets/icons/elements/helmet-T.svg");
                     }
                   }
                 }
@@ -238,7 +244,7 @@
                 height: 0.8vw;
 
                 background-size: cover;
-                background-image: url('../../../assets/icons/elements/skull.svg');
+                background-image: url("../../../assets/icons/elements/skull.svg");
               }
 
               .kills-round-number {
@@ -314,11 +320,11 @@
         }
 
         &.CT {
-          background-image: url('./icons/CT-bar.webp');
+          background-image: url("./icons/CT-bar.webp");
         }
 
         &.T {
-          background-image: url('./icons/T-bar.webp');
+          background-image: url("./icons/T-bar.webp");
         }
       }
 
@@ -342,7 +348,7 @@
             height: 0.8vw;
 
             background-size: cover;
-            background-image: url('../../../assets/icons/elements/bullets.svg');
+            background-image: url("../../../assets/icons/elements/bullets.svg");
           }
 
           &.hide {
@@ -417,6 +423,10 @@
   }
 
   .sponsors-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     height: 30%;
     border-radius: 0 0 1vw 1vw;
     position: relative;
@@ -425,11 +435,14 @@
     background-color: var(--color-background-POV);
 
     .sponsor-image {
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: 0.9vw;
-      background-image: url('./icons/sponsors/pgl.png');
+      margin-left: 9vw;
+      width: 25%;
+      height: 75%;
+      background-image: url("./icons/sponsors/pgl.png");
+
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
     }
   }
 }

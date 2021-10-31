@@ -1,7 +1,8 @@
 import './PovSide.scss'
-import { useSpring, animated } from 'react-spring'
+
+import { animated, useSpring } from 'react-spring'
+
 import classNames from 'classnames';
-import { useEffect } from 'react';
 
 export default function PovSide(
     { povData,
@@ -13,16 +14,13 @@ export default function PovSide(
         grenadeImg,
         activeWeapon,
         action }) {
-
     let picturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${povData.teamKey}/${povData.playerKey}.webp`
     let teamLogo = povData.teamKey === 'placeholder' ? (`placeholder/${povData.team === 'CT' ? 'CT' : 'T'}`) : povData.teamKey
     let flag = povData.playerCountry !== '' ? `http://redis-birou.pgl.ro/pgl/resources/flags/${povData.playerCountry}.png` : 'http://redis-birou.pgl.ro/pgl/resources/flags/zz.png'
-
     let sideTeam = classNames({
         'CT': povData.team === 'CT' && true,
         'T': povData.team === 'T' && true
     })
-
     let armor = classNames({
         'helmet': povData.state.helmet && true,
         'armor': !povData.state.helmet && povData.state.armor !== 0 && true
@@ -42,8 +40,11 @@ export default function PovSide(
         <animated.div className={`pov-wrapper col`} style={{ bottom: props.bottom }}>
             <div className="player-wrapper">
                 <div className={`border-image-player ${sideTeam}`}>
-                    <div className="background-image-player"></div>
-                    <div className="image-player" style={{ backgroundImage: `url(${picturePlayer})`, filter: `brightness(${povData.state.flashed / 51 < 1 ? 1 : povData.state.flashed / 51})` }}></div>
+                    <div className="background-image-player">
+                        <div className="image-player" style={{
+                            backgroundImage: `url(${picturePlayer})`, filter: `brightness(${povData.state.flashed / 51 < 1 ? 1 : povData.state.flashed / 51})`
+                        }}></div>
+                    </div>
                 </div>
 
                 <div className="info-player-wrapper col">
@@ -84,9 +85,9 @@ export default function PovSide(
 
                                 <div className={`third-info row ${roundKills}`}>
                                     <div className="death-image"></div>
+                                    <p className="kills-notice">x</p>
                                     <span className={`kills-round-number row ${sideTeam}`}>
                                         {povData.state.round_kills}
-                                        <p className="kills-notice">/5</p>
                                     </span>
                                 </div>
                             </div>
@@ -100,11 +101,10 @@ export default function PovSide(
                             <div className="dmg" ></div>
                         </div>
                     </div>
-
                     <div className="third-layer-wrapper row font-tablet">
                         <div className={`bullets-wrapper row ${activeWeapon.ammo_clip === undefined ? 'hide' : 'show'}`}>
                             <div className="bullets-image"></div>
-                            <p className="bullets-number">{activeWeapon.ammo_clip}/{activeWeapon.ammo_clip_max}</p>
+                            <p className="bullets-number">{activeWeapon.ammo_clip}/{activeWeapon.ammo_reserve}</p>
                         </div>
 
                         <div className="utils-wrapper row">
