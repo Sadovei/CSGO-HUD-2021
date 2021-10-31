@@ -1,8 +1,7 @@
 import socketClient from "socket.io-client";
-const { REACT_APP_BACKEND, REACT_APP_PORT } = process.env
 
-const backEND = REACT_APP_BACKEND
-const port = REACT_APP_PORT
+const backEND = '10.97.2.31'
+const port = '4400'
 const ENDPOINT = `http://${backEND}:${port}/?client=igdir`;
 const socket = socketClient(ENDPOINT);
 
