@@ -49,6 +49,8 @@ export default function TopBar({ topBar }) {
       test = undefined
     }, 4500)
   }
+  //TODO: Check the problem with MVP!!!!! Sometimes not show!!!
+  // console.log('MVP: ', flagMVP)
 
   const [timeTimer, setTimeTimer] = useState(0)
   const [phaseTimer, setPhaseTimer] = useState()

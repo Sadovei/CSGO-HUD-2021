@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { animated, useSpring } from 'react-spring'
+
 import TopBar from './TopBar/TopBar'
 import VetoLegends from './VetoLegends/VetoLegends'
+import classNames from 'classnames'
 import pistolRoundVideo from '../../assets/videos/pistol_round.webm'
 import plantedBombVideo from '../../assets/videos/bomb_planted.webm'
-import classNames from 'classnames'
-import { useSpring, animated } from 'react-spring'
 
 export default function SmartTopBar({ topBarData }) {
   const videoRef = useRef(null)
@@ -72,11 +73,13 @@ export default function SmartTopBar({ topBarData }) {
   return (
     <>
       <TopBar topBar={topBarData} />
+
       <VetoLegends
         vetoInfo={topBarData.mapInfo.vetoLegend}
         phase={topBarData.round.phase}
         topBar={topBarData}
       />
+
       <video
         ref={videoRef}
         className={`video-start ${pistolRound ? 'pistol' : 'bomb'}`}
@@ -89,9 +92,11 @@ export default function SmartTopBar({ topBarData }) {
         style={{ opacity: mvpProps.opacity, top: mvpProps.top }}
       >
         <div className='logo'></div>
+
         <p className={`text-side ${timeOut}`}>
           {timeOut === 'CT' ? `COUNTER TERRORIST ` : `TERRORIST `}{' '}
         </p>
+
         {timeOut === 'CT' && (
           <p className='text font-mont'>
             {4 -
@@ -101,6 +106,7 @@ export default function SmartTopBar({ topBarData }) {
             /4
           </p>
         )}
+        
         {timeOut === 'T' && (
           <p className='text font-mont'>
             {4 -

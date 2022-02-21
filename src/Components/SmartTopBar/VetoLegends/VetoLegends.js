@@ -8,6 +8,7 @@ export default function VetoLegends({ vetoInfo, phase, topBar }) {
   const [animClass, setAnimClass] = useState('')
   const [flag, setFlag] = useState(false)
   const updateStart = useRef(null)
+
   useEffect(() => {
     if (!updateStart.current) {
       setUpdate(phase)
@@ -15,6 +16,7 @@ export default function VetoLegends({ vetoInfo, phase, topBar }) {
     return null
   }, [phase, setUpdate])
   // eslint-disable-next-line react-hooks/exhaustive-deps
+  
   function setUpdate(phase) {
     if (
       phase === 'freezetime' ||

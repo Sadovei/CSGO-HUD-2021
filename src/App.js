@@ -77,7 +77,9 @@ function App() {
           <SmartRightSide />
           <SmartLeftSide />
           <SmartDynamic />
+
           {!radarToggle && objectData && <RadarLayout dataObj={objectData} />}
+
           {checkStream !== [0, false, ''] && (
             <CheckStream
               data={checkStream[0]}
@@ -85,6 +87,7 @@ function App() {
               text={checkStream[2].text}
             />
           )}
+          
           {radarToggle &&
             <iframe title="radar" id="newRadar" loading="lazy" scrolling="no" frameBorder="none" importance="high" src={`http://localhost:4903`}
               width="100%" height="100%" className={objectData?.map?.name}></iframe>

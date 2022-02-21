@@ -247,11 +247,11 @@
                 background-image: url("../../../assets/icons/elements/skull.svg");
               }
 
+              .kills-notice {
+                color: var(--color-grey);
+              }
+              
               .kills-round-number {
-                .kills-notice {
-                  color: var(--color-grey);
-                }
-
                 &.CT {
                   color: var(--color-CT);
                 }
