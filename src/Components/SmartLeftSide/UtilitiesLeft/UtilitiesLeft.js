@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { CostGrenades, SVGMap } from '../../../utils/tools'
 import './UtilitiesLeft.scss'
+
+import { CostGrenades, SVGMap } from '../../../utils/tools'
+import React, { useEffect, useRef, useState } from 'react'
 
 export default function UtilitiesLeft({ utilities, team, phase }) {
   const [animClass, setAnimClass] = useState('')
@@ -54,33 +55,37 @@ export default function UtilitiesLeft({ utilities, team, phase }) {
   }
 
   return (
-    <div className={`utility-wrapper ${team} font-tablet ${animClass}`}>
-      <div className='bk-color row'>
+    <div className={`utility-wrapper col ${team}  ${animClass}`}>
+      <div className='bar'></div>
+
+      <div className='content-wrapper row'>
         <div className='text-wrapper col'>
           <p className='dynamic'>{constUtilities}</p>
           <p className='text-notice'>UTILITY</p>
         </div>
 
-        <div className='grenade incendiary-wrapper row'>
-          <IncendiaryIMG />
-          <p className='numberOf'>X{noIncendiary}</p>
-        </div>
-
-        <div className='grenade smoke-wrapper row'>
-          <SmokeIMG />
-          <p className='numberOf'>X{utilities.weapon_smokegrenade}</p>
+        <div className='grenade he-wrapper row'>
+          <p className='numberOf'>{utilities.weapon_hegrenade}X</p>
+          <HeIMG />
         </div>
 
         <div className='grenade flash-wrapper row'>
+          <p className='numberOf'>{utilities.weapon_flashbang}X</p>
           <FlashIMG />
-          <p className='numberOf'>X{utilities.weapon_flashbang}</p>
         </div>
 
-        <div className='grenade he-wrapper row'>
-          <HeIMG />
-          <p className='numberOf'>X{utilities.weapon_hegrenade}</p>
+        <div className='grenade smoke-wrapper row'>
+          <p className='numberOf'>{utilities.weapon_smokegrenade}X</p>
+          <SmokeIMG />
+        </div>
+
+        <div className='grenade incendiary-wrapper row'>
+          <p className='numberOf'>{noIncendiary}X</p>
+          <IncendiaryIMG />
         </div>
       </div>
+
+      <div className='bk-gradient'></div>
     </div>
   )
 }

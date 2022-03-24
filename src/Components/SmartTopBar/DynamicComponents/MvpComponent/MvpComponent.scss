@@ -1,0 +1,81 @@
+.mvp-wrapper {
+  margin-top: 0.1vw;
+
+  border-radius: 0.4vw;
+  background: var(--color-bk-opacity);
+  color: var(--color-white);
+
+  .sideImage-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-left: 1vw;
+
+    width: 5vw;
+    height: 5vw;
+
+    background: var(--color-black);
+
+    .sideImage {
+      width: 3.4vw;
+      height: 3.3vw;
+
+      background-size: cover;
+
+      &.CT {
+        background-image: url('../../../../assets/icons/hudElements/ct.webp');
+      }
+
+      &.T {
+        background-image: url('../../../../assets/icons/hudElements/t.webp');
+      }
+    }
+  }
+
+  .info-wrapper {
+    margin-left: 0.5vw;
+    font-size: 1vw;
+
+    align-items: flex-start;
+    justify-content: center;
+
+    .side {
+      &.T {
+        color: var(--color-T-icons);
+      }
+
+      &.CT {
+        color: var(--color-CT-icons);
+      }
+    }
+
+    .winText {
+      font-size: 0.8vw;
+    }
+
+    .roundText-wrapper {
+      .roundText {
+        font-size: 0.7vw;
+        margin-top: 0.15vw;
+      }
+
+      .playerText {
+        margin-left: 0.2vw;
+        font-size: 0.9vw;
+      }
+    }
+  }
+
+  .playerPhoto-wrapper {
+    width: 5vw;
+    height: 5vw;
+
+    .playerPhoto {
+      width: 100%;
+      height: 100%;
+
+      background-size: cover;
+    }
+  }
+}

@@ -39,7 +39,7 @@ export default function ScoreBoard({ data, action }) {
                 {
                     scoreboardData?.leftSide.players.map((player, indexPlayer) => {
                         return (
-                            <p className="hs-percentage font-tablet" key={indexPlayer}>{player.hs}%</p>
+                            <p className="hs-percentage " key={indexPlayer}>{player.hs}%</p>
                         )
                     })
                 }
@@ -54,7 +54,7 @@ export default function ScoreBoard({ data, action }) {
                             scoreboardData?.leftSide.players.map((player, indexPlayer) => {
                                 return (
                                     <div className="adr-bar" key={indexPlayer}>
-                                        <p className="adr font-tablet">{player.adr}</p>
+                                        <p className="adr ">{player.adr}</p>
                                         <div className="adr-gradient" style={{ width: `${player.adr * 92.5 / scoreboardData.adr}%` }}></div>
                                     </div>
                                 )
@@ -67,7 +67,7 @@ export default function ScoreBoard({ data, action }) {
                             scoreboardData?.rightSide.players.map((player, indexPlayer) => {
                                 return (
                                     <div className="adr-bar" key={indexPlayer}>
-                                        <p className="adr font-tablet" key={indexPlayer}>{player.adr}</p>
+                                        <p className="adr " key={indexPlayer}>{player.adr}</p>
                                         <div className="adr-gradient" style={{ width: `${player.adr * 92.5 / scoreboardData.adr}%` }}></div>
                                     </div>
                                 )
@@ -83,7 +83,7 @@ export default function ScoreBoard({ data, action }) {
                 {
                     scoreboardData?.rightSide.players.map((player, indexPlayer) => {
                         return (
-                            <p className="hs-percentage font-tablet" key={indexPlayer}>{player.hs}%</p>
+                            <p className="hs-percentage " key={indexPlayer}>{player.hs}%</p>
                         )
                     })
                 }

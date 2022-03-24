@@ -1,27 +1,33 @@
 .left-wrapper {
   .utility-wrapper {
     position: absolute;
-    bottom: -2.5vw;
+    bottom: -5vw;
 
-    height: 2.5vw;
-    width: 12.5vw;
+    width: 13.5vw;
+    height: 3.6vw;
 
-    clip-path: polygon(86% 1%, 100% 45%, 100% 100%, 0 100%, 0 0);
+    border-radius: 0.4vw;
+    overflow: hidden;
 
-    .bk-color {
-      width: 100%;
-      height: 100%;
+    background: var(--color-bk-opacity);
 
-      background-color: var(--color-background);
+    .bar {
+      height: 0.9vw;
+    }
+
+    .content-wrapper {
+      height: calc(100% - 0.9vw);
+      z-index: 1;
 
       .text-wrapper {
         margin-left: 0.5vw;
-        width: 2.9vw;
+        width: 3.2vw;
 
-        align-items: center;
-        justify-content: space-evenly;
+        align-items: flex-start;
+        justify-content: center;
 
-        font-size: 0.6vw;
+        font-size: 0.7vw;
+        color: var(--color-white);
       }
 
       .grenade {
@@ -33,24 +39,75 @@
         }
 
         p {
-          font-size: 0.6vw;
-          margin: 0.5vw 0 0 0.2vw;
+          width: 1.3vw;
+          margin-top: 0.5vw;
+          font-size: 0.8vw;
         }
 
         &.flash-wrapper {
-          p {
-            margin: 0.5vw 0 0;
+          svg {
+            height: 1.4vw;
+            margin: 0 -0.1vw;
+          }
+        }
+
+        &.incendiary-wrapper {
+          svg {
+            height: 1.5vw;
+          }
+        }
+
+        &.smoke-wrapper {
+          svg {
+            height: 1.4vw;
           }
         }
       }
     }
 
+    .bk-gradient {
+      position: absolute;
+      top: 0vw;
+      left: 0vw;
+      bottom: 0vw;
+      right: 0vw;
+      border-radius: 0.4vw;
+    }
+
     &.CT {
-      color: var(--color-CT);
+      .bar {
+        background-color: var(--color-CT);
+      }
+
+      .content-wrapper {
+        .grenade {
+          p {
+            color: var(--color-CT-icons);
+          }
+        }
+      }
+
+      .bk-gradient {
+        background: var(--color-CT-bk-opacity-left);
+      }
     }
 
     &.T {
-      color: var(--color-T);
+      .bar {
+        background-color: var(--color-T);
+      }
+
+      .content-wrapper {
+        .grenade {
+          p {
+            color: var(--color-T-icons);
+          }
+        }
+      }
+
+      .bk-gradient {
+        background: var(--color-T-bk-opacity-left);
+      }
     }
 
     &.showStart {
@@ -73,38 +130,38 @@
 
 @keyframes showLeftUtility {
   from {
-    bottom: -2.5vw;
+    bottom: -5vw;
   }
 
   to {
-    bottom: 4.3vw;
+    bottom: 4.4vw;
   }
 }
 
 @keyframes hideLeftUtility {
   from {
-    bottom: 4.3vw;
+    bottom: 4.4vw;
   }
   to {
-    bottom: -2.5vw;
+    bottom: -5vw;
   }
 }
 
 @keyframes showBombUtility {
   from {
-    bottom: -2.5vw;
+    bottom: -5vw;
   }
 
   to {
-    bottom: 0.5vw;
+    bottom: 0.4vw;
   }
 }
 
 @keyframes hideBombUtility {
   from {
-    bottom: 0.5vw;
+    bottom: 0.4vw;
   }
   to {
-    bottom: -2.5vw;
+    bottom: -5vw;
   }
 }

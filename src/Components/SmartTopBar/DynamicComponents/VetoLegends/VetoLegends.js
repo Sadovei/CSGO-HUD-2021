@@ -1,0 +1,89 @@
+import './VetoLegends.scss'
+
+import React, { useEffect, useRef, useState } from 'react'
+
+import { currentMatch } from '../../../../utils/tools'
+
+export default function VetoLegends({ vetoInfo, phase, topBar }) {
+  const [animClass, setAnimClass] = useState('')
+  const [flag, setFlag] = useState(false)
+  const updateStart = useRef(null)
+
+  useEffect(() => {
+    if (!updateStart.current) {
+      setUpdate(phase)
+    }
+    return null
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase, setUpdate])
+
+  function setUpdate(phase) {
+    if (
+      phase === 'freezetime' ||
+      phase === 'timeout_t' ||
+      phase === 'timeout_ct'
+    ) {
+      setAnimClass('showStart')
+      setFlag(true)
+    }
+
+    if (phase === 'live' && flag) {
+      updateStart.current = setTimeout(() => {
+        setAnimClass('hideStart')
+        updateStart.current = null
+        setFlag(false)
+      }, 5000)
+    }
+  }
+
+  let matchCurrent = currentMatch(vetoInfo, topBar)
+  if (topBar.leftSide.nameKey === 'placeholder') return null
+
+  return (
+    <div className={`vetoLegends-wrapper row ${animClass}`}>
+      {Object.keys(vetoInfo).map((map, indexMap) => {
+        return (
+          <div key={indexMap} className='map-wrapper col'>
+            <div className='first-row'>
+              <p className='map-name'>{map}</p>
+              {matchCurrent === indexMap && <p className='current'>CURRENT</p>}
+
+              {vetoInfo[map][topBar.leftSide.nameKey] !== null && (
+                <div className='info-wrapper'>
+                  <div
+                    className='logo-left'
+                    style={{
+                      backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${topBar.leftSide.nameKey}/logo.webp)`
+                    }}
+                  ></div>
+
+                  <p className='score-left'>
+                    {vetoInfo[map][topBar.leftSide.nameKey]}
+                  </p>
+
+                  <p className='score-notice'>-</p>
+
+                  <p className='score-right'>
+                    {vetoInfo[map][topBar.rightSide.nameKey]}
+                  </p>
+
+                  <div
+                    className='logo-right'
+                    style={{
+                      backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${topBar.rightSide.nameKey}/logo.webp)`
+                    }}
+                  ></div>
+                </div>
+              )}
+            </div>
+
+            <div className='second-row col'>
+              {(Object.keys(vetoInfo).length - 1 !== 0) && (indexMap !== Object.keys(vetoInfo).length - 1) && <p className='map-notice'>PICKED BY</p>}
+              <p className={`map-text ${vetoInfo[map].pickName === 'Decider Map' ? 'decider' : ''}`}>{vetoInfo[map].pickName.toUpperCase()}</p>
+            </div>
+          </div>
+        )
+      })}
+    </div>
+  )
+}

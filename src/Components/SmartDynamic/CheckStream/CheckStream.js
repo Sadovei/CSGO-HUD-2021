@@ -3,7 +3,7 @@ import './CheckStream.scss'
 export default function CheckStream({ data, show, text }) {
     if (data)
         return (
-            <div className={`checkStream-wrapper font-tablet ${data[0].mapName.split('_')[1]} ${show ? 'show' : 'hide'}`}>
+            <div className={`checkStream-wrapper  ${data[0].mapName.split('_')[1]} ${show ? 'show' : 'hide'}`}>
                 <div className="text-wrapper font-mont">
                     <p className="title">{text}</p>
 

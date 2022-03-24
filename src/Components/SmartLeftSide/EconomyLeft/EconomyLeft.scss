@@ -1,60 +1,52 @@
 .left-wrapper {
   .economy-wrapper {
     position: absolute;
-    bottom: -3.5vw;
+    bottom: -5vw;
 
-    height: 3.3vw;
-    width: 16.5vw;
+    width: 13.5vw;
+    height: 3.6vw;
 
-    clip-path: polygon(86% 1%, 100% 45%, 100% 100%, 0 100%, 0 0);
+    border-radius: 0.4vw;
+    overflow: hidden;
 
-    .image {
-      position: absolute;
-      left: -0.7vw;
-      bottom: -0.6vw;
+    background: var(--color-bk-opacity);
 
-      width: 6vw;
-      height: 4.7vw;
-
-      background-size: contain;
+    .bar {
+      height: 0.9vw;
     }
 
-    .info-wrapper {
-      width: 100%;
-      padding-left: 4.6vw;
+    .content-wrapper {
+      height: calc(100% - 0.9vw);
+      z-index: 1;
 
-      background: var(--color-background);
+      align-items: center;
+      justify-content: center;
 
-      .rounds-wrapper {
-        justify-content: center;
-        margin-left: 0.5vw;
+      .image {
+        width: 2.2vw;
+        height: 2.1vw;
 
-        .round {
-          width: 0.3vw;
-          height: 0.3vw;
-
-          border-radius: 50%;
-          background-color: var(--color-grey);
-
-          + .round {
-            margin-top: 0.25vw;
-          }
-        }
+        background-size: cover;
       }
 
       .loss-bonus-wrapper {
-        margin: 0 1.1vw 0 0.8vw;
+        margin: 0 0.8vw 0 0.4vw;
+        width: 3.6vw;
       }
 
       .loss-bonus-wrapper,
       .equipment-wrapper {
-        align-items: center;
+        align-items: flex-start;
         justify-content: space-evenly;
 
-        .money,
-        .equipment-value {
+        .money-wrapper,
+        .equipmentValue-wrapper {
           font-size: 1vw;
           color: var(--color-white);
+
+          .moneySecond {
+            margin-left: 0.15vw;
+          }
         }
 
         .loss-notice,
@@ -64,51 +56,60 @@
       }
     }
 
+    .bk-gradient {
+      position: absolute;
+      top: 0vw;
+      left: 0vw;
+      bottom: 0vw;
+      right: 0vw;
+      border-radius: 0.4vw;
+    }
+
     &.T {
-      .image {
-        background-image: url('../../../assets/T-economy-left.webp');
+      .bar {
+        background-color: var(--color-T);
       }
 
-      .info-wrapper {
-        .rounds-wrapper {
-          .round {
-            &.lose {
-              background-color: var(--color-T);
-            }
-          }
+      .content-wrapper {
+        .image {
+          background-image: url('../../../assets/icons/hudElements/t.webp');
         }
 
         .loss-bonus-wrapper,
         .equipment-wrapper {
           .loss-notice,
           .equipment-notice {
-            color: var(--color-T);
+            color: var(--color-T-icons);
           }
         }
+      }
+
+      .bk-gradient {
+        background: var(--color-T-bk-opacity-left);
       }
     }
 
     &.CT {
-      .image {
-        background-image: url('../../../assets/CT-economy-left.webp');
+      .bar {
+        background: var(--color-CT);
       }
 
-      .info-wrapper {
-        .rounds-wrapper {
-          .round {
-            &.lose {
-              background-color: var(--color-CT);
-            }
-          }
+      .content-wrapper {
+        .image {
+          background-image: url('../../../assets/icons/hudElements/ct.webp');
         }
 
         .loss-bonus-wrapper,
         .equipment-wrapper {
           .loss-notice,
           .equipment-notice {
-            color: var(--color-CT);
+            color: var(--color-CT-icons);
           }
         }
+      }
+
+      .bk-gradient {
+        background: var(--color-CT-bk-opacity-left);
       }
     }
 
@@ -124,19 +125,19 @@
 
 @keyframes showLeftEconomy {
   from {
-    bottom: -3.5vw;
+    bottom: -5vw;
   }
 
   to {
-    bottom: 0.5vw;
+    bottom: 0.4vw;
   }
 }
 
 @keyframes hideLeftEconomy {
   from {
-    bottom: 0.5vw;
+    bottom: 0.4vw;
   }
   to {
-    bottom: -3.5vw;
+    bottom: -5vw;
   }
 }

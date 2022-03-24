@@ -1,6 +1,8 @@
 import './HeadToHead.scss'
+
+import { animated, useSpring } from 'react-spring'
+
 import classNames from 'classnames'
-import { useSpring, animated } from 'react-spring'
 
 let dataH2H
 
@@ -34,7 +36,7 @@ export default function HeadToHead({ data, action }) {
 
   return (
     <animated.div
-      className='headToHead-wrapper font-tablet row'
+      className='headToHead-wrapper  row'
       style={action === 'show' ? showEl : hideEl}
     >
       <div className='leftSide-wrapper player'>

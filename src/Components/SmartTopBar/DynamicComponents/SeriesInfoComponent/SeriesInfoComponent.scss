@@ -1,0 +1,50 @@
+.seriesInfo-wrapper {
+  position: relative;
+  margin-top: 0.1vw;
+  padding: 0 0.5vw;
+
+  border-radius: 0 0 0.4vw 0.4vw;
+  color: var(--color-white);
+  background-color: var(--color-bk-opacity);
+
+  .leftInfo-wrapper,
+  .rightInfo-wrapper {
+    align-items: center;
+
+    .map {
+      width: 1.2vw;
+      height: 0.6vw;
+      background-color: var(--color-black);
+      border-radius: 0.2vw;
+
+      &.win {
+        background-color: var(--color-grey);
+      }
+    }
+  }
+
+  .leftInfo-wrapper {
+    .map {
+      + .map {
+        margin-left: 0.4vw;
+      }
+    }
+  }
+
+  .rightInfo-wrapper {
+    .map {
+      + .map {
+        margin-right: 0.4vw;
+      }
+    }
+
+    flex-flow: row-reverse nowrap;
+  }
+
+  .status-match-wrapper {
+    width: 7.3vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

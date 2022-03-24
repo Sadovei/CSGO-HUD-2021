@@ -1,0 +1,80 @@
+.right-wrapper {
+  .content-wrapper-comercial {
+    position: absolute;
+    bottom: 0.4vw;
+
+    width: 13.5vw;
+    height: 3.6vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 0.4vw;
+
+    background: var(--color-bk-opacity);
+
+    .sponsor-image {
+      width: 100%;
+      height: 100%;
+      background-size: 120%;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    &.showStart {
+      animation: showLeft 1s forwards;
+    }
+
+    &.hideStart {
+      animation: hideLeft 1s forwards;
+    }
+
+    &.showBomb {
+      animation: showBombPhase 1s forwards;
+    }
+
+    &.hideBomb {
+      animation: hideBombPhase 1s forwards;
+    }
+  }
+}
+
+@keyframes showLeft {
+  from {
+    bottom: 0.4vw;
+  }
+
+  to {
+    bottom: 8.4vw;
+  }
+}
+
+@keyframes hideLeft {
+  from {
+    bottom: 8.4vw;
+  }
+  to {
+    bottom: 0.4vw;
+  }
+}
+
+@keyframes showBombPhase {
+  from {
+    bottom: 0.4vw;
+  }
+
+  to {
+    bottom: 4.4vw;
+  }
+}
+
+@keyframes hideBombPhase {
+  from {
+    bottom: 4.4vw;
+  }
+
+  to {
+    bottom: 0.4vw;
+  }
+}

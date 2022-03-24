@@ -1,496 +1,739 @@
 .left-player-wrapper {
   position: relative;
-  border-radius: 0.3vw;
 
-  background-color: var(--color-background);
-  box-shadow: -5px 5px 15px 1px var(--color-background);
+  height: 4.3vw;
+  width: 16.5vw;
 
-  .main-info-wrapper {
-    position: relative;
-    width: 7.3vw;
-    height: 3.5vw;
-    z-index: 2;
+  background: var(--color-bk-opacity);
+  color: var(--color-white);
+  border-radius: 0.4vw;
 
-    margin-left: -0.8vw;
+  .numberSlot-wrapper {
+    position: absolute;
+    top: 50%;
+    left: -0.5vw;
+    transform: translateY(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 1.2vw;
+    height: 1.2vw;
+
+    background-size: cover;
 
     font-size: 0.8vw;
-    background-size: contain;
-
-    .number-wrapper {
-      position: absolute;
-      top: 1.3vw;
-      left: 0.3vw;
-
-      width: 1vw;
-      height: 1vw;
-      align-items: center;
-      justify-content: center;
-
-      color: var(--color-grey);
-    }
-
-    .image-player-wrapper {
-      width: 5vw;
-      height: 100%;
-      position: absolute;
-      left: 0.8vw;
-      display: flex;
-      overflow: hidden;
-      border-radius: 0.4vw;
-
-      .image-player {
-        position: absolute;
-        left: -0.5vw;
-        height: 100%;
-        width: 5vw;
-
-        background-size: 100%;
-      }
-    }
-
-    .heal-wrapper {
-      position: absolute;
-      left: 66%;
-      top: 23%;
-      z-index: 2;
-
-      justify-content: center;
-      align-items: center;
-
-      .heal-number {
-        width: 1.4vw;
-        margin-top: 0.5vw;
-
-        text-align: center;
-
-        &.red {
-          color: var(--color-red);
-        }
-      }
-
-      .armor-image {
-        width: 0.5vw;
-        height: 0.5vw;
-
-        background-size: cover;
-      }
-    }
+    z-index: 5;
   }
 
-  .secondary-info-wrapper {
+  .contentPlayer-wrapper {
     position: relative;
-    height: 3.5vw;
-    min-width: 12vw;
 
-    .first-line-wrapper {
-      align-items: center;
-      justify-content: space-between;
-      height: 1.6vw;
+    width: 100%;
+    height: 100%;
 
-      font-size: 0.7vw;
+    font-size: 0.9vw;
+    z-index: 2;
 
-      .first-box {
-        .player-name {
-          text-transform: uppercase;
-          color: var(--color-white);
+    .firstContentPlayer-wrapper {
+      width: 100%;
+      height: 100%;
+
+      .playerImage-wrapper {
+        width: 4.08vw;
+        height: 100%;
+
+        padding-top: 0.5vw;
+        margin-top: -0.5vw;
+
+        overflow: hidden;
+        border-radius: 0 0 0 0.4vw;
+
+        .playerImage {
+          width: 100%;
+          height: 200%;
+
+          margin-top: -0.5vw;
+
+          background-size: cover;
+          background-position: bottom;
         }
       }
 
-      .second-box {
-        font-size: 0.7vw;
-        color: var(--color-grey);
+      .infoPlayer-wrapper {
+        padding: 1% 2%;
+        width: calc(100% - 4.08vw);
+        height: 98%;
 
-        .assists-wrapper {
-          margin: 0 0.2vw;
-        }
+        .firstRow-wrapper {
+          width: 100%;
+          height: 1.094vw;
 
-        .death-wrapper {
-          margin-right: 0.5vw;
-        }
-
-        .round-kills {
-          margin-right: 0.5vw;
-          align-items: center;
-          visibility: hidden;
-
-          .death-image {
-            width: 0.6vw;
-            height: 0.6vw;
-
-            background-image: url("../../../../assets/icons/elements/skull.svg");
-            background-size: cover;
+          .playerName {
+            width: 61%;
           }
 
-          .kills-round-number {
-            .kills-notice {
-              color: var(--color-grey);
+          .aliveInfo-wrapper {
+            width: 38%;
+
+            justify-content: space-between;
+
+            margin-left: 1%;
+
+            .kills-wrapper {
+              align-items: center;
+              width: 2.2vw;
+
+              .killsImage {
+                width: 0.9vw;
+                height: 0.9vw;
+
+                background-image: url('../../../../assets/icons/elements/kill.svg');
+                background-size: cover;
+              }
+
+              .kills {
+                margin-left: 0.1vw;
+              }
+            }
+
+            .death-wrapper {
+              align-items: center;
+              width: 2.2vw;
+
+              .deathImage {
+                width: 0.9vw;
+                height: 0.9vw;
+
+                background-image: url('../../../../assets/icons/elements/death.svg');
+                background-size: cover;
+              }
+              .death {
+                margin-left: 0.1vw;
+              }
+            }
+          }
+        }
+
+        .secondRow-wrapper {
+          width: 100%;
+          height: 1.094vw;
+          margin-top: 0.3vw;
+
+          justify-content: space-between;
+
+          .money-wrapper {
+            width: 3.5vw;
+
+            .moneySecond {
+              margin-left: 0.15vw;
             }
           }
 
-          &.live {
-            visibility: visible;
+          .currentKills-wrapper {
+            position: absolute;
+            left: 8vw;
+
+            width: 1.7vw;
+
+            display: none;
+            align-items: center;
+
+            .killsImage {
+              width: 0.9vw;
+              height: 0.9vw;
+
+              background-size: cover;
+            }
+
+            .currentKills {
+              margin-left: 0.2vw;
+            }
+
+            &.live {
+              display: flex;
+            }
+          }
+
+          .utils-wrapper {
+            width: 5vw;
+            justify-content: flex-end;
+
+            .utilities {
+              margin-right: 0.1vw;
+
+              &.defuse,
+              &.bomb,
+              &.flashbang,
+              &.decoy {
+                width: 1vw;
+              }
+
+              &.molotov,
+              &.hegrenade {
+                width: 0.7vw;
+              }
+
+              &.smokegrenade,
+              &.incgrenade {
+                width: 0.7vw;
+              }
+
+              &.defuse,
+              &.bomb {
+                order: 0;
+              }
+
+              &.decoy {
+                order: 1;
+              }
+
+              &.incgrenade {
+                order: 4;
+              }
+
+              &.molotov {
+                order: 5;
+              }
+
+              &.smokegrenade {
+                order: 3;
+              }
+
+              &.hegrenade {
+                order: 4;
+              }
+
+              &.flashbang {
+                order: 2;
+              }
+            }
+          }
+
+          .deathInfo-wrapper {
+            display: none;
+          }
+        }
+
+        .thirdRow-wrapper {
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0vw;
+
+          display: none;
+
+          justify-content: space-between;
+          height: 1.294vw;
+
+          border-radius: 0 0 0.4vw 0.4vw;
+
+          .currentKills-wrapper {
+            width: 1.7vw;
+
+            margin-left: 4vw;
+
+            display: none;
+            align-items: center;
+
+            .killsImage {
+              width: 0.9vw;
+              height: 0.9vw;
+
+              background-size: cover;
+            }
+
+            .currentKills {
+              margin-left: 0.2vw;
+            }
+
+            &.live {
+              display: flex;
+            }
+          }
+
+          .adr-wrapper {
+            width: 4vw;
+            margin-right: 2%;
+            justify-content: flex-start;
+
+            .adr-notice {
+              margin-right: 0.2vw;
+            }
           }
         }
       }
     }
 
-    .second-line-wrapper {
+    .secondContentPlayer-wrapper {
       position: absolute;
-      top: 1.2vw;
-      left: -0.4vw;
-      right: 0vw;
+      left: 0;
+      right: 0;
+      bottom: 0;
 
-      height: 36%;
+      height: 1.294vw;
+      overflow: hidden;
 
-      background-size: contain;
+      border-radius: 0 0 0.4vw 0.4vw;
 
-      .heal-life-wrapper {
-        width: 92.4%;
-        height: 0.2vw;
-        position: relative;
+      .healInfo-wrapper {
+        z-index: 2;
+        align-items: center;
+        margin-left: 0.5vw;
 
-        margin-left: 0.45vw;
-        margin-top: 0.52vw;
-        border-radius: 1vw;
+        .healImage {
+          width: 0.9vw;
+          height: 0.9vw;
 
-        .heal-bar {
-          height: 100%;
-
-          z-index: 1;
-          border-radius: 1vw;
+          background-size: cover;
         }
-        .dmg {
-          position: absolute;
-          left: 0;
-          height: 100%;
 
-          z-index: 0;
-          border-radius: 1vw;
-          background: var(--color-red);
+        .healNumber {
+          width: 2.1vw;
+
+          font-size: 1.2vw;
+          margin: 0 0.2vw;
+        }
+
+        .armorImage {
+          width: 0.9vw;
+          height: 0.9vw;
+
+          background-size: cover;
+
+          &.armor {
+            background-image: url('../../../../assets/icons/elements/armor-CT.svg');
+          }
+
+          &.helmet {
+            background-image: url('../../../../assets/icons/elements/helmet-CT.svg');
+          }
         }
       }
-    }
 
-    .third-line-wrapper {
-      height: 1.2vw;
-      margin-top: 0.6vw;
+      .weapon-wrapper {
+        position: absolute;
+        right: 2%;
 
-      color: var(--color-grey);
+        z-index: 2;
 
-      .utils-wrapper {
-        height: 1.2vw;
-        margin-left: 0.3vw;
-
-        .grenade,
-        .defuse {
-          height: 0.9vw;
+        .primary {
+          height: 1.294vw;
+          margin-left: 0.5vw;
 
           svg {
             height: 100%;
           }
         }
 
-        .smokegrenade,
-        .incgrenade {
-          margin: 0 0.1vw;
-        }
-
-        .molotov {
-          margin: 0 0.2vw;
-        }
-      }
-
-      .weapons-wrapper {
-        position: absolute;
-        right: 0.5vw;
-        height: 1.2vw;
-
-        margin-left: 1vw;
-
-        .primary {
-          width: 2.5vw;
-
-          svg {
-            height: 1.2vw;
-            width: 100%;
-          }
-        }
-
         .secondary {
-          margin-right: 0.4vw;
-          width: 1.2vw;
+          height: 1.294vw;
 
           svg {
-            height: 1.2vw;
-            width: 100%;
-          }
-        }
-
-        .bomb {
-          width: 1.3vw;
-
-          svg {
-            height: 1.2vw;
-            width: 100%;
+            height: 100%;
           }
         }
       }
 
-      .money-wrapper {
-        font-size: 0.7vw;
+      .healBar {
+        position: absolute;
+        left: 0;
+        right: 0;
+
+        height: 100%;
+        border-radius: 0 0 0 0.4vw;
+        z-index: 1;
+
+        &.fullHeal {
+          border-radius: 0 0 0.4vw 0.4vw;
+        }
+      }
+
+      .dmg {
+        position: absolute;
+        left: 0;
+        height: 100%;
+
+        z-index: 0;
+        border-radius: 0 0 0 0.4vw;
+
+        &.fullHeal {
+          border-radius: 0 0 0.4vw 0.4vw;
+        }
       }
     }
-
-    .death-info {
-      display: none;
-    }
   }
 
-  + .left-player-wrapper {
-    margin-top: 0.3vw;
-  }
-
-  &:first-child {
-    .main-info-wrapper {
-      .heal-wrapper {
-        left: 67.1%;
-      }
-    }
-
-    &:after {
-      left: 4.9vw;
-    }
-  }
-
-  &:last-child {
-    &:before {
-      top: 0.03vw;
-    }
-  }
-
-  &.pov:before {
+  .bk-player {
     position: absolute;
     top: 0vw;
-    left: 3.1vw;
+    left: 0vw;
+    bottom: 0vw;
+    right: 0vw;
+    border-radius: 0.4vw;
 
-    content: "";
-    width: 70%;
-    height: 0.15vw;
-
-    background: var(--color-selected);
+    z-index: 0;
   }
-  &.pov:after {
+
+  .border-player {
     position: absolute;
-    left: 4.8vw;
-    bottom: 0px;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
 
-    content: "";
-    width: 35%;
-    height: 0.15vw;
+  &.pov {
+    &.CT {
+      .contentPlayer-wrapper {
+        .secondContentPlayer-wrapper {
+          .healInfo-wrapper {
+            .healImage {
+              background-image: url('../../../../assets/icons/elements/health-CT-selected.svg');
 
-    background: var(--color-selected);
+              &.lowHealth {
+                background-image: url('../../../../assets/icons/elements/health-CT.svg');
+              }
+            }
+
+            .armorImage {
+              &.helmet {
+                background-image: url('../../../../assets/icons/elements/helmet-CT-selected.svg');
+
+                &.lowHealth {
+                  background-image: url('../../../../assets/icons/elements/helmet-CT.svg');
+                }
+              }
+
+              &.armor {
+                background-image: url('../../../../assets/icons/elements/armor-CT-selected.svg');
+
+                &.lowHealth {
+                  background-image: url('../../../../assets/icons/elements/armor-CT.svg');
+                }
+              }
+            }
+          }
+
+          .healBar {
+            background: var(--color-CT-icons);
+          }
+        }
+      }
+
+      .bk-player {
+        background: var(--color-CT-selected-left);
+      }
+
+      .border-player {
+        background-image: url('../../../../assets/icons/hudElements/ct_border.webp');
+      }
+    }
+
+    &.T {
+      .contentPlayer-wrapper {
+        .secondContentPlayer-wrapper {
+          .healInfo-wrapper {
+            .healImage {
+              background-image: url('../../../../assets/icons/elements/health-T-selected.svg');
+
+              &.lowHealth {
+                background-image: url('../../../../assets/icons/elements/health-T.svg');
+              }
+            }
+
+            .armorImage {
+              &.helmet {
+                background-image: url('../../../../assets/icons/elements/helmet-T-selected.svg');
+
+                &.lowHealth {
+                  background-image: url('../../../../assets/icons/elements/helmet-T.svg');
+                }
+              }
+
+              &.armor {
+                background-image: url('../../../../assets/icons/elements/armor-T-selected.svg');
+
+                &.lowHealth {
+                  background-image: url('../../../../assets/icons/elements/armor-T.svg');
+                }
+              }
+            }
+          }
+
+          .healBar {
+            background: var(--color-T-icons);
+          }
+        }
+      }
+
+      .bk-player {
+        background: var(--color-T-selected-left);
+      }
+
+      .border-player {
+        background-image: url('../../../../assets/icons/hudElements/t_border.webp');
+      }
+    }
   }
 
   &.CT {
-    .main-info-wrapper {
-      background-image: url("../../../../assets/CT-player-box-left.webp");
-
-      .heal-wrapper {
-        color: var(--color-CT);
-
-        .armor-image {
-          &.armor {
-            background-image: url("../../../../assets/icons/elements/armor-CT.svg");
-          }
-
-          &.helmet {
-            background-image: url("../../../../assets/icons/elements/helmet-CT.svg");
-          }
-        }
-      }
+    .numberSlot-wrapper {
+      background-image: url('../../../../assets/icons/hudElements/dot_ct.webp');
     }
 
-    .secondary-info-wrapper {
-      .first-line-wrapper {
-        .second-box {
-          .kills-wrapper .kills-number,
-          .assists-wrapper .assists-number,
-          .death-wrapper .death-number,
-          .round-kills .kills-round-number {
-            color: var(--color-CT);
+    .bk-player {
+      background: var(--color-CT-bk-opacity-left);
+    }
+
+    .contentPlayer-wrapper {
+      .firstContentPlayer-wrapper {
+        .infoPlayer-wrapper {
+          .secondRow-wrapper {
+            .currentKills-wrapper {
+              .killsImage {
+                background-image: url('../../../../assets/icons/elements/killCurrent-CT.svg');
+              }
+            }
+          }
+
+          .thirdRow-wrapper {
+            background-color: var(--color-CT);
+
+            .currentKills-wrapper {
+              .killsImage {
+                background-image: url('../../../../assets/icons/elements/killCurrent-CT.svg');
+              }
+            }
           }
         }
       }
 
-      .second-line-wrapper {
-        background-image: url("../../../../assets/CT-life-bar-right.webp");
+      .secondContentPlayer-wrapper {
+        background-color: var(--color-CT-life-bar);
 
-        .heal-life-wrapper {
-          .heal-bar {
-            background-color: var(--color-CT);
+        .healInfo-wrapper {
+          .healImage {
+            background-image: url('../../../../assets/icons/elements/health-CT.svg');
           }
+
+          .armorImage {
+            &.armor {
+              background-image: url('../../../../assets/icons/elements/armor-CT.svg');
+            }
+
+            &.helmet {
+              background-image: url('../../../../assets/icons/elements/helmet-CT.svg');
+            }
+          }
+        }
+
+        .healBar {
+          background-color: var(--color-CT);
+        }
+
+        .dmg {
+          background-color: var(--color-T);
         }
       }
     }
   }
 
   &.T {
-    .main-info-wrapper {
-      background-image: url("../../../../assets/T-player-box-left.webp");
-
-      .heal-wrapper {
-        color: var(--color-T);
-
-        .armor-image {
-          &.armor {
-            background-image: url("../../../../assets/icons/elements/armor-T.svg");
-          }
-
-          &.helmet {
-            background-image: url("../../../../assets/icons/elements/helmet-T.svg");
-          }
-        }
-      }
+    .numberSlot-wrapper {
+      background-image: url('../../../../assets/icons/hudElements/dot_t.webp');
     }
 
-    .secondary-info-wrapper {
-      .first-line-wrapper {
-        .second-box {
-          .kills-wrapper .kills-number,
-          .assists-wrapper .assists-number,
-          .death-wrapper .death-number,
-          .round-kills .kills-round-number {
-            color: var(--color-T);
+    .bk-player {
+      background: var(--color-T-bk-opacity-left);
+    }
+
+    .contentPlayer-wrapper {
+      .firstContentPlayer-wrapper {
+        .infoPlayer-wrapper {
+          .secondRow-wrapper {
+            .currentKills-wrapper {
+              .killsImage {
+                background-image: url('../../../../assets/icons/elements/killCurrent-T.svg');
+              }
+            }
+          }
+
+          .thirdRow-wrapper {
+            background-color: var(--color-T);
+
+            .currentKills-wrapper {
+              .killsImage {
+                background-image: url('../../../../assets/icons/elements/killCurrent-T.svg');
+              }
+            }
           }
         }
       }
 
-      .second-line-wrapper {
-        background-image: url("../../../../assets/T-life-bar-right.webp");
+      .secondContentPlayer-wrapper {
+        background-color: var(--color-T-life-bar);
 
-        .heal-life-wrapper {
-          .heal-bar {
-            background-color: var(--color-T);
+        .healInfo-wrapper {
+          .healImage {
+            background-image: url('../../../../assets/icons/elements/health-T.svg');
           }
+
+          .armorImage {
+            &.armor {
+              background-image: url('../../../../assets/icons/elements/armor-T.svg');
+            }
+
+            &.helmet {
+              background-image: url('../../../../assets/icons/elements/helmet-T.svg');
+            }
+          }
+        }
+
+        .healBar {
+          background-color: var(--color-T);
+        }
+
+        .dmg {
+          background-color: var(--color-CT);
         }
       }
     }
   }
 
   &.death {
-    .main-info-wrapper {
-      background-image: url("../../../../assets/Death-left.webp");
+    width: 13.5vw;
+    transition-delay: 0s;
+    transition: width 800ms ease-out;
 
-      .heal-wrapper {
-        top: 1.1vw;
-        left: 4.7vw;
-
-        width: 1.5vw;
-        height: 1.5vw;
-
-        background-image: url("../../../../assets/icons/elements/skull.svg");
-        background-size: contain;
-
-        .heal-number {
-          display: none;
-        }
-      }
-    }
-
-    .secondary-info-wrapper {
-      justify-content: center;
-
-      .second-line-wrapper,
-      .third-line-wrapper,
-      .first-line-wrapper {
-        display: none;
-      }
-
-      .death-info {
-        display: flex;
-        color: var(--color-grey);
-
-        .first-box {
-          display: flex;
-          flex-flow: row nowrap;
-          align-items: center;
-          justify-content: space-between;
-
-          margin-bottom: 0.2vw;
-          font-size: 0.8vw;
-
-          .player-name {
-            text-transform: uppercase;
-            font-size: 0.7vw;
+    .contentPlayer-wrapper {
+      .firstContentPlayer-wrapper {
+        .infoPlayer-wrapper {
+          .firstRow-wrapper {
+            .aliveInfo-wrapper {
+              display: none;
+            }
           }
 
-          .stats-player {
-            color: var(--color-grey);
-            font-size: 0.7vw;
+          .secondRow-wrapper {
+            .deathInfo-wrapper {
+              display: flex;
+              width: 4.6vw;
 
-            .assists-wrapper {
-              margin: 0 0.2vw;
-            }
+              justify-content: space-between;
 
-            .round-kills {
-              width: 1.7vw;
-              margin-left: 0.6vw;
-              margin-right: 0.5vw;
+              .kills-wrapper {
+                align-items: center;
+                width: 2.2vw;
 
-              visibility: hidden;
-              align-items: center;
+                .killsImage {
+                  width: 0.9vw;
+                  height: 0.9vw;
 
-              .death-image {
-                width: 0.6vw;
-                height: 0.6vw;
+                  background-image: url('../../../../assets/icons/elements/kill.svg');
+                  background-size: cover;
+                }
 
-                background-image: url("../../../../assets/icons/elements/skull.svg");
-                background-size: cover;
-              }
-
-              .kills-round-number {
-                .kills-notice {
-                  color: var(--color-grey);
+                .kills {
+                  margin-left: 0.1vw;
                 }
               }
 
+              .death-wrapper {
+                align-items: center;
+                width: 2.2vw;
+                margin-left: 0.2vw;
+
+                .deathImage {
+                  width: 0.9vw;
+                  height: 0.9vw;
+
+                  background-image: url('../../../../assets/icons/elements/death.svg');
+                  background-size: cover;
+                }
+                .death {
+                  margin-left: 0.1vw;
+                }
+              }
+            }
+
+            .utils-wrapper {
+              display: none;
+            }
+
+            .currentKills-wrapper {
+              display: none;
+            }
+          }
+
+          .thirdRow-wrapper {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: space-between;
+            z-index: -1;
+
+            .currentKills-wrapper {
+              margin-left: 4vw;
+
               &.live {
-                visibility: visible;
+                display: flex;
               }
             }
 
             .adr-wrapper {
-              // visibility: hidden;
-              margin-left: 0.6vw;
-              align-items: center;
+              position: absolute;
+              right: 0.2%;
 
               .adr-notice {
-                margin: 0.05vw 0.1vw 0 0;
-                font-size: 0.5vw;
+                width: 2.4vw;
+              }
+              .adr-number {
+                text-align: end;
+                width: 1.6vw;
               }
             }
           }
         }
+      }
 
-        .second-box {
-          display: flex;
-          flex-flow: row nowrap;
-          align-items: center;
-          justify-content: space-between;
-          font-size: 1vw;
+      .secondContentPlayer-wrapper {
+        display: none;
+      }
+    }
 
-          .adr-wrapper {
-            // visibility: hidden;
-            margin-right: 0.6vw;
-            align-items: center;
+    .border-player {
+      border-radius: 0.4vw;
+    }
 
-            .adr-notice {
-              margin: 0.05vw 0.1vw 0 0;
-              font-size: 0.5vw;
+    &.CT {
+      .contentPlayer-wrapper {
+        .firstContentPlayer-wrapper {
+          .infoPlayer-wrapper {
+            .thirdRow-wrapper {
+              background-color: var(--color-CT-life-bar);
             }
           }
         }
       }
     }
+
+    &.T {
+      .contentPlayer-wrapper {
+        .firstContentPlayer-wrapper {
+          .infoPlayer-wrapper {
+            .thirdRow-wrapper {
+              background-color: var(--color-T-life-bar);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  + .left-player-wrapper {
+    margin-top: 0.4vw;
   }
 }

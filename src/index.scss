@@ -18,9 +18,12 @@ hr {
   margin: 0;
   padding: 0;
 }
+
 #root {
   background-size: contain;
-  // background-image: url('./Components/SmartPovSide/PovSide/icons/Capture.PNG');
+  // background-color: grey;
+  // background-image: url('./assets/ref.png');
+  font-family: 'Montserrat-Bold';
 }
 
 li {
@@ -65,14 +68,6 @@ html,
   display: none !important;
 }
 
-.font-mont {
-  font-family: 'Montserrat-Bold';
-}
-
-.font-tablet {
-  font-family: 'Tablet-Gothic-Bold';
-}
-
 .holstered {
   svg {
     path {
@@ -89,12 +84,25 @@ html,
   }
 }
 
-.defuse {
-  margin: 0 0.2vw;
+.utilities {
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
 
+.defuse {
   svg {
     path {
-      fill: var(--color-CT);
+      fill: var(--color-CT-icons);
+    }
+  }
+}
+
+.bomb {
+  svg {
+    path {
+      fill: var(--color-T-icons);
     }
   }
 }
@@ -160,7 +168,6 @@ html,
 }
 
 /* CIRCLE */
-
 .pulsar {
   position: relative;
 
@@ -171,8 +178,8 @@ html,
     height: 0.1vw;
     border-radius: 50%;
     animation: radial-pulse 4s infinite;
-    top: 0.4vw;
-    left: 0.3vw;
+    top: 0.5vw;
+    left: 0.5vw;
   }
 
   .str-circle2 {
@@ -190,92 +197,4 @@ html,
       box-shadow: 0 0 0 0.5vw rgba(0, 0, 0, 0);
     }
   }
-}
-
-.divWrapper {
-  display: flex;
-  flex-direction: column;
-}
-
-.vertigo {
-  position: relative;
-}
-
-#bulletPointer,
-#myCanvas_0,
-#myCanvas_1,
-#myCanvas_2,
-#myCanvas_3,
-#myCanvas_4,
-#myCanvas_5,
-#myCanvas_6,
-#myCanvas_7,
-#myCanvas_8,
-#myCanvas_9 {
-  position: absolute;
-  top: 0vw;
-  width: 100%;
-  height: 100%;
-}
-
-#myCanvas_0 {
-  z-index: 10;
-}
-
-#myCanvas_1 {
-  z-index: 9;
-}
-
-#myCanvas_2 {
-  z-index: 8;
-}
-
-#myCanvas_3 {
-  z-index: 7;
-}
-
-#myCanvas_4 {
-  z-index: 6;
-}
-
-#myCanvas_5 {
-  z-index: 5;
-}
-
-#myCanvas_6 {
-  z-index: 4;
-}
-
-#myCanvas_7 {
-  z-index: 3;
-}
-
-#myCanvas_8 {
-  z-index: 2;
-}
-
-#myCanvas_9 {
-  z-index: 1;
-}
-
-.deadSkullPlayer {
-  top: 0;
-  left: 0;
-  z-index: 100;
-  position: absolute;
-}
-
-.fragBombs,
-.flashBomb,
-.canvasSmoke,
-#incendiaryBomb,
-.incendiaryBmb,
-.canvasPositioning {
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-
-.canvasSmoke {
-  z-index: 1;
 }

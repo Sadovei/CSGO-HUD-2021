@@ -1,111 +1,171 @@
 .right-wrapper {
   .utility-wrapper {
     position: absolute;
-    bottom: -2.5vw;
-    height: 2.5vw;
-    width: 12.5vw;
+    bottom: -5vw;
 
-    clip-path: polygon(14% 1%, 100% 0, 100% 100%, 0 100%, 0 45%);
+    width: 13.5vw;
+    height: 3.6vw;
 
-    .bk-color {
-      width: 100%;
-      height: 100%;
+    border-radius: 0.4vw;
+    overflow: hidden;
 
-      display: flex;
-      flex-flow: row-reverse nowrap;
+    background: var(--color-bk-opacity);
 
-      background-color: var(--color-background);
+    .bar {
+      height: 0.9vw;
+    }
+
+    .content-wrapper {
+      height: calc(100% - 0.9vw);
+      z-index: 1;
 
       .text-wrapper {
-        width: 2.9vw;
         margin-right: 0.5vw;
+        width: 3.2vw;
 
-        align-items: center;
-        justify-content: space-evenly;
+        align-items: flex-end;
+        justify-content: center;
 
-        font-size: 0.6vw;
+        font-size: 0.7vw;
+        color: var(--color-white);
       }
 
       .grenade {
-        align-items: center;
         margin-right: 0.3vw;
+        align-items: center;
 
         svg {
           height: 1.3vw;
+
         }
+
         p {
-          margin: 0.5vw 0 0 0.2vw;
-          font-size: 0.6vw;
+          width: 1.3vw;
+          margin-top: 0.5vw;
+          font-size: 0.8vw;
+          text-align: center;
         }
 
         &.flash-wrapper {
-          p {
-            margin: 0.5vw 0 0;
+          svg {
+            height: 1.4vw;
+            margin: 0 -0.1vw;
+          }
+        }
+
+        &.incendiary-wrapper {
+          margin-left: 0.3vw;
+
+          svg {
+            height: 1.5vw;
+          }
+        }
+
+        &.smoke-wrapper {
+          svg {
+            height: 1.4vw;
           }
         }
       }
     }
 
+    .bk-gradient {
+      position: absolute;
+      top: 0vw;
+      left: 0vw;
+      bottom: 0vw;
+      right: 0vw;
+      border-radius: 0.4vw;
+    }
+
     &.CT {
-      color: var(--color-CT);
+      .bar {
+        background-color: var(--color-CT);
+      }
+
+      .content-wrapper {
+        .grenade {
+          p {
+            color: var(--color-CT-icons);
+          }
+        }
+      }
+
+      .bk-gradient {
+        background: var(--color-CT-bk-opacity-right);
+      }
     }
 
     &.T {
-      color: var(--color-T);
+      .bar {
+        background-color: var(--color-T);
+      }
+
+      .content-wrapper {
+        .grenade {
+          p {
+            color: var(--color-T-icons);
+          }
+        }
+      }
+
+      .bk-gradient {
+        background: var(--color-T-bk-opacity-right);
+      }
     }
 
     &.showStart {
-      animation: showRightUtility 1s forwards;
+      animation: showLeftUtility 1s forwards;
     }
 
     &.hideStart {
-      animation: hideRightUtility 1s forwards;
+      animation: hideLeftUtility 1s forwards;
     }
 
     &.showBomb {
-      animation: showRightBomb 1s forwards;
+      animation: showBombUtility 1s forwards;
     }
 
     &.hideBomb {
-      animation: hideRightBomb 1s forwards;
+      animation: hideBombUtility 1s forwards;
     }
   }
 }
 
-@keyframes showRightUtility {
+@keyframes showLeftUtility {
   from {
-    bottom: -2.5vw;
+    bottom: -5vw;
   }
 
   to {
-    bottom: 4.3vw;
+    bottom: 4.4vw;
   }
 }
 
-@keyframes hideRightUtility {
+@keyframes hideLeftUtility {
   from {
-    bottom: 4.3vw;
+    bottom: 4.4vw;
   }
   to {
-    bottom: -2.5vw;
+    bottom: -5vw;
   }
 }
 
-@keyframes showRightBomb {
+@keyframes showBombUtility {
   from {
-    bottom: -2.5vw;
+    bottom: -5vw;
   }
 
   to {
-    bottom: 0.5vw;
+    bottom: 0.4vw;
   }
 }
 
-@keyframes hideRightBomb {
+@keyframes hideBombUtility {
   from {
-    bottom: 0.5vw;
+    bottom: 0.4vw;
   }
   to {
-    bottom: -2.5vw;
+    bottom: -5vw;
   }
 }

@@ -1,11 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { CostGrenades, SVGMap } from '../../../utils/tools'
 import './UtilitiesRight.scss'
+
+import { CostGrenades, SVGMap } from '../../../utils/tools'
+import React, { useEffect, useRef, useState } from 'react'
 
 export default function UtilitiesRight({ utilities, team, phase }) {
   const [animClass, setAnimClass] = useState('')
   const [flag, setFlag] = useState(false)
-
   const updateStart = useRef(null)
 
   let HeIMG = SVGMap.hegrenade
@@ -55,18 +55,15 @@ export default function UtilitiesRight({ utilities, team, phase }) {
   }
 
   return (
-    <div className={`utility-wrapper ${team} font-tablet ${animClass}`}>
-      <div className='bk-color'>
-        <div className='text-wrapper col'>
-          <p className='dynamic'>{constUtilities}</p>
-          <p className='text-notice'>UTILITY</p>
-        </div>
+    <div className={`utility-wrapper col ${team}  ${animClass}`}>
+      <div className='bar'></div>
 
+      <div className='content-wrapper row'>
         <div className='grenade incendiary-wrapper row'>
           <IncendiaryIMG />
           <p className='numberOf'>X{noIncendiary}</p>
         </div>
-
+        
         <div className='grenade smoke-wrapper row'>
           <SmokeIMG />
           <p className='numberOf'>X{utilities.weapon_smokegrenade}</p>
@@ -81,7 +78,14 @@ export default function UtilitiesRight({ utilities, team, phase }) {
           <HeIMG />
           <p className='numberOf'>X{utilities.weapon_hegrenade}</p>
         </div>
+
+        <div className='text-wrapper col'>
+          <p className='dynamic'>{constUtilities}</p>
+          <p className='text-notice'>UTILITY</p>
+        </div>
       </div>
+
+      <div className='bk-gradient'></div>
     </div>
   )
 }

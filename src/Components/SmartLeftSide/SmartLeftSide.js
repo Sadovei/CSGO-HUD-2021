@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react'
+import { subscribeToLeftSide, unsubscribeToLeftSide } from '../../utils/socketIO'
 
-import {
-  subscribeToLeftSide,
-  unsubscribeToLeftSide
-} from '../../utils/socketIO'
 import EconomyLeft from './EconomyLeft/EconomyLeft'
-import UtilitiesLeft from './UtilitiesLeft/UtilitiesLeft'
 import LeftSide from './LeftSide/LeftSide'
+import OwnBrand from './OwnBrand/OwnBrand'
+import UtilitiesLeft from './UtilitiesLeft/UtilitiesLeft'
 
 export default function SmartLeftSide() {
-  const [leftSide, setLeftSide] = useState()
+  const [leftSide, setLeftSide] = useState(undefined)
 
   useEffect(() => {
     subscribeToLeftSide((data) => {
@@ -18,29 +16,31 @@ export default function SmartLeftSide() {
     return unsubscribeToLeftSide
   }, [])
 
-  if (leftSide === undefined) {
-    return null
-  }
+  if (leftSide)
+    return (
+      <div className='left-wrapper'>
+        <div className='dynamic-wrapper col'>
+          <UtilitiesLeft
+            utilities={leftSide.utility}
+            team={leftSide.side}
+            phase={leftSide.roundPhase}
+          />
 
-  return (
-    <div className='left-wrapper'>
-      <div className='dynamic-wrapper col'>
-        <UtilitiesLeft
-          utilities={leftSide.utility}
+          <EconomyLeft
+            economy={leftSide.economy}
+            team={leftSide.side}
+            phase={leftSide.roundPhase}
+          />
+
+          <OwnBrand phase={leftSide.roundPhase} />
+        </div>
+
+        <LeftSide
           team={leftSide.side}
-          phase={leftSide.roundPhase}
-        />
-        <EconomyLeft
-          economy={leftSide.economy}
-          team={leftSide.side}
-          phase={leftSide.roundPhase}
+          players={leftSide.players}
+          phase={leftSide.roundPhase.phase}
         />
       </div>
-      <LeftSide
-        team={leftSide.side}
-        players={leftSide.players}
-        phase={leftSide.roundPhase.phase}
-      />
-    </div>
-  )
+    )
+  return null
 }

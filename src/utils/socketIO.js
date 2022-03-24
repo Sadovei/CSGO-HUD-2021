@@ -1,4 +1,4 @@
-import { findGetParameter } from './URLParameters'
+import { findGetParameter } from './tools'
 import socketClient from 'socket.io-client'
 
 export const token = findGetParameter('token') || 'main'
@@ -8,7 +8,14 @@ const ENDPOINT = `http://${backEND}:${port}/?client=${token}`
 const socket = socketClient(ENDPOINT)
 
 export const subscribeToTopBar = (cb) => {
-  socket.on(`${token}_OverlayTopBar`, (data) => cb(data))
+  let prevTopBarData = ''
+
+  socket.on(`${token}_OverlayTopBar`, (data) => {
+    if (prevTopBarData !== JSON.stringify(data)) {
+      prevTopBarData = JSON.stringify(data)
+      cb(data)
+    }
+  })
   socket.emit(`subscribe`, `${token}_OverlayTopBar`)
 }
 export const unsubscribeToTopBar = () => {
@@ -17,7 +24,13 @@ export const unsubscribeToTopBar = () => {
 }
 
 export const subscribeToPov = (cb) => {
-  socket.on(`${token}_OverlayPovSide`, (data) => cb(data))
+  let prevPovData = ''
+  socket.on(`${token}_OverlayPovSide`, (data) => {
+    if (prevPovData !== JSON.stringify(data)) {
+      prevPovData = JSON.stringify(data)
+      cb(data)
+    }
+  })
   socket.emit(`subscribe`, `${token}_OverlayPovSide`)
 }
 export const unsubscribeToPov = () => {
@@ -26,7 +39,13 @@ export const unsubscribeToPov = () => {
 }
 
 export const subscribeToLeftSide = (cb) => {
-  socket.on(`${token}_OverlayLeftSide`, (data) => cb(data))
+  let prevLeftSide = ''
+  socket.on(`${token}_OverlayLeftSide`, (data) => {
+    if (prevLeftSide !== JSON.stringify(data)) {
+      prevLeftSide = JSON.stringify(data)
+      cb(data)
+    }
+  })
   socket.emit(`subscribe`, `${token}_OverlayLeftSide`)
 }
 export const unsubscribeToLeftSide = () => {

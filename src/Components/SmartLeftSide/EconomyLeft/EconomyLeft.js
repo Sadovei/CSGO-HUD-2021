@@ -1,5 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react'
 import './EconomyLeft.scss'
+
+import React, { useEffect, useRef, useState } from 'react'
 
 export default function EconomyLeft({ economy, team, phase }) {
   const [animClass, setAnimClass] = useState('')
@@ -12,14 +13,10 @@ export default function EconomyLeft({ economy, team, phase }) {
     }
     return null
   }, [phase.phase, setUpdate])
-
   // eslint-disable-next-line react-hooks/exhaustive-deps
+
   function setUpdate(phase) {
-    if (
-      phase === 'freezetime' ||
-      phase === 'timeout_t' ||
-      phase === 'timeout_ct'
-    ) {
+    if (phase === 'freezetime' || phase === 'timeout_t' || phase === 'timeout_ct') {
       setAnimClass('showStart')
       setFlag(true)
     }
@@ -34,37 +31,36 @@ export default function EconomyLeft({ economy, team, phase }) {
   }
 
   return (
-    <div className={`economy-wrapper row ${team} font-tablet ${animClass}`}>
-      <div className='image'></div>
-      <div className='info-wrapper row'>
-        <div className='rounds-wrapper col'>
-          <div
-            className={`round rounds-1 ${economy.roundLose > 0 ? 'lose' : ''}`}
-          ></div>
-          <div
-            className={`round rounds-2 ${economy.roundLose > 1 ? 'lose' : ''}`}
-          ></div>
-          <div
-            className={`round rounds-3 ${economy.roundLose > 2 ? 'lose' : ''}`}
-          ></div>
-          <div
-            className={`round rounds-4 ${economy.roundLose > 3 ? 'lose' : ''}`}
-          ></div>
-          <div
-            className={`round rounds-5 ${economy.roundLose > 4 ? 'lose' : ''}`}
-          ></div>
-        </div>
+    <div className={`economy-wrapper col ${team} ${animClass}`}>
+      <div className='bar'></div>
+
+      <div className='content-wrapper row'>
+        <div className='image'></div>
 
         <div className='loss-bonus-wrapper col'>
-          <p className='money'>{economy.bonus}</p>
+          <div className='money-wrapper row'>
+            <p className='moneyFirst'>${Math.floor(economy.bonus / 1000) !== 0 && Math.floor(economy.bonus / 1000)}</p>
+            <p className='moneySecond'>{economy.bonus > 0 ?
+              (Math.floor(economy.bonus / 1000) > 0 ?
+                (String(economy.bonus % 1000).padStart(3, '0')) : economy.bonus % 1000) : '0'}</p>
+          </div>
+
           <p className='loss-notice'>Loss bonus</p>
         </div>
 
         <div className='equipment-wrapper col'>
-          <p className='equipment-value'>${economy.eq_value}</p>
+          <div className='equipmentValue-wrapper row'>
+            <p className='moneyFirst'>${Math.floor(economy.eq_value / 1000) !== 0 && Math.floor(economy.eq_value / 1000)}</p>
+            <p className='moneySecond'>{economy.eq_value > 0 ?
+              (Math.floor(economy.eq_value / 1000) > 0 ?
+                (String(economy.eq_value % 1000).padStart(3, '0')) : economy.eq_value % 1000) : '0'}</p>
+          </div>
+
           <p className='equipment-notice'>Equipment value</p>
         </div>
       </div>
+
+      <div className='bk-gradient'></div>
     </div>
   )
 }
