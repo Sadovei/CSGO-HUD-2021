@@ -1,571 +1,220 @@
-.top-bar-wrapper {
-  display: flex;
-  flex-flow: column nowrap;
+.topBar {
+  height: 3.5vw;
+
   align-items: center;
 
-  margin: 0 auto;
+  border-radius: 0.4vw;
+  background: var(--color-bk-opacity);
+  color: var(--color-white);
 
-  .first-wrapper {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    position: relative;
-    height: 3.14vw;
-    margin-top: 1.23vw;
+  .leftSide-wrapper,
+  .rightSide-wrapper {
+    height: 100%;
+    align-items: center;
 
-    .leftSide-wrapper,
-    .rightSide-wrapper {
-      justify-content: center;
+    .teamLogo {
+      width: 2.7vw;
+      height: 2.7vw;
+      background-size: cover;
+    }
+
+    .teamName {
+      font-size: 1.5vw;
+      margin: 0 2vw;
+      text-align: center;
+    }
+  }
+
+  .leftSide-wrapper {
+    margin-left: 0.5vw;
+  }
+
+  .rightSide-wrapper {
+    margin-right: 0.5vw;
+  }
+
+  .centerSide-wrapper {
+    width: 9vw;
+    height: 100%;
+
+    align-items: center;
+
+    .leftScore-wrapper,
+    .rightScore-wrapper {
+      width: 3vw;
+      height: 100%;
+
       display: flex;
       align-items: center;
-      overflow: hidden;
-      position: relative;
-      box-sizing: border-box;
-      background-color: rgba(0, 0, 0, 0.5);
-      box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      background-color: var(--color-black);
+      font-size: 1.5vw;
 
-      position: absolute;
-      height: 3.14vw;
-
-      .primary-logo {
-        background-size: 100%;
-        width: 2.8vw;
-        height: 2.8vw;
-        position: absolute;
+      &.CT {
+        color: var(--color-CT-icons);
       }
 
-      .secondary-logo {
-        background-size: 100%;
-        width: 5vw;
-        height: 5vw;
-        position: absolute;
-        opacity: 0.2;
-        z-index: 0;
-      }
-
-      .teamName {
-        color: var(--color-white);
-        font-size: 1.4vw;
-        text-transform: uppercase;
-
-        letter-spacing: -0.04vw;
+      &.T {
+        color: var(--color-T-icons);
       }
     }
 
-    .leftSide-wrapper {
-      border-radius: 0.562vw 0 0 0.562vw;
-      right: 0;
+    .time-wrapper {
+      width: 4vw;
+      height: 100%;
 
-      .primary-logo {
-        left: 0vw;
-      }
+      font-size: 1.1vw;
 
-      .secondary-logo {
-        left: 0vw;
-      }
+      .time {
+        width: 100%;
+        height: 100%;
 
-      .teamName {
-        margin-left: -2.36vw;
-      }
-    }
-
-    .center-wrapper {
-      position: absolute;
-      top: -0.95vw;
-      bottom: 0;
-      left: 50%;
-      transform: translate(-50%, 0);
-      background-repeat: no-repeat;
-      width: 25.06vw;
-      height: 5.11vw;
-      background-size: contain;
-      z-index: 2;
-
-      .center {
-        position: absolute;
-        left: 5.84vw;
-        width: 13.54vw;
-        height: 3.09vw;
-        top: 0.95vw;
-        display: flex;
         align-items: center;
         justify-content: center;
 
-        .timer-wrapper {
-          width: 4.49vw;
-          height: 4.77vw;
-          position: relative;
-
-          .clock {
-            position: absolute;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            left: 50%;
-            color: var(--color-white);
-            font-size: 1.15vw;
-            display: flex;
-            flex-flow: row nowrap;
-
-            .minutes,
-            .first-Timesecond,
-            .second-Timesecond {
-              width: 0.7vw;
-              text-align: center;
-            }
-
-            .points {
-              // margin-left: 0.01vw;
-            }
-
-            .seconds {
-              display: flex;
-              flex-flow: row nowrap;
-            }
-
-            &.T {
-              color: var(--color-T);
-            }
-
-            &.CT {
-              color: var(--color-CT);
-            }
-
-            &.red {
-              color: var(--color-red);
-            }
-
-            &.planted,
-            &.defused {
-              visibility: hidden;
-            }
-          }
-
-          .image-bomb-planted {
-            width: 2.5vw;
-            height: 2.5vw;
-            margin-top: 1vw;
-            margin-left: 0.9vw;
-            animation: beep 1s infinite;
-            background-size: cover;
-            background-image: url("./icons/adv-dropped.webp");
-            visibility: hidden;
-
-            &.show{
-              visibility: visible;
-            }
-          }
-        }
-
-        .leftScore-wrapper,
-        .rightScore-wrapper {
-          color: var(--color-white);
-          font-size: 1.68vw;
-          position: absolute;
-          top: 0.562vw;
-          width: 2.19vw;
+        .minutes {
+          width: 0.75vw;
           text-align: center;
         }
 
-        .leftScore-wrapper {
-          left: 1.62vw;
-
-          p {
-            &.CT {
-              color: var(--color-CT);
-            }
-
-            &.T {
-              color: var(--color-T);
-            }
+        .seconds {
+          .firstTimeSecond {
+            width: 0.75vw;
+            text-align: center;
           }
-        }
-
-        .rightScore-wrapper {
-          right: 1.62vw;
-
-          p {
-            &.CT {
-              color: var(--color-CT);
-            }
-
-            &.T {
-              color: var(--color-T);
-            }
+          .secondTimeSecond {
+            width: 0.75vw;
+            text-align: center;
           }
         }
       }
-    }
 
-    .center-background {
-      z-index: 1;
-      background-color: rgba(#000, 0.7);
-
-      width: 11.91vw;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      transform: translate(-50%, 0) skewX(-30.8deg);
-    }
-
-    .rightSide-wrapper {
-      left: 0;
-      flex-flow: row-reverse;
-      border-radius: 0 0.562vw 0.562vw 0;
-
-      .primary-logo {
-        right: 0vw;
+      &.red {
+        color: var(--color-red);
       }
-
-      .secondary-logo {
-        right: -0.5vw;
-      }
-
-      .teamName {
-        margin-right: -2.36vw;
-      }
-    }
-  }
-
-  .second-wrapper {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    font-size: 0.78vw;
-    height: 1.12vw;
-    align-items: center;
-    position: relative;
-    width: 14.05vw;
-
-    z-index: 1;
-    background-color: #171717;
-    border-radius: 2.81vw;
-    color: var(--color-grey);
-
-    .leftInfo-wrapper,
-    .rightInfo-wrapper {
-      position: absolute;
-      height: 1.11vw;
-      background-color: #171717;
-      border-radius: 0.33vw;
-    }
-
-    .leftInfo-wrapper {
-      display: flex;
-      flex-flow: row nowrap;
-      right: 50%;
-
-      .mapWins-wrapper {
-        display: flex;
-        flex-flow: row nowrap;
-        padding: 0 1.12vw;
-        align-items: center;
-
-        .map {
-          width: 1.4vw;
-          height: 0.5vw;
-          background-color: var(--color-mapLose);
-          border-radius: 0.562vw;
-
-          + .map {
-            margin-left: 0.562vw;
-          }
-
-          &.T.win {
-            background-color: var(--color-T);
-          }
-
-          &.CT.win {
-            background-color: var(--color-CT);
-          }
-        }
-      }
-      .status-match-wrapper {
-        width: 7.3vw;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-    }
-
-    .rightInfo-wrapper {
-      display: flex;
-      flex-flow: row nowrap;
-      left: 50%;
-
-      .mapWins-wrapper {
-        display: flex;
-        flex-flow: row-reverse nowrap;
-        padding: 0 1.12vw;
-        align-items: center;
-
-        .map {
-          width: 1.4vw;
-          height: 0.5vw;
-          background: var(--color-mapLose);
-          border-radius: 0.562vw;
-
-          + .map {
-            margin-right: 0.562vw;
-          }
-
-          &.T.win {
-            background-color: var(--color-T);
-          }
-
-          &.CT.win {
-            background-color: var(--color-CT);
-          }
-        }
-      }
-      .series-status-wrapper {
-        width: 7.3vw;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-    }
-  }
-
-  .defuse-wrapper {
-    position: absolute;
-    bottom: 23vw;
-    width: 18vw;
-    background-size: contain;
-    height: 4.4vw;
-
-    &.left {
-      background-image: url("../../../assets/CT-bomb-left.webp");
-
-      .info-wrapper {
-        align-items: flex-start;
-        justify-content: center;
-        margin-left: -1vw;
-
-        .defuse-time {
-          margin-left: 0.4vw;
-        }
-
-        .bar-defuse-wrapper {
-          background-image: url("../../../assets/CT-life-bar-right.webp");
-
-          .bar-defuse {
-            left: 0.5vw;
-            top: 0.5vw;
-          }
-        }
-      }
-    }
-
-    &.right {
-      flex-flow: row-reverse nowrap;
-      background-image: url("../../../assets/CT-bomb-right.webp");
-
-      .video-bomb {
-        margin: -1vw -1.6vw 0 0;
-      }
-
-      .info-wrapper {
-        align-items: end;
-        justify-content: center;
-        margin-right: -1vw;
-
-        .defuse-time {
-          margin-right: 0.7vw;
-        }
-
-        .bar-defuse-wrapper {
-          .bar-defuse {
-            right: 0.62vw;
-            top: 0.47vw;
-          }
-        }
-      }
-    }
-
-    .video-bomb {
-      width: 40%;
-      height: 130%;
-      margin: -1vw 0 0 -0.8vw;
-    }
-
-    .info-wrapper {
-      position: relative;
-
-      .defuse-time {
-        font-size: 1vw;
-        color: var(--color-CT);
-      }
-
-      .bar-defuse-wrapper {
-        position: relative;
-        background-image: url("../../../assets/CT-life-bar-right.webp");
-
-        height: 1.2vw;
-        width: 12vw;
-        background-size: contain;
-
-        .bar-defuse {
-          position: absolute;
-          height: 0.21vw;
-          border-radius: 1vw;
-          background-color: var(--color-CT);
-        }
-      }
-    }
-  }
-
-  .mvp-wrapper {
-    width: 21vw;
-    height: 5vw;
-    position: absolute;
-    opacity: 0;
-
-    background-color: var(--color-background-POV);
-    border-radius: 0.562vw;
-    overflow: hidden;
-
-    .side-image {
-      width: 4.5vw;
-      height: 4.5vw;
-      margin: 0.2vw 0 0 0.3vw;
-
-      background-size: cover;
 
       &.T {
-        background-image: url("../../../assets/t-mvp.webp");
+        color: var(--color-T-icons);
       }
 
       &.CT {
-        background-image: url("../../../assets/ct-mvp.webp");
+        color: var(--color-CT-icons);
       }
     }
 
-    .info-wrapper {
-      height: 5vw;
-      justify-content: center;
+    .bombPlanted {
+      width: 4vw;
+      height: 2.8vw;
 
-      .side {
-        font-size: 1vw;
-
-        &.CT {
-          color: var(--color-CT);
-        }
-
-        &.T {
-          color: var(--color-T);
-        }
+      &.show {
+        display: block;
       }
 
-      .win-txt {
-        font-size: 1vw;
-        color: var(--color-white);
+      &.hide {
+        display: none;
       }
+    }
+  }
 
-      .round-txt {
-        font-size: 0.8vw;
-        color: var(--color-grey);
+  .bombTime-wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 3.2vw;
 
-        .player-txt {
-          color: var(--color-white);
+    height: 0.3vw;
+
+    border-radius: 0 0 0.4vw 0.4vw;
+    overflow: hidden;
+    z-index: 1;
+
+    .leftSideTime-wrapper,
+    .rightSideTime-wrapper {
+      position: relative;
+      height: 100%;
+      width: 50%;
+
+      .bomb,
+      .defuse {
+        position: absolute;
+        height: 100%;
+
+        &.defuse {
+          background: var(--color-blue);
+        }
+
+        &.bomb {
+          background: var(--color-red);
         }
       }
     }
 
-    .player-photo {
-      position: absolute;
-      right: 0;
+    .leftSideTime-wrapper {
+      border-radius: 0 0 0 0.4vw;
 
-      width: 11vw;
-      height: 11vw;
+      .bomb,
+      .defuse {
+        right: 0;
+      }
 
-      background-size: 84%;
-      background-position: 3.4vw 26%;
-      background-repeat: no-repeat;
+      .bomb {
+        &.show {
+          animation: showBombLeft 40s linear;
+        }
+      }
+    }
+
+    .rightSideTime-wrapper {
+      border-radius: 0 0 0.4vw 0;
+
+      .bomb,
+      .defuse {
+        left: 0;
+      }
+
+      .bomb {
+        &.show {
+          animation: showBombRight 40s linear;
+        }
+      }
+    }
+  }
+
+  .onFire {
+    display: none;
+    position: absolute;
+    top: -6.5vw;
+    width: 29vw;
+
+    &.right {
+      display: block;
+      right: -8.9vw;
+    }
+
+    &.left {
+      display: block;
+      transform: scaleX(-1);
+      left: -8.9vw;
     }
   }
 }
 
-.video-start {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%) scale(0.4);
-
-  z-index: 10;
-
-  &.pistol {
-    top: -3.5vw;
+@keyframes showBombRight {
+  from {
+    right: 0;
   }
 
-  &.bomb {
-    top: -7vw;
+  to {
+    right: 100%;
   }
 }
 
-.timeOut-wrapper {
-  position: absolute;
-  top: 15%;
-  left: 50%;
-  transform: translateX(-50%);
-
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-
-  background-color: var(--color-background-POV);
-  padding: 0 0.5vw;
-  border-radius: 0.3vw;
-  height: 1.5vw;
-
-  .logo {
-    height: 2vw;
-    background-size: cover;
-    width: 2vw;
-  }
-  .text-side {
-    padding-left: 0.5vw;
-
-    &.CT {
-      color: var(--color-CT);
-    }
-
-    &.T {
-      color: var(--color-T);
-    }
+@keyframes showBombLeft {
+  from {
+    left: 0;
   }
 
-  .text {
-    padding-left: 0.2vw;
-    color: var(--color-white);
-  }
-
-  &.CT {
-    .logo {
-      background-image: url("../../../assets/ct-mvp.webp");
-    }
-  }
-
-  &.T {
-    .logo {
-      background-image: url("../../../assets/t-mvp.webp");
-    }
-  }
-}
-
-@keyframes beep {
-  0% {
-    filter: drop-shadow(0 0 0 rgba(255, 0, 0, 1));
-    background-color: rgba(255, 0, 0, 0);
-    border-radius: 50%;
-  }
-  10% {
-    filter: drop-shadow(0 0 1vmin rgba(255, 0, 0, 1));
-    background-color: rgba(255, 0, 0, 0.2);
-    border-radius: 50%;
-  }
-  20% {
-    border-radius: 50%;
-    filter: drop-shadow(0 0 1.8vmin rgba(255, 0, 0, 0));
-    background-color: rgba(255, 0, 0, 0);
+  to {
+    left: 100%;
   }
 }
