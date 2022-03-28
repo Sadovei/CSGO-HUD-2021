@@ -1,6 +1,17 @@
 .dynamicTop-wrapper {
   padding-top: 0.2vw;
+  opacity: 1;
 
   align-items: center;
   overflow: hidden;
+
+  &.show {
+    opacity: 1;
+    transition: opacity 0.1s 0.4s;
+  }
+
+  &.hide {
+    opacity: 0;
+    transition: opacity 0.1s;
+  }
 }

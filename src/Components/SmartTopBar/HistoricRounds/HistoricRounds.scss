@@ -1,0 +1,128 @@
+.historicRound-wrapper {
+  position: absolute;
+  top: -5vw;
+  z-index: 100;
+
+  width: max-content;
+  height: 5vw;
+  padding-right: 0.5vw;
+
+  background: var(--color-bk-opacity);
+  border-radius: 0.4vw;
+
+  overflow: hidden;
+
+  .teams-wrapper {
+    width: 2.5vw;
+    height: 100%;
+
+    .logo {
+      width: 100%;
+      height: 50%;
+      background-size: cover;
+    }
+  }
+
+  .rounds-wrapper {
+    align-items: center;
+
+    .round-wrapper {
+      position: relative;
+
+      align-items: center;
+      justify-content: center;
+
+      width: 1.5vw;
+      margin-left: 0.2vw;
+      height: 100%;
+
+      .top,
+      .bottom {
+        width: 100%;
+        height: 1.5vw;
+
+        &.t_win_elimination {
+          background-image: url('../../../assets/icons/elements/death-T.svg');
+          background-size: cover;
+        }
+
+        &.ct_win_elimination {
+          background-image: url('../../../assets/icons/elements/death-CT.svg');
+          background-size: cover;
+        }
+
+        &.t_win_bomb {
+          background-image: url('../../../assets/icons/elements/bomb.webp');
+          background-size: cover;
+        }
+
+        &.ct_win_time {
+          background-image: url('../../../assets/icons/elements/timer.webp');
+          background-size: cover;
+        }
+
+        &.ct_win_defuse {
+          background-image: url('../../../assets/icons/elements/defuse.webp');
+          background-size: cover;
+        }
+      }
+
+      .center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 1.2vw;
+        height: 1.2vw;
+        margin: 0.2vw 0;
+
+        border: 0.1vw solid var(--color-white);
+        border-radius: 50%;
+
+        background: var(--color-black);
+        color: white;
+      }
+
+      .bar {
+        position: absolute;
+        left: -0.5vw;
+
+        width: 0.15vw;
+        height: 100%;
+        background: var(--color-white);
+      }
+
+      &.makeSpace {
+        margin-left: 1vw;
+      }
+    }
+  }
+
+  &.show {
+    animation: showContent 0.5s 0.1s linear forwards;
+  }
+
+  &.hide {
+    animation: hideContent 0.5s linear forwards;
+  }
+}
+
+@keyframes showContent {
+  from {
+    top: -5vw;
+  }
+
+  to {
+    top: 0.2vw;
+  }
+}
+
+@keyframes hideContent {
+  from {
+    top: 0.2vw;
+  }
+
+  to {
+    top: -5vw;
+  }
+}

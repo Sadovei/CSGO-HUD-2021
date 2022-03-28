@@ -7,9 +7,9 @@ import TimeOutComponent from './TimeOutComponent/TimeOutComponent'
 import VetoLegends from './VetoLegends/VetoLegends'
 import { VideoComponent } from './VideoComponent/VideoComponent'
 
-export default function DynamicComponents({ topBar }) {
+export default function DynamicComponents({ topBar, showContent }) {
     return (
-        <div className='dynamicTop-wrapper col'>
+        <div className={`dynamicTop-wrapper col ${showContent}`}>
             {Object.keys(topBar.mapInfo.vetoLegend).length > 1 &&
                 <VetoLegends vetoInfo={topBar.mapInfo.vetoLegend} phase={topBar.round.phase} topBar={topBar} />
             }

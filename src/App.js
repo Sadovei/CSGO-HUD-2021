@@ -13,6 +13,7 @@ function App() {
 
       <SmartLeftSide />
       <SmartRightSide />
+
       
       <SmartPovSide action={'show'} />
     </>

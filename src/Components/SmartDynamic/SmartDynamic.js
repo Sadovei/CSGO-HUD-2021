@@ -8,6 +8,7 @@ import {
   unsubscribeToScoreBoard,
   unsubscribeToSponsorNr1
 } from '../../utils/socketIO'
+
 import HeadToHead from './HeadToHead/HeadToHead'
 import ScoreBoard from './ScoreBoard/ScoreBoard'
 import SmartPovSide from '../SmartPovSide/SmartPovSide'
@@ -22,10 +23,11 @@ export default function SmartDynamic() {
       subscribeToHead2Head((data) => {
         setHead2Head(data)
       })
+
       subscribeToScoreBoard((data) => {
         setScoreBoard(data)
       })
-
+      
       subscribeToSponsorNr1((data) => {
         setFirstSponsor(data)
       })

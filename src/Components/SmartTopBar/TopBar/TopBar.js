@@ -12,7 +12,7 @@ export default function TopBar({ topBar }) {
   const defuseState = useRef(false)
   const videoRef = useRef()
   const videoRefOnFire = useRef()
-
+  console.log(topBar)
   useEffect(() => {
     if (topBar.leftSide.name.length > topBar.rightSide.name.length) {
       setBiggestName(topBar.leftSide.name.length);
