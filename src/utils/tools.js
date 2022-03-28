@@ -1,6 +1,12 @@
 const eqSVGs = require.context("!@svgr/webpack!../assets/icons/equipment", true, /\.svg$/);
 
-export const weaponPrimary = ['Shotgun', 'Machine Gun', 'Submachine Gun', 'Rifle', 'SniperRifle']
+const grenadesCost = {
+  weapon_smokegrenade: 300,
+  weapon_hegrenade: 300,
+  weapon_incgrenade: 600,
+  weapon_molotov: 400,
+  weapon_flashbang: 200
+}
 
 export function range(start, end) {
   return Array(end - start + 1).fill().map((_, idx) => start + idx)
@@ -13,6 +19,45 @@ export const SVGMap = eqSVGs.keys().reduce((images, path) => {
 }, {});
 
 
+
+export function CostGrenades(utilities, team) {
+  let total = 0
+
+  Object.keys(utilities).forEach(grenade => {
+    let costGrenade = grenadesCost[grenade] * utilities[grenade]
+    total += costGrenade
+  })
+
+  if (team === 'CT') {
+    if (total === 0)
+      return 'NONE'
+    else if (total > 0 && total < 2301)
+      return 'POOR'
+    else if (total >= 2301 && total < 4601)
+      return 'MEDIUM'
+    else
+      return 'HIGH'
+  } else {
+    if (total === 0)
+      return 'NONE'
+    else if (total > 0 && total < 2001)
+      return 'POOR'
+    else if (total >= 2001 && total < 4001)
+      return 'MEDIUM'
+    else
+      return 'HIGH'
+  }
+}
+
+export function currentMatch(maps, topBar) {
+  let keys = Object.keys(maps)
+  for (let index = 0; index < keys.length; index++) {
+    if (maps[keys[index]][topBar.leftSide.nameKey] === null) {
+      return index
+    }
+  }
+}
+
 export function findGetParameter(parameterName) {
   let result = null,
     tmp = [];
@@ -23,5 +68,4 @@ export function findGetParameter(parameterName) {
   }
   return result;
 }
-
 
