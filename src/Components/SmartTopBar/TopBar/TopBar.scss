@@ -181,10 +181,21 @@
   }
 
   .onFire {
+    display: none;
     position: absolute;
-    top: -5.6vw;
+    top: -6.5vw;
     width: 29vw;
-    right: -9.4vw;
+
+    &.right {
+      display: block;
+      right: -8.9vw;
+    }
+
+    &.left {
+      display: block;
+      transform: scaleX(-1);
+      left: -8.9vw;
+    }
   }
 }
 

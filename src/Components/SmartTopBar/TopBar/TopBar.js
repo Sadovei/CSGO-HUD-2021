@@ -70,14 +70,19 @@ export default function TopBar({ topBar }) {
       true
   })
   let sideLeft = classNames({
-    CT: topBar.leftSide.sideTeam === 'CT' && true,
-    T: topBar.leftSide.sideTeam === 'T' && true
+    CT: topBar.leftSide.sideTeam === 'CT',
+    T: topBar.leftSide.sideTeam === 'T'
   })
   let sideRight = classNames({
-    CT: topBar.rightSide.sideTeam === 'CT' && true,
-    T: topBar.rightSide.sideTeam === 'T' && true
+    CT: topBar.rightSide.sideTeam === 'CT',
+    T: topBar.rightSide.sideTeam === 'T'
   })
 
+  let flameSide = classNames({
+    right: topBar.rightSide.sideTeam === topBar.mapInfo.teamOnFire,
+    left: topBar.leftSide.sideTeam === topBar.mapInfo.teamOnFire
+  })
+  
   // topBar.leftSide.name = 'ASTRALIS'
   // topBar.rightSide.name = 'ENDPOINT'
   return (
@@ -141,7 +146,7 @@ export default function TopBar({ topBar }) {
       </div>
 
       <video ref={videoRefOnFire}
-        className={`onFire`}
+        className={`onFire ${flameSide}`}
         controls={false}
         autoPlay={true}
         muted={true}
