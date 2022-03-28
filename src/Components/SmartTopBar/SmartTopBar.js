@@ -14,7 +14,7 @@ export default function SmartTopBar() {
     })
     return unsubscribeToTopBar
   }, [])
-
+  console.log(topBarData)
   if (topBarData)
     return (
       <div className='topBar-wrapper'>

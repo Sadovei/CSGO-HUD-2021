@@ -1,5 +1,19 @@
 .left-wrapper {
   position: absolute;
-  bottom: 3.1vw;
-  left: 1.1vw;
+  bottom: 1vw;
+  left: 1vw;
+
+  .dynamic-wrapper {
+    position: relative;
+
+    align-items: flex-start;
+    height: 14vw;
+    overflow: hidden;
+  }
+
+  .right-side-wrapper{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+  }
 }

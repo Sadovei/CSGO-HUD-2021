@@ -13,10 +13,9 @@ export default function SmartPovSide({ action }) {
     })
     return unsubscribeToPov
   }, [])
-  if (povData === undefined || povData.playerName === '') {
-    return null
-  } else {
-    let ImagePlayer = imagesPlayer(povData)
+
+  if (povData) {
+    let ImagePlayer = imagesPlayer(povData.weapons, povData.state, povData.observer_slot)
 
     return (
       <PovSide
@@ -24,12 +23,10 @@ export default function SmartPovSide({ action }) {
         DefuseIMG={ImagePlayer.DefuseIMG}
         grenadeImg={ImagePlayer.grenadeImg}
         BombIMG={ImagePlayer.BombIMG}
-        PistolIMG={ImagePlayer.PistolIMG}
-        WeaponIMG={ImagePlayer.WeaponIMG}
         activeWeapon={ImagePlayer.activeWeapon}
-        ammoFillAnim={ImagePlayer.ammoFillAnim}
         action={action}
       />
     )
   }
+  return null
 }
