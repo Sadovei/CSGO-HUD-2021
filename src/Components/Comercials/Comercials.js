@@ -6,6 +6,7 @@ const SponsorsPNG = require.context('./icons', true)
 const sponsorsIMG = SponsorsPNG.keys().map((key) =>
     key.substring(key.lastIndexOf('/') + 1, key.lastIndexOf('.'))
 )
+
 let counter = 0
 
 const SVGMap = SponsorsPNG.keys().reduce((images, path) => {
@@ -21,10 +22,40 @@ export default function Comercials({ phase }) {
 
     useEffect(() => {
         if (!updateStart.current) {
-            setUpdate(phase.phase)
+            setUpdate(phase)
+        }
+
+        function setUpdate(phaseRound) {
+            if (
+                phaseRound === 'freezetime' ||
+                phaseRound === 'timeout_t' ||
+                phaseRound === 'timeout_ct'
+            ) {
+                setAnimClass('showStart')
+                setFlag(true)
+            }
+
+            if (phaseRound === 'live' && flag) {
+                updateStart.current = setTimeout(() => {
+                    setAnimClass('hideStart')
+                    updateStart.current = null
+                    setFlag(false)
+                }, 5000)
+            }
+
+            if (phaseRound === 'bomb' && !flag) {
+                setAnimClass('showBomb')
+                setFlag(true)
+            }
+
+            if (phaseRound === 'bomb' && flag)
+                updateStart.current = setTimeout(() => {
+                    setAnimClass('hideBomb')
+                    updateStart.current = null
+                }, 5000)
         }
         return null
-    }, [phase.phase, setUpdate])
+    }, [phase, flag])
 
     useEffect(() => {
         if (counter === sponsorsIMG.length) counter = 0
@@ -35,35 +66,7 @@ export default function Comercials({ phase }) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [counter])
 
-    function setUpdate(phase) {
-        if (
-            phase === 'freezetime' ||
-            phase === 'timeout_t' ||
-            phase === 'timeout_ct'
-        ) {
-            setAnimClass('showStart')
-            setFlag(true)
-        }
 
-        if (phase === 'live' && flag) {
-            updateStart.current = setTimeout(() => {
-                setAnimClass('hideStart')
-                updateStart.current = null
-                setFlag(false)
-            }, 5000)
-        }
-
-        if (phase === 'bomb' && !flag) {
-            setAnimClass('showBomb')
-            setFlag(true)
-        }
-
-        if (phase === 'bomb' && flag)
-            updateStart.current = setTimeout(() => {
-                setAnimClass('hideBomb')
-                updateStart.current = null
-            }, 5000)
-    }
 
     return (
         <div className={`content-wrapper-comercial ${animClass}`}>

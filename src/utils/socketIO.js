@@ -1,5 +1,6 @@
-import socketClient from "socket.io-client";
 import { findGetParameter } from "./URLParameters";
+import socketClient from "socket.io-client";
+
 const { REACT_APP_BACKEND, REACT_APP_PORT } = process.env
 
 export const token = findGetParameter("token") || 'main';

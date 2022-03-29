@@ -1,80 +1,78 @@
-.right-wrapper {
-  .content-wrapper-comercial {
-    position: absolute;
-    bottom: 0.4vw;
+.content-wrapper-comercial {
+  position: absolute;
+  bottom: 24.5vw;
+  right: 1vw;
+  width: 13.5vw;
+  height: 3.6vw;
 
-    width: 13.5vw;
-    height: 3.6vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  border-radius: 0.4vw;
 
-    border-radius: 0.4vw;
+  background: var(--color-bk-opacity);
 
-    background: var(--color-bk-opacity);
+  .sponsor-image {
+    width: 100%;
+    height: 100%;
+    background-size: 120%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 
-    .sponsor-image {
-      width: 100%;
-      height: 100%;
-      background-size: 120%;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
+  &.showStart {
+    animation: showLeft 1s forwards;
+  }
 
-    &.showStart {
-      animation: showLeft 1s forwards;
-    }
+  &.hideStart {
+    animation: hideLeft 1s forwards;
+  }
 
-    &.hideStart {
-      animation: hideLeft 1s forwards;
-    }
+  &.showBomb {
+    animation: showBombPhase 1s forwards;
+  }
 
-    &.showBomb {
-      animation: showBombPhase 1s forwards;
-    }
-
-    &.hideBomb {
-      animation: hideBombPhase 1s forwards;
-    }
+  &.hideBomb {
+    animation: hideBombPhase 1s forwards;
   }
 }
 
 @keyframes showLeft {
   from {
-    bottom: 0.4vw;
+    bottom: 24.5vw;
   }
 
   to {
-    bottom: 8.4vw;
+    bottom: 32.5vw;
   }
 }
 
 @keyframes hideLeft {
   from {
-    bottom: 8.4vw;
+    bottom: 32.5vw;
   }
   to {
-    bottom: 0.4vw;
+    bottom: 24.5vw;
   }
 }
 
 @keyframes showBombPhase {
   from {
-    bottom: 0.4vw;
+    bottom: 24.5vw;
   }
 
   to {
-    bottom: 4.4vw;
+    bottom: 28.5vw;
   }
 }
 
 @keyframes hideBombPhase {
   from {
-    bottom: 4.4vw;
+    bottom: 28.5vw;
   }
 
   to {
-    bottom: 0.4vw;
+    bottom: 24.5vw;
   }
 }

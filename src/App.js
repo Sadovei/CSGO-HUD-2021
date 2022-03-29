@@ -18,8 +18,8 @@ function App() {
       return null
     return (
       <>
+        <Comercials phase={topBar.round.phase} />
         <SmartDynamic />
-        <Comercials />
       </>
     );
   } else
