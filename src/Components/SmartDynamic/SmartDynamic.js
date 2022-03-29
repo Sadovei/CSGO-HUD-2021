@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import {
   subscribeToHead2Head,
   subscribeToScoreBoard,
-  subscribeToSponsorNr1,
   token,
   unsubscribeToHead2Head,
   unsubscribeToScoreBoard,
@@ -16,7 +15,6 @@ import SmartPovSide from '../SmartPovSide/SmartPovSide'
 export default function SmartDynamic() {
   const [head2Head, setHead2Head] = useState(null)
   const [scoreBoard, setScoreBoard] = useState(null)
-  const [firstSponsor, setFirstSponsor] = useState(null)
 
   useEffect(() => {
     if (token === 'igdir') {
@@ -26,10 +24,6 @@ export default function SmartDynamic() {
 
       subscribeToScoreBoard((data) => {
         setScoreBoard(data)
-      })
-      
-      subscribeToSponsorNr1((data) => {
-        setFirstSponsor(data)
       })
     }
     return {
@@ -55,11 +49,7 @@ export default function SmartDynamic() {
         <SmartPovSide action={'hide'} />
       </>
     )
-  } else if (
-    firstSponsor !== null &&
-    scoreBoard === null &&
-    head2Head === null
-  ) {
+  } else if (scoreBoard === null && head2Head === null) {
     return (
       <>
         <ScoreBoard data={null} action={'hide'} />
