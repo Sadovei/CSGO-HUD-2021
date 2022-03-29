@@ -10,7 +10,6 @@ function App() {
   const [topBar, setTopBar] = useState();
   const [leftSide, setLeftSide] = useState();
   const [rightSide, setRightSide] = useState();
-
   useEffect(() => {
     subscribeToTopBar(data => {
       setTopBar(data)
@@ -42,7 +41,7 @@ function App() {
               </div>
             }
 
-            <CenterVideo />
+            <CenterVideo map={topBar.mapInfo.mapName}/>
 
             {rightSide &&
               <div className="right-wrapper">

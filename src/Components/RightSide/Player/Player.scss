@@ -1,8 +1,9 @@
 .right-player-wrapper {
   align-items: center;
+  justify-content: flex-end;
 
   .first-box {
-    width: 14vw;
+    width: 10vw;
 
     display: flex;
     justify-content: flex-end;
@@ -70,7 +71,7 @@
   }
 
   .money-wrapper {
-    width: 3.7vw;
+    width: 3.9vw;
 
     display: flex;
     justify-content: flex-end;
@@ -79,11 +80,11 @@
       font-size: 1vw;
 
       &.CT {
-        color: var(--color-CT);
+        color: var(--color-CT-icons);
       }
 
       &.T {
-        color: var(--color-T);
+        color: var(--color-T-icons);
       }
     }
   }

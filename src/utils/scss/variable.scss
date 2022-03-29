@@ -1,18 +1,51 @@
 :root {
   --color-white: #fff;
   --color-black: #000;
-  --color-grey: #929292;
+  --color-grey: #858585;
+  --color-red: red;
+  --color-blue: blue;
 
-  --color-red: #ee0404;
-  --color-blue: #2704ee;
-  --color-mapWin: #c8c8c8;
-  --color-mapLose: #383838;
-
-  --color-CT: #00a2ff;
-  --color-T: #f3d002;
-
-  --color-background-POV: #232323;
-  --color-background: #232323e6;
-  --color-selected: linear-gradient(to right, #fe00ea, rgba(0, 0, 0, 0));
   --color-defuse: rgba(254, 0, 234, 0.8);
+  --color-bk-opacity: rgba(0, 0, 0, 0.8);
+  --color-loss-bonus: #e2fbce;
+  --color-eq: #edd996;
+
+  --color-CT: #003464;
+  //CT normal items 
+  --color-CT-icons: #0071b2;
+  //CT bar color
+  --color-CT-life-bar: #14212c;
+  //CT POV
+  --color-background-POV-CT: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,113,178,0.2) 100%);
+
+
+  //CT normal backgorund player LEFT
+  --color-CT-bk-opacity-left: linear-gradient(90deg, rgba(0,113,178,0.2) 0%, rgba(0,0,0,0) 100%);
+  //CT Selected player LEFT
+  --color-CT-selected-left: linear-gradient(90deg, rgba(0,113,178,1) 0%, rgba(0,0,0,0) 100%);
+
+  //CT normal backgorund player RIGHT
+  --color-CT-bk-opacity-right: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,113,178,0.2) 100%);
+  //CT Selected player RIGHT
+  --color-CT-selected-right: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,113,178,1) 100%);
+
+
+  --color-T: #6f4700;
+  //T normal items 
+  --color-T-icons: #ffa800;
+  //T bar color
+  --color-T-life-bar: #3f2f13;
+  //T POV
+  --color-background-POV-T: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(255,168,0,0.2) 100%);
+
+
+  //T normal backgorund player LEFT
+  --color-T-bk-opacity-left: linear-gradient(90deg, rgba(255,168,0,0.2) 0%, rgba(0,0,0,0) 100%);
+  //T Selected player LEFT
+  --color-T-selected-left: linear-gradient(90deg, rgba(255,168,0,1) 0%, rgba(0,0,0,0) 100%);
+
+  //T normal backgorund player RIGHT
+  --color-T-bk-opacity-right: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(255,168,0,0.2) 100%);
+  //T Selected player RIGHT
+  --color-T-selected-right: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(255,168,0,1) 100%);
 }

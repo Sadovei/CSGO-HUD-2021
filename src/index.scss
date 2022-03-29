@@ -19,6 +19,13 @@ hr {
   padding: 0;
 }
 
+#root {
+  background-size: contain;
+  // background-color: grey;
+  background-image: url('./assets/ref.png');
+  font-family: 'Montserrat-Bold';
+}
+
 li {
   list-style-type: none;
 }
@@ -31,10 +38,27 @@ body,
 html,
 #root,
 .App {
-  background-image: url('./assets/icons/ref.png');
   width: 100%;
   height: 100%;
   overflow: hidden;
+}
+
+#root {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-end;
+
+  .second-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+
+    height: 16vw;
+    margin: 0 2vw 1.6vw;
+
+    background: var(--color-bk-opacity);
+    border-radius: 0.4vw;
+  }
 }
 
 .App {
@@ -58,14 +82,6 @@ html,
   display: none !important;
 }
 
-.font-mont {
-  font-family: 'Montserrat-Bold';
-}
-
-.font-tablet {
-  font-family: 'Tablet-Gothic-Bold';
-}
-
 .holstered {
   svg {
     path {
@@ -82,12 +98,25 @@ html,
   }
 }
 
-.defuse {
-  margin: 0 0.2vw 0 0;
+.utilities {
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
 
+.defuse {
   svg {
     path {
-      fill: var(--color-CT);
+      fill: var(--color-CT-icons);
+    }
+  }
+}
+
+.bomb {
+  svg {
+    path {
+      fill: var(--color-T-icons);
     }
   }
 }
@@ -152,32 +181,34 @@ html,
   fill: url('#ammo-fill-0') #fff !important;
 }
 
-#root {
-  width: 100%;
-  height: 100%;
+/* CIRCLE */
+.pulsar {
+  position: relative;
 
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-end;
-  align-items: center;
-
-  background-image: url('./assets//economy-ofg-box.webp');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: bottom;
-
-  .first-wrapper {
-    width: 100%;
-    height: 5.6vw;
+  .str-circle2,
+  .str-circle3 {
+    position: absolute;
+    width: 0.1vw;
+    height: 0.1vw;
+    border-radius: 50%;
+    animation: radial-pulse 4s infinite;
+    top: 0.5vw;
+    left: 0.5vw;
   }
 
-  .second-wrapper {
-    position: relative;
-    display: flex;
-    flex-flow: row nowrap;
-    width: 100%;
-    height: 14.3vw;
-    justify-content: space-between;
-    align-items: flex-end;
+  .str-circle2 {
+    animation-delay: 2s;
+  }
+  .str-circle3 {
+    animation-delay: 4s;
+  }
+
+  @keyframes radial-pulse {
+    0% {
+      box-shadow: 0 0 0 0 var(--color-defuse);
+    }
+    100% {
+      box-shadow: 0 0 0 0.5vw rgba(0, 0, 0, 0);
+    }
   }
 }

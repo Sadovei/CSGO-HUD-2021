@@ -1,10 +1,22 @@
 import './CenterVideo.scss'
 
-import React from 'react'
-import logo from '../../assets/videos/logo.webm'
+import React, { useEffect, useRef } from 'react'
 
-export default function CenterVideo() {
+import logo from '../../assets/videos/bomb_planted_once.webm'
+
+export default function CenterVideo({ map }) {
+    const mapVideo = useRef('')
+
+    useEffect(() => {
+        mapVideo.current = map
+    }, [map])
+
     return (
-        <video className="video-logo" src={logo} loop autoPlay={true} preload="true" muted={true}></video>
+        <video ref={mapVideo}
+            className="video-logo"
+            src={logo} loop
+            preload="true"
+            muted={true}>
+        </video>
     )
 }
