@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { subscribeToLeftSide, subscribeToRightSide, subscribeToTopBar } from "./utils/socketIO";
 
-import CenterEconomy from "./Components/CenterEconomy/CenterEconomy";
+import CenterVideo from "./Components/CenterVideo/CenterVideo";
 import LeftSide from "./Components/LeftSide/LeftSide";
 import RightSide from "./Components/RightSide/RightSide";
-import TeamLogo from "./Components/TeamLogo/TeamLogo";
+import Teams from "./Components/Teams/Teams";
 
 function App() {
   const [topBar, setTopBar] = useState();
@@ -32,23 +32,21 @@ function App() {
       return (
         <>
           <div className="first-wrapper">
-            <TeamLogo data={topBar} />
+            <Teams data={topBar} />
           </div>
 
           <div className="second-wrapper">
             {leftSide &&
               <div className='left-wrapper'>
-                <LeftSide team={leftSide.side} players={leftSide.players} phase={leftSide.roundPhase.phase} />
+                <LeftSide team={leftSide.side} players={leftSide.players} phase={leftSide.roundPhase.phase} dataEconomy={leftSide.economy} />
               </div>
             }
 
-            {leftSide && rightSide &&
-              <CenterEconomy dataLeft={leftSide} dataRight={rightSide} />
-            }
+            <CenterVideo />
 
             {rightSide &&
               <div className="right-wrapper">
-                <RightSide team={rightSide.side} players={rightSide.players} phase={rightSide.roundPhase.phase} />
+                <RightSide team={rightSide.side} players={rightSide.players} phase={rightSide.roundPhase.phase} dataEconomy={leftSide.economy} />
               </div>
             }
 

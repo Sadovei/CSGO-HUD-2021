@@ -1,9 +1,10 @@
-import React from 'react'
-import imagesPlayer from '../../utils/imagesPlayer';
-import Player from './Player/Player'
 import './LeftSide.scss'
 
-export default function LeftSide({ team, players, phase }) {
+import Player from './Player/Player'
+import React from 'react'
+import imagesPlayer from '../../utils/imagesPlayer';
+
+export default function LeftSide({ team, players, phase, dataEconomy }) {
     let elementsPlayer = []
     Object.values(players).forEach(element => {
         elementsPlayer.push(imagesPlayer(element, phase))
@@ -11,6 +12,18 @@ export default function LeftSide({ team, players, phase }) {
 
     return (
         <div className="left-side-wrapper">
+            <div className={`left-center-wrapper ${team}`}>
+                <div className="team-money-wrapper">
+                    <p className="money font-tablet">${dataEconomy.remaining_money}</p>
+                    <p className="text-money font-tablet">TEAM MONEY</p>
+                </div>
+
+                <div className="equipment-wrapper">
+                    <p className="equipment font-tablet">${dataEconomy.eq_value}</p>
+                    <p className="text-equipment font-tablet">EQUIPMENT MONEY</p>
+                </div>
+            </div>
+
             {Object.values(players).map((player, indexPlayer) =>
                 <Player key={indexPlayer}
                     info={player}
@@ -20,7 +33,7 @@ export default function LeftSide({ team, players, phase }) {
                     BombIMG={elementsPlayer[indexPlayer].BombIMG}
                     PistolIMG={elementsPlayer[indexPlayer].PistolIMG}
                     WeaponIMG={elementsPlayer[indexPlayer].WeaponIMG}
-                    ammoFillAnim={elementsPlayer[indexPlayer].ammoFillAnim}/>)}
+                    ammoFillAnim={elementsPlayer[indexPlayer].ammoFillAnim} />)}
         </div>
     )
 }
