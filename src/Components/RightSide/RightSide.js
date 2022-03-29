@@ -9,13 +9,13 @@ export default function RightSide({ team, players, phase, dataEconomy }) {
         <div className="right-side-wrapper">
             <div className={`right-center-wrapper ${team}`}>
                 <div className="equipment-wrapper">
-                    <p className="equipment font-tablet">${dataEconomy.eq_value}</p>
                     <p className="text-equipment font-tablet">EQUIPMENT MONEY</p>
+                    <p className="equipment font-tablet">${dataEconomy.eq_value}</p>
                 </div>
 
                 <div className="team-money-wrapper">
-                    <p className="money font-tablet">${dataEconomy.remaining_money}</p>
                     <p className="text-money font-tablet">TEAM MONEY</p>
+                    <p className="money font-tablet">${dataEconomy.remaining_money}</p>
                 </div>
             </div>
 
