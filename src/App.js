@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+import Comercials from "./Components/Comercials/Comercials";
 import SmartDynamic from "./Components/SmartDynamic/SmartDynamic";
-import Sponsors from "./Components/Sponsors/Sponsors";
 import { subscribeToTopBar } from "./utils/socketIO";
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
     return (
       <>
         <SmartDynamic />
-        <Sponsors />
+        <Comercials />
       </>
     );
   } else
