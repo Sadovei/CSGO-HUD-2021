@@ -24,7 +24,8 @@ export default function Comercials({ phase }) {
             setUpdate(phase.phase)
         }
         return null
-    }, [phase.phase, setUpdate])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [phase.phase])
 
     useEffect(() => {
         if (counter === sponsorsIMG.length) counter = 0

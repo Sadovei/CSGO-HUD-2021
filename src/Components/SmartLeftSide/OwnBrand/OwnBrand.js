@@ -12,7 +12,8 @@ export default function OwnBrand({ phase }) {
             setUpdate(phase.phase)
         }
         return null
-    }, [phase.phase, setUpdate])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [phase.phase])
 
     function setUpdate(phase) {
         if (

@@ -12,13 +12,13 @@ export default function TopBar({ topBar }) {
   const defuseState = useRef(false)
   const videoRef = useRef()
   const videoRefOnFire = useRef()
-  console.log(topBar)
+
   useEffect(() => {
     if (topBar.leftSide.name.length > topBar.rightSide.name.length) {
       setBiggestName(topBar.leftSide.name.length);
     } else
       setBiggestName(topBar.rightSide.name.length);
-  }, []);
+  }, [topBar.leftSide.name, topBar.rightSide.name]);
 
   useEffect(() => {
     if (topBar.round.phase === 'bomb') {
@@ -82,9 +82,7 @@ export default function TopBar({ topBar }) {
     right: topBar.rightSide.sideTeam === topBar.mapInfo.teamOnFire,
     left: topBar.leftSide.sideTeam === topBar.mapInfo.teamOnFire
   })
-  
-  // topBar.leftSide.name = 'ASTRALIS'
-  // topBar.rightSide.name = 'ENDPOINT'
+
   return (
     <div className='topBar row'>
       <div className='leftSide-wrapper row'>

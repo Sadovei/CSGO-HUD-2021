@@ -13,8 +13,8 @@ export default function SmartPovSide({ action }) {
     })
     return unsubscribeToPov
   }, [])
-
-  if (povData) {
+  
+  if (povData && Object.keys(povData).length > 1) {
     let ImagePlayer = imagesPlayer(povData.weapons, povData.state, povData.observer_slot)
 
     return (

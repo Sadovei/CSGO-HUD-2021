@@ -12,8 +12,8 @@ export default function EconomyLeft({ economy, team, phase }) {
       setUpdate(phase.phase)
     }
     return null
-  }, [phase.phase, setUpdate])
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase.phase])
 
   function setUpdate(phase) {
     if (phase === 'freezetime' || phase === 'timeout_t' || phase === 'timeout_ct') {

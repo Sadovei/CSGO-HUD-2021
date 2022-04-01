@@ -11,15 +11,15 @@ export default function SmartTopBar() {
   const [topBarData, setTopBarData] = useState()
   const showHistory = useRef('')
   const showDynamic = useRef('')
-  
+
   useEffect(() => {
     subscribeToTopBar((data) => {
       setTopBarData(data)
     })
     return unsubscribeToTopBar
   }, [])
-
-  if (topBarData)
+  
+  if (topBarData && Object.keys(topBarData).length > 0 && topBarData.round.time !== '-100') {
     return (
       <div className='topBar-wrapper'>
         <TopBar topBar={topBarData} />
@@ -31,5 +31,6 @@ export default function SmartTopBar() {
         <DynamicComponents topBar={topBarData} showContent={showDynamic.current} />
       </div>
     )
+  }
   return null
 }

@@ -1,5 +1,6 @@
 import './HeadToHead.scss'
 
+import React, { useRef } from 'react'
 import { animated, useSpring } from 'react-spring'
 
 import classNames from 'classnames'
@@ -7,9 +8,8 @@ import classNames from 'classnames'
 let dataH2H
 
 export default function HeadToHead({ data, action }) {
-  if (action === 'show') {
-    dataH2H = data
-  }
+  const styleApplied = useRef('')
+
   const showEl = useSpring({
     from: { bottom: '-25vw' },
     to: { bottom: '1.1vw' }
@@ -19,6 +19,12 @@ export default function HeadToHead({ data, action }) {
     from: { bottom: '1.1vw' },
     to: { bottom: '-25vw' }
   })
+
+  if (action === 'show') {
+    dataH2H = data
+    styleApplied.current = showEl
+  } else if (action === 'hide')
+    styleApplied.current = hideEl
 
   let leftPicturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${dataH2H?.leftPlayer?.teamKey}/${dataH2H?.leftPlayer?.playerKey}.webp`
   let rightPicturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${dataH2H?.rightPlayer?.teamKey}/${dataH2H?.rightPlayer?.playerKey}.webp`
@@ -35,10 +41,7 @@ export default function HeadToHead({ data, action }) {
   })
 
   return (
-    <animated.div
-      className='headToHead-wrapper  row'
-      style={action === 'show' ? showEl : hideEl}
-    >
+    <animated.div className='headToHead-wrapper  row' style={styleApplied.current !== '' ? styleApplied.current : null}>
       <div className='leftSide-wrapper player'>
         <div
           className='image-player'
@@ -197,10 +200,9 @@ export default function HeadToHead({ data, action }) {
               <div
                 className='bar'
                 style={{
-                  width: `${
-                    (dataH2H?.leftPlayer.grenades_used * 92) /
+                  width: `${(dataH2H?.leftPlayer.grenades_used * 92) /
                     dataH2H?.utility_grenades_used
-                  }%`
+                    }%`
                 }}
               ></div>
             </div>
@@ -212,10 +214,9 @@ export default function HeadToHead({ data, action }) {
               <div
                 className='bar'
                 style={{
-                  width: `${
-                    (dataH2H?.rightPlayer.grenades_used * 92) /
+                  width: `${(dataH2H?.rightPlayer.grenades_used * 92) /
                     dataH2H?.utility_grenades_used
-                  }%`
+                    }%`
                 }}
               ></div>
             </div>

@@ -11,11 +11,13 @@ export default function DynamicComponents({ topBar, showContent }) {
     return (
         <div className={`dynamicTop-wrapper col ${showContent}`}>
             {Object.keys(topBar.mapInfo.vetoLegend).length > 1 &&
-                <VetoLegends vetoInfo={topBar.mapInfo.vetoLegend} phase={topBar.round.phase} topBar={topBar} />
+                <VetoLegends phase={topBar.round.phase} topBar={topBar} />
             }
+
             <SeriesInfoComponent mapInfo={topBar.mapInfo} leftSide={topBar.leftSide} rightSide={topBar.rightSide} />
 
             <MvpComponent mvps={topBar.mapInfo.mvps} />
+
             <TimeOutComponent topBarData={topBar} />
 
             <VideoComponent topBarData={topBar} />

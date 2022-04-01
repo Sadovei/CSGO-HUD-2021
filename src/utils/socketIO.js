@@ -1,7 +1,7 @@
 import { findGetParameter } from './tools'
 import socketClient from 'socket.io-client'
 
-export const token = findGetParameter('token') || 'main'
+export const token = findGetParameter('client') || 'main'
 const backEND = '10.97.2.14'
 const port = 4400
 const ENDPOINT = `http://${backEND}:${port}/?client=${token}`

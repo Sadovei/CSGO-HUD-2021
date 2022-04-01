@@ -6,9 +6,9 @@ import { animated, useSpring } from 'react-spring'
 export default function MvpComponent({ mvps }) {
     const currentMVP = useRef({})
     const showContent = useRef(false)
-    
+
     useEffect(() => {
-        if (Object.keys(mvps).length !== 0) {
+        if (Object.keys(mvps).length > 0) {
             currentMVP.current = mvps
             showContent.current = true
         }
@@ -19,7 +19,7 @@ export default function MvpComponent({ mvps }) {
             }, 4000);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [mvps])
-    
+
     const mvpProps = useSpring({
         opacity: showContent.current ? '1' : '0'
     })

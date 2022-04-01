@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { subscribeToRightSide, unsubscribeToRightSide } from '../../utils/socketIO'
 
-import Comercials from './Comercials/Comercials'
 import EconomyRight from './EconomyRight/EconomyRight'
 import RightSide from './RightSide/RightSide'
 import UtilitiesRight from './UtilitiesRight/UtilitiesRight'
@@ -31,8 +30,6 @@ export default function SmartRightSide() {
             team={rightSide.side}
             phase={rightSide.roundPhase}
           />
-
-          <Comercials phase={rightSide.roundPhase} />
         </div>
 
         <RightSide

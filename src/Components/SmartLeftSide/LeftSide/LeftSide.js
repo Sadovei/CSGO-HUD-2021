@@ -10,7 +10,7 @@ export default function LeftSide({ team, players, phase }) {
             {Object.values(players).map((player, indexPlayer) => {
                 let elementsPlayer = imagesPlayer(player.weapons, player.state, player.observer_slot, phase)
 
-                return < Player key={indexPlayer}
+                return <Player key={indexPlayer}
                     info={player}
                     team={team}
                     DefuseIMG={elementsPlayer.DefuseIMG}

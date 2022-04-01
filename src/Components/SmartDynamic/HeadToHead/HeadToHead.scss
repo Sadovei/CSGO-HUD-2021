@@ -2,18 +2,16 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  bottom: -25vw;
 
   width: 60vw;
   height: 18.7vw;
   justify-content: space-between;
 
   border-radius: 0.3vw;
-  background-color: var(--color-background);
-  background-image: url('../../../assets/dynamic-bk.webp');
+  background-color: var(--color-bk-opacity);
   background-size: 70%;
   background-position: center;
-
-  box-shadow: 0px 5px 15px 1px var(--color-background);
 
   .h2h-info-wrapper {
     position: absolute;
@@ -39,8 +37,6 @@
 
           &.left {
             &.CT {
-              background-image: url('../../../assets/CT-life-bar-right.webp');
-
               .bar {
                 right: 0.39375vw;
                 background-color: var(--color-CT);
@@ -48,8 +44,6 @@
             }
 
             &.T {
-              background-image: url('../../../assets/T-life-bar-right.webp');
-
               .bar {
                 right: 0.39375vw;
                 background-color: var(--color-T);
@@ -59,8 +53,6 @@
 
           &.right {
             &.CT {
-              background-image: url('../../../assets/CT-life-bar-right.webp');
-
               .bar {
                 left: 0.39375vw;
                 background-color: var(--color-CT);
@@ -68,8 +60,6 @@
             }
 
             &.T {
-              background-image: url('../../../assets/T-life-bar-right.webp');
-
               .bar {
                 left: 0.39375vw;
                 background-color: var(--color-T);
@@ -152,7 +142,7 @@
 
         .nickName {
           text-align: end;
-        text-transform: uppercase;
+          text-transform: uppercase;
         }
 
         .name-wrapper {

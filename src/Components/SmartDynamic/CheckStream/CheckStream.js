@@ -13,7 +13,9 @@ export default function CheckStream({ data, show, text }) {
                         <p className="team-2">{data[1].teamName}</p>
                     </div>
 
-                    <span className='mapName-text'>{data[0].phase === 'live' ? 'MAP PLAYING: ' : 'MAP PLAYED: '}<p className="map-name">{data[0].mapName.split('_')[1].toUpperCase()}</p></span>
+                    <span className='mapName-text'>{data[0].phase === 'live' ? 'MAP PLAYING: ' : 'MAP PLAYED: '}
+                        <p className="map-name">{data[0].mapName.split('_')[1].toUpperCase()}</p>
+                    </span>
                 </div>
                 <div className={`image-stream ${text === 'Stream A' ? 'A' : 'B'}`}></div>
             </div>

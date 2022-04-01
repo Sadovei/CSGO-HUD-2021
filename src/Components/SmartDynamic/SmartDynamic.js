@@ -1,67 +1,39 @@
-import React, { useEffect, useState } from 'react'
-import {
-  subscribeToHead2Head,
-  subscribeToScoreBoard,
-  token,
-  unsubscribeToHead2Head,
-  unsubscribeToScoreBoard,
-  unsubscribeToSponsorNr1
-} from '../../utils/socketIO'
+import React, { useEffect, useRef, useState } from 'react'
+import { subscribeToHead2Head, token, unsubscribeToHead2Head } from '../../utils/socketIO'
 
 import HeadToHead from './HeadToHead/HeadToHead'
-import ScoreBoard from './ScoreBoard/ScoreBoard'
 import SmartPovSide from '../SmartPovSide/SmartPovSide'
 
 export default function SmartDynamic() {
   const [head2Head, setHead2Head] = useState(null)
-  const [scoreBoard, setScoreBoard] = useState(null)
+  const showHeadtoHead = useRef('none')
 
   useEffect(() => {
     if (token === 'igdir') {
       subscribeToHead2Head((data) => {
         setHead2Head(data)
       })
-
-      subscribeToScoreBoard((data) => {
-        setScoreBoard(data)
-      })
     }
-    return {
-      unsubscribeToHead2Head,
-      unsubscribeToScoreBoard,
-      unsubscribeToSponsorNr1
-    }
-  }, [])
 
-  if (head2Head !== null && scoreBoard === null) {
+    if (head2Head !== null)
+      showHeadtoHead.current = 'show'
+    else if (showHeadtoHead.current !== 'show')
+      showHeadtoHead.current = 'hide'
+
+    return { unsubscribeToHead2Head }
+  }, [head2Head])
+
+  if (head2Head !== null) {
     return (
       <>
-        <HeadToHead data={head2Head} action={'show'} />
-        <ScoreBoard data={null} action={'hide'} />
+        <HeadToHead data={head2Head} action={showHeadtoHead.current} />
         <SmartPovSide action={'hide'} />
       </>
     )
-  } else if (scoreBoard !== null && head2Head === null) {
+  } else if (head2Head === null) {
     return (
       <>
-        <ScoreBoard data={scoreBoard} action={'show'} />
-        <HeadToHead data={null} action={'hide'} />
-        <SmartPovSide action={'hide'} />
-      </>
-    )
-  } else if (scoreBoard === null && head2Head === null) {
-    return (
-      <>
-        <ScoreBoard data={null} action={'hide'} />
-        <HeadToHead data={null} action={'hide'} />
-        <SmartPovSide action={'hide'} />
-      </>
-    )
-  } else if (scoreBoard === null && head2Head === null) {
-    return (
-      <>
-        <ScoreBoard data={scoreBoard} action={'hide'} />
-        <HeadToHead data={head2Head} action={'hide'} />
+        <HeadToHead data={head2Head} action={showHeadtoHead.current} />
         <SmartPovSide action={'show'} />
       </>
     )
