@@ -25,9 +25,14 @@ export default function TopBar({ topBar }) {
       videoRef.current.src = bombPlanted
       videoRef.current.play()
     }
-    videoRefOnFire.current.src = onFire
-
   }, [topBar.round.phase]);
+
+  useEffect(() => {
+    if (topBar.mapInfo.teamOnFire !== 'none') {
+      videoRefOnFire.current.src = onFire
+      videoRefOnFire.current.play()
+    }
+  }, [topBar.mapInfo.teamOnFire]);
 
   let leftLogo =
     topBar.leftSide.nameKey === 'placeholder'

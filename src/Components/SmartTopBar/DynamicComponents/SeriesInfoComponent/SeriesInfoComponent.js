@@ -15,9 +15,9 @@ export default function SeriesInfoComponent({ mapInfo, leftSide, rightSide }) {
     })
 
     const mapsToWin = range(1, (mapInfo.bestOf / 2).toFixed(0))
-
+    
     return (
-        <div className='seriesInfo-wrapper row'>
+        <div className={`seriesInfo-wrapper row ${Object.keys(mapInfo.vetoLegend).length > 1 ? 'big' : 'small'}`}>
             <div className='leftInfo-wrapper row'>
                 {mapsToWin.map((map, index) => (
                     <div

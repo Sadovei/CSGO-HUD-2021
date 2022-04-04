@@ -1,31 +1,20 @@
 import './HeadToHead.scss'
 
-import React, { useRef } from 'react'
 import { animated, useSpring } from 'react-spring'
 
+import React from 'react'
+
 export default function HeadToHead({ dataH2H, action }) {
-  const styleApplied = useRef('')
-
-  const showEl = useSpring({
-    from: { bottom: '-25vw' },
-    to: { bottom: '1vw' }
+  const props = useSpring({
+    bottom: action === 'show' ? '1vw' : '-25vw',
+    delay: action === 'show' ? 250 : 0
   })
-
-  const hideEl = useSpring({
-    from: { bottom: '1vw' },
-    to: { bottom: '-25vw' }
-  })
-
-  if (action === 'show') {
-    styleApplied.current = showEl
-  } else if (action === 'hide')
-    styleApplied.current = hideEl
 
   let leftPicturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${dataH2H.leftPlayer.teamKey}/${dataH2H.leftPlayer.playerKey}.webp`
   let rightPicturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${dataH2H.rightPlayer.teamKey}/${dataH2H.rightPlayer.playerKey}.webp`
 
   return (
-    <animated.div className='headToHead-wrapper  row' style={styleApplied.current !== '' ? styleApplied.current : null}>
+    <animated.div className='headToHead-wrapper  row' style={{ bottom: props.bottom }}>
       <div className='leftSide-wrapper player'>
         <div className='image-player' style={{ backgroundImage: `url(${leftPicturePlayer})` }}></div>
 

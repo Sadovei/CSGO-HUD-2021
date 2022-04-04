@@ -4,18 +4,18 @@ import React, { useEffect, useRef, useState } from 'react'
 
 import { currentMatch } from '../../../../utils/tools'
 
-export default function VetoLegends({ phase, topBar }) {
+export default function VetoLegends({ topBar }) {
   const [animClass, setAnimClass] = useState('')
   const [flag, setFlag] = useState(false)
   const updateStart = useRef(null)
 
   useEffect(() => {
     if (!updateStart.current) {
-      setUpdate(phase)
+      setUpdate(topBar.round.phase)
     }
     return null
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [phase, updateStart.current])
+  }, [topBar.round.phase, updateStart.current])
 
   function setUpdate(phase) {
     if (

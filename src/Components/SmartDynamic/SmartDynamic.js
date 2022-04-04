@@ -31,15 +31,12 @@ export default function SmartDynamic({ parserData }) {
         else
           setShowPOV('show')
       }
-    } else {
-      setShowHeadtoHead('hide')
-      setShowCheckStream('hide')
-      setShowPOV('show')
     }
   }, [parserData])
+
   return (
     <>
-      {parserData.type === 'HeadtoHead' && <HeadToHead data={parserData.data} action={showHeadtoHead} />}
+      {parserData.type === 'Head2Head' && <HeadToHead dataH2H={parserData.data} action={showHeadtoHead} />}
 
       {parserData.type === 'Check_Stream' && <CheckStream data={parserData.data} show={showCheckStream} />}
 
