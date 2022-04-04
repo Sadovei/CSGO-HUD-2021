@@ -1,22 +1,25 @@
 import React, { useEffect, useState } from 'react'
 
 import SponsorNr1 from './SponsorNr1/SponsorNr1';
-import { subscribeToSponsorNr1 } from "../../utils/socketIO";
 
-export default function SmartDynamic() {
-    const [firstSponsor, setFirstSponsor] = useState(null);
+export default function SmartDynamic({ data }) {
+  const [showSponsor, setShowSponsor] = useState('none')
+  useEffect(() => {
+    if (data.type !== '') {
+      if (data.type === 'Odds') {
+        if (data.show)
+          setShowSponsor('show')
+        else
+          setShowSponsor('hide')
+      }
+    } else
+      setShowSponsor('none')
+  }, [data])
 
-    useEffect(() => {
-        subscribeToSponsorNr1(data => {
-            setFirstSponsor(data)
-        })
-    }, [])
-
-    if (firstSponsor !== null)
-        return (
-            <SponsorNr1 data={firstSponsor} action={'show'} />
-        )
+  if (data?.type === 'Odds')
     return (
-        <SponsorNr1 data={null} action={'hide'} />
+      <SponsorNr1 data={data.data} action={showSponsor} />
     )
+  else
+    return null
 }

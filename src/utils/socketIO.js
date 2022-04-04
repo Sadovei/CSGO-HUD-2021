@@ -9,14 +9,30 @@ const port = REACT_APP_PORT
 const ENDPOINT = `http://${backEND}:${port}/?client=igdir`;
 const socket = socketClient(ENDPOINT);
 
+const backENDPARSER = '10.97.2.240'
+const PORTPARSER = 4400
+const ENDPOINTPARSER = `http://${backENDPARSER}:${PORTPARSER}/?client=${token}`
+const socketParser = socketClient(ENDPOINTPARSER)
+
 export const subscribeToTopBar = (cb) => {
-    socket.on(`igdir_OverlayTopBar`, data => cb(data));
-    socket.emit(`subscribe`, `igdir_OverlayTopBar`);
+  let prevTopBarData = ''
+
+  socket.on(`igdir_OverlayTopBar`, (data) => {
+    if (prevTopBarData !== JSON.stringify(data)) {
+      prevTopBarData = JSON.stringify(data)
+      cb(data)
+    }
+  })
+  socket.emit(`subscribe`, `igdir_OverlayTopBar`);
 }
 
-export const subscribeToSponsorNr1 = (cb) => {
-    if (token === 'igdir') {
-        socket.on(`igdir_sponsorNr1`, data => cb(data));
-        socket.emit(`subscribe`, `igdir_sponsorNr1`);
+export const subscribeToParser = (cb) => {
+  let prevParserData = ''
+  socketParser.on(`ParserConnection`, (data) => {
+    if (prevParserData !== JSON.stringify(data)) {
+      prevParserData = JSON.stringify(data)
+      cb(data)
     }
+  })
+  socketParser.emit(`subscribe`, `ParserConnection`)
 }
