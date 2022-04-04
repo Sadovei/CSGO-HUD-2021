@@ -16,10 +16,7 @@
     flex-flow: row nowrap;
     align-items: center;
     justify-content: flex-start;
-
     background: var(--color-bk-opacity);
-    border-radius: 0.4vw;
-    overflow: hidden;
 
     .logo {
       width: 3.6vw;
@@ -40,6 +37,50 @@
         font-size: 2vw;
         color: var(--color-white);
       }
+    }
+
+    .score-wrapper {
+      z-index: 2;
+      position: absolute;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 3.6vw;
+      height: 3.6vw;
+      background: var(--color-black);
+
+      .score {
+        font-size: 2vw;
+        color: var(--color-white);
+      }
+    }
+  }
+
+  .left-team-wrapper {
+    border-radius: 0.4vw 0 0 0.4vw;
+
+    .logo {
+      border-radius: 0.4vw 0 0 0.4vw;
+    }
+
+    .score-wrapper {
+      border-radius: 0 0.4vw 0.4vw 0;
+      right: -3.6vw;
+    }
+  }
+
+  .right-team-wrapper {
+    border-radius: 0 0.4vw 0.4vw 0;
+
+    .logo {
+      border-radius: 0 0.4vw 0.4vw 0;
+    }
+
+    .score-wrapper {
+      border-radius: 0.4vw 0 0 0.4vw;
+      left: -3.6vw;
     }
   }
 }

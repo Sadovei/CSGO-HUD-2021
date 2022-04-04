@@ -11,9 +11,17 @@ export default function Teams({ data }) {
                 <div className='name-wrapper'>
                     <p className="team-name">{data.leftSide.name.toUpperCase()}</p>
                 </div>
+
+                <div className='score-wrapper'>
+                    <p className="score">{data.leftSide.score}</p>
+                </div>
             </div>
 
             <div className="right-team-wrapper">
+                <div className='score-wrapper'>
+                    <p className="score">{data.rightSide.score}</p>
+                </div>
+
                 <div className='name-wrapper'>
                     <p className="team-name">{data.rightSide.name.toUpperCase()}</p>
                 </div>

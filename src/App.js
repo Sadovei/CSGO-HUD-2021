@@ -23,7 +23,7 @@ function App() {
       setRightSide(data)
     })
   }, [])
-
+  
   if (topBar) {
     if (topBar.mapInfo.phase === 'gameover' && topBar.round.time <= 0)
       return null
