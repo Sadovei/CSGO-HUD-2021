@@ -7,6 +7,11 @@ const port = 4400
 const ENDPOINT = `http://${backEND}:${port}/?client=${token}`
 const socket = socketClient(ENDPOINT)
 
+const backENDPARSER = '10.97.2.240'
+const PORTPARSER = 4400
+const ENDPOINTPARSER = `http://${backENDPARSER}:${PORTPARSER}/?client=${token}`
+const socketParser = socketClient(ENDPOINTPARSER)
+
 export const subscribeToTopBar = (cb) => {
   let prevTopBarData = ''
 
@@ -54,7 +59,14 @@ export const unsubscribeToLeftSide = () => {
 }
 
 export const subscribeToRightSide = (cb) => {
-  socket.on(`${token}_OverlayRightSide`, (data) => cb(data))
+  let prevRightSide = ''
+
+  socket.on(`${token}_OverlayRightSide`, (data) => {
+    if (prevRightSide !== JSON.stringify(data)) {
+      prevRightSide = JSON.stringify(data)
+      cb(data)
+    }
+  })
   socket.emit(`subscribe`, `${token}_OverlayRightSide`)
 }
 export const unsubscribeToRightSide = () => {
@@ -62,82 +74,30 @@ export const unsubscribeToRightSide = () => {
   socket.emit(`unsubscribe`, `${token}_OverlayRightSide`)
 }
 
-export const subscribeToHead2Head = (cb) => {
-  if (token === 'igdir') {
-    socket.on(`igdir_Overlay_Head2Head`, (data) => cb(data))
-    socket.emit(`subscribe`, `igdir_Overlay_Head2Head`)
-  }
-}
-export const unsubscribeToHead2Head = () => {
-  if (token === 'igdir') {
-    socket.on(`igdir_Overlay_Head2Head`)
-    socket.emit(`unsubscribe`, `igdir_Overlay_Head2Head`)
-  }
-}
-
-export const subscribeToSponsorNr1 = (cb) => {
-  if (token === 'igdir') {
-    socket.on(`igdir_sponsorNr1`, (data) => cb(data))
-    socket.emit(`subscribe`, `igdir_sponsorNr1`)
-  }
-}
-export const unsubscribeToSponsorNr1 = () => {
-  if (token === 'igdir') {
-    socket.on(`igdir_sponsorNr1`)
-    socket.emit(`unsubscribe`, `igdir_sponsorNr1`)
-  }
-}
-
-export const subscribeToScoreBoard = (cb) => {
-  if (token === 'igdir') {
-    socket.on(`igdir_Overlay_Scoreboard`, (data) => cb(data))
-    socket.emit(`subscribe`, `igdir_Overlay_Scoreboard`)
-  }
-}
-export const unsubscribeToScoreBoard = () => {
-  if (token === 'igdir') {
-    socket.on(`igdir_Overlay_Scoreboard`)
-    socket.emit(`unsubscribe`, `igdir_Overlay_Scoreboard`)
-  }
-}
-
-export const subscribeToCheckStream = (cb) => {
-  if (token === 'igdir') {
-    if (port === '4600') {
-      socket.on(`igdir_checkStream_A`, (data) => cb(data))
-      socket.emit(`subscribe`, `igdir_checkStream_A`)
-    } else {
-      socket.on(`igdir_checkStream_B`, (data) => cb(data))
-      socket.emit(`subscribe`, `igdir_checkStream_B`)
-    }
-  }
-}
-export const unsubscribeToCheckStream = () => {
-  if (token === 'igdir') {
-    if (port === '4600') {
-      socket.on(`igdir_checkStream_A`)
-      socket.emit(`unsubscribe`, `igdir_checkStream_A`)
-    } else {
-      socket.on(`igdir_checkStream_B`)
-      socket.emit(`unsubscribe`, `igdir_checkStream_B`)
-    }
-  }
-}
-
 export const subscribeToRadar = (cb) => {
-  socket.on(`${token}_OverlayRadar`, (data) => cb(data))
+  let prevRadarData = ''
+
+  socket.on(`${token}_OverlayRadar`, (data) => {
+    if (prevRadarData !== JSON.stringify(data)) {
+      prevRadarData = JSON.stringify(data)
+      cb(data)
+    }
+  })
   socket.emit(`subscribe`, `${token}_OverlayRadar`)
 }
+
 export const unsubscribeToRadar = () => {
   socket.on(`${token}_OverlayRadar`)
   socket.emit(`unsubscribe`, `${token}_OverlayRadar`)
 }
 
-export const subscribeToMessage = (cb) => {
-  socket.on(`${token}_Refresh_Graphics`, (data) => cb(data))
-  socket.emit(`subscribe`, `${token}_Refresh_Graphics`)
-}
-export const unsubscribeToMessage = () => {
-  socket.on(`${token}_Refresh_Graphics`)
-  socket.emit(`unsubscribe`, `${token}_Refresh_Graphics`)
+export const subscribeToParser = (cb) => {
+  let prevParserData = ''
+  socketParser.on(`ParserConnection`, (data) => {
+    if (prevParserData !== JSON.stringify(data)) {
+      prevParserData = JSON.stringify(data)
+      cb(data)
+    }
+  })
+  socketParser.emit(`subscribe`, `ParserConnection`)
 }

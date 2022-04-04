@@ -1,41 +1,48 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { subscribeToHead2Head, token, unsubscribeToHead2Head } from '../../utils/socketIO'
+import React, { useEffect, useState } from 'react'
 
+import CheckStream from './CheckStream/CheckStream'
 import HeadToHead from './HeadToHead/HeadToHead'
 import SmartPovSide from '../SmartPovSide/SmartPovSide'
 
-export default function SmartDynamic() {
-  const [head2Head, setHead2Head] = useState(null)
-  const showHeadtoHead = useRef('none')
+export default function SmartDynamic({ parserData }) {
+  const [showHeadtoHead, setShowHeadtoHead] = useState('none')
+  const [showCheckStream, setShowCheckStream] = useState('none')
+  const [showPOV, setShowPOV] = useState('show')
 
   useEffect(() => {
-    if (token === 'igdir') {
-      subscribeToHead2Head((data) => {
-        setHead2Head(data)
-      })
+    if (parserData.type !== '') {
+      if (parserData.type === 'Head2Head') {
+        if (parserData.show) {
+          setShowHeadtoHead('show')
+          setShowPOV('hide')
+        } else {
+          setShowHeadtoHead('hide')
+          setShowPOV('show')
+        }
+      } else if (parserData.type === 'Check_Stream') {
+        if (parserData.show) {
+          setShowCheckStream('show')
+        } else {
+          setShowCheckStream('hide')
+        }
+      } else if (parserData.type === 'Odds') {
+        if (parserData.show)
+          setShowPOV('hide')
+        else
+          setShowPOV('show')
+      }
+    } else {
+      setShowHeadtoHead('hide')
+      setShowCheckStream('hide')
+      setShowPOV('show')
     }
+  }, [parserData])
 
-    if (head2Head !== null)
-      showHeadtoHead.current = 'show'
-    else if (showHeadtoHead.current !== 'show')
-      showHeadtoHead.current = 'hide'
-
-    return { unsubscribeToHead2Head }
-  }, [head2Head])
-
-  if (head2Head !== null) {
-    return (
-      <>
-        <HeadToHead data={head2Head} action={showHeadtoHead.current} />
-        <SmartPovSide action={'hide'} />
-      </>
-    )
-  } else if (head2Head === null) {
-    return (
-      <>
-        <HeadToHead data={head2Head} action={showHeadtoHead.current} />
-        <SmartPovSide action={'show'} />
-      </>
-    )
-  }
+  return (
+    <>
+      {parserData.type === 'HeadtoHead' && <HeadToHead data={parserData.data} action={showHeadtoHead} />}
+      <SmartPovSide action={showPOV} />
+      {parserData.type === 'Check_Stream' && <CheckStream data={parserData.data} show={showCheckStream} />}
+    </>
+  )
 }

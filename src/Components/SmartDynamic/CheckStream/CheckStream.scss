@@ -3,99 +3,67 @@
   width: 13.5vw;
   height: 3.6vw;
 
-  top: 20.7vw;
-  right: 1vw;
+  top: 20.2vw;
+  right: -15vw;
 
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  justify-content: flex-end;
 
   border-radius: 0.4vw;
   background: var(--color-bk-opacity);
 
-  // &.nuke {
-  //   background-image: url('../../../assets/checkStream/de_nuke.webp');
-  // }
-
-  // &.dust2 {
-  //   background-image: url('../../../assets/checkStream/de_dust2.webp');
-  // }
-
-  // &.ancient {
-  //   background-image: url('../../../assets/checkStream/de_ancient.webp');
-  // }
-
-  // &.inferno {
-  //   background-image: url('../../../assets/checkStream/de_inferno.webp');
-  // }
-
-  // &.mirage {
-  //   background-image: url('../../../assets/checkStream/de_mirage.webp');
-  // }
-
-  // &.overpass {
-  //   background-image: url('../../../assets/checkStream/de_overpass.webp');
-  // }
-
-  // &.vertigo {
-  //   background-image: url('../../../assets/checkStream/de_vertigo.webp');
-  // }
-
-  .text-wrapper {
+  .info-wrapper {
     display: flex;
     flex-flow: column nowrap;
-    align-items: flex-end;
+    align-items: center;
+    justify-content: center;
 
-    .title {
-      font-size: 0.6vw;
-      color: var(--color-CT-icons);
-    }
+    height: 100%;
+    padding-left: 0.2vw;
 
-    .info-wrapper {
+    color: var(--color-white);
+  }
+
+  .content-wrapper {
+    margin: 0 0.2vw 0 0.5vw;
+
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
+    .leftTeam-wrapper,
+    .rightTeam-wrapper {
       display: flex;
       flex-flow: row nowrap;
+      align-items: center;
 
-      font-size: 0.7vw;
-      margin: 0.3vw 0;
-      color: var(--color-white);
+      height: 100%;
+
+      .logo {
+        border-radius: 0.4vw;
+        width: 2.2vw;
+        height: 2.2vw;
+        background-size: cover;
+      }
 
       .score {
-        margin: 0 0.3vw;
-        color: var(--color-CT-icons);
-      }
-    }
-
-    .mapName-text {
-      font-size: 0.6vw;
-
-      display: flex;
-      flex-flow: row nowrap;
-      color: var(--color-grey);
-
-      .map-name {
+        width: 1.3vw;
+        text-align: center;
+        
+        margin: 0 0.2vw;
+        font-size: 1vw;
         color: var(--color-white);
       }
     }
+
+    .vs-wrapper {
+      color: var(--color-grey);
+    }
   }
-
-  .image-stream {
-    width: 3.5vw;
-    height: 3.5vw;
-
-    margin: 0 0.5vw;
-
-    background-size: cover;
-
-    // &.A {
-    //   background-image: url('../../../assets//checkStream/A.webp');
-    // }
-
-    // &.B {
-    //   background-image: url('../../../assets//checkStream/B.webp');
-    // }
-  }
-
   &.show {
     animation: show 0.5s 0.5s forwards;
   }
@@ -107,19 +75,19 @@
 
 @keyframes show {
   from {
-    right: -20vw;
+    right: -25vw;
   }
 
   to {
-    right: 1.1vw;
+    right: 1vw;
   }
 }
 
 @keyframes hide {
   from {
-    right: 1.1vw;
+    right: 1vw;
   }
   to {
-    right: -20vw;
+    right: -15vw;
   }
 }

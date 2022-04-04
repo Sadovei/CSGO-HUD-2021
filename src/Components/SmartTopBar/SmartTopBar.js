@@ -7,10 +7,10 @@ import DynamicComponents from './DynamicComponents/DynamicComponents'
 import HistoricRounds from './HistoricRounds/HistoricRounds'
 import TopBar from './TopBar/TopBar'
 
-export default function SmartTopBar() {
+export default function SmartTopBar({ parserData }) {
   const [topBarData, setTopBarData] = useState()
-  const showHistory = useRef('')
-  const showDynamic = useRef('')
+  const [showHistory, setShowHistory] = useState('none')
+  const [showDynamic, setShowDynamic] = useState('show')
 
   useEffect(() => {
     subscribeToTopBar((data) => {
@@ -18,17 +18,35 @@ export default function SmartTopBar() {
     })
     return unsubscribeToTopBar
   }, [])
-  
+
+  useEffect(() => {
+    if (parserData.type !== '') {
+      if (parserData.type === 'Historic_Rounds') {
+        if (parserData.show) {
+          setShowHistory('show')
+          setShowDynamic('hide')
+        } else {
+          setShowHistory('hide')
+          setShowDynamic('show')
+        }
+      }
+    } else {
+      setShowHistory('none')
+      setShowDynamic('show')
+    }
+  }, [parserData])
+
+
   if (topBarData && Object.keys(topBarData).length > 0 && topBarData.round.time !== '-100') {
     return (
       <div className='topBar-wrapper'>
         <TopBar topBar={topBarData} />
 
         <div className='showHistoric-wrapper row'>
-          <HistoricRounds data={topBarData.mapInfo.historyRounds} leftTeam={topBarData.leftSide} rightTeam={topBarData.rightSide} showContent={showHistory.current} />
+          <HistoricRounds data={topBarData.mapInfo.historyRounds} leftTeam={topBarData.leftSide} rightTeam={topBarData.rightSide} showContent={showHistory} />
         </div>
 
-        <DynamicComponents topBar={topBarData} showContent={showDynamic.current} />
+        <DynamicComponents topBar={topBarData} showContent={showDynamic} />
       </div>
     )
   }
