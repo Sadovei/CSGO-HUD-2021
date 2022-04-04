@@ -10,7 +10,7 @@ import SmartTopBar from './Components/SmartTopBar/SmartTopBar'
 
 function App() {
   const [parserData, setparserData] = useState({ type: '', data: {}, show: false })
-  
+
   useEffect(() => {
     if (token === 'igdir') {
       subscribeToParser((data) => {
@@ -18,6 +18,16 @@ function App() {
       })
     }
   }, [])
+
+  useEffect(() => {
+    if (token === 'igdir') {
+      if (parserData.type === 'Refresh') {
+        if (parserData.data === token) {
+          window.location.reload()
+        }
+      }
+    }
+  }, [parserData])
 
   return (
     <>

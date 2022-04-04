@@ -33,7 +33,6 @@ export default function SmartDynamic({ parserData }) {
       }
     }
   }, [parserData])
-
   return (
     <>
       {parserData.type === 'Head2Head' && <HeadToHead dataH2H={parserData.data} action={showHeadtoHead} />}
