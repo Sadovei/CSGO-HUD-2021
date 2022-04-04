@@ -37,12 +37,13 @@ export default function SmartDynamic({ parserData }) {
       setShowPOV('show')
     }
   }, [parserData])
-
   return (
     <>
       {parserData.type === 'HeadtoHead' && <HeadToHead data={parserData.data} action={showHeadtoHead} />}
-      <SmartPovSide action={showPOV} />
+
       {parserData.type === 'Check_Stream' && <CheckStream data={parserData.data} show={showCheckStream} />}
+
+      <SmartPovSide action={showPOV} />
     </>
   )
 }
