@@ -1,5 +1,6 @@
-import React from 'react'
 import './SponsorNr1.scss'
+
+import React from 'react'
 
 let dataFetch
 
@@ -26,12 +27,7 @@ export default function SponsorNr1({ data, action }) {
         return (
             <div className={`sponsor-main-wrapper font-mont ${action}`}>
                 <div className="left-side-wrapper">
-                    <div className="logos-wrapper">
-                        <div className="primary-logo" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${leftLogo}/logo.webp)` }}></div>
-                        <div className="secondary-logo" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${leftLogo}/logo.webp)` }}></div>
-                    </div>
-
-                    <p className="team-name">{dataFetch[0].short_name}</p>
+                    <div className="logo" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${leftLogo}/logo.webp)` }}></div>
 
                     <div className="cote-wrapper">
                         <p className="first-number">{cote.left.primu}</p>
@@ -40,6 +36,8 @@ export default function SponsorNr1({ data, action }) {
                     </div>
                 </div>
 
+                <div className="logoSponsor"></div>
+
                 <div className="right-side-wrapper">
                     <div className="cote-wrapper">
                         <p className="first-number">{cote.right.primu}</p>
@@ -47,12 +45,7 @@ export default function SponsorNr1({ data, action }) {
                         <p className="second-number">{cote.right.doi}</p>
                     </div>
 
-                    <p className="team-name">{dataFetch[1].short_name}</p>
-
-                    <div className="logos-wrapper">
-                        <div className="primary-logo" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${rightLogo}/logo.webp)` }}></div>
-                        <div className="secondary-logo" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${rightLogo}/logo.webp)` }}></div>
-                    </div>
+                    <div className="logo" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${rightLogo}/logo.webp)` }}></div>
                 </div>
             </div>
         )

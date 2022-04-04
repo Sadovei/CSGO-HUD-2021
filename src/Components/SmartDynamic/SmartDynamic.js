@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { subscribeToSponsorNr1 } from "../../utils/socketIO";
+
 import SponsorNr1 from './SponsorNr1/SponsorNr1';
+import { subscribeToSponsorNr1 } from "../../utils/socketIO";
 
 export default function SmartDynamic() {
     const [firstSponsor, setFirstSponsor] = useState(null);
