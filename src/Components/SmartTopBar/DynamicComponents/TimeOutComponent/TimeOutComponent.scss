@@ -1,6 +1,6 @@
 .timeOut-wrapper {
   width: 13vw;
-  padding: 0 0.5vw;
+  overflow: hidden;
 
   border-radius: 0.4vw;
   background: var(--color-bk-opacity);
@@ -10,24 +10,10 @@
     width: 3vw;
     height: 3vw;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background-color: var(--color-black);
-
     .logo {
-      width: 2vw;
-      height: 2vw;
+      width: 3vw;
+      height: 3vw;
       background-size: cover;
-
-      &.CT {
-        background-image: url('../../../../assets/icons/hudElements/ct.webp');
-      }
-
-      &.T {
-        background-image: url('../../../../assets/icons/hudElements/t.webp');
-      }
 
       &.ANY {
         background-image: url('../../../../assets/icons/hudElements/pause.webp');
