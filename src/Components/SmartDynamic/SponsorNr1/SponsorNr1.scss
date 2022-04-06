@@ -46,7 +46,7 @@
   .left-side-wrapper {
     justify-content: flex-start;
 
-    .logo{
+    .logo {
       margin-right: 2.5vw;
     }
   }
@@ -54,16 +54,17 @@
   .right-side-wrapper {
     justify-content: flex-end;
 
-    .logo{
+    .logo {
       margin-left: 2.5vw;
     }
   }
 
-  .logoSponsor{
-    width: 5vw;
-    height: 3vw;
+  .logoSponsor {
+    width: 90%;
+    height: 2.7vw;
+    margin-top: 0.2vw;
     background-size: cover;
-    background-image: url('../../../assets/icons/ggbet.png');
+    background-image: url('../../Comercials/icons/gg_bet.webp');
   }
 
   &.show {
