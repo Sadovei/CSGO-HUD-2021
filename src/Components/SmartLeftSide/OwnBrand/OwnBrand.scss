@@ -14,12 +14,17 @@
 
     background: var(--color-bk-opacity);
 
-    .logo {
-      width: 7.1vw;
-      height: 120%;
-      background-image: url('../../../assets/icons/hudElements/logo.webp');
-      background-size: cover;
+    video {
+      height: 6vw;
+      margin-top: 0.3vw;
     }
+
+    // .logo {
+    //   width: 7.1vw;
+    //   height: 120%;
+    //   background-image: url('../../../assets/icons/hudElements/logo.webp');
+    //   background-size: cover;
+    // }
 
     &.showStart {
       animation: showLeft 1s forwards;
