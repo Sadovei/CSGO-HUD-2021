@@ -1,5 +1,6 @@
-import React from 'react'
 import './Player.scss'
+
+import React from 'react'
 
 export default function Player({ info, team, DefuseIMG, grenadeImg, BombIMG, PistolIMG, WeaponIMG, ammoFillAnim }) {
     return (
@@ -21,7 +22,7 @@ export default function Player({ info, team, DefuseIMG, grenadeImg, BombIMG, Pis
             </div>
 
             <div className="first-box row">
-                <p className="player-name font-tablet">{info.namePlayer.toUpperCase()}</p>
+                <p className="player-name font-tablet">{info.playerName.toUpperCase()}</p>
             </div>
         </div >
     )
