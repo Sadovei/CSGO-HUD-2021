@@ -61,7 +61,7 @@ export default function Player({
                 </div>
               </div>
 
-              <p className='playerName'>{info.namePlayer}</p>
+              <p className='playerName'>{info.playerName}</p>
             </div>
 
             <div className='secondRow-wrapper row'>
@@ -111,7 +111,7 @@ export default function Player({
 
           <div className='playerImage-wrapper'>
             <div className='playerImage' alt='' style={{
-              backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${info.teamKey}/${info.nameKey}.webp)`,
+              backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${info.teamKey}/${info.playerKey}.webp)`,
               filter: info.state.health === 0
                 ? 'grayscale(100%)'
                 : info.state.flashed / 51 < 1

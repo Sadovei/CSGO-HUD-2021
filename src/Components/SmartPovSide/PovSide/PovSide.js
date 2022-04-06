@@ -7,22 +7,24 @@ import classNames from 'classnames';
 import { token } from '../../../utils/socketIO'
 
 export default function PovSide({ povData, DefuseIMG, BombIMG, grenadeImg, activeWeapon, action }) {
-    let picturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${povData.teamKey}/${povData.playerKey}.webp`
-    let teamLogo = povData.teamKey === 'placeholder' ? (`placeholder/${povData.team === 'CT' ? 'CT' : 'T'}`) : povData.teamKey
     const [flagPhoto, setFlagPhoto] = useState(false)
-    let sideTeam = classNames({
-        'CT': povData.team === 'CT',
-        'T': povData.team === 'T'
-    })
-    let armor = classNames({
-        'helmet': povData.state.helmet,
-        'armor': !povData.state.helmet && povData.state.armor !== 0 && true
-    })
+
+    let picturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${povData.teamKey}/${povData.playerKey}.webp`
+    let teamLogo = povData.teamKey === 'placeholder' ? (`placeholder/${povData.teamSide === 'CT' ? 'CT' : 'T'}`) : povData.teamKey
 
     useEffect(() => {
         if (token === 'main')
             setFlagPhoto(povData.toggleCamera)
     }, [povData])
+
+    let sideTeam = classNames({
+        'CT': povData.teamSide === 'CT',
+        'T': povData.teamSide === 'T'
+    })
+    let armor = classNames({
+        'helmet': povData.state.helmet,
+        'armor': !povData.state.helmet && povData.state.armor !== 0 && true
+    })
 
     const props = useSpring({
         bottom: action === 'show' ? '1vw' : '-14vw',

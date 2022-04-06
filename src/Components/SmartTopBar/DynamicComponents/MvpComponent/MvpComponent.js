@@ -27,12 +27,12 @@ export default function MvpComponent({ mvps }) {
     return (
         <animated.div className='mvp-wrapper row' style={{ opacity: mvpProps.opacity }}>
             <div className='sideImage-wrapper'>
-                <div className={`sideImage ${currentMVP?.current?.side}`}></div>
+                <div className={`sideImage ${currentMVP?.current?.teamSide}`}></div>
             </div>
 
             <div className='info-wrapper col'>
-                <p className={`side  ${currentMVP?.current?.side} `}>
-                    {currentMVP?.current?.side === 'CT'
+                <p className={`side  ${currentMVP?.current?.teamSide} `}>
+                    {currentMVP?.current?.teamSide === 'CT'
                         ? 'COUNTER TERRORISTS'
                         : 'TERRORISTS'}
                 </p>
@@ -41,7 +41,7 @@ export default function MvpComponent({ mvps }) {
 
                 <div className='roundText-wrapper row'>
                     <p className='roundText'>ROUND MVP:</p>
-                    <p className='playerText'>{currentMVP?.current?.nickName}</p>
+                    <p className='playerText'>{currentMVP?.current?.playerName}</p>
                 </div>
             </div>
 
