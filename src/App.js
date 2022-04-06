@@ -12,23 +12,19 @@ function App() {
   const [parserData, setparserData] = useState({ type: '', data: {}, show: false })
 
   useEffect(() => {
-    if (token === 'igdir') {
-      subscribeToParser((data) => {
-        setparserData(data)
-      })
-    }
+    subscribeToParser((data) => {
+      setparserData(data)
+    })
   }, [])
 
   useEffect(() => {
-    if (token === 'igdir') {
-      if (parserData.type === 'Refresh') {
-        if (parserData.data === token) {
-          window.location.reload()
-        }
+    if (parserData.type === 'Refresh') {
+      if (parserData.data === token) {
+        window.location.reload()
       }
     }
   }, [parserData])
-
+  
   return (
     <>
       <SmartTopBar parserData={parserData} />

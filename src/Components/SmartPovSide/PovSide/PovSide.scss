@@ -219,11 +219,11 @@
         }
       }
 
-      &.CT{
+      &.CT {
         background: var(--color-CT-life-bar);
       }
 
-      &.T{
+      &.T {
         background: var(--color-T-life-bar);
       }
     }
@@ -234,8 +234,6 @@
     bottom: 0;
     left: 0;
 
-
-
     height: 2vw;
     width: calc(62% - 0.7vw);
 
@@ -243,35 +241,25 @@
     align-items: flex-end;
     border-radius: 0 0 0 0.8vh;
 
-    background: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 1) 70%,
-      rgba(255, 255, 255, 0) 100%
-    );
+    background: linear-gradient(90deg, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 80%);
     border-radius: 0 0 0 0.4vw;
     overflow: hidden;
 
     .playerInfo-content {
+      height: 100%;
       align-items: center;
 
       .teamLogo {
-        width: 3vh;
-        height: 3vh;
+        width: 2vw;
+        height: 2vw;
         background-size: cover;
       }
 
       .playerName-wrapper {
-        .bar {
-          background-color: var(--color-grey);
-          opacity: 0.8;
-          width: 0.15vw;
-          margin: 0 0.2vw;
-          height: 1.2vw;
-        }
-
         .playerName {
           color: var(--color-white);
           font-size: 1vw;
+          margin-left: 0.3vw;
         }
       }
     }

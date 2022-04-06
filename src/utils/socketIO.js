@@ -11,7 +11,7 @@ const ENDPOINT = `http://${backEND}:${port}/?client=${token}`
 const socket = socketClient(ENDPOINT)
 
 // const backENDPARSER = '10.97.2.31'
-const backENDPARSER = '10.97.2.240'
+const backENDPARSER = '10.97.2.16'
 const PORTPARSER = REACT_APP_STREAM === 'A' ? 4500 : 4700
 const ENDPOINTPARSER = `http://${backENDPARSER}:${PORTPARSER}/?client=${token}`
 const socketParser = socketClient(ENDPOINTPARSER)
@@ -96,12 +96,6 @@ export const unsubscribeToRadar = () => {
 }
 
 export const subscribeToParser = (cb) => {
-  let prevParserData = ''
-  socketParser.on(`ParserConnection`, (data) => {
-    if (prevParserData !== JSON.stringify(data)) {
-      prevParserData = JSON.stringify(data)
-      cb(data)
-    }
-  })
+  socketParser.on(`ParserConnection`, (data) => cb(data))
   socketParser.emit(`subscribe`, `ParserConnection`)
 }

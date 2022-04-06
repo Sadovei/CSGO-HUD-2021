@@ -1,5 +1,6 @@
 import './PovSide.scss'
 
+import React, { useEffect, useState } from 'react'
 import { animated, useSpring } from 'react-spring'
 
 import classNames from 'classnames';
@@ -8,8 +9,7 @@ import { token } from '../../../utils/socketIO'
 export default function PovSide({ povData, DefuseIMG, BombIMG, grenadeImg, activeWeapon, action }) {
     let picturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${povData.teamKey}/${povData.playerKey}.webp`
     let teamLogo = povData.teamKey === 'placeholder' ? (`placeholder/${povData.team === 'CT' ? 'CT' : 'T'}`) : povData.teamKey
-    let flagPhoto = false
-
+    const [flagPhoto, setFlagPhoto] = useState(false)
     let sideTeam = classNames({
         'CT': povData.team === 'CT',
         'T': povData.team === 'T'
@@ -19,8 +19,10 @@ export default function PovSide({ povData, DefuseIMG, BombIMG, grenadeImg, activ
         'armor': !povData.state.helmet && povData.state.armor !== 0 && true
     })
 
-    if (token === 'main')
-        flagPhoto = povData.toggleCamera
+    useEffect(() => {
+        if (token === 'main')
+            setFlagPhoto(povData.toggleCamera)
+    }, [povData])
 
     const props = useSpring({
         bottom: action === 'show' ? '1vw' : '-14vw',
@@ -66,7 +68,6 @@ export default function PovSide({ povData, DefuseIMG, BombIMG, grenadeImg, activ
                     <div className="teamLogo" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${teamLogo}/logo.webp)` }}></div>
 
                     <div className='playerName-wrapper row'>
-                        <div className='bar'></div>
                         <p className='playerName'>{povData.playerName}</p>
                     </div>
                 </div>

@@ -55,8 +55,8 @@ export default function TopBar({ topBar }) {
         : Math.ceil(Number(topBar.round.time)) % 60
       : '00'
 
-  if (topBar.round.bombState.defuseTime !== '0') {
-    Number(topBar.round.bombState.defuseTime) > 5
+  if (topBar.round.bombState !== '0') {
+    Number(topBar.round.bombState) > 5
       ? defuseState.current = false
       : defuseState.current = true
   }
@@ -155,29 +155,17 @@ export default function TopBar({ topBar }) {
         muted={true}
         loop={true}>
       </video>
-
+      
       <div className='bombTime-wrapper row'>
         <div className='leftSideTime-wrapper'>
           {sideLeft === 'CT' ?
-            <div className='defuse' style={{
-              width:
-                calcDefusePerc(
-                  defuseState.current,
-                  Number(topBar.round.bombState.defuseTime).toFixed(3)
-                ) + '%'
-            }}></div> :
+            <div className='defuse' style={{ width: calcDefusePerc(defuseState.current, Number(topBar.round.bombState).toFixed(3)) + '%' }}></div> :
             <div className={`bomb ${(topBar.round.phase === 'bomb' || topBar.round.phase === 'defuse') && 'show'}`}></div>}
         </div>
 
         <div className='rightSideTime-wrapper'>
           {sideRight === 'CT' ?
-            <div className='defuse' style={{
-              width:
-                calcDefusePerc(
-                  defuseState.current,
-                  Number(topBar.round.bombState.defuseTime).toFixed(3)
-                ) + '%'
-            }}></div> :
+            <div className='defuse' style={{ width: calcDefusePerc(defuseState.current, Number(topBar.round.bombState).toFixed(3)) + '%' }}></div> :
             <div className={`bomb ${(topBar.round.phase === 'bomb' || topBar.round.phase === 'defuse') && 'show'}`}></div>}
         </div>
       </div>

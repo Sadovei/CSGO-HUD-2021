@@ -1,7 +1,7 @@
 import './SmartTopBar.scss'
 
 import React, { useEffect, useState } from 'react'
-import { subscribeToTopBar, unsubscribeToTopBar } from '../../utils/socketIO'
+import { subscribeToTopBar, token, unsubscribeToTopBar } from '../../utils/socketIO'
 
 import DynamicComponents from './DynamicComponents/DynamicComponents'
 import HistoricRounds from './HistoricRounds/HistoricRounds'
@@ -20,20 +20,21 @@ export default function SmartTopBar({ parserData }) {
   }, [])
 
   useEffect(() => {
-    if (parserData.type !== '') {
-      if (parserData.type === 'Historic_Rounds') {
-        if (parserData.show) {
-          setShowHistory('show')
-          setShowDynamic('hide')
-        } else {
-          setShowHistory('hide')
-          setShowDynamic('show')
+    if (token === 'igdir')
+      if (parserData.type !== '') {
+        if (parserData.type === 'Historic_Rounds') {
+          if (parserData.show) {
+            setShowHistory('show')
+            setShowDynamic('hide')
+          } else {
+            setShowHistory('hide')
+            setShowDynamic('show')
+          }
         }
+      } else {
+        setShowHistory('none')
+        setShowDynamic('show')
       }
-    } else {
-      setShowHistory('none')
-      setShowDynamic('show')
-    }
   }, [parserData])
 
 

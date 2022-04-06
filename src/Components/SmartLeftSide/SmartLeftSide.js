@@ -15,6 +15,9 @@ export default function SmartLeftSide() {
     })
     return unsubscribeToLeftSide
   }, [])
+
+  console.log()
+
   if (leftSide)
     return (
       <div className='left-wrapper'>
@@ -31,7 +34,7 @@ export default function SmartLeftSide() {
             phase={leftSide.roundPhase}
           />
 
-          <OwnBrand phase={leftSide.roundPhase} />
+          <OwnBrand phase={leftSide.roundPhase} typeOfEvent={leftSide?.typeOfEvent ? leftSide.typeOfEvent : ''} />
         </div>
 
         <LeftSide

@@ -319,13 +319,17 @@
       }
 
       .weapon-wrapper {
+        height: 100%;
+        display: flex;
+        align-items: center;
+
         position: absolute;
         left: 2%;
 
         z-index: 2;
 
         .primary {
-          height: 1.294vw;
+          height: 1vw;
           margin-right: 0.5vw;
 
           svg {
@@ -335,7 +339,7 @@
         }
 
         .secondary {
-          height: 1.294vw;
+          height: 1vw;
 
           svg {
             transform: scaleX(-1);
@@ -691,7 +695,7 @@
             width: 100%;
             align-items: center;
             justify-content: space-between;
-            z-index: -1;
+            z-index: 1;
             background-color: var(--color-CT-life-bar);
 
             .currentKills-wrapper {
@@ -753,20 +757,20 @@
     }
   }
 
-  &.slot-6{
-    order: 6
+  &.slot-6 {
+    order: 6;
   }
-  &.slot-7{
-    order: 7
+  &.slot-7 {
+    order: 7;
   }
-  &.slot-8{
-    order: 8
+  &.slot-8 {
+    order: 8;
   }
-  &.slot-9{
-    order: 9
+  &.slot-9 {
+    order: 9;
   }
-  &.slot-0{
-    order: 10
+  &.slot-0 {
+    order: 10;
   }
 
   + .right-player-wrapper {

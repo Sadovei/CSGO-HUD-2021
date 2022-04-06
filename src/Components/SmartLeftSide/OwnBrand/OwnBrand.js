@@ -2,10 +2,17 @@ import './OwnBrand.scss'
 
 import React, { useEffect, useRef, useState } from 'react'
 
-export default function OwnBrand({ phase }) {
+import america from '../../../assets/videos/america.webm'
+import asia from '../../../assets/videos/asia.webm'
+import europa_a from '../../../assets/videos/europa_a.webm'
+import europa_b from '../../../assets/videos/europa_b.webm'
+import major from '../../../assets/videos/major.webm'
+
+export default function OwnBrand({ phase, typeOfEvent }) {
     const [animClass, setAnimClass] = useState('')
     const [flag, setFlag] = useState(false)
     const updateStart = useRef(null)
+    const videoReference = useRef(null)
 
     useEffect(() => {
         if (!updateStart.current) {
@@ -45,9 +52,31 @@ export default function OwnBrand({ phase }) {
             }, 5000)
     }
 
+    useEffect(() => {
+        if (typeOfEvent === 'america')
+            videoReference.current.src = america
+        else if (typeOfEvent === 'europa_a')
+            videoReference.current.src = europa_a
+        else if (typeOfEvent === 'europa_b')
+            videoReference.current.src = europa_b
+        else if (typeOfEvent === 'asia')
+            videoReference.current.src = asia
+        else
+            videoReference.current.src = major
+        videoReference.current.play()
+    }, [typeOfEvent])
+
+
     return (
         <div className={`content-wrapper-ownBrand ${animClass}`}>
-            <div className='logo'></div>
+            {/* <div className='logo'></div> */}
+            <video
+                ref={videoReference}
+                className="video-logo"
+                controls={false}
+                muted={true}
+                loop={true}
+            ></video>
         </div>
     )
 }

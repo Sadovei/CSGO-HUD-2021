@@ -70,11 +70,6 @@
         color: var(--color-grey);
       }
     }
-
-    &:nth-child(3),
-    &:nth-child(5) {
-      align-items: center;
-    }
   }
 
   &.showStart {

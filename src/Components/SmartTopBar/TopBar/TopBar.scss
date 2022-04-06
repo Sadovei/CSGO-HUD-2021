@@ -123,8 +123,8 @@
 
   .bombTime-wrapper {
     position: absolute;
-    left: 0;
-    right: 0;
+    left: 3.6vw;
+    right: 3.6vw;
     top: 3.2vw;
 
     height: 0.3vw;
@@ -145,7 +145,7 @@
         height: 100%;
 
         &.defuse {
-          background: var(--color-blue);
+          background: var(--color-CT-icons);
         }
 
         &.bomb {
