@@ -11,8 +11,8 @@ export default function PovSide({ povData, DefuseIMG, BombIMG, grenadeImg, activ
     let flagPhoto = false
 
     let sideTeam = classNames({
-        'CT': povData.team === 'CT',
-        'T': povData.team === 'T'
+        'CT': povData.teamSide === 'CT',
+        'T': povData.teamSide === 'T'
     })
     let armor = classNames({
         'helmet': povData.state.helmet,
@@ -66,7 +66,6 @@ export default function PovSide({ povData, DefuseIMG, BombIMG, grenadeImg, activ
                     <div className="teamLogo" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${teamLogo}/logo.webp)` }}></div>
 
                     <div className='playerName-wrapper row'>
-                        <div className='bar'></div>
                         <p className='playerName'>{povData.playerName}</p>
                     </div>
                 </div>

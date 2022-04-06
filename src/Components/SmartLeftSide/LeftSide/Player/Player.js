@@ -20,7 +20,7 @@ export default function Player({ info, team }) {
         <div className='firstContentPlayer-wrapper row'>
           <div className='playerImage-wrapper'>
             <div className='playerImage' alt='' style={{
-              backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${info.teamKey}/${info.nameKey}.webp)`,
+              backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${info.teamKey}/${info.playerKey}.webp)`,
               filter: info.state.health === 0
                 ? 'grayscale(100%)'
                 : info.state.flashed / 51 < 1

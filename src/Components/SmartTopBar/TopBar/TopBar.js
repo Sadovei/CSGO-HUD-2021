@@ -18,16 +18,21 @@ export default function TopBar({ topBar }) {
       setBiggestName(topBar.leftSide.name.length);
     } else
       setBiggestName(topBar.rightSide.name.length);
-  }, []);
+  }, [topBar.leftSide.name, topBar.rightSide.name]);
 
   useEffect(() => {
     if (topBar.round.phase === 'bomb') {
       videoRef.current.src = bombPlanted
       videoRef.current.play()
     }
-    videoRefOnFire.current.src = onFire
-
   }, [topBar.round.phase]);
+
+  useEffect(() => {
+    if (topBar.mapInfo.teamOnFire !== 'none') {
+      videoRefOnFire.current.src = onFire
+      videoRefOnFire.current.play()
+    }
+  }, [topBar.mapInfo.teamOnFire]);
 
   let leftLogo =
     topBar.leftSide.nameKey === 'placeholder'
@@ -50,8 +55,8 @@ export default function TopBar({ topBar }) {
         : Math.ceil(Number(topBar.round.time)) % 60
       : '00'
 
-  if (topBar.round.bombState.defuseTime !== '0') {
-    Number(topBar.round.bombState.defuseTime) > 5
+  if (topBar.round.bombState !== '0') {
+    Number(topBar.round.bombState) > 5
       ? defuseState.current = false
       : defuseState.current = true
   }
@@ -70,16 +75,19 @@ export default function TopBar({ topBar }) {
       true
   })
   let sideLeft = classNames({
-    CT: topBar.leftSide.sideTeam === 'CT' && true,
-    T: topBar.leftSide.sideTeam === 'T' && true
+    CT: topBar.leftSide.sideTeam === 'CT',
+    T: topBar.leftSide.sideTeam === 'T'
   })
   let sideRight = classNames({
-    CT: topBar.rightSide.sideTeam === 'CT' && true,
-    T: topBar.rightSide.sideTeam === 'T' && true
+    CT: topBar.rightSide.sideTeam === 'CT',
+    T: topBar.rightSide.sideTeam === 'T'
   })
 
-  // topBar.leftSide.name = 'ASTRALIS'
-  // topBar.rightSide.name = 'ENDPOINT'
+  let flameSide = classNames({
+    right: topBar.rightSide.sideTeam === topBar.mapInfo.teamOnFire,
+    left: topBar.leftSide.sideTeam === topBar.mapInfo.teamOnFire
+  })
+
   return (
     <div className='topBar row'>
       <div className='leftSide-wrapper row'>
@@ -141,35 +149,23 @@ export default function TopBar({ topBar }) {
       </div>
 
       <video ref={videoRefOnFire}
-        className={`onFire`}
+        className={`onFire ${flameSide}`}
         controls={false}
         autoPlay={true}
         muted={true}
         loop={true}>
       </video>
-
+      
       <div className='bombTime-wrapper row'>
         <div className='leftSideTime-wrapper'>
           {sideLeft === 'CT' ?
-            <div className='defuse' style={{
-              width:
-                calcDefusePerc(
-                  defuseState.current,
-                  Number(topBar.round.bombState.defuseTime).toFixed(3)
-                ) + '%'
-            }}></div> :
+            <div className='defuse' style={{ width: calcDefusePerc(defuseState.current, Number(topBar.round.bombState).toFixed(3)) + '%' }}></div> :
             <div className={`bomb ${(topBar.round.phase === 'bomb' || topBar.round.phase === 'defuse') && 'show'}`}></div>}
         </div>
 
         <div className='rightSideTime-wrapper'>
           {sideRight === 'CT' ?
-            <div className='defuse' style={{
-              width:
-                calcDefusePerc(
-                  defuseState.current,
-                  Number(topBar.round.bombState.defuseTime).toFixed(3)
-                ) + '%'
-            }}></div> :
+            <div className='defuse' style={{ width: calcDefusePerc(defuseState.current, Number(topBar.round.bombState).toFixed(3)) + '%' }}></div> :
             <div className={`bomb ${(topBar.round.phase === 'bomb' || topBar.round.phase === 'defuse') && 'show'}`}></div>}
         </div>
       </div>
