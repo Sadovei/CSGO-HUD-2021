@@ -1,6 +1,6 @@
 #newRadar {
   display: block;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   border: none;
@@ -8,10 +8,10 @@
 
   &[class*='dust2'],
   &.de_dust2 {
+    top: 0.4vw;
+    left: 0vw;
     width: 20vw;
     height: 19.7vw;
-    top: 0vw;
-    left: -30vw;
   }
 
   &[class*='de_mirage'],
@@ -24,41 +24,41 @@
 
   &[class*='de_nuke'],
   &.de_nuke {
-    top: -0.3vw;
-    left: -34.2vw;
+    top: 0vw;
+    left: -0.1vw;
     width: 21vw;
     height: 20vw;
   }
 
   &[class*='de_inferno'],
   &.de_inferno {
-    top: -0.6vw;
-    left: -33.8vw;
-    width: 20vw;
-    height: 20vw;
+    top: -0.3vw;
+    left: 0.1vw;
+    width: 21vw;
+    height: 21vw;
   }
 
   &[class*='de_vertigo'],
   &.de_vertigo {
-    top: -0.2vw;
-    left: -33vw;
+    top: 0.1vw;
+    left: -5vw;
     width: 22vw;
     height: 19.9vw;
   }
 
   &[class*='de_overpass'],
   &.de_overpass {
-    top: 0vw;
-    left: -30vw;
+    top: 0.3vw;
+    left: -1.6vw;
     width: 20vw;
     height: 19.7vw;
   }
 
   &[class*='de_ancient'],
   &.de_ancient {
-    top: -2.2vw;
-    left: -31.4vw;
-    width: 22vw;
-    height: 22vw;
+    top: -2vw;
+    left: -1.7vw;
+    width: 23vw;
+    height: 23vw;
   }
 }
