@@ -17,6 +17,11 @@
     video {
       height: 6vw;
       margin-top: 0.3vw;
+
+      &.major {
+        height: 4.8vw;
+        margin-top: 0;
+      }
     }
 
     // .logo {

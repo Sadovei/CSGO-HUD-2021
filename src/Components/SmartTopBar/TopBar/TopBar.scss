@@ -65,6 +65,10 @@
     }
 
     .time-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
       width: 4vw;
       height: 100%;
 
@@ -108,15 +112,18 @@
     }
 
     .bombPlanted {
-      width: 4vw;
-      height: 2.8vw;
+      opacity: 0;
+      display: none;
+      width: 90%;
 
       &.show {
         display: block;
+        animation: showBombLoop 0.2s linear 3.9s forwards;
       }
 
       &.hide {
         display: none;
+        opacity: 0;
       }
     }
   }
@@ -221,5 +228,15 @@
 
   to {
     left: 100%;
+  }
+}
+
+@keyframes showBombLoop {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }

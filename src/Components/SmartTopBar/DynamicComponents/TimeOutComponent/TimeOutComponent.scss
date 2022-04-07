@@ -16,7 +16,8 @@
       background-size: cover;
 
       &.ANY {
-        background-image: url('../../../../assets/icons/hudElements/pause.webp');
+        background-color: var(--color-black);
+        background-image: url('../../../../assets/icons/hudElements/pause.webp') !important;
       }
     }
   }

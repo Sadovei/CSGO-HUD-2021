@@ -10,47 +10,27 @@ import major from '../../../assets/videos/major.webm'
 
 export default function OwnBrand({ phase, typeOfEvent }) {
     const [animClass, setAnimClass] = useState('')
-    const [flag, setFlag] = useState(false)
-    const updateStart = useRef(null)
     const videoReference = useRef(null)
 
     useEffect(() => {
-        if (!updateStart.current) {
-            setUpdate(phase.phase)
+        if (phase.phase === 'freezetime' || phase.phase === 'timeout_t' || phase.phase === 'timeout_ct') {
+            setAnimClass('showStart')
         }
-        return null
+
+        if (phase.phase === 'live') {
+            setTimeout(() => {
+                setAnimClass('hideStart')
+            }, 5000)
+        }
+
+        if (phase.phase === 'bomb') {
+            setAnimClass('showBomb')
+            setTimeout(() => {
+                setAnimClass('hideBomb')
+            }, 5000)
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [phase.phase])
-
-    function setUpdate(phase) {
-        if (
-            phase === 'freezetime' ||
-            phase === 'timeout_t' ||
-            phase === 'timeout_ct'
-        ) {
-            setAnimClass('showStart')
-            setFlag(true)
-        }
-
-        if (phase === 'live' && flag) {
-            updateStart.current = setTimeout(() => {
-                setAnimClass('hideStart')
-                updateStart.current = null
-                setFlag(false)
-            }, 5000)
-        }
-
-        if (phase === 'bomb' && !flag) {
-            setAnimClass('showBomb')
-            setFlag(true)
-        }
-
-        if (phase === 'bomb' && flag)
-            updateStart.current = setTimeout(() => {
-                setAnimClass('hideBomb')
-                updateStart.current = null
-            }, 5000)
-    }
 
     useEffect(() => {
         if (typeOfEvent === 'america')
@@ -66,13 +46,12 @@ export default function OwnBrand({ phase, typeOfEvent }) {
         videoReference.current.play()
     }, [typeOfEvent])
 
-
     return (
         <div className={`content-wrapper-ownBrand ${animClass}`}>
             {/* <div className='logo'></div> */}
             <video
                 ref={videoReference}
-                className="video-logo"
+                className={`video-logo ${typeOfEvent}`}
                 controls={false}
                 muted={true}
                 loop={true}
