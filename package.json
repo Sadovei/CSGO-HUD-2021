@@ -2,7 +2,7 @@
   "name": "csgo-hud-client",
   "version": "0.1.0",
   "private": true,
-  "homepage": "",
+  "homepage": "https://redis-birou.pgl.ro/pgl/CSGO/stream-B/hud-ingame/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",

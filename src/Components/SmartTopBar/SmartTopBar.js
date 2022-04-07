@@ -37,7 +37,6 @@ export default function SmartTopBar({ parserData }) {
       }
   }, [parserData])
 
-
   if (topBarData && Object.keys(topBarData).length > 0 && topBarData.round.time !== '-100') {
     return (
       <div className='topBar-wrapper'>
@@ -48,6 +47,9 @@ export default function SmartTopBar({ parserData }) {
         </div>
 
         <DynamicComponents topBar={topBarData} showContent={showDynamic} />
+
+        <iframe title="radar" id="newRadar" loading="lazy" scrolling="no" frameBorder="none" importance="high" src={`http://localhost:4903`}
+          width="100%" height="100%" className={topBarData.mapInfo.mapName}></iframe>
       </div>
     )
   }

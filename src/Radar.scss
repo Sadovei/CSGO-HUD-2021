@@ -3,21 +3,18 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 22vw;
-  height: 22vw;
   border: none;
   z-index: 1000;
 
-  &[class*="dust2"],
+  &[class*='dust2'],
   &.de_dust2 {
     width: 20vw;
-    height: 20vw;
-
-    top: 1.3vw;
-    left: 0.2vw;
+    height: 19.7vw;
+    top: 0vw;
+    left: -30vw;
   }
 
-  &[class*="de_mirage"],
+  &[class*='de_mirage'],
   &.de_mirage {
     top: -2vw;
     left: -1.2vw;
@@ -25,42 +22,42 @@
     height: 24vw;
   }
 
-  &[class*="de_nuke"],
+  &[class*='de_nuke'],
   &.de_nuke {
-    top: 1vw;
-    left: 0.1vw;
+    top: -0.3vw;
+    left: -34.2vw;
     width: 21vw;
-    height: 21vw;
+    height: 20vw;
   }
 
-  &[class*="de_inferno"],
+  &[class*='de_inferno'],
   &.de_inferno {
-    top: 0.7vw;
-    left: 0vw;
+    top: -0.6vw;
+    left: -33.8vw;
     width: 20vw;
     height: 20vw;
   }
 
-  &[class*="de_vertigo"],
+  &[class*='de_vertigo'],
   &.de_vertigo {
-    top: 1.1vw;
-    left: -4vw;
+    top: -0.2vw;
+    left: -33vw;
     width: 22vw;
-    height: 22vw;
+    height: 19.9vw;
   }
 
-  &[class*="de_overpass"],
+  &[class*='de_overpass'],
   &.de_overpass {
-    top: 1.3vw;
-    left: -2vw;
+    top: 0vw;
+    left: -30vw;
     width: 20vw;
-    height: 20vw;
+    height: 19.7vw;
   }
 
-  &[class*="de_ancient"],
+  &[class*='de_ancient'],
   &.de_ancient {
-    top: -0.9vw;
-    left: -1.5vw;
+    top: -2.2vw;
+    left: -31.4vw;
     width: 22vw;
     height: 22vw;
   }
