@@ -5,13 +5,13 @@ const { REACT_APP_STREAM } = process.env
 
 export const token = findGetParameter("token") || 'main';
 const backEND = '10.97.2.31'
+// const backEND = '10.97.2.14'
 const port = REACT_APP_STREAM === 'A' ? 4400 : 4600
 const ENDPOINT = `http://${backEND}:${port}/?client=igdir`;
 const socket = socketClient(ENDPOINT);
 
-const backENDPARSER = '10.97.2.31'
 const PORTPARSER = REACT_APP_STREAM === 'A' ? 4500 : 4700
-const ENDPOINTPARSER = `http://${backENDPARSER}:${PORTPARSER}/?client=${token}`
+const ENDPOINTPARSER = `http://${backEND}:${PORTPARSER}/?client=${token}`
 const socketParser = socketClient(ENDPOINTPARSER)
 
 export const subscribeToTopBar = (cb) => {
