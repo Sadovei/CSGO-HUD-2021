@@ -121,6 +121,27 @@
     z-index: 0;
   }
 
+  .kills-wrapper {
+    align-items: center;
+    position: absolute;
+    right: 0.1vw;
+    top: 0.1vw;
+
+    display: flex;
+    flex-flow: column nowrap;
+
+    .killImage {
+      width: 1vw;
+      height: 1vw;
+      background-size: cover;
+    }
+
+    .killNumber {
+      color: var(--color-white);
+      font-size: 0.8vw;
+    }
+  }
+
   &.pov {
     &.CT {
       .bk-player {
@@ -195,6 +216,12 @@
         }
       }
     }
+
+    .kills-wrapper {
+      .killImage {
+        background-image: url('../../../../assets/icons/elements/killCurrent-CT.svg');
+      }
+    }
   }
 
   &.T {
@@ -257,6 +284,12 @@
         }
       }
     }
+
+    .kills-wrapper {
+      .killImage {
+        background-image: url('../../../../assets/icons/elements/killCurrent-T.svg');
+      }
+    }
   }
 
   &.death {
@@ -276,6 +309,10 @@
     }
 
     .numberSlot-wrapper {
+      display: none;
+    }
+
+    .kills-wrapper {
       display: none;
     }
   }

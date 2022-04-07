@@ -4,7 +4,6 @@ import React from 'react'
 import classNames from 'classnames'
 
 export default function Player({ info, team }) {
-
   let armor = classNames({
     helmet: info.state.helmet,
     armor: !info.state.helmet && info.state.armor !== 0
@@ -36,12 +35,18 @@ export default function Player({ info, team }) {
             <div className={`healImage`}></div>
 
             <p className={`healNumber ${info.state.health <= 20 ? 'red' : ''}`}>{info.state.health}</p>
-            
+
             <div className={`armorImage ${armor}`}></div>
           </div>
         </div>
       </div>
 
+      {info.state.round_kills > 0 &&
+        <div className='kills-wrapper'>
+          <div className='killImage'></div>
+          <p className='killNumber'>{info.state.round_kills}</p>
+        </div>
+      }
       <div className='bk-player'></div>
     </div >
   )

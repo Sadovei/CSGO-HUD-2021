@@ -41,6 +41,13 @@ export default function Player({ info, team }) {
         <p className='numberSlot'>{info.observer_slot}</p>
       </div>
 
+      {info.state.round_kills > 0 &&
+        <div className='kills-wrapper'>
+          <div className='killImage'></div>
+          <p className='killNumber'>{info.state.round_kills}</p>
+        </div>
+      }
+
       <div className='bk-player'></div>
     </div >
   )
