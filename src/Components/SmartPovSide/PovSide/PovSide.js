@@ -3,24 +3,20 @@ import './PovSide.scss'
 import { animated, useSpring } from 'react-spring'
 
 import classNames from 'classnames';
-import { token } from '../../../utils/socketIO'
 
 export default function PovSide({ povData, DefuseIMG, BombIMG, grenadeImg, activeWeapon, action }) {
     let picturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${povData.teamKey}/${povData.playerKey}.webp`
     let teamLogo = povData.teamKey === 'placeholder' ? (`placeholder/${povData.team === 'CT' ? 'CT' : 'T'}`) : povData.teamKey
-    let flagPhoto = false
 
     let sideTeam = classNames({
         'CT': povData.teamSide === 'CT',
         'T': povData.teamSide === 'T'
     })
+    
     let armor = classNames({
         'helmet': povData.state.helmet,
         'armor': !povData.state.helmet && povData.state.armor !== 0 && true
     })
-
-    if (token === 'main')
-        flagPhoto = povData.toggleCamera
 
     const props = useSpring({
         bottom: action === 'show' ? '1vw' : '-14vw',
@@ -31,8 +27,7 @@ export default function PovSide({ povData, DefuseIMG, BombIMG, grenadeImg, activ
         <animated.div className="pov-wrapper row" style={{ bottom: props.bottom }}>
             <div className='playerImage-wrapper'>
                 <div className="imagePlayer" style={{
-                    backgroundImage: `url(${picturePlayer})`, filter: `brightness(${povData.state.flashed / 51 < 1 ? 1 : povData.state.flashed / 51})`,
-                    visibility: !flagPhoto ? 'visible' : 'hidden'
+                    backgroundImage: `url(${picturePlayer})`, filter: `brightness(${povData.state.flashed / 51 < 1 ? 1 : povData.state.flashed / 51})`
                 }}></div>
             </div>
 
