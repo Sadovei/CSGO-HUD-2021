@@ -18,7 +18,7 @@ export const VideoComponent = ({ topBarData }) => {
                 setPistolRound(true)
             }
 
-        if (topBarData.round.bomb === 'planted' && !bombPlanted && Number(topBarData.round.time) >= 40) {
+        if (topBarData.round.bomb === 'planted' && !bombPlanted && Number(topBarData.round.time) >= 39) {
             videoReference.current.src = plantedBombVideo
             videoReference.current.play()
             setBombPlanted(true)

@@ -16,8 +16,6 @@ export default function SmartLeftSide() {
     return unsubscribeToLeftSide
   }, [])
 
-  console.log()
-
   if (leftSide)
     return (
       <div className='left-wrapper'>
