@@ -1,7 +1,7 @@
 import './Radar.scss'
 
 import React, { useEffect, useState } from 'react'
-import { subscribeToParser, token } from './utils/socketIO'
+import { subscribeToParser, token, unsubscribeToParser } from './utils/socketIO'
 
 import SmartDynamic from './Components/SmartDynamic/SmartDynamic'
 import SmartLeftSide from './Components/SmartLeftSide/SmartLeftSide'
@@ -15,6 +15,7 @@ function App() {
     subscribeToParser((data) => {
       setparserData(data)
     })
+    return unsubscribeToParser
   }, [])
 
   useEffect(() => {

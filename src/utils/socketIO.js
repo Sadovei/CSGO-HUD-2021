@@ -89,7 +89,6 @@ export const subscribeToRadar = (cb) => {
   })
   socket.emit(`subscribe`, `${token}_OverlayRadar`)
 }
-
 export const unsubscribeToRadar = () => {
   socket.on(`${token}_OverlayRadar`)
   socket.emit(`unsubscribe`, `${token}_OverlayRadar`)
@@ -98,4 +97,8 @@ export const unsubscribeToRadar = () => {
 export const subscribeToParser = (cb) => {
   socketParser.on(`ParserConnection`, (data) => cb(data))
   socketParser.emit(`subscribe`, `ParserConnection`)
+}
+export const unsubscribeToParser = () => {
+  socketParser.on(`ParserConnection`)
+  socketParser.emit(`unsubscribe`, `ParserConnection`)
 }
