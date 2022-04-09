@@ -324,4 +324,24 @@
   + .left-player-wrapper.death {
     margin-top: 0 !important;
   }
+
+  &.slot-1 {
+    order: 1;
+  }
+
+  &.slot-2 {
+    order: 2;
+  }
+
+  &.slot-3 {
+    order: 3;
+  }
+
+  &.slot-4 {
+    order: 4;
+  }
+
+  &.slot-5 {
+    order: 5;
+  }
 }
