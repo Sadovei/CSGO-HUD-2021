@@ -204,21 +204,7 @@
 
     z-index: 0;
   }
-
-  &.pov {
-    &.CT {
-      .bk-player {
-        background: var(--color-CT-selected-right);
-      }
-    }
-
-    &.T {
-      .bk-player {
-        background: var(--color-T-selected-right);
-      }
-    }
-  }
-
+  
   &.CT {
     .numberSlot-wrapper {
       background-image: url('../../../../assets/icons/hudElements/dot_ct.webp');

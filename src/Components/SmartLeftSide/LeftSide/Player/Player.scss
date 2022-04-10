@@ -142,20 +142,6 @@
     }
   }
 
-  &.pov {
-    &.CT {
-      .bk-player {
-        background: var(--color-CT-selected-left);
-      }
-    }
-
-    &.T {
-      .bk-player {
-        background: var(--color-T-selected-left);
-      }
-    }
-  }
-
   &.CT {
     .numberSlot-wrapper {
       background-image: url('../../../../assets/icons/hudElements/dot_ct.webp');
