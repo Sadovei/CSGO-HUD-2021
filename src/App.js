@@ -3,7 +3,6 @@ import './Radar.scss'
 import React, { useEffect, useState } from 'react'
 import { subscribeToParser, token, unsubscribeToParser } from './utils/socketIO'
 
-import SmartDynamic from './Components/SmartDynamic/SmartDynamic'
 import SmartLeftSide from './Components/SmartLeftSide/SmartLeftSide'
 import SmartRightSide from './Components/SmartRightSide/SmartRightSide'
 import SmartTopBar from './Components/SmartTopBar/SmartTopBar'
