@@ -32,20 +32,6 @@ export const unsubscribeToTopBar = () => {
   socket.emit(`unsubscribe`, `${token}_OverlayTopBar`)
 }
 
-export const subscribeToPov = (cb) => {
-  let prevPovData = ''
-  socket.on(`${token}_OverlayPovSide`, (data) => {
-    if (prevPovData !== JSON.stringify(data)) {
-      prevPovData = JSON.stringify(data)
-      cb(data)
-    }
-  })
-  socket.emit(`subscribe`, `${token}_OverlayPovSide`)
-}
-export const unsubscribeToPov = () => {
-  socket.on(`${token}_OverlayPovSide`)
-  socket.emit(`unsubscribe`, `${token}_OverlayPovSide`)
-}
 
 export const subscribeToLeftSide = (cb) => {
   let prevLeftSide = ''

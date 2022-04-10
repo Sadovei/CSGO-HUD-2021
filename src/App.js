@@ -31,7 +31,6 @@ function App() {
       <SmartTopBar parserData={parserData} />
       <SmartLeftSide />
       <SmartRightSide />
-      <SmartDynamic parserData={parserData} />
     </>
   )
 }
