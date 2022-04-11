@@ -761,19 +761,19 @@
     order: 6;
   }
   &.slot-7 {
+    margin-top: 0.4vw;
     order: 7;
   }
   &.slot-8 {
+    margin-top: 0.4vw;
     order: 8;
   }
   &.slot-9 {
+    margin-top: 0.4vw;
     order: 9;
   }
   &.slot-0 {
-    order: 10;
-  }
-
-  + .right-player-wrapper {
     margin-top: 0.4vw;
+    order: 10;
   }
 }

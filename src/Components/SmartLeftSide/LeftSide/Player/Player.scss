@@ -741,19 +741,20 @@
     order: 1;
   }
   &.slot-2 {
+    margin-top: 0.4vw;
+
     order: 2;
   }
   &.slot-3 {
+    margin-top: 0.4vw;
     order: 3;
   }
   &.slot-4 {
+    margin-top: 0.4vw;
     order: 4;
   }
   &.slot-5 {
-    order: 5;
-  }
-
-  + .left-player-wrapper {
     margin-top: 0.4vw;
+    order: 5;
   }
 }
