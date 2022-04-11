@@ -1,6 +1,6 @@
 .right-wrapper {
   position: absolute;
-  bottom: 1vw;
+  bottom: 0.6vw;
   right: 1vw;
 
   .dynamic-wrapper {
@@ -11,7 +11,7 @@
     overflow: hidden;
   }
 
-  .right-side-wrapper{
+  .right-side-wrapper {
     display: flex;
     flex-flow: column nowrap;
     align-items: flex-end;

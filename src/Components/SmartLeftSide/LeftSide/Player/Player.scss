@@ -7,6 +7,7 @@
   background: var(--color-bk-opacity);
   color: var(--color-white);
   border-radius: 0.4vw;
+  margin-bottom: 0.4vw;
 
   .numberSlot-wrapper {
     position: absolute;
@@ -612,6 +613,8 @@
     transition-delay: 0s;
     transition: width 800ms ease-out;
 
+    color: var(--color-grey);
+
     .contentPlayer-wrapper {
       .firstContentPlayer-wrapper {
         .infoPlayer-wrapper {
@@ -701,6 +704,16 @@
             }
           }
         }
+
+        .playerImage-wrapper {
+          .playerImage {
+            background-image: url('../../../../assets/icons/elements/death.svg') !important;
+            width: 70%;
+            height: 70%;
+            margin-top: 0vw;
+            margin-left: 0.4vw;
+          }
+        }
       }
 
       .secondContentPlayer-wrapper {
@@ -741,20 +754,15 @@
     order: 1;
   }
   &.slot-2 {
-    margin-top: 0.4vw;
-
     order: 2;
   }
   &.slot-3 {
-    margin-top: 0.4vw;
     order: 3;
   }
   &.slot-4 {
-    margin-top: 0.4vw;
     order: 4;
   }
   &.slot-5 {
-    margin-top: 0.4vw;
     order: 5;
   }
 }
