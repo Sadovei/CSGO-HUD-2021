@@ -138,7 +138,8 @@
 
       align-items: center;
 
-      background: rgba(0, 0, 0, 0.2);
+      background: var(--color-bk-opacity);
+
       border-radius: 0 0 0.3vw 0.3vw;
       overflow: hidden;
 
@@ -217,14 +218,6 @@
             }
           }
         }
-      }
-
-      &.CT {
-        background: var(--color-CT-life-bar);
-      }
-
-      &.T {
-        background: var(--color-T-life-bar);
       }
     }
   }

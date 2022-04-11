@@ -224,7 +224,7 @@
           bottom: 0vw;
 
           display: none;
-
+          background: var(--color-bk-opacity-low);
           justify-content: space-between;
           height: 1.294vw;
 
@@ -275,7 +275,7 @@
 
       height: 1.294vw;
       overflow: hidden;
-
+      background: var(--color-bk-opacity);
       border-radius: 0 0 0.4vw 0.4vw;
 
       .healInfo-wrapper {
@@ -505,7 +505,7 @@
           }
 
           .thirdRow-wrapper {
-            background-color: var(--color-CT);
+            // background-color: var(--color-CT);
 
             .currentKills-wrapper {
               .killsImage {
@@ -517,7 +517,7 @@
       }
 
       .secondContentPlayer-wrapper {
-        background-color: var(--color-CT-life-bar);
+        // background-color: var(--color-CT-life-bar);
 
         .healInfo-wrapper {
           .healImage {
@@ -567,7 +567,7 @@
           }
 
           .thirdRow-wrapper {
-            background-color: var(--color-T);
+            // background-color: var(--color-T);
 
             .currentKills-wrapper {
               .killsImage {
@@ -579,7 +579,7 @@
       }
 
       .secondContentPlayer-wrapper {
-        background-color: var(--color-T-life-bar);
+        // background-color: var(--color-black);
 
         .healInfo-wrapper {
           .healImage {
@@ -730,7 +730,7 @@
         .firstContentPlayer-wrapper {
           .infoPlayer-wrapper {
             .thirdRow-wrapper {
-              background-color: var(--color-CT-life-bar);
+              // background-color: var(--color-CT-life-bar);
             }
           }
         }
@@ -742,7 +742,7 @@
         .firstContentPlayer-wrapper {
           .infoPlayer-wrapper {
             .thirdRow-wrapper {
-              background-color: var(--color-T-life-bar);
+              // background-color: var(--color-T-life-bar);
             }
           }
         }
