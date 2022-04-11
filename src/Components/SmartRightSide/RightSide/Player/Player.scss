@@ -229,7 +229,7 @@
           display: none;
 
           height: 1.294vw;
-
+          background: var(--color-bk-opacity-low);
           border-radius: 0 0 0.4vw 0.4vw;
 
           .currentKills-wrapper {
@@ -278,8 +278,8 @@
 
       display: flex;
       justify-content: flex-end;
+      background: var(--color-bk-opacity);
 
-      background: var(--color-CT-life-bar);
       border-radius: 0 0 0.4vw 0.4vw;
 
       .healInfo-wrapper {
@@ -423,7 +423,7 @@
           }
 
           .thirdRow-wrapper {
-            background-color: var(--color-CT);
+            // background-color: var(--color-CT);
 
             .currentKills-wrapper {
               .killsImage {
@@ -435,7 +435,7 @@
       }
 
       .secondContentPlayer-wrapper {
-        background-color: var(--color-CT-life-bar);
+        // background-color: var(--color-CT-life-bar);
 
         .healInfo-wrapper {
           .healImage {
@@ -485,7 +485,7 @@
           }
 
           .thirdRow-wrapper {
-            background-color: var(--color-T);
+            // background-color: var(--color-T);
 
             .currentKills-wrapper {
               .killsImage {
@@ -497,7 +497,7 @@
       }
 
       .secondContentPlayer-wrapper {
-        background-color: var(--color-T-life-bar);
+        // background-color: var(--color-T-life-bar);
 
         .healInfo-wrapper {
           .healImage {
@@ -604,7 +604,7 @@
             align-items: center;
             justify-content: space-between;
             z-index: 1;
-            background-color: var(--color-CT-life-bar);
+            // background-color: var(--color-CT-life-bar);
 
             .currentKills-wrapper {
               position: absolute;
@@ -655,7 +655,7 @@
         .firstContentPlayer-wrapper {
           .infoPlayer-wrapper {
             .thirdRow-wrapper {
-              background-color: var(--color-CT-life-bar);
+              // background-color: var(--color-CT-life-bar);
             }
           }
         }
@@ -667,7 +667,7 @@
         .firstContentPlayer-wrapper {
           .infoPlayer-wrapper {
             .thirdRow-wrapper {
-              background-color: var(--color-T-life-bar);
+              // background-color: var(--color-T-life-bar);
             }
           }
         }
