@@ -39,11 +39,6 @@ export default function Comercials({ phase }) {
         return null
     }, [phase])
 
-<<<<<<< Updated upstream
-    return (
-        <div className={`content-wrapper-comercial ${animClass}`}>
-            <ImagesComponent />
-=======
     useEffect(() => {
         setInterval(() => {
             if (counter.current === 3)
@@ -57,7 +52,6 @@ export default function Comercials({ phase }) {
     return (
         <div className={`content-wrapper-comercial ${animClass}`}>
             <div className='sponsor-image' style={{ backgroundImage: `url(${SVGMap[sponsorsIMG[counter.current]]})` }}></div>
->>>>>>> Stashed changes
         </div>
     )
 }
