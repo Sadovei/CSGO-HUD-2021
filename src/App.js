@@ -23,7 +23,6 @@ function App() {
       setRightSide(data)
     })
   }, [])
-  
   if (topBar) {
     if (topBar.mapInfo.phase === 'gameover' && topBar.round.time <= 0)
       return null
@@ -41,11 +40,11 @@ function App() {
               </div>
             }
 
-            <CenterVideo map={topBar.mapInfo.mapName}/>
+            <CenterVideo map={topBar.mapInfo.mapName} />
 
             {rightSide &&
               <div className="right-wrapper">
-                <RightSide team={rightSide.side} players={rightSide.players} phase={rightSide.roundPhase.phase} dataEconomy={leftSide.economy} />
+                <RightSide team={rightSide.side} players={rightSide.players} phase={rightSide.roundPhase.phase} dataEconomy={rightSide.economy} />
               </div>
             }
 
