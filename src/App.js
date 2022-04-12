@@ -20,7 +20,7 @@ function App() {
 
   return (
     <>
-      {topBar.round.phase && <Comercials phase={topBar.round.phase} />}
+      <Comercials phase={topBar.round.phase} />
       <SmartDynamic data={sponsor} />
     </>
   );
