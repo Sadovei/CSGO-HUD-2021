@@ -4,10 +4,10 @@ import { animated, useSpring } from 'react-spring'
 
 import React from 'react'
 
-export default function HeadToHead({ dataH2H, action }) {
+export default function HeadToHead({ dataH2H, show }) {
   const props = useSpring({
-    bottom: action === 'show' ? '1vw' : '-25vw',
-    delay: action === 'show' ? 250 : 0
+    bottom: show === 'show' ? '1vw' : '-25vw',
+    delay: show === 'show' ? 250 : 0
   })
 
   let leftPicturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${dataH2H.leftPlayer.teamKey}/${dataH2H.leftPlayer.playerKey}.webp`

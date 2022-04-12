@@ -1,0 +1,25 @@
+.image-wrapper {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -30vw;
+
+  width: 62vw;
+  height: 23.1vw;
+  justify-content: space-between;
+
+  border-radius: 0.4vw;
+  background: var(--color-bk-opacity);
+
+  .image {
+    width: 120%;
+    height: 120%;
+
+    margin-top: -5vw;
+
+    background-image: url('../../../assets/icons/tickets.webp');
+    background-position: 18%;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}

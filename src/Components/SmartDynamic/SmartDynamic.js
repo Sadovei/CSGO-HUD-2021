@@ -3,12 +3,14 @@ import React, { useEffect, useState } from 'react'
 import CheckStream from './CheckStream/CheckStream'
 import HeadToHead from './HeadToHead/HeadToHead'
 import SmartPovSide from '../SmartPovSide/SmartPovSide'
+import TicketComponent from './TicketComponent/TicketComponent'
 import { token } from '../../utils/socketIO'
 
 export default function SmartDynamic({ parserData }) {
   const [showHeadtoHead, setShowHeadtoHead] = useState('none')
   const [showCheckStream, setShowCheckStream] = useState('none')
   const [showPOV, setShowPOV] = useState('show')
+  const [showTickets, setShowTickets] = useState('none')
 
   useEffect(() => {
     if (token === 'igdir')
@@ -32,14 +34,26 @@ export default function SmartDynamic({ parserData }) {
             setShowPOV('hide')
           else
             setShowPOV('show')
+        } else if (parserData.type === 'Tickets') {
+          if (parserData.show) {
+            setShowTickets('show')
+            setShowPOV('hide')
+          } else {
+            setShowTickets('hide')
+            setShowPOV('show')
+          }
         }
       }
   }, [parserData])
+
+
   return (
     <>
-      {parserData.type === 'Head2Head' && <HeadToHead dataH2H={parserData.data} action={showHeadtoHead} />}
+      {parserData.type === 'Head2Head' && <HeadToHead dataH2H={parserData.data} show={showHeadtoHead} />}
 
       {parserData.type === 'Check_Stream' && <CheckStream data={parserData.data} show={showCheckStream} />}
+
+      {parserData.type === 'Tickets' && <TicketComponent show={showTickets} />}
 
       <SmartPovSide action={showPOV} />
     </>
