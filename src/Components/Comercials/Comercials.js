@@ -2,6 +2,8 @@ import './Comercials.scss'
 
 import React, { useEffect, useState } from 'react'
 
+import { subscribeToTopBar } from '../../utils/socketIO'
+
 const SponsorsPNG = require.context('./icons', true)
 const sponsorsIMG = SponsorsPNG.keys().map((key) =>
     key.substring(key.lastIndexOf('/') + 1, key.lastIndexOf('.'))
@@ -14,30 +16,37 @@ const SVGMap = SponsorsPNG.keys().reduce((images, path) => {
     return images
 }, {})
 
-export default function Comercials({ phase }) {
+export default function Comercials() {
     const [animClass, setAnimClass] = useState('')
+    const [topBar, setTopBar] = useState({ round: { phase: '' } });
 
     useEffect(() => {
-        if (phase === 'freezetime' || phase === 'timeout_t' || phase === 'timeout_ct') {
+        subscribeToTopBar(data => {
+            setTopBar(data)
+        })
+    }, [])
+
+    useEffect(() => {
+        if (topBar.round.phase === 'freezetime' || topBar.round.phase === 'timeout_t' || topBar.round.phase === 'timeout_ct') {
             setAnimClass('showStart')
         }
 
-        if (phase === 'live') {
+        if (topBar.round.phase === 'live') {
             setTimeout(() => {
                 setAnimClass('hideStart')
             }, 5000)
         }
 
-        if (phase === 'bomb') {
+        if (topBar.round.phase === 'bomb') {
             setAnimClass('showBomb')
         }
 
-        if (phase === 'bomb')
+        if (topBar.round.phase === 'bomb')
             setTimeout(() => {
                 setAnimClass('hideBomb')
             }, 5000)
         return null
-    }, [phase])
+    }, [topBar.round.phase])
 
     useEffect(() => {
         if (counter === sponsorsIMG.length) counter = 0
