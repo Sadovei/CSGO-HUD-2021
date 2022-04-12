@@ -2,7 +2,7 @@
   "name": "csgo-hud-client",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://redis-birou.pgl.ro/pgl/CSGO/stream-B/hud-sponsors/",
+  "homepage": "http://10.97.2.31/pgl/CSGO/stream-A/hud-sponsors/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -15,7 +15,7 @@
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "react-spring": "^9.2.4",
-    "socket.io-client": "^4.1.3",
+    "socket.io-client": "4.0.2",
     "web-vitals": "^1.0.1"
   },
   "scripts": {

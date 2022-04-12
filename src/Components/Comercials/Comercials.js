@@ -1,12 +1,11 @@
 import './Comercials.scss'
 
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const SponsorsPNG = require.context('./icons', true)
 const sponsorsIMG = SponsorsPNG.keys().map((key) =>
     key.substring(key.lastIndexOf('/') + 1, key.lastIndexOf('.'))
 )
-
 let counter = 0
 
 const SVGMap = SponsorsPNG.keys().reduce((images, path) => {
