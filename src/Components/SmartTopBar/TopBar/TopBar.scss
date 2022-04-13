@@ -137,7 +137,6 @@
     height: 0.3vw;
 
     border-radius: 0 0 0.4vw 0.4vw;
-    overflow: hidden;
     z-index: 1;
 
     .leftSideTime-wrapper,
@@ -157,6 +156,29 @@
 
         &.bomb {
           background: var(--color-red);
+        }
+      }
+
+      .defusePopUp-wrapper {
+        position: absolute;
+        top: 0.4vw;
+        left: 0;
+
+        width: 4.2vw;
+        height: 1.2vw;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.7vw;
+
+        border-radius: 0 0 0.4vw 0.4vw;
+        background: var(--color-bk-opacity);
+        opacity: 0;
+
+        &.showDefuse {
+          transition: opacity 0.1s ease-in-out;
+          opacity: 1;
         }
       }
     }
@@ -189,6 +211,11 @@
           animation: showBombRight 40s linear;
         }
       }
+
+      .defusePopUp-wrapper {
+        left: unset;
+        right: 0;
+      }
     }
   }
 
@@ -200,13 +227,13 @@
 
     &.right {
       display: block;
-      right: -8.9vw;
+      right: -8.7vw;
     }
 
     &.left {
       display: block;
       transform: scaleX(-1);
-      left: -8.9vw;
+      left: -8.7vw;
     }
   }
 }

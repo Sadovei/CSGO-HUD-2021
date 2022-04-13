@@ -12,7 +12,7 @@ export default function TopBar({ topBar }) {
   const defuseState = useRef(false)
   const videoRef = useRef()
   const videoRefOnFire = useRef()
-  
+
   // Set width of TopBar by Names of Teams
   useEffect(() => {
     if (topBar.leftSide.name.length > topBar.rightSide.name.length) {
@@ -167,12 +167,22 @@ export default function TopBar({ topBar }) {
           {sideLeft === 'CT' ?
             <div className='defuse' style={{ width: calcDefusePerc(defuseState.current, Number(topBar.round.bombState).toFixed(3)) + '%' }}></div> :
             <div className={`bomb ${(topBar.round.phase === 'bomb' || topBar.round.phase === 'defuse') && 'show'}`}></div>}
+          {sideLeft === 'CT' &&
+            <div className={`defusePopUp-wrapper ${topBar.round.phase === 'defuse' ? 'showDefuse' : ''}`}>
+              <p className='defuseText'>Defusing</p>
+            </div>
+          }
         </div>
 
         <div className='rightSideTime-wrapper'>
           {sideRight === 'CT' ?
             <div className='defuse' style={{ width: calcDefusePerc(defuseState.current, Number(topBar.round.bombState).toFixed(3)) + '%' }}></div> :
             <div className={`bomb ${(topBar.round.phase === 'bomb' || topBar.round.phase === 'defuse') && 'show'}`}></div>}
+          {sideRight === 'CT' &&
+            <div className={`defusePopUp-wrapper ${topBar.round.phase === 'defuse' ? 'showDefuse' : ''}`}>
+              <p className='defuseText'>Defusing</p>
+            </div>
+          }
         </div>
       </div>
     </div >

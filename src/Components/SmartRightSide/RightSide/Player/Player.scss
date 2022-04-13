@@ -302,6 +302,10 @@
 
           text-align: end;
           font-size: 1.2vw;
+
+          &.red {
+            color: var(--color-red);
+          }
         }
 
         .armorImage {
@@ -363,6 +367,10 @@
 
         &.fullHeal {
           border-radius: 0 0 0.4vw 0.4vw;
+        }
+
+        &.lowHeal {
+          color: var(--color-red);
         }
       }
 
@@ -511,6 +519,8 @@
         .infoPlayer-wrapper {
           .secondRow-wrapper {
             .currentKills-wrapper {
+              color: var(--color-CT-icons);
+
               .killsImage {
                 background-image: url('../../../../assets/icons/elements/killCurrent-CT.svg');
               }
@@ -518,9 +528,9 @@
           }
 
           .thirdRow-wrapper {
-            // background-color: var(--color-CT);
-
             .currentKills-wrapper {
+              color: var(--color-CT-icons);
+
               .killsImage {
                 background-image: url('../../../../assets/icons/elements/killCurrent-CT.svg');
               }
@@ -573,6 +583,8 @@
         .infoPlayer-wrapper {
           .secondRow-wrapper {
             .currentKills-wrapper {
+              color: var(--color-T-icons);
+
               .killsImage {
                 background-image: url('../../../../assets/icons/elements/killCurrent-T.svg');
               }
@@ -580,9 +592,9 @@
           }
 
           .thirdRow-wrapper {
-            // background-color: var(--color-T);
-
             .currentKills-wrapper {
+              color: var(--color-T-icons);
+
               .killsImage {
                 background-image: url('../../../../assets/icons/elements/killCurrent-T.svg');
               }
@@ -750,7 +762,9 @@
         .firstContentPlayer-wrapper {
           .infoPlayer-wrapper {
             .thirdRow-wrapper {
-              // background-color: var(--color-CT-life-bar);
+              .currentKills-wrapper {
+                color: var(--color-CT-icons);
+              }
             }
           }
         }
@@ -762,11 +776,17 @@
         .firstContentPlayer-wrapper {
           .infoPlayer-wrapper {
             .thirdRow-wrapper {
-              // background-color: var(--color-T-life-bar);
+              .currentKills-wrapper {
+                color: var(--color-T-icons);
+              }
             }
           }
         }
       }
+    }
+
+    .bk-player {
+      background: none;
     }
   }
 

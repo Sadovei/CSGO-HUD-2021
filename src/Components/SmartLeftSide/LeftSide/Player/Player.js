@@ -42,7 +42,7 @@ export default function Player({
   let lowHealth = classNames({
     lowHealth: info.state.health < 5,
   })
-  
+
   return (
     <div className={`left-player-wrapper row slot-${info.observer_slot} ${team} ${info.state.health === 0 ? 'death' : 'alive'}${info.active ? ' pov' : ''}`}>
       <div className='numberSlot-wrapper'>
@@ -129,7 +129,7 @@ export default function Player({
         <div className='secondContentPlayer-wrapper row'>
           <div className='healInfo-wrapper row'>
             <div className={`healImage ${lowHealth}`}></div>
-            <p className={`healNumber ${info.state.health <= 20 ? 'red' : ''}`}>
+            <p className={`healNumber ${info.state.health <= 25 ? 'red' : ''}`}>
               {info.state.health}
             </p>
             <div className={`armorImage ${armor} ${lowHealthArmor}`}></div>

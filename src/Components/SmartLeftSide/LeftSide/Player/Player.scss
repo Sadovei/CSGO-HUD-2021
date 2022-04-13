@@ -232,7 +232,6 @@
 
           .currentKills-wrapper {
             width: 1.7vw;
-
             margin-left: 4vw;
 
             display: none;
@@ -295,6 +294,10 @@
 
           font-size: 1.2vw;
           margin: 0 0.2vw;
+          
+          &.red {
+            color: var(--color-red);
+          }
         }
 
         .armorImage {
@@ -352,6 +355,10 @@
 
         &.fullHeal {
           border-radius: 0 0 0.4vw 0.4vw;
+        }
+
+        &.lowHeal {
+          color: var(--color-red);
         }
       }
 
@@ -498,6 +505,8 @@
         .infoPlayer-wrapper {
           .secondRow-wrapper {
             .currentKills-wrapper {
+              color: var(--color-CT-icons);
+
               .killsImage {
                 background-image: url('../../../../assets/icons/elements/killCurrent-CT.svg');
               }
@@ -505,9 +514,9 @@
           }
 
           .thirdRow-wrapper {
-            // background-color: var(--color-CT);
-
             .currentKills-wrapper {
+              color: var(--color-CT-icons);
+
               .killsImage {
                 background-image: url('../../../../assets/icons/elements/killCurrent-CT.svg');
               }
@@ -560,6 +569,8 @@
         .infoPlayer-wrapper {
           .secondRow-wrapper {
             .currentKills-wrapper {
+              color: var(--color-T-icons);
+
               .killsImage {
                 background-image: url('../../../../assets/icons/elements/killCurrent-T.svg');
               }
@@ -567,9 +578,9 @@
           }
 
           .thirdRow-wrapper {
-            // background-color: var(--color-T);
-
             .currentKills-wrapper {
+              color: var(--color-T-icons);
+
               .killsImage {
                 background-image: url('../../../../assets/icons/elements/killCurrent-T.svg');
               }
@@ -721,32 +732,12 @@
       }
     }
 
+    .bk-player {
+      background: none;
+    }
+
     .border-player {
       border-radius: 0.4vw;
-    }
-
-    &.CT {
-      .contentPlayer-wrapper {
-        .firstContentPlayer-wrapper {
-          .infoPlayer-wrapper {
-            .thirdRow-wrapper {
-              // background-color: var(--color-CT-life-bar);
-            }
-          }
-        }
-      }
-    }
-
-    &.T {
-      .contentPlayer-wrapper {
-        .firstContentPlayer-wrapper {
-          .infoPlayer-wrapper {
-            .thirdRow-wrapper {
-              // background-color: var(--color-T-life-bar);
-            }
-          }
-        }
-      }
     }
   }
 
