@@ -29,7 +29,7 @@ export default function Player({ info, team }) {
         <div className='secondContentPlayer-wrapper row'>
           <div className='healInfo-wrapper row'>
             <div className={`armorImage ${armor}`}></div>
-            <p className={`healNumber ${info.state.health <= 20 ? 'red' : ''}`}>
+            <p className={`healNumber ${info.state.health <= 25 ? 'red' : ''}`}>
               {info.state.health}
             </p>
             <div className={`healImage`}></div>

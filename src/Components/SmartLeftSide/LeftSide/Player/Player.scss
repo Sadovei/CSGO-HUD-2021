@@ -91,6 +91,10 @@
 
           font-size: 1.2vw;
           margin: 0 0.2vw;
+
+          &.red {
+            color: var(--color-red);
+          }
         }
 
         .armorImage {

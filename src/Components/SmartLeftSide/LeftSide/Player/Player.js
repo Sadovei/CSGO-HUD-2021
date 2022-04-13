@@ -34,7 +34,7 @@ export default function Player({ info, team }) {
           <div className='healInfo-wrapper row'>
             <div className={`healImage`}></div>
 
-            <p className={`healNumber ${info.state.health <= 20 ? 'red' : ''}`}>{info.state.health}</p>
+            <p className={`healNumber ${info.state.health <= 25 ? 'red' : ''}`}>{info.state.health}</p>
 
             <div className={`armorImage ${armor}`}></div>
           </div>
