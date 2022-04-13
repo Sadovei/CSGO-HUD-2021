@@ -4,7 +4,7 @@ import socketClient from 'socket.io-client'
 const { REACT_APP_STREAM } = process.env
 
 export const token = findGetParameter('client') || 'main'
-const backEND = '10.97.2.31' 
+const backEND = '10.97.2.31'
 // const backEND = '10.97.2.14'
 const port = REACT_APP_STREAM === 'A' ? 4400 : 4600
 const ENDPOINT = `http://${backEND}:${port}/?client=${token}`
