@@ -25,9 +25,10 @@
 
     .logo {
       z-index: 1;
-      background-size: 100%;
       width: 3vw;
       height: 3vw;
+      
+      background-size: cover;
     }
 
     .cote-wrapper {
