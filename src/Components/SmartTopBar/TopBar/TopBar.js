@@ -13,6 +13,7 @@ export default function TopBar({ topBar }) {
   const videoRef = useRef()
   const videoRefOnFire = useRef()
 
+  // Set width of TopBar by Names of Teams
   useEffect(() => {
     if (topBar.leftSide.name.length > topBar.rightSide.name.length) {
       setBiggestName(topBar.leftSide.name.length);
@@ -20,13 +21,21 @@ export default function TopBar({ topBar }) {
       setBiggestName(topBar.rightSide.name.length);
   }, [topBar.leftSide.name, topBar.rightSide.name]);
 
+  //Bomb Planted Video
   useEffect(() => {
     if (topBar.round.phase === 'bomb') {
       videoRef.current.src = bombPlanted
       videoRef.current.play()
     }
+
+    if (topBar.round.phase === "defuse") {
+      Number(topBar.round.time) > 5
+        ? defuseState.current = false
+        : defuseState.current = true
+    }
   }, [topBar.round.phase]);
 
+  //Team OnFire
   useEffect(() => {
     if (topBar.mapInfo.teamOnFire !== 'none') {
       videoRefOnFire.current.src = onFire
@@ -48,18 +57,13 @@ export default function TopBar({ topBar }) {
     Number(topBar.round.time) >= 0
       ? Math.floor(Number(topBar.round.time) / 60)
       : 0
+
   let timeSeconds =
     Number(topBar.round.time) >= 0
       ? Math.ceil(Number(topBar.round.time)) % 60 < 10
         ? `0${Math.ceil(Number(topBar.round.time)) % 60}`
         : Math.ceil(Number(topBar.round.time)) % 60
       : '00'
-
-  if (topBar.round.bombState !== '0') {
-    Number(topBar.round.bombState) > 5
-      ? defuseState.current = false
-      : defuseState.current = true
-  }
 
   let clockTimer = classNames({
     T: topBar.round.phase === 'over' && topBar.round.win_team === 'T',
@@ -74,10 +78,12 @@ export default function TopBar({ topBar }) {
         topBar.round.phase === 'bomb') &&
       true
   })
+
   let sideLeft = classNames({
     CT: topBar.leftSide.sideTeam === 'CT',
     T: topBar.leftSide.sideTeam === 'T'
   })
+
   let sideRight = classNames({
     CT: topBar.rightSide.sideTeam === 'CT',
     T: topBar.rightSide.sideTeam === 'T'
@@ -155,18 +161,28 @@ export default function TopBar({ topBar }) {
         muted={true}
         loop={true}>
       </video>
-      
+
       <div className='bombTime-wrapper row'>
         <div className='leftSideTime-wrapper'>
           {sideLeft === 'CT' ?
             <div className='defuse' style={{ width: calcDefusePerc(defuseState.current, Number(topBar.round.bombState).toFixed(3)) + '%' }}></div> :
             <div className={`bomb ${(topBar.round.phase === 'bomb' || topBar.round.phase === 'defuse') && 'show'}`}></div>}
+          {sideLeft === 'CT' &&
+            <div className={`defusePopUp-wrapper ${topBar.round.phase === 'defuse' ? 'showDefuse' : ''}`}>
+              <p className='defuseText'>Defusing</p>
+            </div>
+          }
         </div>
 
         <div className='rightSideTime-wrapper'>
           {sideRight === 'CT' ?
             <div className='defuse' style={{ width: calcDefusePerc(defuseState.current, Number(topBar.round.bombState).toFixed(3)) + '%' }}></div> :
             <div className={`bomb ${(topBar.round.phase === 'bomb' || topBar.round.phase === 'defuse') && 'show'}`}></div>}
+          {sideRight === 'CT' &&
+            <div className={`defusePopUp-wrapper ${topBar.round.phase === 'defuse' ? 'showDefuse' : ''}`}>
+              <p className='defuseText'>Defusing</p>
+            </div>
+          }
         </div>
       </div>
     </div >

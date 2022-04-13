@@ -97,6 +97,10 @@
 
           text-align: end;
           font-size: 1.2vw;
+
+          &.red {
+            color: var(--color-red);
+          }
         }
 
         .armorImage {
