@@ -224,16 +224,14 @@
           bottom: 0vw;
 
           display: none;
-
+          background: var(--color-bk-opacity-low);
           justify-content: space-between;
           height: 1.294vw;
-          background: var(--color-bk-opacity-low);
 
           border-radius: 0 0 0.4vw 0.4vw;
 
           .currentKills-wrapper {
             width: 1.7vw;
-
             margin-left: 4vw;
 
             display: none;
@@ -257,6 +255,7 @@
 
           .adr-wrapper {
             width: 4vw;
+            // margin-right: 2%;
             justify-content: flex-start;
 
             .adr-notice {
@@ -295,6 +294,10 @@
 
           font-size: 1.2vw;
           margin: 0 0.2vw;
+          
+          &.red {
+            color: var(--color-red);
+          }
         }
 
         .armorImage {
@@ -353,6 +356,10 @@
         &.fullHeal {
           border-radius: 0 0 0.4vw 0.4vw;
         }
+
+        &.lowHeal {
+          color: var(--color-red);
+        }
       }
 
       .dmg {
@@ -404,6 +411,8 @@
         .infoPlayer-wrapper {
           .secondRow-wrapper {
             .currentKills-wrapper {
+              color: var(--color-CT-icons);
+
               .killsImage {
                 background-image: url('../../../../assets/icons/elements/killCurrent-CT.svg');
               }
@@ -411,9 +420,9 @@
           }
 
           .thirdRow-wrapper {
-            // background-color: var(--color-CT);
-
             .currentKills-wrapper {
+              color: var(--color-CT-icons);
+
               .killsImage {
                 background-image: url('../../../../assets/icons/elements/killCurrent-CT.svg');
               }
@@ -466,6 +475,8 @@
         .infoPlayer-wrapper {
           .secondRow-wrapper {
             .currentKills-wrapper {
+              color: var(--color-T-icons);
+
               .killsImage {
                 background-image: url('../../../../assets/icons/elements/killCurrent-T.svg');
               }
@@ -473,9 +484,9 @@
           }
 
           .thirdRow-wrapper {
-            // background-color: var(--color-T);
-
             .currentKills-wrapper {
+              color: var(--color-T-icons);
+
               .killsImage {
                 background-image: url('../../../../assets/icons/elements/killCurrent-T.svg');
               }
@@ -485,7 +496,7 @@
       }
 
       .secondContentPlayer-wrapper {
-        // background-color: var(--color-T-life-bar);
+        // background-color: var(--color-black);
 
         .healInfo-wrapper {
           .healImage {
@@ -518,6 +529,7 @@
     width: 13.5vw;
     transition-delay: 0s;
     transition: width 800ms ease-out;
+
     color: var(--color-grey);
 
     .contentPlayer-wrapper {
@@ -626,32 +638,12 @@
       }
     }
 
+    .bk-player {
+      background: none;
+    }
+
     .border-player {
       border-radius: 0.4vw;
-    }
-
-    &.CT {
-      .contentPlayer-wrapper {
-        .firstContentPlayer-wrapper {
-          .infoPlayer-wrapper {
-            .thirdRow-wrapper {
-              // background-color: var(--color-CT-life-bar);
-            }
-          }
-        }
-      }
-    }
-
-    &.T {
-      .contentPlayer-wrapper {
-        .firstContentPlayer-wrapper {
-          .infoPlayer-wrapper {
-            .thirdRow-wrapper {
-              // background-color: var(--color-T-life-bar);
-            }
-          }
-        }
-      }
     }
   }
 
