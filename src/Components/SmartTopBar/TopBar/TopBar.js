@@ -27,6 +27,12 @@ export default function TopBar({ topBar }) {
       videoRef.current.src = bombPlanted
       videoRef.current.play()
     }
+
+    if (topBar.round.phase === "defuse") {
+      Number(topBar.round.time) > 5
+        ? defuseState.current = false
+        : defuseState.current = true
+    }
   }, [topBar.round.phase]);
 
   //Team OnFire
@@ -59,12 +65,6 @@ export default function TopBar({ topBar }) {
         : Math.ceil(Number(topBar.round.time)) % 60
       : '00'
 
-  if (topBar.round.bombState !== '0') {
-    Number(topBar.round.bombState) > 5
-      ? defuseState.current = false
-      : defuseState.current = true
-  }
-
   let clockTimer = classNames({
     T: topBar.round.phase === 'over' && topBar.round.win_team === 'T',
     CT:
@@ -83,7 +83,7 @@ export default function TopBar({ topBar }) {
     CT: topBar.leftSide.sideTeam === 'CT',
     T: topBar.leftSide.sideTeam === 'T'
   })
-  
+
   let sideRight = classNames({
     CT: topBar.rightSide.sideTeam === 'CT',
     T: topBar.rightSide.sideTeam === 'T'
@@ -161,7 +161,7 @@ export default function TopBar({ topBar }) {
         muted={true}
         loop={true}>
       </video>
-      
+
       <div className='bombTime-wrapper row'>
         <div className='leftSideTime-wrapper'>
           {sideLeft === 'CT' ?
