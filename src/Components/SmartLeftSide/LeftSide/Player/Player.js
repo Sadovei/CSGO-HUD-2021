@@ -42,7 +42,7 @@ export default function Player({
   let lowHealth = classNames({
     lowHealth: info.state.health < 5,
   })
-  
+
   return (
     <div className={`left-player-wrapper row slot-${info.observer_slot} ${team} ${info.state.health === 0 ? 'death' : 'alive'}${info.active ? ' pov' : ''}`}>
       <div className='numberSlot-wrapper'>
@@ -94,8 +94,6 @@ export default function Player({
               </div>
 
               <div className='utils-wrapper row'>
-                {DefuseIMG}
-                {BombIMG}
                 {grenadeImg}
               </div>
 
@@ -133,6 +131,8 @@ export default function Player({
               {info.state.health}
             </p>
             <div className={`armorImage ${armor} ${lowHealthArmor}`}></div>
+            {DefuseIMG}
+            {BombIMG}
           </div>
 
           <div className='weapon-wrapper row'>

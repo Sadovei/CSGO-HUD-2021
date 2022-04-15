@@ -322,6 +322,16 @@
             background-image: url('../../../../assets/icons/elements/helmet-CT.svg');
           }
         }
+
+        .utilities {
+          margin-right: 0.2vw;
+
+          &.defuse,
+          &.bomb {
+            height: 100%;
+            width: 1vw;
+          }
+        }
       }
 
       .weapon-wrapper {
