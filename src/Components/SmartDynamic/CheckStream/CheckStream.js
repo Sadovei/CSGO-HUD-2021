@@ -18,7 +18,7 @@ export default function CheckStream({ data, show }) {
                     </div>
 
                     <div className='vs-wrapper'>
-                        <p className='vs'>vs</p>
+                        <p className='vs'>:</p>
                     </div>
 
                     <div className='rightTeam-wrapper'>
