@@ -294,7 +294,7 @@
 
           font-size: 1.2vw;
           margin: 0 0.2vw;
-          
+
           &.red {
             color: var(--color-red);
           }
@@ -312,6 +312,16 @@
 
           &.helmet {
             background-image: url('../../../../assets/icons/elements/helmet-CT.svg');
+          }
+        }
+
+        .utilities {
+          height: 100%;
+          margin-left: 0.3vw;
+
+          &.defuse,
+          &.bomb {
+            width: 1vw;
           }
         }
       }

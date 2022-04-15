@@ -34,7 +34,7 @@ export default function Player({
     helmet: info.state.helmet && true,
     armor: !info.state.helmet && info.state.armor !== 0 && true
   })
-  
+
   let lowHealthArmor = classNames({
     lowHealth: info.state.health < 25,
   })
@@ -66,8 +66,6 @@ export default function Player({
 
             <div className='secondRow-wrapper row'>
               <div className='utils-wrapper row'>
-                {DefuseIMG}
-                {BombIMG}
                 {grenadeImg}
               </div>
 
@@ -130,6 +128,8 @@ export default function Player({
           </div>
 
           <div className='healInfo-wrapper row'>
+            {DefuseIMG}
+            {BombIMG}
             <div className={`armorImage ${armor} ${lowHealthArmor}`}></div>
             <p className={`healNumber ${info.state.health <= 25 ? 'red' : ''}`}>
               {info.state.health}
