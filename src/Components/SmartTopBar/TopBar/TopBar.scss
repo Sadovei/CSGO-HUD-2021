@@ -1,6 +1,6 @@
 .topBar {
   height: 3.5vw;
-
+  position: relative;
   align-items: center;
 
   border-radius: 0.4vw;
@@ -224,13 +224,13 @@
 
     &.right {
       display: block;
-      right: -8.7vw;
+      right: -9vw;
     }
 
     &.left {
       display: block;
       transform: scaleX(-1);
-      left: -8.7vw;
+      left: -9vw;
     }
   }
 }
