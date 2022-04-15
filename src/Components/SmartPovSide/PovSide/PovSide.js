@@ -8,7 +8,6 @@ import { token } from '../../../utils/socketIO'
 
 export default function PovSide({ povData, DefuseIMG, BombIMG, grenadeImg, activeWeapon, action }) {
     const [flagPhoto, setFlagPhoto] = useState(false)
-
     let picturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${povData.teamKey}/${povData.playerKey}.webp`
     let teamLogo = povData.teamKey === 'placeholder' ? (`placeholder/${povData.teamSide === 'CT' ? 'CT' : 'T'}`) : povData.teamKey
     
