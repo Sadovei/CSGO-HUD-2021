@@ -66,6 +66,8 @@ export default function Player({
 
             <div className='secondRow-wrapper row'>
               <div className='utils-wrapper row'>
+                {DefuseIMG}
+                {BombIMG}
                 {grenadeImg}
               </div>
 
@@ -128,8 +130,6 @@ export default function Player({
           </div>
 
           <div className='healInfo-wrapper row'>
-            {DefuseIMG}
-            {BombIMG}
             <div className={`armorImage ${armor} ${lowHealthArmor}`}></div>
             <p className={`healNumber ${info.state.health <= 20 ? 'red' : ''}`}>
               {info.state.health}

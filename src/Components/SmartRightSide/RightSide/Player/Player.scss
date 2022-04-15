@@ -288,16 +288,6 @@
         align-items: center;
         margin-right: 0.5vw;
 
-        .utilities {
-          margin-right: 0.2vw;
-
-          &.defuse,
-          &.bomb {
-            height: 100%;
-            width: 1vw;
-          }
-        }
-
         .healImage {
           width: 0.9vw;
           height: 0.9vw;
