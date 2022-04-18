@@ -49,9 +49,9 @@ export default function HeadToHead({ dataH2H, show }) {
         </div>
 
         <div className='clutches-wrapper info col'>
-          <p className={`number number-left ${dataH2H.leftPlayer.clutches > dataH2H.rightPlayer.clutches ? '' : 'small'}`}>{dataH2H.leftPlayer.clutches}</p>
-          <p className='title'>CLUTCHES</p>
-          <p className={`number number-right ${dataH2H.leftPlayer.clutches < dataH2H.rightPlayer.clutches ? '' : 'small'}`}>{dataH2H.rightPlayer.clutches}</p>
+          <p className={`number number-left ${dataH2H.leftPlayer.openingKills > dataH2H.rightPlayer.openingKills ? '' : 'small'}`}>{dataH2H.leftPlayer.openingKills}</p>
+          <p className='title'>OPENING KILLS</p>
+          <p className={`number number-right ${dataH2H.leftPlayer.openingKills < dataH2H.rightPlayer.openingKills ? '' : 'small'}`}>{dataH2H.rightPlayer.openingKills}</p>
         </div>
 
         <div className='utilityDMG-wrapper info col'>
