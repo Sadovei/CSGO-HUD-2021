@@ -27,13 +27,19 @@
       z-index: 1;
       width: 3vw;
       height: 3vw;
-      
+
       background-size: cover;
     }
 
     .cote-wrapper {
+      position: absolute;
       display: flex;
       flex-flow: row nowrap;
+
+      width: 7.3vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       font-size: 2.5vw;
       color: var(--color-white);
@@ -47,6 +53,10 @@
   .left-side-wrapper {
     justify-content: flex-start;
 
+    .cote-wrapper {
+      left: 4vw;
+    }
+
     .logo {
       margin-right: 2.5vw;
     }
@@ -55,16 +65,23 @@
   .right-side-wrapper {
     justify-content: flex-end;
 
+    .cote-wrapper {
+      right: 4vw;
+    }
+
     .logo {
       margin-left: 2.5vw;
     }
   }
 
   .logoSponsor {
-    width: 90%;
-    height: 2.7vw;
-    margin-top: 0.2vw;
-    background-size: cover;
+    width: 11.5vw;
+    height: auto;
+
+    margin-left: 0.3vw;
+    margin-top: 0.1vw;
+
+    background-size: contain;
     background-image: url('../../Comercials/icons/gg_bet.webp');
   }
 
