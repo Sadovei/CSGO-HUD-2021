@@ -7,6 +7,8 @@ import DynamicComponents from './DynamicComponents/DynamicComponents'
 import HistoricRounds from './HistoricRounds/HistoricRounds'
 import TopBar from './TopBar/TopBar'
 
+const { REACT_APP_STREAM } = process.env
+
 export default function SmartTopBar({ parserData }) {
   const [topBarData, setTopBarData] = useState()
   const [showHistory, setShowHistory] = useState('none')
@@ -48,7 +50,8 @@ export default function SmartTopBar({ parserData }) {
 
         <DynamicComponents topBar={topBarData} showContent={showDynamic} />
 
-        <iframe title="radar" id="newRadar" loading="lazy" scrolling="no" frameBorder="none" importance="high" src={`http://localhost:4903`}
+        <iframe title="radar" id="newRadar" loading="lazy" scrolling="no" frameBorder="none" importance="high"
+          src={`http://10.97.2.31/pgl/CSGO/boltobserv/html/map.html#10.97.2.31:${REACT_APP_STREAM === 'A' ? '4400' : '4600'}/?client=${token}`}
           width="100%" height="100%" className={topBarData.mapInfo.mapName}></iframe>
       </div>
     )
