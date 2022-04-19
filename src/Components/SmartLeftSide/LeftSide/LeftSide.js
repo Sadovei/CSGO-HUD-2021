@@ -18,6 +18,7 @@ export default function LeftSide({ team, players, phase }) {
                     BombIMG={elementsPlayer.BombIMG}
                     PistolIMG={elementsPlayer.PistolIMG}
                     WeaponIMG={elementsPlayer.WeaponIMG}
+                    Taser={elementsPlayer.TaserIMG}
                     ammoFillAnim={elementsPlayer.ammoFillAnim} />
             }
             )}

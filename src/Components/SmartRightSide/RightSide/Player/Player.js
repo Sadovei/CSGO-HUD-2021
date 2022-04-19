@@ -12,6 +12,7 @@ export default function Player({
   BombIMG,
   PistolIMG,
   WeaponIMG,
+  Taser,
   ammoFillAnim
 }) {
   const [prevHeal, setPrevHeal] = useState(100)
@@ -126,6 +127,7 @@ export default function Player({
           <div className='weapon-wrapper row'>
             {WeaponIMG}
             {PistolIMG}
+            {Taser}
             {ammoFillAnim}
           </div>
 

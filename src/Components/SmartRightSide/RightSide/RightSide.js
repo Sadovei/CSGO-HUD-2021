@@ -9,7 +9,6 @@ export default function RightSide({ team, players, phase }) {
         <div className="right-side-wrapper">
             {Object.values(players).map((player, indexPlayer) => {
                 let elementsPlayer = imagesPlayer(player.weapons, player.state, player.observer_slot, phase)
-
                 return <Player key={indexPlayer}
                     info={player}
                     team={team}
@@ -18,6 +17,7 @@ export default function RightSide({ team, players, phase }) {
                     BombIMG={elementsPlayer.BombIMG}
                     PistolIMG={elementsPlayer.PistolIMG}
                     WeaponIMG={elementsPlayer.WeaponIMG}
+                    Taser={elementsPlayer.TaserIMG}
                     ammoFillAnim={elementsPlayer.ammoFillAnim} />
             }
             )}
