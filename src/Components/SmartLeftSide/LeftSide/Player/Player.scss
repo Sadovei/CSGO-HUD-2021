@@ -335,12 +335,17 @@
           }
         }
 
-        .secondary {
+        .secondary,
+        .taser {
           height: 1vw;
 
           svg {
             height: 100%;
           }
+        }
+
+        .taser {
+          margin-right: 0.3vw;
         }
       }
 

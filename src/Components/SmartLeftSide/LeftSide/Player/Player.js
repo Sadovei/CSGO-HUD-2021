@@ -11,6 +11,7 @@ export default function Player({
   grenadeImg,
   BombIMG,
   PistolIMG,
+  TaserIMG,
   WeaponIMG,
   ammoFillAnim
 }) {
@@ -137,6 +138,7 @@ export default function Player({
 
           <div className='weapon-wrapper row'>
             {ammoFillAnim}
+            {TaserIMG}
             {PistolIMG}
             {WeaponIMG}
           </div>

@@ -344,13 +344,18 @@
           }
         }
 
-        .secondary {
+        .secondary,
+        .taser {
           height: 1vw;
 
           svg {
             transform: scaleX(-1);
             height: 100%;
           }
+        }
+
+        .taser {
+          margin-left: 0.3vw;
         }
       }
 

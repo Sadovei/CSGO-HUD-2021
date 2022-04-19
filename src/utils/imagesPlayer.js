@@ -9,14 +9,16 @@ export default function imagesPlayer(weapons, state, observer_slot, phase) {
         grenades = {},
         grenadeImg = [],
         bombC4 = undefined,
+        taser = undefined,
         primaryWeaponAmmoOffset = 100,
         activeWeapon = {
             ammo_clip: undefined,
             ammo_clip_max: undefined,
-            type: undefined
+            type: undefined,
+            name: undefined
         }
 
-    let WeaponIMG, PistolIMG, DefuseIMG, BombIMG;
+    let WeaponIMG, PistolIMG, DefuseIMG, BombIMG, TaserIMG;
 
     Object.keys(weapons).forEach(weapon => {
         if (weapons[weapon].state === 'active') {
@@ -24,6 +26,11 @@ export default function imagesPlayer(weapons, state, observer_slot, phase) {
             activeWeapon.ammo_clip_max = weapons[weapon].ammo_clip_max
             activeWeapon.ammo_reserve = weapons[weapon].ammo_reserve
             activeWeapon.type = weapons[weapon].type
+            activeWeapon.name = weapons[weapon].name
+        }
+
+        if (weapons[weapon].name === 'weapon_taser') {
+            taser = weapons[weapon].name.split(/_(.+)/)[1]
         }
 
         if (weaponPrimary.includes(weapons[weapon].type)) {
@@ -52,14 +59,23 @@ export default function imagesPlayer(weapons, state, observer_slot, phase) {
         }
     })
 
-    if (activeWeapon.type !== undefined && weaponMain !== undefined) {
+    if (activeWeapon.name !== undefined && weaponMain !== undefined) {
         let NadeSVG = SVGMap[weaponMain];
         WeaponIMG = <div className={`primary ${weaponPrimary.includes(activeWeapon.type) ? 'active' : 'holstered'}`}>
             {(NadeSVG !== null) ? < NadeSVG /> : null}
         </div>
     }
 
-    if (activeWeapon.type !== undefined && pistol !== undefined) {
+    if (activeWeapon.name !== undefined && taser !== undefined) {
+        let NadeSVG = SVGMap[taser];
+        TaserIMG =
+            <div className={`taser ${activeWeapon.name === "weapon_taser" ? 'active' : 'holstered'}`}>
+                {(NadeSVG !== null) ? < NadeSVG /> : null}
+            </div>
+    }
+
+
+    if (activeWeapon.name !== undefined && pistol !== undefined) {
         let NadeSVG = SVGMap[pistol];
 
         PistolIMG = <div className={`secondary ${activeWeapon.type !== 'Pistol' ? 'holstered' : 'active'}`}>
@@ -77,7 +93,7 @@ export default function imagesPlayer(weapons, state, observer_slot, phase) {
         </div>
     }
 
-    if (activeWeapon.type !== undefined && bombC4 !== undefined) {
+    if (activeWeapon.name !== undefined && bombC4 !== undefined) {
         let NadeSVG = SVGMap.c4;
 
         BombIMG = <div className={`utilities bomb ${activeWeapon.type === 'C4' ? 'active' : 'holstered'}`}>
@@ -109,5 +125,5 @@ export default function imagesPlayer(weapons, state, observer_slot, phase) {
         </defs>
     </svg>;
 
-    return { WeaponIMG, PistolIMG, BombIMG, DefuseIMG, grenadeImg, activeWeapon, ammoFillAnim }
+    return { WeaponIMG, PistolIMG, BombIMG, DefuseIMG, grenadeImg, activeWeapon, ammoFillAnim, TaserIMG }
 }
