@@ -6,12 +6,13 @@
   border-radius: 0.5vw;
   background: var(--color-bk-opacity);
   color: var(--color-white);
-  
 
   .leftSide-wrapper,
   .rightSide-wrapper {
     height: 100%;
     align-items: center;
+    position: relative;
+    overflow: hidden;
 
     .teamLogo {
       width: 3.5vw;
@@ -24,6 +25,69 @@
       font-size: 1.5vw;
       margin: 0 2vw;
       text-align: center;
+      height: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      p {
+        z-index: 1;
+      }
+
+      .wave {
+        z-index: 0;
+        position: absolute;
+        height: 0;
+        bottom: 0;
+        display: none;
+        animation: animate 4s ease-in-out infinite;
+
+        &.T {
+          background: linear-gradient(
+            0deg,
+            rgba(255, 168, 0, 1) 0%,
+            rgba(255, 255, 255, 0) 50%
+          );
+        }
+
+        &.CT {
+          background: linear-gradient(
+            0deg,
+            rgba(0, 113, 178, 1) 0%,
+            rgba(255, 255, 255, 0) 50%
+          );
+        }
+
+        &.death-5 {
+          height: 250%;
+          transition: height 1s;
+        }
+
+        &.death-4 {
+          height: 200%;
+          transition: height 1s;
+        }
+
+        &.death-3 {
+          height: 150%;
+          transition: height 1s;
+        }
+
+        &.death-2 {
+          height: 100%;
+          transition: height 1s;
+        }
+
+        &.death-1 {
+          height: 50%;
+          transition: height 1s;
+        }
+
+        &.show {
+          display: block;
+        }
+      }
     }
   }
 
@@ -31,11 +95,21 @@
     .teamLogo {
       border-radius: 0.4vw 0 0 0.4vw;
     }
+
+    .wave {
+      right: 0;
+      left: 3.5vw;
+    }
   }
 
   .rightSide-wrapper {
     .teamLogo {
       border-radius: 0vw 0.4vw 0.4vw 0;
+    }
+
+    .wave {
+      right: 3.5vw;
+      left: 0vw;
     }
   }
 
@@ -266,5 +340,36 @@
 
   to {
     opacity: 1;
+  }
+}
+
+@keyframes animate {
+  0%,
+  100% {
+    clip-path: polygon(
+      0% 45%,
+      16% 44%,
+      33% 50%,
+      54% 60%,
+      70% 61%,
+      84% 59%,
+      100% 52%,
+      100% 100%,
+      0% 100%
+    );
+  }
+
+  50% {
+    clip-path: polygon(
+      0% 60%,
+      15% 65%,
+      34% 66%,
+      51% 62%,
+      67% 50%,
+      84% 45%,
+      100% 46%,
+      100% 100%,
+      0% 100%
+    );
   }
 }

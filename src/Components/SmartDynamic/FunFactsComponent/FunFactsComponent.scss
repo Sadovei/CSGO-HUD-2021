@@ -1,0 +1,75 @@
+.funFacts-wrapper {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -25vw;
+
+  width: 62vw;
+  height: 23.1vw;
+  justify-content: space-between;
+
+  border-radius: 0.4vw;
+  background: var(--color-bk-opacity);
+
+  .h2h-info-wrapper {
+    width: 40%;
+    height: 100%;
+    justify-content: space-evenly;
+    color: var(--color-white);
+
+    .info {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: center;
+
+      background: var(--color-bk-opacity);
+      border-radius: 0.4vw;
+
+      height: calc((100% / 6) - 1vw);
+
+      .title {
+        width: 7vw;
+        text-align: center;
+        margin: 0 2vw;
+        font-size: 1vw;
+      }
+
+      .number {
+        width: 3vw;
+        text-align: center;
+        font-size: 1vw;
+
+        &.small {
+          color: var(--color-grey);
+        }
+      }
+    }
+  }
+
+  .player {
+    position: relative;
+    width: 30%;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    .image-player {
+      background-size: cover;
+      position: absolute;
+      bottom: 0;
+      top: -2vw;
+      width: 100%;
+      z-index: -1;
+    }
+
+    .info-wrapper {
+      .nickName {
+        text-transform: uppercase;
+        font-size: 2.25vw;
+        color: var(--color-white);
+      }
+    }
+  }
+}

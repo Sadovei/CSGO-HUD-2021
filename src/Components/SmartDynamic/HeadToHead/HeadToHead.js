@@ -26,7 +26,7 @@ export default function HeadToHead({ dataH2H, show }) {
       <div className='h2h-info-wrapper col'>
         <div className='specificKills-wrapper info col'>
           <p className={`number number-left ${dataH2H.leftPlayer.specificKills > dataH2H.rightPlayer.specificKills ? '' : 'small'}`}>{dataH2H.leftPlayer.specificKills}</p>
-          <p className='title'>DUELS</p>
+          <p className='title'>DIRECT DUELS WON</p>
           <p className={`number number-right ${dataH2H.leftPlayer.specificKills < dataH2H.rightPlayer.specificKills ? '' : 'small'}`}>{dataH2H.rightPlayer.specificKills}</p>
         </div>
 

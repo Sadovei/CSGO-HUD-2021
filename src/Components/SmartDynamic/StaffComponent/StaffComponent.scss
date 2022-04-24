@@ -1,0 +1,90 @@
+.staff-wrapper {
+  position: absolute;
+  width: 13.5vw;
+  height: 3.6vw;
+
+  top: 16.3vw;
+  right: -15vw;
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-around;
+
+  border-radius: 0.4vw;
+  background: var(--color-bk-opacity);
+
+  .info-wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+
+    color: var(--color-white);
+  }
+
+  .content-wrapper {
+    height: 100%;
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
+    .leftTeam-wrapper,
+    .rightTeam-wrapper {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+
+      height: 100%;
+
+      .logo {
+        border-radius: 0.4vw;
+        width: 2.2vw;
+        height: 2.2vw;
+        background-size: cover;
+      }
+
+      .score {
+        width: 1.3vw;
+        text-align: center;
+
+        margin: 0 0.2vw;
+        font-size: 1vw;
+        color: var(--color-white);
+      }
+    }
+
+    .vs-wrapper {
+      color: var(--color-grey);
+    }
+  }
+  &.show {
+    animation: show 0.5s 0.5s forwards;
+  }
+
+  &.hide {
+    animation: hide 0.5s forwards;
+  }
+}
+
+@keyframes show {
+  from {
+    right: -25vw;
+  }
+
+  to {
+    right: 1vw;
+  }
+}
+
+@keyframes hide {
+  from {
+    right: 1vw;
+  }
+  to {
+    right: -15vw;
+  }
+}

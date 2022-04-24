@@ -4,6 +4,10 @@ import React, { useEffect, useRef } from 'react'
 import { animated, useSpring } from 'react-spring'
 
 export default function MvpComponent({ mvps }) {
+    if (Object.keys(mvps).length > 0)
+        console.log(mvps);
+    else
+        console.log('nimic');
     const currentMVP = useRef({})
     const showContent = useRef(false)
 

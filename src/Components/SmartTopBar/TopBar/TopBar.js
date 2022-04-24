@@ -8,7 +8,11 @@ import classNames from 'classnames'
 import onFire from '../../../assets/videos/on_fire.webm'
 
 export default function TopBar({ topBar }) {
+  let countLeft = 0
+  let countRight = 0
   const [biggestName, setBiggestName] = useState(0);
+  const [leftPossWinner, setLeftPossWinner] = useState('none');
+  const [rightPossWinner, setRightPossWinner] = useState('none');
   const defuseState = useRef(false)
   const videoRef = useRef()
   const videoRefOnFire = useRef()
@@ -42,6 +46,40 @@ export default function TopBar({ topBar }) {
       videoRefOnFire.current.play()
     }
   }, [topBar.mapInfo.teamOnFire]);
+
+  Object.values(topBar.leftSide.players).forEach(alive => {
+    countLeft += !alive && 1
+  })
+
+  Object.values(topBar.rightSide.players).forEach(alive => {
+    countRight += !alive && 1
+  })
+
+  useEffect(() => {
+    if (topBar.mapInfo.currentRound > 30) {
+      let leftSideScore = topBar.leftSide.score - (3 * Math.floor((topBar.mapInfo.currentRound / 6)));
+      let rightSideScore = topBar.rightSide.score - (3 * Math.floor((topBar.mapInfo.currentRound / 6)));
+
+      if (leftSideScore === 3) {
+        setLeftPossWinner('show')
+        setRightPossWinner('none')
+      }
+      
+      if (rightSideScore === 3) {
+        setLeftPossWinner('none')
+        setRightPossWinner('show')
+      }
+
+      if (topBar.round.phase === "over") {
+        if (leftSideScore <= 3) {
+          setLeftPossWinner('none')
+        }
+        if (rightSideScore <= 3) {
+          setRightPossWinner('none')
+        }
+      }
+    }
+  }, [topBar])
 
   let leftLogo =
     topBar.leftSide.nameKey === 'placeholder'
@@ -101,7 +139,10 @@ export default function TopBar({ topBar }) {
           backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${leftLogo}/logo.webp)`
         }}></div>
 
-        <div className='teamName' style={{ width: `${biggestName}vw` }}>{topBar.leftSide.name}</div>
+        <div className='teamName' style={{ width: `${biggestName}vw` }}>
+          <p>{topBar.leftSide.name}</p>
+          <div className={`wave death-${countRight} ${leftPossWinner} ${sideLeft}`}></div>
+        </div>
       </div>
 
       <div className='centerSide-wrapper row'>
@@ -147,8 +188,10 @@ export default function TopBar({ topBar }) {
       </div>
 
       <div className='rightSide-wrapper row'>
-        <div className='teamName' style={{ width: `${biggestName}vw` }}>{topBar.rightSide.name}</div>
-
+        <div className='teamName' style={{ width: `${biggestName}vw` }}>
+          <p>{topBar.rightSide.name}</p>
+          <div className={`wave death-${countLeft} ${rightPossWinner} ${sideRight}`}></div>
+        </div>
         <div className='teamLogo' style={{
           backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${rightLogo}/logo.webp)`
         }}></div>
