@@ -1,0 +1,84 @@
+.time-wrapper {
+    position: absolute;
+    top: .5vw;
+    left: .5vw;
+
+    width: 10vw;
+
+    display: flex;
+    align-items: center;
+
+    background-color: var(--color-bk-opacity);
+
+    border-radius: 0.4vw;
+    color: var(--color-white);
+
+    .logo-wrapper {
+        width: 2.2vw;
+        height: 2.2vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background-color: var(--color-black);
+        border-radius: 0.4vw 0 0 0.4vw;
+        overflow: hidden;
+
+        .logo {
+            width: 100%;
+            height: 100%;
+
+            background-image: url('./icons/pause.webp');
+            background-size: contain;
+
+            &.ANY {
+                width: 2vw;
+                height: 2vw;
+            }
+        }
+    }
+
+    .typeOfPause-wrapper {
+        width: 3.5vw;
+
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+
+        padding: 0 0.5vw;
+        font-size: 0.6vw;
+
+        .text {
+            text-transform: uppercase;
+        }
+
+        &.matchPaused {
+            width: calc(100% - 2.2vw)
+        }
+    }
+
+    .time {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 2.5vw;
+
+        .minutes {
+            width: 0.75vw;
+            text-align: center;
+        }
+
+        .seconds {
+            .firstTimeSecond {
+                width: 0.75vw;
+                text-align: center;
+            }
+
+            .secondTimeSecond {
+                width: 0.75vw;
+            }
+        }
+    }
+}

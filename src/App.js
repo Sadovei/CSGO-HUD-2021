@@ -4,17 +4,16 @@ import { subscribeToTopBar } from "./utils/socketIO";
 import TimeOutComponent from "./Components/TimeOutComponent/TimeOutComponent";
 
 function App() {
-  const [topBar, setTopBar] = useState({ round: { phase: "" } });
+  const [topBar, setTopBar] = useState({});
 
   useEffect(() => {
     subscribeToTopBar(data => {
       setTopBar(data)
     })
   }, [])
-  console.log(topBar);
   return (
     <>
-      <TimeOutComponent typeOfPause={topBar.round.phase} time={topBar.round.time} />
+      {Object.keys(topBar).length > 0 && < TimeOutComponent topBar={topBar} />}
     </>
   );
 }
