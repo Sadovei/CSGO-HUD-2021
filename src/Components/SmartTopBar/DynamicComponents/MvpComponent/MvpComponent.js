@@ -2,6 +2,7 @@ import './MvpComponent.scss'
 
 import React, { useEffect, useRef } from 'react'
 import { animated, useSpring } from 'react-spring'
+import { redisIP } from '../../../../utils/tools'
 
 export default function MvpComponent({ mvps }) {
     const currentMVP = useRef({})
@@ -46,7 +47,7 @@ export default function MvpComponent({ mvps }) {
             </div>
 
             <div className='playerPhoto-wrapper'>
-                <div className='playerPhoto' style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${currentMVP?.current?.teamKey}/${currentMVP?.current?.playerKey}.webp)` }}></div>
+                <div className='playerPhoto' style={{ backgroundImage: `url(http://${redisIP}/pgl/resources/csgo/team/${currentMVP?.current?.teamKey}/${currentMVP?.current?.playerKey}.webp)` }}></div>
             </div>
         </animated.div>
     )

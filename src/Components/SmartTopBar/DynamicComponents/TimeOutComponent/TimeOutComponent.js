@@ -4,6 +4,7 @@ import { animated, useSpring } from 'react-spring'
 
 import React from 'react'
 import classNames from 'classnames'
+import { redisIP } from '../../../../utils/tools'
 
 export default function TimeOutComponent({ topBarData }) {
     let timeOut = classNames({
@@ -29,7 +30,7 @@ export default function TimeOutComponent({ topBarData }) {
     return (
         <animated.div className='timeOut-wrapper row' style={{ opacity: mvpProps.opacity, top: mvpProps.top }}>
             <div className='logo-wrapper'>
-                <div className={`logo ${timeOut}`} style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${logo}/logo.webp)` }}></div>
+                <div className={`logo ${timeOut}`} style={{ backgroundImage: `url(http://${redisIP}/pgl/resources/csgo/team/${logo}/logo.webp)` }}></div>
             </div>
 
             <div className={`content-wrapper col ${timeOut}`}>
