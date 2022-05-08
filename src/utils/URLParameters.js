@@ -8,3 +8,5 @@ export function findGetParameter(parameterName) {
     }
     return result;
 }
+
+export const redisIP = '10.99.4.20'

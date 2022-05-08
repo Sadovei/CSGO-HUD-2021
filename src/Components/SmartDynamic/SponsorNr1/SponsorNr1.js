@@ -1,6 +1,7 @@
 import './SponsorNr1.scss'
 
 import React from 'react'
+import { redisIP } from '../../../utils/URLParameters'
 
 export default function SponsorNr1({ data, action }) {
     let leftLogo = data[0].teamKey
@@ -19,7 +20,7 @@ export default function SponsorNr1({ data, action }) {
     return (
         <div className={`sponsor-main-wrapper font-mont ${action}`}>
             <div className="left-side-wrapper">
-                <div className="logo" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${leftLogo}/logo.webp)` }}></div>
+                <div className="logo" style={{ backgroundImage: `url(http://${redisIP}/pgl/resources/csgo/team/${leftLogo}/logo.webp)` }}></div>
 
                 <div className="cote-wrapper">
                     <p className="first-number">{cote.left.primu}</p>
@@ -37,7 +38,7 @@ export default function SponsorNr1({ data, action }) {
                     <p className="second-number">{cote.right.doi}</p>
                 </div>
 
-                <div className="logo" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${rightLogo}/logo.webp)` }}></div>
+                <div className="logo" style={{ backgroundImage: `url(http://${redisIP}/pgl/resources/csgo/team/${rightLogo}/logo.webp)` }}></div>
             </div>
         </div>
     )
