@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { subscribeToParser, subscribeToTopBar } from "./utils/socketIO";
+import { subscribeToTopBar } from "./utils/socketIO";
 
-import Comercials from "./Components/Comercials/Comercials";
-import SmartDynamic from "./Components/SmartDynamic/SmartDynamic";
+import TimeOutComponent from "./Components/TimeOutComponent/TimeOutComponent";
 
 function App() {
   const [topBar, setTopBar] = useState({ round: { phase: "" } });
@@ -12,11 +11,10 @@ function App() {
       setTopBar(data)
     })
   }, [])
-
+  console.log(topBar);
   return (
     <>
-      <Comercials phase={topBar.round.phase} />
-      <SmartDynamic />
+      <TimeOutComponent typeOfPause={topBar.round.phase} time={topBar.round.time} />
     </>
   );
 }
