@@ -51,7 +51,7 @@ export default function SmartTopBar({ parserData }) {
         <DynamicComponents topBar={topBarData} showContent={showDynamic} />
 
         <iframe title="radar" id="newRadar" loading="lazy" scrolling="no" frameBorder="none" importance="high" 
-        src={`http://10.97.2.31/pgl/CSGO/boltobserv/html/map.html#10.97.2.31:${REACT_APP_STREAM === 'A' ? '4400' : '4600'}/?client=${token}`}
+        src={`http://10.99.4.20/pgl/CSGO/boltobserv/html/map.html#10.99.4.20:${REACT_APP_STREAM === 'A' ? '4400' : '4600'}/?client=${token}`}
           width="100%" height="100%" className={topBarData.mapInfo.mapName}></iframe>
       </div>
     )

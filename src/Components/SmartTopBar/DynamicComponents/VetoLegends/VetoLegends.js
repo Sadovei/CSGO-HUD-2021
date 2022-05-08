@@ -2,7 +2,7 @@ import './VetoLegends.scss'
 
 import React, { useEffect, useRef, useState } from 'react'
 
-import { currentMatch } from '../../../../utils/tools'
+import { currentMatch, redisIP } from '../../../../utils/tools'
 
 export default function VetoLegends({ topBar }) {
   const [animClass, setAnimClass] = useState('')
@@ -63,7 +63,7 @@ export default function VetoLegends({ topBar }) {
                   <div
                     className='logo-left'
                     style={{
-                      backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${leftLogo}/logo.webp)`
+                      backgroundImage: `url(http://${redisIP}/pgl/resources/csgo/team/${leftLogo}/logo.webp)`
                     }}
                   ></div>
 
@@ -80,7 +80,7 @@ export default function VetoLegends({ topBar }) {
                   <div
                     className='logo-right'
                     style={{
-                      backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${rightLogo}/logo.webp)`
+                      backgroundImage: `url(http://${redisIP}/pgl/resources/csgo/team/${rightLogo}/logo.webp)`
                     }}
                   ></div>
                 </div>

@@ -5,10 +5,11 @@ import { animated, useSpring } from 'react-spring'
 
 import classNames from 'classnames';
 import { token } from '../../../utils/socketIO'
+import { redisIP } from '../../../utils/tools';
 
 export default function PovSide({ povData, DefuseIMG, BombIMG, grenadeImg, activeWeapon, action }) {
     const [flagPhoto, setFlagPhoto] = useState(false)
-    let picturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${povData.teamKey}/${povData.playerKey}.webp`
+    let picturePlayer = `http://${redisIP}/pgl/resources/csgo/team/${povData.teamKey}/${povData.playerKey}.webp`
     let teamLogo = povData.teamKey === 'placeholder' ? (`placeholder/${povData.teamSide === 'CT' ? 'CT' : 'T'}`) : povData.teamKey
     
     useEffect(() => {
@@ -66,7 +67,7 @@ export default function PovSide({ povData, DefuseIMG, BombIMG, grenadeImg, activ
 
             <div className='playerInfo-wrapper' style={{ background: !flagPhoto ? 'linear-gradient(90deg, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 80%)' : 'unset' }}>
                 <div className='playerInfo-content row'>
-                    <div className="teamLogo" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${teamLogo}/logo.webp)` }}></div>
+                    <div className="teamLogo" style={{ backgroundImage: `url(http://${redisIP}/pgl/resources/csgo/team/${teamLogo}/logo.webp)` }}></div>
 
                     <div className='playerName-wrapper row'>
                         <p className='playerName'>{povData.playerName}</p>

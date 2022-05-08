@@ -3,6 +3,7 @@ import './HeadToHead.scss'
 import { animated, useSpring } from 'react-spring'
 
 import React from 'react'
+import { redisIP } from '../../../utils/tools'
 
 export default function HeadToHead({ dataH2H, show }) {
   const props = useSpring({
@@ -10,8 +11,8 @@ export default function HeadToHead({ dataH2H, show }) {
     delay: show === 'show' ? 250 : 0
   })
 
-  let leftPicturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${dataH2H.leftPlayer.teamKey}/${dataH2H.leftPlayer.playerKey}.webp`
-  let rightPicturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${dataH2H.rightPlayer.teamKey}/${dataH2H.rightPlayer.playerKey}.webp`
+  let leftPicturePlayer = `http://${redisIP}/pgl/resources/csgo/team/${dataH2H.leftPlayer.teamKey}/${dataH2H.leftPlayer.playerKey}.webp`
+  let rightPicturePlayer = `http://${redisIP}/pgl/resources/csgo/team/${dataH2H.rightPlayer.teamKey}/${dataH2H.rightPlayer.playerKey}.webp`
 
   return (
     <animated.div className='headToHead-wrapper  row' style={{ bottom: props.bottom }}>

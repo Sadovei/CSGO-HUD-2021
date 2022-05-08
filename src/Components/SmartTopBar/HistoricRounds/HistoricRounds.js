@@ -1,6 +1,7 @@
 import './HistoricRounds.scss'
 
 import React from 'react'
+import { redisIP } from '../../../utils/tools'
 
 export default function HistoricRounds({ data, leftTeam, rightTeam, showContent }) {
     let leftLogo = leftTeam.nameKey === 'placeholder' ? `placeholder/${leftTeam.sideTeam === 'CT' ? 'CT' : 'T'}` : leftTeam.nameKey
@@ -10,10 +11,10 @@ export default function HistoricRounds({ data, leftTeam, rightTeam, showContent 
         <div className={`historicRound-wrapper row ${showContent}`}>
             <div className='teams-wrapper col'>
                 <div className='logo firstTeam' style={{
-                    backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${leftLogo}/logo.webp)`
+                    backgroundImage: `url(http://${redisIP}/pgl/resources/csgo/team/${leftLogo}/logo.webp)`
                 }}></div>
                 <div className='logo secondTeam' style={{
-                    backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${rightLogo}/logo.webp)`
+                    backgroundImage: `url(http://${redisIP}/pgl/resources/csgo/team/${rightLogo}/logo.webp)`
                 }}></div>
             </div>
 

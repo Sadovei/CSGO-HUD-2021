@@ -1,3 +1,4 @@
+import { redisIP } from '../../../utils/tools';
 import './StaffComponent.scss'
 
 const { REACT_APP_STREAM } = process.env
@@ -12,7 +13,7 @@ export default function StaffComponent({ data, show, type }) {
                     <p className='streamType'>{data.name}</p>
                 </div>
 
-                <div className='image' style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/staff/${data.image}.webp)` }}></div>
+                <div className='image' style={{ backgroundImage: `url(http://${redisIP}/pgl/resources/csgo/staff/${data.image}.webp)` }}></div>
             </div>
         )
     else

@@ -6,6 +6,7 @@ import bombPlanted from '../../../assets/videos/bombPlanted.webm'
 import { calcDefusePerc } from './TopBarStore'
 import classNames from 'classnames'
 import onFire from '../../../assets/videos/on_fire.webm'
+import { redisIP } from '../../../utils/tools'
 
 export default function TopBar({ topBar }) {
   let countLeft = 0
@@ -136,7 +137,7 @@ export default function TopBar({ topBar }) {
     <div className='topBar row'>
       <div className='leftSide-wrapper row'>
         <div className='teamLogo' style={{
-          backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${leftLogo}/logo.webp)`
+          backgroundImage: `url(http://${redisIP}/pgl/resources/csgo/team/${leftLogo}/logo.webp)`
         }}></div>
 
         <div className='teamName' style={{ width: `${biggestName}vw` }}>
@@ -193,7 +194,7 @@ export default function TopBar({ topBar }) {
           <div className={`wave death-${countLeft} ${rightPossWinner} ${sideRight}`}></div>
         </div>
         <div className='teamLogo' style={{
-          backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${rightLogo}/logo.webp)`
+          backgroundImage: `url(http://${redisIP}/pgl/resources/csgo/team/${rightLogo}/logo.webp)`
         }}></div>
       </div>
 

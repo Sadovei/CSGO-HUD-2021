@@ -3,6 +3,7 @@ import './ImageComponent.scss'
 import { animated, useSpring } from 'react-spring'
 
 import React from 'react'
+import { redisIP } from '../../../utils/tools'
 
 export default function ImageComponent({ show }) {
     const props = useSpring({
@@ -12,7 +13,7 @@ export default function ImageComponent({ show }) {
 
     return (
         <animated.div className='image-wrapper' style={{ bottom: props.bottom }}>
-            <div className='image' style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/inGameRandom/test.webp)` }}></div>
+            <div className='image' style={{ backgroundImage: `url(http://${redisIP}/pgl/resources/csgo/inGameRandom/test.webp)` }}></div>
         </animated.div>
     )
 }

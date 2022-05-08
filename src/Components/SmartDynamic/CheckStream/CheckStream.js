@@ -1,3 +1,4 @@
+import { redisIP } from '../../../utils/tools'
 import './CheckStream.scss'
 
 const { REACT_APP_STREAM } = process.env
@@ -13,7 +14,7 @@ export default function CheckStream({ data, show }) {
 
                 <div className='content-wrapper'>
                     <div className='leftTeam-wrapper'>
-                        <p className='logo' style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${data.leftTeam}/logo.webp)` }}></p>
+                        <p className='logo' style={{ backgroundImage: `url(http://${redisIP}/pgl/resources/csgo/team/${data.leftTeam}/logo.webp)` }}></p>
                         <p className='score'>{data.leftScore}</p>
                     </div>
 
@@ -23,7 +24,7 @@ export default function CheckStream({ data, show }) {
 
                     <div className='rightTeam-wrapper'>
                         <p className='score'>{data.rightScore}</p>
-                        <p className='logo' style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${data.rightTeam}/logo.webp)` }}></p>
+                        <p className='logo' style={{ backgroundImage: `url(http://${redisIP}/pgl/resources/csgo/team/${data.rightTeam}/logo.webp)` }}></p>
                     </div>
                 </div>
             </div>
