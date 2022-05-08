@@ -1,10 +1,10 @@
 import socketClient from "socket.io-client";
+import { redisIP } from "./tools";
 
 const { REACT_APP_STREAM } = process.env
 
-const backEND = '10.97.2.31'
 const port = REACT_APP_STREAM === 'A' ? 4400 : 4600
-const ENDPOINT = `http://${backEND}:${port}/?client=igdir`;
+const ENDPOINT = `http://${redisIP}:${port}/?client=igdir`;
 const socket = socketClient(ENDPOINT);
 
 export const subscribeToTopBar = (cb) => {

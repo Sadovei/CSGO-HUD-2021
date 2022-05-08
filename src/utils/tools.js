@@ -8,4 +8,6 @@ export const SVGMap = eqSVGs.keys().reduce((images, path) => {
 
 export const weaponPrimary = ['Shotgun', 'Machine Gun', 'Submachine Gun', 'Rifle', 'SniperRifle']
 
+export const redisIP = '10.99.4.20'
+
 
