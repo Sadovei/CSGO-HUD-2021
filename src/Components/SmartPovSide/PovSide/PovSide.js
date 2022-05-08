@@ -3,9 +3,10 @@ import './PovSide.scss'
 import { animated, useSpring } from 'react-spring'
 
 import classNames from 'classnames';
+import { redisIP } from '../../../utils/tools';
 
 export default function PovSide({ povData, DefuseIMG, BombIMG, grenadeImg, activeWeapon, action }) {
-    let picturePlayer = `http://redis-birou.pgl.ro/pgl/resources/csgo/team/${povData.teamKey}/${povData.playerKey}.webp`
+    let picturePlayer = `http://${redisIP}/pgl/resources/csgo/team/${povData.teamKey}/${povData.playerKey}.webp`
     let teamLogo = povData.teamKey === 'placeholder' ? (`placeholder/${povData.team === 'CT' ? 'CT' : 'T'}`) : povData.teamKey
 
     let sideTeam = classNames({
@@ -58,7 +59,7 @@ export default function PovSide({ povData, DefuseIMG, BombIMG, grenadeImg, activ
 
             <div className='playerInfo-wrapper'>
                 <div className='playerInfo-content row'>
-                    <div className="teamLogo" style={{ backgroundImage: `url(http://redis-birou.pgl.ro/pgl/resources/csgo/team/${teamLogo}/logo.webp)` }}></div>
+                    <div className="teamLogo" style={{ backgroundImage: `url(http://${redisIP}/pgl/resources/csgo/team/${teamLogo}/logo.webp)` }}></div>
 
                     <div className='playerName-wrapper row'>
                         <p className='playerName'>{povData.playerName}</p>
