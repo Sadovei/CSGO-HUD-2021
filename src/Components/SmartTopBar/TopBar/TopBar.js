@@ -38,7 +38,7 @@ export default function TopBar({ topBar }) {
         ? defuseState.current = false
         : defuseState.current = true
     }
-  }, [topBar.round.phase]);
+  }, [topBar.round.phase, topBar.round.time]);
 
   //Team OnFire
   useEffect(() => {

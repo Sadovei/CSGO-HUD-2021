@@ -1,10 +1,10 @@
 import { redisIP } from '../../../utils/tools';
 import './StaffComponent.scss'
 
-const { REACT_APP_STREAM } = process.env
+// const { REACT_APP_STREAM } = process.env
 
 export default function StaffComponent({ data, show, type }) {
-    console.log(data);
+    // console.log(data);
     if (Object.keys(data).length > 0)
         return (
             <div className={`staff-wrapper ${show}`}>
