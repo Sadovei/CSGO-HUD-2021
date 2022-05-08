@@ -31,7 +31,7 @@ export default function TimeOutComponent({ topBar }) {
     if (topBar.round.phase === 'paused' || topBar.round.phase === 'timeout_t' || topBar.round.phase === 'timeout_ct')
         return (
             <div className='time-wrapper font-mont'>
-                <div className='logo-wrapper'>
+                <div className={`logo-wrapper ${timeOut}`}>
                     {topBar.round.phase !== 'paused' && <div className={`logo ${timeOut}`} style={{backgroundImage: `url(http://10.99.4.20/pgl/resources/csgo/team/${logo}/logo.webp)`}}></div>}
                     {topBar.round.phase === 'paused' && <div className={`logo ${timeOut}`}></div>}
                 </div>
