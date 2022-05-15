@@ -4,7 +4,6 @@ import './StaffComponent.scss'
 // const { REACT_APP_STREAM } = process.env
 
 export default function StaffComponent({ data, show, type }) {
-    // console.log(data);
     if (Object.keys(data).length > 0)
         return (
             <div className={`staff-wrapper ${show}`}>

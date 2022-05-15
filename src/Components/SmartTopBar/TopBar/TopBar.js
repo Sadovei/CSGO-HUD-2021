@@ -38,6 +38,7 @@ export default function TopBar({ topBar }) {
         ? defuseState.current = false
         : defuseState.current = true
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [topBar.round.phase]);
 
   //Team OnFire

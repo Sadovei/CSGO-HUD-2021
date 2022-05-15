@@ -35,7 +35,7 @@ export default function TimeOutComponent({ topBarData }) {
 
             <div className={`content-wrapper col ${timeOut}`}>
                 <div className='text-wrapper row'>
-                    <p className='text'>{timeOut !== 'ANY' ? 'TACTICAL PAUSE' : 'MATCH PAUSE'}</p>
+                    <p className='text'>{timeOut !== 'ANY' ? 'TACTICAL PAUSE' : 'MATCH PAUSED'}</p>
 
                     {timeOut === 'T' ? (
                         <p className='number'>{4 -

@@ -39,7 +39,7 @@ export default function HeadToHead({ dataH2H, show }) {
 
         <div className='headshots-wrapper info col'>
           <p className={`number number-left ${dataH2H.leftPlayer.headshots > dataH2H.rightPlayer.headshots ? '' : 'small'}`}>{dataH2H.leftPlayer.headshots}%</p>
-          <p className='title'>HS%</p>
+          <p className='title'>HS KILLS</p>
           <p className={`number number-right ${dataH2H.leftPlayer.headshots < dataH2H.rightPlayer.headshots ? '' : 'small'}`}>{dataH2H.rightPlayer.headshots}%</p>
         </div>
 
