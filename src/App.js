@@ -29,8 +29,8 @@ function App() {
   return (
     <>
       <SmartTopBar parserData={parserData} />
-      <SmartLeftSide />
-      <SmartRightSide />
+      <SmartLeftSide parserData={parserData}/>
+      <SmartRightSide parserData={parserData}/>
       <SmartDynamic parserData={parserData} />
     </>
   )

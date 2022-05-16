@@ -110,6 +110,7 @@
                 background-image: url('../../../../assets/icons/elements/death.svg');
                 background-size: cover;
               }
+
               .death {
                 margin-left: 0.1vw;
               }
@@ -260,6 +261,10 @@
 
             .adr-notice {
               margin-right: 0.2vw;
+            }
+
+            &.hide {
+              visibility: hidden;
             }
           }
         }
@@ -676,6 +681,7 @@
                   background-image: url('../../../../assets/icons/elements/death.svg');
                   background-size: cover;
                 }
+
                 .death {
                   margin-left: 0.1vw;
                 }
@@ -713,6 +719,7 @@
               .adr-notice {
                 width: 2.4vw;
               }
+
               .adr-number {
                 text-align: end;
                 width: 1.6vw;
@@ -749,15 +756,19 @@
   &.slot-1 {
     order: 1;
   }
+
   &.slot-2 {
     order: 2;
   }
+
   &.slot-3 {
     order: 3;
   }
+
   &.slot-4 {
     order: 4;
   }
+
   &.slot-5 {
     order: 5;
   }

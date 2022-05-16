@@ -14,6 +14,7 @@ export default function Player({
   PistolIMG,
   WeaponIMG,
   Taser,
+  showADR,
   ammoFillAnim
 }) {
   const [prevHeal, setPrevHeal] = useState(100)
@@ -120,7 +121,7 @@ export default function Player({
                 <span className='currentKills'>{info.state.round_kills}</span>
               </div>
 
-              <div className='adr-wrapper row'>
+              <div className={`adr-wrapper row ${showADR}`}>
                 <p className='adr-notice'>ADR</p>
                 <p className='adr-number'>{info.adr}</p>
               </div>

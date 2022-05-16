@@ -6,8 +6,9 @@ import LeftSide from './LeftSide/LeftSide'
 import OwnBrand from './OwnBrand/OwnBrand'
 import UtilitiesLeft from './UtilitiesLeft/UtilitiesLeft'
 
-export default function SmartLeftSide() {
+export default function SmartLeftSide({ parserData }) {
   const [leftSide, setLeftSide] = useState(undefined)
+  const [showADR, setShowADR] = useState('show')
 
   useEffect(() => {
     subscribeToLeftSide((data) => {
@@ -15,6 +16,16 @@ export default function SmartLeftSide() {
     })
     return unsubscribeToLeftSide
   }, [])
+
+  useEffect(() => {
+    if (parserData.type === 'ADRStatus') {
+      if (parserData.show) {
+        setShowADR('show')
+      } else {
+        setShowADR('hide')
+      }
+    }
+  }, [parserData])
 
   if (leftSide)
     return (
@@ -39,6 +50,7 @@ export default function SmartLeftSide() {
           team={leftSide.side}
           players={leftSide.players}
           phase={leftSide.roundPhase.phase}
+          showADR={showADR}
         />
       </div>
     )
