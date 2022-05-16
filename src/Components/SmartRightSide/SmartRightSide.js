@@ -5,8 +5,9 @@ import EconomyRight from './EconomyRight/EconomyRight'
 import RightSide from './RightSide/RightSide'
 import UtilitiesRight from './UtilitiesRight/UtilitiesRight'
 
-export default function SmartRightSide() {
+export default function SmartRightSide({parserData}) {
   const [rightSide, setRightSide] = useState(undefined)
+  const [showADR, setShowADR] = useState('show')
 
   useEffect(() => {
     subscribeToRightSide((data) => {
@@ -14,6 +15,17 @@ export default function SmartRightSide() {
     })
     return unsubscribeToRightSide
   }, [])
+
+
+  useEffect(() => {
+    if (parserData.type === 'ADRStatus') {
+      if (parserData.show) {
+        setShowADR('show')
+      } else {
+        setShowADR('hide')
+      }
+    }
+  }, [parserData])
 
   if (rightSide)
     return (
@@ -36,6 +48,7 @@ export default function SmartRightSide() {
           team={rightSide.side}
           players={rightSide.players}
           phase={rightSide.roundPhase.phase}
+          showADR={showADR}
         />
       </div>
     )

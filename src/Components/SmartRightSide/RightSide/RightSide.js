@@ -18,6 +18,7 @@ export default function RightSide({ team, players, phase }) {
                     BombIMG={elementsPlayer.BombIMG}
                     PistolIMG={elementsPlayer.PistolIMG}
                     TaserIMG={elementsPlayer.TaserIMG}
+                    showADR={showADR}
                     WeaponIMG={elementsPlayer.WeaponIMG}
                     ammoFillAnim={elementsPlayer.ammoFillAnim} />
             }

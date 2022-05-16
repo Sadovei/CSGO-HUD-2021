@@ -11,6 +11,7 @@ export default function Player({
   DefuseIMG,
   grenadeImg,
   BombIMG,
+  showADR,
   PistolIMG,
   WeaponIMG,
   TaserIMG,
@@ -99,7 +100,7 @@ export default function Player({
             </div>
 
             <div className='thirdRow-wrapper row'>
-              <div className='adr-wrapper row'>
+              <div className={`adr-wrapper row ${showADR}`}>
                 <p className='adr-number'>{info.adr}</p>
                 <p className='adr-notice'>ADR</p>
               </div>
