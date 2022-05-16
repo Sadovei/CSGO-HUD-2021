@@ -4,7 +4,7 @@ import Player from './Player/Player'
 import React from 'react'
 import imagesPlayer from '../../../utils/imagesPlayer';
 
-export default function RightSide({ team, players, phase }) {
+export default function RightSide({ team, players, phase, showADR }) {
     return (
         <div className="right-side-wrapper">
             {Object.values(players).map((player, indexPlayer) => {
