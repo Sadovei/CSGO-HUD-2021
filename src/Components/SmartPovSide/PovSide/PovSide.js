@@ -32,7 +32,7 @@ export default function PovSide({ povData, DefuseIMG, BombIMG, grenadeImg, activ
     })
 
     return (
-        <animated.div className="pov-wrapper row" style={{ bottom: props.bottom }}>
+        <animated.div className="pov-wrapper row mainHud" style={{ bottom: props.bottom }}>
             <div className='playerImage-wrapper'>
                 <div className="imagePlayer" style={{
                     backgroundImage: `url(${picturePlayer})`, filter: `brightness(${povData.state.flashed / 51 < 1 ? 1 : povData.state.flashed / 51})`,

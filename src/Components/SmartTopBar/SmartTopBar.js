@@ -42,7 +42,7 @@ export default function SmartTopBar({ parserData }) {
 
   if (topBarData && Object.keys(topBarData).length > 0 && topBarData.round.time !== '-100') {
     return (
-      <div className='topBar-wrapper'>
+      <div className='topBar-wrapper mainHud'>
         <TopBar topBar={topBarData} />
 
         <div className='showHistoric-wrapper row'>

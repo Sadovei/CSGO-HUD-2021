@@ -29,7 +29,7 @@ export default function SmartLeftSide({ parserData }) {
 
   if (leftSide)
     return (
-      <div className='left-wrapper'>
+      <div className='left-wrapper mainHud'>
         <div className='dynamic-wrapper col'>
           <UtilitiesLeft
             utilities={leftSide.utility}

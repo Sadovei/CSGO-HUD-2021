@@ -36,7 +36,7 @@ export default function EconomyHud() {
 
                     <div className="second-wrapper">
                         {leftSide &&
-                            <div className='left-wrapper'>
+                            <div className='left-wrapper economy-hud'>
                                 <LeftSide team={leftSide.side} players={leftSide.players} phase={leftSide.roundPhase.phase} dataEconomy={leftSide.economy} />
                             </div>
                         }
@@ -44,7 +44,7 @@ export default function EconomyHud() {
                         <CenterVideo map={topBar.mapInfo.mapName} />
 
                         {rightSide &&
-                            <div className="right-wrapper">
+                            <div className="right-wrapper economy-hud">
                                 <RightSide team={rightSide.side} players={rightSide.players} phase={rightSide.roundPhase.phase} dataEconomy={rightSide.economy} />
                             </div>
                         }

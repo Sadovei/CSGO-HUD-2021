@@ -27,7 +27,7 @@ export default function SmartRightSide({ parserData }) {
   }, [parserData])
   if (rightSide)
     return (
-      <div className='right-wrapper'>
+      <div className='right-wrapper mainHud'>
         <div className='dynamic-wrapper col'>
           <UtilitiesRight
             utilities={rightSide.utility}
