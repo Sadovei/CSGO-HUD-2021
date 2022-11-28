@@ -1,0 +1,256 @@
+.topBar {
+  height: 3.5vw;
+  position: relative;
+  align-items: center;
+
+  border-radius: 0.4vw;
+  background: var(--color-bk-opacity);
+  color: var(--color-white);
+
+  .leftSide-wrapper,
+  .rightSide-wrapper {
+    height: 100%;
+    align-items: center;
+
+    .teamLogo {
+      width: 3.5vw;
+      height: 100%;
+      border-radius: 0.4vw 0 0 0.4vw;
+      background-size: cover;
+    }
+
+    .teamName {
+      font-size: 1.5vw;
+      margin: 0 2vw;
+      text-align: center;
+    }
+  }
+
+  .leftSide-wrapper {
+    .teamLogo {
+      border-radius: 0.4vw 0 0 0.4vw;
+    }
+  }
+
+  .rightSide-wrapper {
+    .teamLogo {
+      border-radius: 0vw 0.4vw 0.4vw 0;
+    }
+  }
+
+  .centerSide-wrapper {
+    width: 9vw;
+    height: 100%;
+
+    align-items: center;
+
+    .leftScore-wrapper,
+    .rightScore-wrapper {
+      width: 3vw;
+      height: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--color-black);
+      font-size: 1.5vw;
+
+      &.CT {
+        color: var(--color-CT-icons);
+      }
+
+      &.T {
+        color: var(--color-T-icons);
+      }
+    }
+
+    .time-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 4vw;
+      height: 100%;
+
+      font-size: 1.1vw;
+
+      .time {
+        width: 100%;
+        height: 100%;
+
+        align-items: center;
+        justify-content: center;
+
+        .minutes {
+          width: 0.75vw;
+          text-align: center;
+        }
+
+        .seconds {
+          .firstTimeSecond {
+            width: 0.75vw;
+            text-align: center;
+          }
+          .secondTimeSecond {
+            width: 0.75vw;
+            text-align: center;
+          }
+        }
+      }
+
+      &.red {
+        color: var(--color-red);
+      }
+
+      &.T {
+        color: var(--color-T-icons);
+      }
+
+      &.CT {
+        color: var(--color-CT-icons);
+      }
+    }
+
+    .bombPlanted {
+      display: none;
+      width: 90%;
+
+      &.show {
+        display: block;
+      }
+
+      &.hide {
+        display: none;
+      }
+    }
+  }
+
+  .bombTime-wrapper {
+    position: absolute;
+    left: 3.6vw;
+    right: 3.6vw;
+    top: 3.2vw;
+
+    height: 0.3vw;
+
+    border-radius: 0 0 0.4vw 0.4vw;
+    z-index: 1;
+
+    .leftSideTime-wrapper,
+    .rightSideTime-wrapper {
+      position: relative;
+      height: 100%;
+      width: 50%;
+
+      .bomb,
+      .defuse {
+        position: absolute;
+        height: 100%;
+
+        &.defuse {
+          background: var(--color-CT-icons);
+        }
+
+        &.bomb {
+          background: var(--color-red);
+        }
+      }
+
+      .defusePopUp-wrapper {
+        position: absolute;
+        top: 0.4vw;
+        left: 0;
+
+        width: 4.2vw;
+        height: 1.2vw;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.7vw;
+
+        border-radius: 0 0 0.4vw 0.4vw;
+        background: var(--color-bk-opacity);
+        opacity: 0;
+
+        &.showDefuse {
+          transition: opacity 0.1s ease-in-out;
+          opacity: 1;
+        }
+      }
+    }
+
+    .leftSideTime-wrapper {
+      border-radius: 0 0 0 0.4vw;
+
+      .bomb,
+      .defuse {
+        right: 0;
+      }
+
+      .bomb {
+        &.show {
+          animation: showBombLeft 40s linear;
+        }
+      }
+    }
+
+    .rightSideTime-wrapper {
+      border-radius: 0 0 0.4vw 0;
+
+      .bomb,
+      .defuse {
+        left: 0;
+      }
+
+      .bomb {
+        &.show {
+          animation: showBombRight 40s linear;
+        }
+      }
+
+      .defusePopUp-wrapper {
+        left: unset;
+        right: 0;
+      }
+    }
+  }
+
+  .onFire {
+    display: none;
+    position: absolute;
+    top: -6.4vw;
+    width: 29vw;
+
+    &.right {
+      display: block;
+      right: -9vw;
+    }
+
+    &.left {
+      display: block;
+      transform: scaleX(-1);
+      left: -9vw;
+    }
+  }
+}
+
+@keyframes showBombRight {
+  from {
+    right: 0;
+  }
+
+  to {
+    right: 100%;
+  }
+}
+
+@keyframes showBombLeft {
+  from {
+    left: 0;
+  }
+
+  to {
+    left: 100%;
+  }
+}

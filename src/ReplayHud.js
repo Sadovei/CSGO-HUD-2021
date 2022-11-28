@@ -1,16 +1,16 @@
 import React from 'react'
-import SmartDynamic from './Components/SmartDynamic/SmartDynamic'
-import SmartLeftSide from './Components/SmartLeftSide/SmartLeftSide'
-import SmartRightSide from './Components/SmartRightSide/SmartRightSide'
-import SmartTopBar from './Components/SmartTopBar/SmartTopBar'
+import SmartLeftSide from './HudReplay/SmartLeftSide/SmartLeftSide'
+import SmartPovSide from './HudReplay/SmartPovSide/SmartPovSide'
+import SmartRightSide from './HudReplay/SmartRightSide/SmartRightSide'
+import SmartTopBar from './HudReplay/SmartTopBar/SmartTopBar'
 
-export default function ReplayHud({ parserData }) {
+export default function ReplayHud() {
     return (
         <>
-            <SmartTopBar parserData={parserData} />
-            <SmartLeftSide parserData={parserData} />
-            <SmartRightSide parserData={parserData} />
-            <SmartDynamic parserData={parserData} />
+            <SmartTopBar />
+            <SmartLeftSide />
+            <SmartRightSide />
+            <SmartPovSide action={'show'} />
         </>
     )
 }

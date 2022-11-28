@@ -1,0 +1,36 @@
+.video-logo {
+  position: absolute;
+  bottom: 1.6vw;
+  left: 50%;
+  transform: translateX(-50%);
+
+  height: 30vw;
+
+  &.de_nuke {
+    bottom: -4.2vw;
+  }
+
+  &.de_overpass {
+    bottom: -2.1vw;
+  }
+
+  &.de_vertigo {
+    bottom: -2.8vw;
+  }
+
+  &.de_mirage {
+    bottom: -4.1vw;
+  }
+
+  &.de_inferno {
+    bottom: -3.3vw;
+  }
+
+  &.de_dust2 {
+    bottom: -0.2vw;
+  }
+
+  &.de_ancient {
+    bottom: -4.1vw;
+  }
+}

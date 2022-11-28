@@ -1,0 +1,42 @@
+.left-wrapper {
+  height: 100%;
+  margin-left: 2vw;
+
+  .left-side-wrapper {
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+
+    .left-center-wrapper {
+      display: flex;
+      flex-flow: row nowrap;
+
+      .team-money-wrapper,
+      .equipment-wrapper {
+        height: 4vw;
+        display: flex;
+        flex-flow: column nowrap;
+
+        .text-money,
+        .text-equipment {
+          font-size: 1.2vw;
+        }
+
+        .money,
+        .equipment {
+          font-size: 2vw;
+        }
+      }
+
+      .team-money-wrapper {
+        margin-right: 3vw;
+        color: var(--color-eq);
+      }
+
+      .equipment-wrapper {
+        color: var(--color-loss-bonus);
+      }
+    }
+  }
+}
