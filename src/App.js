@@ -3,10 +3,11 @@ import './Radar.scss'
 import React, { useEffect, useState } from 'react'
 import { subscribeToParser, token, unsubscribeToParser } from './utils/socketIO'
 
-import SmartDynamic from './Components/SmartDynamic/SmartDynamic'
-import SmartLeftSide from './Components/SmartLeftSide/SmartLeftSide'
-import SmartRightSide from './Components/SmartRightSide/SmartRightSide'
-import SmartTopBar from './Components/SmartTopBar/SmartTopBar'
+import { Route, Routes } from 'react-router-dom'
+import MainHud from './MainHud'
+import ReplayCinematicHud from './ReplayCinematicHud'
+import ReplayHud from './ReplayHud'
+import EconomyHud from './EconomyHud'
 
 function App() {
   const [parserData, setparserData] = useState({ type: '', data: {}, show: false })
@@ -25,14 +26,14 @@ function App() {
       }
     }
   }, [parserData])
-  
+
   return (
-    <>
-      <SmartTopBar parserData={parserData} />
-      <SmartLeftSide parserData={parserData}/>
-      <SmartRightSide parserData={parserData}/>
-      <SmartDynamic parserData={parserData} />
-    </>
+    <Routes>
+      <Route path='/hud' element={<MainHud />} parserData={parserData} />
+      <Route path='/hud-replay' element={<ReplayHud />} parserData={parserData} />
+      <Route path='/hud-replay-cinematic' element={<ReplayCinematicHud />} parserData={parserData} />
+      <Route path='/economy' element={<EconomyHud />} parserData={parserData} />
+    </Routes>
   )
 }
 
