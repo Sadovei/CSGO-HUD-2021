@@ -6,7 +6,7 @@ import imagesPlayer from '../../utils/imagesPlayer';
 
 export default function LeftSide({ team, players, phase, dataEconomy }) {
     return (
-        <div className="left-side-wrapper">
+        <div className="left-side-wrapper economy-hud">
             <div className={`left-center-wrapper ${team}`}>
                 <div className="team-money-wrapper">
                     <p className="text-money font-tablet">TEAM MONEY</p>

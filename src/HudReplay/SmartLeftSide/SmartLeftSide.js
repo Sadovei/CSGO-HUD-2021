@@ -15,7 +15,7 @@ export default function SmartLeftSide() {
 
   if (leftSide)
     return (
-      <div className='left-wrapper'>
+      <div className='left-wrapper hud-replay'>
         <LeftSide
           team={leftSide.side}
           players={leftSide.players}

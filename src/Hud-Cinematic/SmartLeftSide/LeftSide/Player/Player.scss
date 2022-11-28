@@ -1,193 +1,109 @@
-.left-player-wrapper {
-  position: relative;
-
-  height: 4.3vw;
-  width: 5.5vw;
-
-  background: var(--color-bk-opacity);
-  color: var(--color-white);
-  border-radius: 0.4vw;
-  margin-bottom: 0.4vw;
-
-  .numberSlot-wrapper {
-    position: absolute;
-    top: 50%;
-    left: -0.5vw;
-    transform: translateY(-50%);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 1.2vw;
-    height: 1.2vw;
-
-    background-size: cover;
-
-    font-size: 0.8vw;
-    z-index: 5;
-  }
-
-  .contentPlayer-wrapper {
+.left-wrapper.hud-replay {
+  .left-player-wrapper {
     position: relative;
 
-    width: 100%;
-    height: 100%;
+    height: 4.3vw;
+    width: 5.5vw;
 
-    font-size: 0.9vw;
-    z-index: 2;
-
-    .firstContentPlayer-wrapper {
-      width: 100%;
-      height: 100%;
-
-      .playerImage-wrapper {
-        width: 100%;
-        height: 100%;
-
-        padding-top: 0.5vw;
-        margin-top: -0.5vw;
-
-        overflow: hidden;
-        border-radius: 0 0 0 0.4vw;
-
-        .playerImage {
-          width: 100%;
-          height: 200%;
-
-          margin-top: -0.5vw;
-
-          background-size: cover;
-          background-position: bottom;
-        }
-      }
-    }
-
-    .secondContentPlayer-wrapper {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-
-      height: 1.294vw;
-      overflow: hidden;
-
-      border-radius: 0 0 0.4vw 0.4vw;
-
-      .healInfo-wrapper {
-        z-index: 2;
-        align-items: center;
-        margin-left: 0.5vw;
-
-        .healImage {
-          width: 0.9vw;
-          height: 0.9vw;
-
-          background-size: cover;
-        }
-
-        .healNumber {
-          width: 2.1vw;
-
-          font-size: 1.2vw;
-          margin: 0 0.2vw;
-
-          &.red {
-            color: var(--color-red);
-          }
-        }
-
-        .armorImage {
-          width: 0.9vw;
-          height: 0.9vw;
-
-          background-size: cover;
-
-          &.armor {
-            background-image: url('../../../../assets/icons/elements/armor-CT.svg');
-          }
-
-          &.helmet {
-            background-image: url('../../../../assets/icons/elements/helmet-CT.svg');
-          }
-        }
-      }
-    }
-  }
-
-  .bk-player {
-    position: absolute;
-    top: 0vw;
-    left: 0vw;
-    bottom: 0vw;
-    right: 0vw;
+    background: var(--color-bk-opacity);
+    color: var(--color-white);
     border-radius: 0.4vw;
+    margin-bottom: 0.4vw;
 
-    z-index: 0;
-  }
-
-  .kills-wrapper {
-    align-items: center;
-    position: absolute;
-    right: 0.1vw;
-    top: 0.1vw;
-
-    display: flex;
-    flex-flow: column nowrap;
-
-    .killImage {
-      width: 1vw;
-      height: 1vw;
-      background-size: cover;
-    }
-
-    .killNumber {
-      color: var(--color-white);
-      font-size: 0.8vw;
-    }
-  }
-
-  &.CT {
     .numberSlot-wrapper {
-      background-image: url('../../../../assets/icons/hudElements/dot_ct.webp');
-    }
+      position: absolute;
+      top: 50%;
+      left: -0.5vw;
+      transform: translateY(-50%);
 
-    .bk-player {
-      background: var(--color-CT-bk-opacity-left);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 1.2vw;
+      height: 1.2vw;
+
+      background-size: cover;
+
+      font-size: 0.8vw;
+      z-index: 5;
     }
 
     .contentPlayer-wrapper {
+      position: relative;
+
+      width: 100%;
+      height: 100%;
+
+      font-size: 0.9vw;
+      z-index: 2;
+
       .firstContentPlayer-wrapper {
-        .infoPlayer-wrapper {
-          .secondRow-wrapper {
-            .currentKills-wrapper {
-              .killsImage {
-                background-image: url('../../../../assets/icons/elements/killCurrent-CT.svg');
-              }
-            }
-          }
+        width: 100%;
+        height: 100%;
 
-          .thirdRow-wrapper {
-            background-color: var(--color-CT);
+        .playerImage-wrapper {
+          width: 100%;
+          height: 100%;
 
-            .currentKills-wrapper {
-              .killsImage {
-                background-image: url('../../../../assets/icons/elements/killCurrent-CT.svg');
-              }
-            }
+          padding-top: 0.5vw;
+          margin-top: -0.5vw;
+
+          overflow: hidden;
+          border-radius: 0 0 0 0.4vw;
+
+          .playerImage {
+            width: 100%;
+            height: 200%;
+
+            margin-top: -0.5vw;
+
+            background-size: cover;
+            background-position: bottom;
           }
         }
       }
 
       .secondContentPlayer-wrapper {
-        background-color: var(--color-CT-life-bar);
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        height: 1.294vw;
+        overflow: hidden;
+
+        border-radius: 0 0 0.4vw 0.4vw;
 
         .healInfo-wrapper {
+          z-index: 2;
+          align-items: center;
+          margin-left: 0.5vw;
+
           .healImage {
-            background-image: url('../../../../assets/icons/elements/health-CT.svg');
+            width: 0.9vw;
+            height: 0.9vw;
+
+            background-size: cover;
+          }
+
+          .healNumber {
+            width: 2.1vw;
+
+            font-size: 1.2vw;
+            margin: 0 0.2vw;
+
+            &.red {
+              color: var(--color-red);
+            }
           }
 
           .armorImage {
+            width: 0.9vw;
+            height: 0.9vw;
+
+            background-size: cover;
+
             &.armor {
               background-image: url('../../../../assets/icons/elements/armor-CT.svg');
             }
@@ -197,138 +113,224 @@
             }
           }
         }
-
-        .healBar {
-          background-color: var(--color-CT);
-        }
-
-        .dmg {
-          background-color: var(--color-T);
-        }
       }
-    }
-
-    .kills-wrapper {
-      .killImage {
-        background-image: url('../../../../assets/icons/elements/killCurrent-CT.svg');
-      }
-    }
-  }
-
-  &.T {
-    .numberSlot-wrapper {
-      background-image: url('../../../../assets/icons/hudElements/dot_t.webp');
     }
 
     .bk-player {
-      background: var(--color-T-bk-opacity-left);
-    }
+      position: absolute;
+      top: 0vw;
+      left: 0vw;
+      bottom: 0vw;
+      right: 0vw;
+      border-radius: 0.4vw;
 
-    .contentPlayer-wrapper {
-      .firstContentPlayer-wrapper {
-        .infoPlayer-wrapper {
-          .secondRow-wrapper {
-            .currentKills-wrapper {
-              .killsImage {
-                background-image: url('../../../../assets/icons/elements/killCurrent-T.svg');
-              }
-            }
-          }
-
-          .thirdRow-wrapper {
-            background-color: var(--color-T);
-
-            .currentKills-wrapper {
-              .killsImage {
-                background-image: url('../../../../assets/icons/elements/killCurrent-T.svg');
-              }
-            }
-          }
-        }
-      }
-
-      .secondContentPlayer-wrapper {
-        background-color: var(--color-T-life-bar);
-
-        .healInfo-wrapper {
-          .healImage {
-            background-image: url('../../../../assets/icons/elements/health-T.svg');
-          }
-
-          .armorImage {
-            &.armor {
-              background-image: url('../../../../assets/icons/elements/armor-T.svg');
-            }
-
-            &.helmet {
-              background-image: url('../../../../assets/icons/elements/helmet-T.svg');
-            }
-          }
-        }
-
-        .healBar {
-          background-color: var(--color-T);
-        }
-
-        .dmg {
-          background-color: var(--color-CT);
-        }
-      }
+      z-index: 0;
     }
 
     .kills-wrapper {
+      align-items: center;
+      position: absolute;
+      right: 0.1vw;
+      top: 0.1vw;
+
+      display: flex;
+      flex-flow: column nowrap;
+
       .killImage {
-        background-image: url('../../../../assets/icons/elements/killCurrent-T.svg');
+        width: 1vw;
+        height: 1vw;
+        background-size: cover;
       }
-    }
-  }
 
-  &.death {
-    filter: grayscale(1);
-    height: 0;
-    transition-delay: 0s;
-    transition: height 400ms ease-out;
-
-    .contentPlayer-wrapper {
-      visibility: hidden;
-
-      .secondContentPlayer-wrapper {
-        height: 0;
-        transition-delay: 0s;
-        transition: height 400ms ease-out;
+      .killNumber {
+        color: var(--color-white);
+        font-size: 0.8vw;
       }
     }
 
-    .numberSlot-wrapper {
-      display: none;
+    &.CT {
+      .numberSlot-wrapper {
+        background-image: url('../../../../assets/icons/hudElements/dot_ct.webp');
+      }
+
+      .bk-player {
+        background: var(--color-CT-bk-opacity-left);
+      }
+
+      .contentPlayer-wrapper {
+        .firstContentPlayer-wrapper {
+          .infoPlayer-wrapper {
+            .secondRow-wrapper {
+              .currentKills-wrapper {
+                .killsImage {
+                  background-image: url('../../../../assets/icons/elements/killCurrent-CT.svg');
+                }
+              }
+            }
+
+            .thirdRow-wrapper {
+              background-color: var(--color-CT);
+
+              .currentKills-wrapper {
+                .killsImage {
+                  background-image: url('../../../../assets/icons/elements/killCurrent-CT.svg');
+                }
+              }
+            }
+          }
+        }
+
+        .secondContentPlayer-wrapper {
+          background-color: var(--color-CT-life-bar);
+
+          .healInfo-wrapper {
+            .healImage {
+              background-image: url('../../../../assets/icons/elements/health-CT.svg');
+            }
+
+            .armorImage {
+              &.armor {
+                background-image: url('../../../../assets/icons/elements/armor-CT.svg');
+              }
+
+              &.helmet {
+                background-image: url('../../../../assets/icons/elements/helmet-CT.svg');
+              }
+            }
+          }
+
+          .healBar {
+            background-color: var(--color-CT);
+          }
+
+          .dmg {
+            background-color: var(--color-T);
+          }
+        }
+      }
+
+      .kills-wrapper {
+        .killImage {
+          background-image: url('../../../../assets/icons/elements/killCurrent-CT.svg');
+        }
+      }
     }
 
-    .kills-wrapper {
-      display: none;
+    &.T {
+      .numberSlot-wrapper {
+        background-image: url('../../../../assets/icons/hudElements/dot_t.webp');
+      }
+
+      .bk-player {
+        background: var(--color-T-bk-opacity-left);
+      }
+
+      .contentPlayer-wrapper {
+        .firstContentPlayer-wrapper {
+          .infoPlayer-wrapper {
+            .secondRow-wrapper {
+              .currentKills-wrapper {
+                .killsImage {
+                  background-image: url('../../../../assets/icons/elements/killCurrent-T.svg');
+                }
+              }
+            }
+
+            .thirdRow-wrapper {
+              background-color: var(--color-T);
+
+              .currentKills-wrapper {
+                .killsImage {
+                  background-image: url('../../../../assets/icons/elements/killCurrent-T.svg');
+                }
+              }
+            }
+          }
+        }
+
+        .secondContentPlayer-wrapper {
+          background-color: var(--color-T-life-bar);
+
+          .healInfo-wrapper {
+            .healImage {
+              background-image: url('../../../../assets/icons/elements/health-T.svg');
+            }
+
+            .armorImage {
+              &.armor {
+                background-image: url('../../../../assets/icons/elements/armor-T.svg');
+              }
+
+              &.helmet {
+                background-image: url('../../../../assets/icons/elements/helmet-T.svg');
+              }
+            }
+          }
+
+          .healBar {
+            background-color: var(--color-T);
+          }
+
+          .dmg {
+            background-color: var(--color-CT);
+          }
+        }
+      }
+
+      .kills-wrapper {
+        .killImage {
+          background-image: url('../../../../assets/icons/elements/killCurrent-T.svg');
+        }
+      }
     }
-  }
 
-  + .left-player-wrapper.death {
-    margin-bottom: 0 !important;
-  }
+    &.death {
+      filter: grayscale(1);
+      height: 0;
+      transition-delay: 0s;
+      transition: height 400ms ease-out;
 
-  &.slot-1 {
-    order: 1;
-  }
+      .contentPlayer-wrapper {
+        visibility: hidden;
 
-  &.slot-2 {
-    order: 2;
-  }
+        .secondContentPlayer-wrapper {
+          height: 0;
+          transition-delay: 0s;
+          transition: height 400ms ease-out;
+        }
+      }
 
-  &.slot-3 {
-    order: 3;
-  }
+      .numberSlot-wrapper {
+        display: none;
+      }
 
-  &.slot-4 {
-    order: 4;
-  }
+      .kills-wrapper {
+        display: none;
+      }
+    }
 
-  &.slot-5 {
-    order: 5;
+    + .left-player-wrapper.death {
+      margin-bottom: 0 !important;
+    }
+
+    &.slot-1 {
+      order: 1;
+    }
+
+    &.slot-2 {
+      order: 2;
+    }
+
+    &.slot-3 {
+      order: 3;
+    }
+
+    &.slot-4 {
+      order: 4;
+    }
+
+    &.slot-5 {
+      order: 5;
+    }
   }
 }
