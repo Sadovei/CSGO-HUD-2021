@@ -20,7 +20,7 @@ export default function SmartDynamic({ parserData }) {
 
   useEffect(() => {
     if (token === 'igdir')
-      if (parserData.type !== '') {
+      if (parserData?.type !== '') {
         if (parserData.type === 'Head2Head') {
           if (parserData.show) {
             setShowHeadtoHead('show')
@@ -80,19 +80,19 @@ export default function SmartDynamic({ parserData }) {
   }, [parserData])
   return (
     <>
-      {parserData.type === 'Head2Head' && <HeadToHead dataH2H={parserData.data} show={showHeadtoHead} />}
+      {parserData?.type === 'Head2Head' && <HeadToHead dataH2H={parserData.data} show={showHeadtoHead} />}
 
-      {parserData.type === 'Check_Stream' && <CheckStream data={parserData.data} show={showCheckStream} />}
+      {parserData?.type === 'Check_Stream' && <CheckStream data={parserData.data} show={showCheckStream} />}
 
-      {parserData.type === 'Tickets' && <TicketComponent show={showTickets} />}
+      {parserData?.type === 'Tickets' && <TicketComponent show={showTickets} />}
 
-      {parserData.type === 'FunFacts' && <FunFactsComponent show={showFunFacts} data={parserData.data} />}
+      {parserData?.type === 'FunFacts' && <FunFactsComponent show={showFunFacts} data={parserData.data} />}
 
-      {parserData.type === 'RandomContent' && <ImageComponent show={showRandomContent} />}
+      {parserData?.type === 'RandomContent' && <ImageComponent show={showRandomContent} />}
 
-      {parserData.type === 'Casters' && <StaffComponent show={showStaff} data={parserData.data.casters} type="CASTERS" />}
+      {parserData?.type === 'Casters' && <StaffComponent show={showStaff} data={parserData.data.casters} type="CASTERS" />}
 
-      {parserData.type === 'Observer' && <StaffComponent show={showStaff} data={parserData.data.observer} type="OBSERVER" />}
+      {parserData?.type === 'Observer' && <StaffComponent show={showStaff} data={parserData.data.observer} type="OBSERVER" />}
 
       <SmartPovSide action={showPOV} />
     </>

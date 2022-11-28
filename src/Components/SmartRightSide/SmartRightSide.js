@@ -17,7 +17,7 @@ export default function SmartRightSide({ parserData }) {
   }, [])
 
   useEffect(() => {
-    if (parserData.type === 'ADRStatus') {
+    if (parserData?.type === 'ADRStatus') {
       if (parserData.show) {
         setShowADR('show')
       } else {

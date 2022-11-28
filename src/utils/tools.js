@@ -18,7 +18,7 @@ export const SVGMap = eqSVGs.keys().reduce((images, path) => {
   return images;
 }, {});
 
-export const redisIP = '10.99.4.20'
+export const redisIP = '10.97.2.31'
 // export const redisIP = 'localhost'
 
 export function CostGrenades(utilities, team) {

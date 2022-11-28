@@ -1,15 +1,16 @@
-import { findGetParameter, redisIP } from './tools'
+import { findGetParameter } from './tools'
 import socketClient from 'socket.io-client'
 
 const { REACT_APP_STREAM } = process.env
+const redisServerIP = 'localhost'
 
 export const token = findGetParameter('client') || 'main'
 const port = REACT_APP_STREAM === 'A' ? 4400 : 4600
-const ENDPOINT = `http://${redisIP}:${port}/?client=${token}`
+const ENDPOINT = `http://${redisServerIP}:${port}/?client=${token}`
 const socket = socketClient(ENDPOINT)
 
 const PORTPARSER = REACT_APP_STREAM === 'A' ? 4500 : 4700
-const ENDPOINTPARSER = `http://${redisIP}:${PORTPARSER}/?client=${token}`
+const ENDPOINTPARSER = `http://${redisServerIP}:${PORTPARSER}/?client=${token}`
 const socketParser = socketClient(ENDPOINTPARSER)
 
 export const subscribeToTopBar = (cb) => {
